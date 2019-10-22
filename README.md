@@ -20,14 +20,14 @@ Once dependencies have been satisfied, to build and install:
 
 The following example modules are available:
 
-* ####CORE Module reference implementations
+* CORE Module reference implementations
     * Module Manager
     * Simulation Manager
     * Physiology Manager
-* ####Extended CORE module reference implementations
+* Extended CORE module reference implementations
     * TCP Bridge
     * REST Bridge
-* ####Example modules
+* Example modules
     * Command line utility
     * "Kitchen Sink" examples
    
