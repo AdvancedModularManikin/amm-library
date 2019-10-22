@@ -1,24 +1,12 @@
 #include "Utility.h"
 
 namespace AMM {
-    /**
-     * Add an element to a vector.  Remove any previous matching element.
-     *
-     * @param vec
-     * @param element
-     */
+
     void Utility::add_once(std::vector<std::string> &vec, const std::string &element) {
        std::remove(vec.begin(), vec.end(), element);
        vec.push_back(element);
     }
 
-    /**
-     * Explode a string to a vector of strings based on a delimiter
-     *
-     * @param delimiter
-     * @param str
-     * @return
-     */
     std::vector<std::string> Utility::explode(const std::string &delimiter,
                                               const std::string &str) {
        std::vector<std::string> arr;
@@ -47,12 +35,7 @@ namespace AMM {
        return arr;
     };
 
-    /**
-     * Decode a string from base64
-     *
-     * @param val
-     * @return
-     */
+
     std::string Utility::decode64(const std::string &val) {
        using namespace boost::archive::iterators;
        using It =
@@ -62,12 +45,7 @@ namespace AMM {
           [](char c) { return c == '\0'; });
     }
 
-    /**
-     * Encode a string as base64
-     *
-     * @param val
-     * @return
-     */
+
     std::string Utility::encode64(const std::string &val) {
        using namespace boost::archive::iterators;
        using It =
@@ -76,25 +54,12 @@ namespace AMM {
        return tmp.append((3 - val.size() % 3) % 3, '=');
     }
 
-    /**
-     * Get a filename with an embedded now timestamp
-     *
-     * @param basePathname
-     * @param ext
-     * @return
-     */
     std::string Utility::getTimestampedFilename(const std::string &basePathname, const std::string &ext) {
        std::ostringstream filename;
        filename << basePathname << static_cast<unsigned long>(::time(0)) << ext;
        return filename.str();
     }
 
-    /**
-     * Parse KVP pairs into an STL map
-     *
-     * @param kv
-     * @return
-     */
     std::map<std::string, std::vector<uint8_t>> Utility::parse_key_value(std::vector<uint8_t> kv) {
        std::map<std::string, std::vector<uint8_t>> m;
        bool keyfound = false;
