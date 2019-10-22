@@ -12,7 +12,11 @@
 
 namespace plog {
 
-/// TODO
+/**
+ * Log appender for plog that allows us to push application logs onto the DDS bus on the AMM Log topic
+ *
+ * @tparam Formatter
+ */
 template<class Formatter>
 class DDS_Log_Appender : public IAppender {
 public:
@@ -22,7 +26,12 @@ public:
       m_mgr->CreateLogPublisher();
    }
 
-   /// TODO
+   /**
+    * Convert AMM LogLevels to strings
+    *
+    * @param str
+    * @return
+    */
    AMM::LogLevel convert(const std::string &str) {
       if (str == "FATAL") return AMM::L_FATAL;
       else if (str == "ERROR") return AMM::L_ERROR;
@@ -33,7 +42,11 @@ public:
 
    }
 
-   /// TODO
+   /**
+    * Write override to extract the message and log level and publish it to the DDS bus as an AMM Log message
+    *
+    * @param record
+    */
    virtual void write(const Record &record) {
       std::ostringstream message;
       const char *cSeverity = plog::severityToString(record.getSeverity());
@@ -56,7 +69,7 @@ public:
    }
 
 private:
-   /// TODO
+   // DDSManager2 pointer
    AMM::DDSManager2<void> *m_mgr;
 };
 
