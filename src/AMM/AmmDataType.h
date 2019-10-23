@@ -190,7 +190,7 @@ public:
    /// @attention This is called by the entity that implements Listener Interface,
    /// which for internal use is DDS Manager, using the appropriate function override.
    /// @see ListenerInterface
-   /// @see DDSManager2
+   /// @see DDSManager
    void OnEvent (A& a, eprosima::fastrtps::SampleInfo_t* info);
 
    /// Delete this type and call cleanup routines for all associated types.
@@ -811,7 +811,7 @@ public:
    /// @attention This is called by the entity that implements Listener Interface,
    /// which for internal use is DDS Manager, using the appropriate function override.
    /// @see ListenerInterface
-   /// @see DDSManager2
+   /// @see DDSManager
    void OnEvent (A& a, eprosima::fastrtps::SampleInfo_t* info);
 
    /// Delete this type and call cleanup routines for all associated types.

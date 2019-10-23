@@ -8,19 +8,19 @@ set(AMM_EXTENDED_CODE AMM/AMM_Extended.cxx AMM/AMM_Extended.h AMM/AMM_ExtendedPu
 set(DATAMODEL_SOURCES ${AMM_STANDARD_CODE} ${AMM_EXTENDED_CODE})
 
 set(DDS_MANAGER dds_manager)
-set(DDS_MANAGER_SOURCES AMM/DDSManager2.cpp AMM/DDSManager2.h AMM/DDS_Listeners.cpp AMM/ListenerInterface.h)
+set(DDS_MANAGER_SOURCES AMM/DDSManager.h AMM/DDS_Listeners.cpp AMM/ListenerInterface.h)
 set(DDS_TYPE_SOURCES AMM/TopicNames.h AMM/AmmDataType.h)
 set(UTILITY_SOURCES AMM/Utility.cpp AMM/Utility.h)
 
 if (MSVC)
     add_library("amm_std" STATIC ${DATAMODEL_SOURCES} ${DDS_TYPE_SOURCES} ${DDS_MANAGER_SOURCES} ${UTILITY_SOURCES})
     set_target_properties("amm_std" PROPERTIES PUBLIC_HEADER
-            "amm_std.h;AMM/AmmDataType.h;AMM/DDSManager2.h;AMM/DDS_Listeners.h;AMM/ListenerInterface.h;AMM/TopicNames.h;AMM/AMM_Standard.h;AMM/AMM_StandardPubSubTypes.h;AMM/AMM_Extended.h;AMM/AMM_ExtendedPubSubTypes.h;AMM/Utility.h")
+            "amm_std.h;AMM/AmmDataType.h;AMM/DDSManager.h;AMM/DDS_Listeners.h;AMM/ListenerInterface.h;AMM/TopicNames.h;AMM/AMM_Standard.h;AMM/AMM_StandardPubSubTypes.h;AMM/AMM_Extended.h;AMM/AMM_ExtendedPubSubTypes.h;AMM/Utility.h")
     install(TARGETS amm_std PUBLIC_HEADER DESTINATION "include")
 else ()
     add_library("amm_std" SHARED ${DATAMODEL_SOURCES} ${DDS_TYPE_SOURCES} ${DDS_MANAGER_SOURCES} ${UTILITY_SOURCES})
     set_target_properties("amm_std" PROPERTIES PUBLIC_HEADER
-            "amm_std.h;AMM/AmmDataType.h;AMM/DDSManager2.h;AMM/DDS_Listeners.h;AMM/ListenerInterface.h;AMM/TopicNames.h;AMM/AMM_Standard.h;AMM/AMM_StandardPubSubTypes.h;AMM/AMM_Extended.h;AMM/AMM_ExtendedPubSubTypes.h;AMM/Utility.h")
+            "amm_std.h;AMM/AmmDataType.h;AMM/DDSManager.h;AMM/DDS_Listeners.h;AMM/ListenerInterface.h;AMM/TopicNames.h;AMM/AMM_Standard.h;AMM/AMM_StandardPubSubTypes.h;AMM/AMM_Extended.h;AMM/AMM_ExtendedPubSubTypes.h;AMM/Utility.h")
     install(TARGETS amm_std
             LIBRARY DESTINATION "lib"
             PUBLIC_HEADER DESTINATION "include/amm")

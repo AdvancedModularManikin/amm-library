@@ -1,6 +1,6 @@
 #pragma once
 
-#include "DDSManager2.h"
+#include "DDSManager.h"
 
 #include <boost/algorithm/string.hpp>
 #include <plog/Formatters/FuncMessageFormatter.h>
@@ -20,7 +20,7 @@ namespace plog {
     template<class Formatter>
     class DDS_Log_Appender : public IAppender {
     public:
-        explicit DDS_Log_Appender(AMM::DDSManager2<void> *mgr)
+        explicit DDS_Log_Appender(AMM::DDSManager<void> *mgr)
            : m_mgr(mgr) {
            m_mgr->InitializeLog();
            m_mgr->CreateLogPublisher();
@@ -69,8 +69,8 @@ namespace plog {
         }
 
     private:
-        // DDSManager2 pointer
-        AMM::DDSManager2<void> *m_mgr;
+        // DDSManager pointer
+        AMM::DDSManager<void> *m_mgr;
     };
 
 } // namepace plog
