@@ -1,5 +1,8 @@
 #pragma once
 
+#include <fstream>
+#include <sstream>
+#include <streambuf>
 #include <iostream>
 #include <sstream>
 #include <cstdio>
@@ -17,6 +20,14 @@ namespace AMM {
     class Utility {
 
     public:
+        /**
+         * Read a file into a string
+         *
+         * @param filename
+         * @return
+         */
+        static std::string read_file_to_string(const std::string &filename);
+
         /**
           * Add an element to a vector.  Remove any previous matching element.
           *

@@ -134,39 +134,39 @@ namespace AMM
             return m_FMAID;
         }
         /*!
-         * @brief This function copies the value in member description
-         * @param _description New value to be copied in member description
+         * @brief This function copies the value in member name
+         * @param _name New value to be copied in member name
          */
-        inline eProsima_user_DllExport void description(const std::string &_description)
+        inline eProsima_user_DllExport void name(const std::string &_name)
         {
-            m_description = _description;
+            m_name = _name;
         }
 
         /*!
-         * @brief This function moves the value in member description
-         * @param _description New value to be moved in member description
+         * @brief This function moves the value in member name
+         * @param _name New value to be moved in member name
          */
-        inline eProsima_user_DllExport void description(std::string &&_description)
+        inline eProsima_user_DllExport void name(std::string &&_name)
         {
-            m_description = std::move(_description);
+            m_name = std::move(_name);
         }
 
         /*!
-         * @brief This function returns a constant reference to member description
-         * @return Constant reference to member description
+         * @brief This function returns a constant reference to member name
+         * @return Constant reference to member name
          */
-        inline eProsima_user_DllExport const std::string& description() const
+        inline eProsima_user_DllExport const std::string& name() const
         {
-            return m_description;
+            return m_name;
         }
 
         /*!
-         * @brief This function returns a reference to member description
-         * @return Reference to member description
+         * @brief This function returns a reference to member name
+         * @return Reference to member name
          */
-        inline eProsima_user_DllExport std::string& description()
+        inline eProsima_user_DllExport std::string& name()
         {
-            return m_description;
+            return m_name;
         }
 
         /*!
@@ -221,7 +221,7 @@ namespace AMM
 
     private:
         int32_t m_FMAID;
-        std::string m_description;
+        std::string m_name;
     };
     /*!
      * @brief This class represents the structure UUID defined by the user in the IDL file.
@@ -596,6 +596,17 @@ namespace AMM
         std::string m_comment;
     };
     /*!
+     * @brief This class represents the enumeration EventAgentType defined by the user in the IDL file.
+     * @ingroup AMM_STANDARD
+     */
+    enum EventAgentType : uint32_t
+    {
+        LEARNER,
+        INSTRUCTOR,
+        SCENARIO,
+        PHYSIOLOGY
+    };
+    /*!
      * @brief This class represents the structure EventFragment defined by the user in the IDL file.
      * @ingroup AMM_STANDARD
      */
@@ -699,6 +710,41 @@ namespace AMM
             return m_timestamp;
         }
         /*!
+         * @brief This function copies the value in member educational_encounter
+         * @param _educational_encounter New value to be copied in member educational_encounter
+         */
+        inline eProsima_user_DllExport void educational_encounter(const AMM::UUID &_educational_encounter)
+        {
+            m_educational_encounter = _educational_encounter;
+        }
+
+        /*!
+         * @brief This function moves the value in member educational_encounter
+         * @param _educational_encounter New value to be moved in member educational_encounter
+         */
+        inline eProsima_user_DllExport void educational_encounter(AMM::UUID &&_educational_encounter)
+        {
+            m_educational_encounter = std::move(_educational_encounter);
+        }
+
+        /*!
+         * @brief This function returns a constant reference to member educational_encounter
+         * @return Constant reference to member educational_encounter
+         */
+        inline eProsima_user_DllExport const AMM::UUID& educational_encounter() const
+        {
+            return m_educational_encounter;
+        }
+
+        /*!
+         * @brief This function returns a reference to member educational_encounter
+         * @return Reference to member educational_encounter
+         */
+        inline eProsima_user_DllExport AMM::UUID& educational_encounter()
+        {
+            return m_educational_encounter;
+        }
+        /*!
          * @brief This function copies the value in member location
          * @param _location New value to be copied in member location
          */
@@ -734,39 +780,65 @@ namespace AMM
             return m_location;
         }
         /*!
-         * @brief This function copies the value in member practitioner
-         * @param _practitioner New value to be copied in member practitioner
+         * @brief This function sets a value in member agent_type
+         * @param _agent_type New value for member agent_type
          */
-        inline eProsima_user_DllExport void practitioner(const std::string &_practitioner)
+        inline eProsima_user_DllExport void agent_type(AMM::EventAgentType _agent_type)
         {
-            m_practitioner = _practitioner;
+            m_agent_type = _agent_type;
         }
 
         /*!
-         * @brief This function moves the value in member practitioner
-         * @param _practitioner New value to be moved in member practitioner
+         * @brief This function returns the value of member agent_type
+         * @return Value of member agent_type
          */
-        inline eProsima_user_DllExport void practitioner(std::string &&_practitioner)
+        inline eProsima_user_DllExport AMM::EventAgentType agent_type() const
         {
-            m_practitioner = std::move(_practitioner);
+            return m_agent_type;
         }
 
         /*!
-         * @brief This function returns a constant reference to member practitioner
-         * @return Constant reference to member practitioner
+         * @brief This function returns a reference to member agent_type
+         * @return Reference to member agent_type
          */
-        inline eProsima_user_DllExport const std::string& practitioner() const
+        inline eProsima_user_DllExport AMM::EventAgentType& agent_type()
         {
-            return m_practitioner;
+            return m_agent_type;
+        }
+        /*!
+         * @brief This function copies the value in member agent_id
+         * @param _agent_id New value to be copied in member agent_id
+         */
+        inline eProsima_user_DllExport void agent_id(const AMM::UUID &_agent_id)
+        {
+            m_agent_id = _agent_id;
         }
 
         /*!
-         * @brief This function returns a reference to member practitioner
-         * @return Reference to member practitioner
+         * @brief This function moves the value in member agent_id
+         * @param _agent_id New value to be moved in member agent_id
          */
-        inline eProsima_user_DllExport std::string& practitioner()
+        inline eProsima_user_DllExport void agent_id(AMM::UUID &&_agent_id)
         {
-            return m_practitioner;
+            m_agent_id = std::move(_agent_id);
+        }
+
+        /*!
+         * @brief This function returns a constant reference to member agent_id
+         * @return Constant reference to member agent_id
+         */
+        inline eProsima_user_DllExport const AMM::UUID& agent_id() const
+        {
+            return m_agent_id;
+        }
+
+        /*!
+         * @brief This function returns a reference to member agent_id
+         * @return Reference to member agent_id
+         */
+        inline eProsima_user_DllExport AMM::UUID& agent_id()
+        {
+            return m_agent_id;
         }
         /*!
          * @brief This function copies the value in member type
@@ -892,8 +964,10 @@ namespace AMM
     private:
         AMM::UUID m_id;
         uint64_t m_timestamp;
+        AMM::UUID m_educational_encounter;
         AMM::FMA_Location m_location;
-        std::string m_practitioner;
+        AMM::EventAgentType m_agent_type;
+        AMM::UUID m_agent_id;
         std::string m_type;
         std::string m_data;
     };
@@ -1001,6 +1075,41 @@ namespace AMM
             return m_timestamp;
         }
         /*!
+         * @brief This function copies the value in member educational_encounter
+         * @param _educational_encounter New value to be copied in member educational_encounter
+         */
+        inline eProsima_user_DllExport void educational_encounter(const AMM::UUID &_educational_encounter)
+        {
+            m_educational_encounter = _educational_encounter;
+        }
+
+        /*!
+         * @brief This function moves the value in member educational_encounter
+         * @param _educational_encounter New value to be moved in member educational_encounter
+         */
+        inline eProsima_user_DllExport void educational_encounter(AMM::UUID &&_educational_encounter)
+        {
+            m_educational_encounter = std::move(_educational_encounter);
+        }
+
+        /*!
+         * @brief This function returns a constant reference to member educational_encounter
+         * @return Constant reference to member educational_encounter
+         */
+        inline eProsima_user_DllExport const AMM::UUID& educational_encounter() const
+        {
+            return m_educational_encounter;
+        }
+
+        /*!
+         * @brief This function returns a reference to member educational_encounter
+         * @return Reference to member educational_encounter
+         */
+        inline eProsima_user_DllExport AMM::UUID& educational_encounter()
+        {
+            return m_educational_encounter;
+        }
+        /*!
          * @brief This function copies the value in member location
          * @param _location New value to be copied in member location
          */
@@ -1036,39 +1145,65 @@ namespace AMM
             return m_location;
         }
         /*!
-         * @brief This function copies the value in member practitioner
-         * @param _practitioner New value to be copied in member practitioner
+         * @brief This function sets a value in member agent_type
+         * @param _agent_type New value for member agent_type
          */
-        inline eProsima_user_DllExport void practitioner(const std::string &_practitioner)
+        inline eProsima_user_DllExport void agent_type(AMM::EventAgentType _agent_type)
         {
-            m_practitioner = _practitioner;
+            m_agent_type = _agent_type;
         }
 
         /*!
-         * @brief This function moves the value in member practitioner
-         * @param _practitioner New value to be moved in member practitioner
+         * @brief This function returns the value of member agent_type
+         * @return Value of member agent_type
          */
-        inline eProsima_user_DllExport void practitioner(std::string &&_practitioner)
+        inline eProsima_user_DllExport AMM::EventAgentType agent_type() const
         {
-            m_practitioner = std::move(_practitioner);
+            return m_agent_type;
         }
 
         /*!
-         * @brief This function returns a constant reference to member practitioner
-         * @return Constant reference to member practitioner
+         * @brief This function returns a reference to member agent_type
+         * @return Reference to member agent_type
          */
-        inline eProsima_user_DllExport const std::string& practitioner() const
+        inline eProsima_user_DllExport AMM::EventAgentType& agent_type()
         {
-            return m_practitioner;
+            return m_agent_type;
+        }
+        /*!
+         * @brief This function copies the value in member agent_id
+         * @param _agent_id New value to be copied in member agent_id
+         */
+        inline eProsima_user_DllExport void agent_id(const AMM::UUID &_agent_id)
+        {
+            m_agent_id = _agent_id;
         }
 
         /*!
-         * @brief This function returns a reference to member practitioner
-         * @return Reference to member practitioner
+         * @brief This function moves the value in member agent_id
+         * @param _agent_id New value to be moved in member agent_id
          */
-        inline eProsima_user_DllExport std::string& practitioner()
+        inline eProsima_user_DllExport void agent_id(AMM::UUID &&_agent_id)
         {
-            return m_practitioner;
+            m_agent_id = std::move(_agent_id);
+        }
+
+        /*!
+         * @brief This function returns a constant reference to member agent_id
+         * @return Constant reference to member agent_id
+         */
+        inline eProsima_user_DllExport const AMM::UUID& agent_id() const
+        {
+            return m_agent_id;
+        }
+
+        /*!
+         * @brief This function returns a reference to member agent_id
+         * @return Reference to member agent_id
+         */
+        inline eProsima_user_DllExport AMM::UUID& agent_id()
+        {
+            return m_agent_id;
         }
         /*!
          * @brief This function copies the value in member type
@@ -1194,8 +1329,10 @@ namespace AMM
     private:
         AMM::UUID m_id;
         uint64_t m_timestamp;
+        AMM::UUID m_educational_encounter;
         AMM::FMA_Location m_location;
-        std::string m_practitioner;
+        AMM::EventAgentType m_agent_type;
+        AMM::UUID m_agent_id;
         std::string m_type;
         std::string m_data;
     };
@@ -1207,7 +1344,7 @@ namespace AMM
     {
         REQUESTING,
         ACCEPTED,
-        DENIED
+        REJECTED
     };
     /*!
      * @brief This class represents the structure FragmentAmendmentRequest defined by the user in the IDL file.
@@ -1348,32 +1485,6 @@ namespace AMM
             return m_status;
         }
         /*!
-         * @brief This function sets a value in member timestamp
-         * @param _timestamp New value for member timestamp
-         */
-        inline eProsima_user_DllExport void timestamp(uint64_t _timestamp)
-        {
-            m_timestamp = _timestamp;
-        }
-
-        /*!
-         * @brief This function returns the value of member timestamp
-         * @return Value of member timestamp
-         */
-        inline eProsima_user_DllExport uint64_t timestamp() const
-        {
-            return m_timestamp;
-        }
-
-        /*!
-         * @brief This function returns a reference to member timestamp
-         * @return Reference to member timestamp
-         */
-        inline eProsima_user_DllExport uint64_t& timestamp()
-        {
-            return m_timestamp;
-        }
-        /*!
          * @brief This function copies the value in member location
          * @param _location New value to be copied in member location
          */
@@ -1409,109 +1520,65 @@ namespace AMM
             return m_location;
         }
         /*!
-         * @brief This function copies the value in member practitioner
-         * @param _practitioner New value to be copied in member practitioner
+         * @brief This function sets a value in member agent_type
+         * @param _agent_type New value for member agent_type
          */
-        inline eProsima_user_DllExport void practitioner(const std::string &_practitioner)
+        inline eProsima_user_DllExport void agent_type(AMM::EventAgentType _agent_type)
         {
-            m_practitioner = _practitioner;
+            m_agent_type = _agent_type;
         }
 
         /*!
-         * @brief This function moves the value in member practitioner
-         * @param _practitioner New value to be moved in member practitioner
+         * @brief This function returns the value of member agent_type
+         * @return Value of member agent_type
          */
-        inline eProsima_user_DllExport void practitioner(std::string &&_practitioner)
+        inline eProsima_user_DllExport AMM::EventAgentType agent_type() const
         {
-            m_practitioner = std::move(_practitioner);
+            return m_agent_type;
         }
 
         /*!
-         * @brief This function returns a constant reference to member practitioner
-         * @return Constant reference to member practitioner
+         * @brief This function returns a reference to member agent_type
+         * @return Reference to member agent_type
          */
-        inline eProsima_user_DllExport const std::string& practitioner() const
+        inline eProsima_user_DllExport AMM::EventAgentType& agent_type()
         {
-            return m_practitioner;
+            return m_agent_type;
+        }
+        /*!
+         * @brief This function copies the value in member agent_id
+         * @param _agent_id New value to be copied in member agent_id
+         */
+        inline eProsima_user_DllExport void agent_id(const AMM::UUID &_agent_id)
+        {
+            m_agent_id = _agent_id;
         }
 
         /*!
-         * @brief This function returns a reference to member practitioner
-         * @return Reference to member practitioner
+         * @brief This function moves the value in member agent_id
+         * @param _agent_id New value to be moved in member agent_id
          */
-        inline eProsima_user_DllExport std::string& practitioner()
+        inline eProsima_user_DllExport void agent_id(AMM::UUID &&_agent_id)
         {
-            return m_practitioner;
-        }
-        /*!
-         * @brief This function copies the value in member type
-         * @param _type New value to be copied in member type
-         */
-        inline eProsima_user_DllExport void type(const std::string &_type)
-        {
-            m_type = _type;
+            m_agent_id = std::move(_agent_id);
         }
 
         /*!
-         * @brief This function moves the value in member type
-         * @param _type New value to be moved in member type
+         * @brief This function returns a constant reference to member agent_id
+         * @return Constant reference to member agent_id
          */
-        inline eProsima_user_DllExport void type(std::string &&_type)
+        inline eProsima_user_DllExport const AMM::UUID& agent_id() const
         {
-            m_type = std::move(_type);
+            return m_agent_id;
         }
 
         /*!
-         * @brief This function returns a constant reference to member type
-         * @return Constant reference to member type
+         * @brief This function returns a reference to member agent_id
+         * @return Reference to member agent_id
          */
-        inline eProsima_user_DllExport const std::string& type() const
+        inline eProsima_user_DllExport AMM::UUID& agent_id()
         {
-            return m_type;
-        }
-
-        /*!
-         * @brief This function returns a reference to member type
-         * @return Reference to member type
-         */
-        inline eProsima_user_DllExport std::string& type()
-        {
-            return m_type;
-        }
-        /*!
-         * @brief This function copies the value in member data
-         * @param _data New value to be copied in member data
-         */
-        inline eProsima_user_DllExport void data(const std::string &_data)
-        {
-            m_data = _data;
-        }
-
-        /*!
-         * @brief This function moves the value in member data
-         * @param _data New value to be moved in member data
-         */
-        inline eProsima_user_DllExport void data(std::string &&_data)
-        {
-            m_data = std::move(_data);
-        }
-
-        /*!
-         * @brief This function returns a constant reference to member data
-         * @return Constant reference to member data
-         */
-        inline eProsima_user_DllExport const std::string& data() const
-        {
-            return m_data;
-        }
-
-        /*!
-         * @brief This function returns a reference to member data
-         * @return Reference to member data
-         */
-        inline eProsima_user_DllExport std::string& data()
-        {
-            return m_data;
+            return m_agent_id;
         }
 
         /*!
@@ -1568,11 +1635,9 @@ namespace AMM
         AMM::UUID m_id;
         AMM::UUID m_fragment_id;
         AMM::FAR_Status m_status;
-        uint64_t m_timestamp;
         AMM::FMA_Location m_location;
-        std::string m_practitioner;
-        std::string m_type;
-        std::string m_data;
+        AMM::EventAgentType m_agent_type;
+        AMM::UUID m_agent_id;
     };
     /*!
      * @brief This class represents the enumeration LogLevel defined by the user in the IDL file.
@@ -1659,7 +1724,7 @@ namespace AMM
          * @brief This function copies the value in member module_id
          * @param _module_id New value to be copied in member module_id
          */
-        inline eProsima_user_DllExport void module_id(const std::string &_module_id)
+        inline eProsima_user_DllExport void module_id(const AMM::UUID &_module_id)
         {
             m_module_id = _module_id;
         }
@@ -1668,7 +1733,7 @@ namespace AMM
          * @brief This function moves the value in member module_id
          * @param _module_id New value to be moved in member module_id
          */
-        inline eProsima_user_DllExport void module_id(std::string &&_module_id)
+        inline eProsima_user_DllExport void module_id(AMM::UUID &&_module_id)
         {
             m_module_id = std::move(_module_id);
         }
@@ -1677,7 +1742,7 @@ namespace AMM
          * @brief This function returns a constant reference to member module_id
          * @return Constant reference to member module_id
          */
-        inline eProsima_user_DllExport const std::string& module_id() const
+        inline eProsima_user_DllExport const AMM::UUID& module_id() const
         {
             return m_module_id;
         }
@@ -1686,7 +1751,7 @@ namespace AMM
          * @brief This function returns a reference to member module_id
          * @return Reference to member module_id
          */
-        inline eProsima_user_DllExport std::string& module_id()
+        inline eProsima_user_DllExport AMM::UUID& module_id()
         {
             return m_module_id;
         }
@@ -1804,7 +1869,7 @@ namespace AMM
 
     private:
         uint64_t m_timestamp;
-        std::string m_module_id;
+        AMM::UUID m_module_id;
         AMM::LogLevel m_level;
         std::string m_message;
     };
@@ -1886,144 +1951,74 @@ namespace AMM
             return m_name;
         }
         /*!
-         * @brief This function copies the value in member manufacturer
-         * @param _manufacturer New value to be copied in member manufacturer
+         * @brief This function copies the value in member module_id
+         * @param _module_id New value to be copied in member module_id
          */
-        inline eProsima_user_DllExport void manufacturer(const std::string &_manufacturer)
+        inline eProsima_user_DllExport void module_id(const AMM::UUID &_module_id)
         {
-            m_manufacturer = _manufacturer;
+            m_module_id = _module_id;
         }
 
         /*!
-         * @brief This function moves the value in member manufacturer
-         * @param _manufacturer New value to be moved in member manufacturer
+         * @brief This function moves the value in member module_id
+         * @param _module_id New value to be moved in member module_id
          */
-        inline eProsima_user_DllExport void manufacturer(std::string &&_manufacturer)
+        inline eProsima_user_DllExport void module_id(AMM::UUID &&_module_id)
         {
-            m_manufacturer = std::move(_manufacturer);
+            m_module_id = std::move(_module_id);
         }
 
         /*!
-         * @brief This function returns a constant reference to member manufacturer
-         * @return Constant reference to member manufacturer
+         * @brief This function returns a constant reference to member module_id
+         * @return Constant reference to member module_id
          */
-        inline eProsima_user_DllExport const std::string& manufacturer() const
+        inline eProsima_user_DllExport const AMM::UUID& module_id() const
         {
-            return m_manufacturer;
+            return m_module_id;
         }
 
         /*!
-         * @brief This function returns a reference to member manufacturer
-         * @return Reference to member manufacturer
+         * @brief This function returns a reference to member module_id
+         * @return Reference to member module_id
          */
-        inline eProsima_user_DllExport std::string& manufacturer()
+        inline eProsima_user_DllExport AMM::UUID& module_id()
         {
-            return m_manufacturer;
+            return m_module_id;
         }
         /*!
-         * @brief This function copies the value in member model
-         * @param _model New value to be copied in member model
+         * @brief This function copies the value in member educational_encounter
+         * @param _educational_encounter New value to be copied in member educational_encounter
          */
-        inline eProsima_user_DllExport void model(const std::string &_model)
+        inline eProsima_user_DllExport void educational_encounter(const AMM::UUID &_educational_encounter)
         {
-            m_model = _model;
-        }
-
-        /*!
-         * @brief This function moves the value in member model
-         * @param _model New value to be moved in member model
-         */
-        inline eProsima_user_DllExport void model(std::string &&_model)
-        {
-            m_model = std::move(_model);
+            m_educational_encounter = _educational_encounter;
         }
 
         /*!
-         * @brief This function returns a constant reference to member model
-         * @return Constant reference to member model
+         * @brief This function moves the value in member educational_encounter
+         * @param _educational_encounter New value to be moved in member educational_encounter
          */
-        inline eProsima_user_DllExport const std::string& model() const
+        inline eProsima_user_DllExport void educational_encounter(AMM::UUID &&_educational_encounter)
         {
-            return m_model;
+            m_educational_encounter = std::move(_educational_encounter);
         }
 
         /*!
-         * @brief This function returns a reference to member model
-         * @return Reference to member model
+         * @brief This function returns a constant reference to member educational_encounter
+         * @return Constant reference to member educational_encounter
          */
-        inline eProsima_user_DllExport std::string& model()
+        inline eProsima_user_DllExport const AMM::UUID& educational_encounter() const
         {
-            return m_model;
-        }
-        /*!
-         * @brief This function copies the value in member serial_number
-         * @param _serial_number New value to be copied in member serial_number
-         */
-        inline eProsima_user_DllExport void serial_number(const std::string &_serial_number)
-        {
-            m_serial_number = _serial_number;
+            return m_educational_encounter;
         }
 
         /*!
-         * @brief This function moves the value in member serial_number
-         * @param _serial_number New value to be moved in member serial_number
+         * @brief This function returns a reference to member educational_encounter
+         * @return Reference to member educational_encounter
          */
-        inline eProsima_user_DllExport void serial_number(std::string &&_serial_number)
+        inline eProsima_user_DllExport AMM::UUID& educational_encounter()
         {
-            m_serial_number = std::move(_serial_number);
-        }
-
-        /*!
-         * @brief This function returns a constant reference to member serial_number
-         * @return Constant reference to member serial_number
-         */
-        inline eProsima_user_DllExport const std::string& serial_number() const
-        {
-            return m_serial_number;
-        }
-
-        /*!
-         * @brief This function returns a reference to member serial_number
-         * @return Reference to member serial_number
-         */
-        inline eProsima_user_DllExport std::string& serial_number()
-        {
-            return m_serial_number;
-        }
-        /*!
-         * @brief This function copies the value in member id
-         * @param _id New value to be copied in member id
-         */
-        inline eProsima_user_DllExport void id(const AMM::UUID &_id)
-        {
-            m_id = _id;
-        }
-
-        /*!
-         * @brief This function moves the value in member id
-         * @param _id New value to be moved in member id
-         */
-        inline eProsima_user_DllExport void id(AMM::UUID &&_id)
-        {
-            m_id = std::move(_id);
-        }
-
-        /*!
-         * @brief This function returns a constant reference to member id
-         * @return Constant reference to member id
-         */
-        inline eProsima_user_DllExport const AMM::UUID& id() const
-        {
-            return m_id;
-        }
-
-        /*!
-         * @brief This function returns a reference to member id
-         * @return Reference to member id
-         */
-        inline eProsima_user_DllExport AMM::UUID& id()
-        {
-            return m_id;
+            return m_educational_encounter;
         }
         /*!
          * @brief This function sets a value in member timestamp
@@ -2050,41 +2045,6 @@ namespace AMM
         inline eProsima_user_DllExport uint64_t& timestamp()
         {
             return m_timestamp;
-        }
-        /*!
-         * @brief This function copies the value in member ip_address
-         * @param _ip_address New value to be copied in member ip_address
-         */
-        inline eProsima_user_DllExport void ip_address(const std::array<uint8_t, 4> &_ip_address)
-        {
-            m_ip_address = _ip_address;
-        }
-
-        /*!
-         * @brief This function moves the value in member ip_address
-         * @param _ip_address New value to be moved in member ip_address
-         */
-        inline eProsima_user_DllExport void ip_address(std::array<uint8_t, 4> &&_ip_address)
-        {
-            m_ip_address = std::move(_ip_address);
-        }
-
-        /*!
-         * @brief This function returns a constant reference to member ip_address
-         * @return Constant reference to member ip_address
-         */
-        inline eProsima_user_DllExport const std::array<uint8_t, 4>& ip_address() const
-        {
-            return m_ip_address;
-        }
-
-        /*!
-         * @brief This function returns a reference to member ip_address
-         * @return Reference to member ip_address
-         */
-        inline eProsima_user_DllExport std::array<uint8_t, 4>& ip_address()
-        {
-            return m_ip_address;
         }
         /*!
          * @brief This function copies the value in member capabilities_configuration
@@ -2174,12 +2134,9 @@ namespace AMM
 
     private:
         std::string m_name;
-        std::string m_manufacturer;
-        std::string m_model;
-        std::string m_serial_number;
-        AMM::UUID m_id;
+        AMM::UUID m_module_id;
+        AMM::UUID m_educational_encounter;
         uint64_t m_timestamp;
-        std::array<uint8_t, 4> m_ip_address;
         std::string m_capabilities_configuration;
     };
     /*!
@@ -2286,6 +2243,41 @@ namespace AMM
             return m_timestamp;
         }
         /*!
+         * @brief This function copies the value in member educational_encounter
+         * @param _educational_encounter New value to be copied in member educational_encounter
+         */
+        inline eProsima_user_DllExport void educational_encounter(const AMM::UUID &_educational_encounter)
+        {
+            m_educational_encounter = _educational_encounter;
+        }
+
+        /*!
+         * @brief This function moves the value in member educational_encounter
+         * @param _educational_encounter New value to be moved in member educational_encounter
+         */
+        inline eProsima_user_DllExport void educational_encounter(AMM::UUID &&_educational_encounter)
+        {
+            m_educational_encounter = std::move(_educational_encounter);
+        }
+
+        /*!
+         * @brief This function returns a constant reference to member educational_encounter
+         * @return Constant reference to member educational_encounter
+         */
+        inline eProsima_user_DllExport const AMM::UUID& educational_encounter() const
+        {
+            return m_educational_encounter;
+        }
+
+        /*!
+         * @brief This function returns a reference to member educational_encounter
+         * @return Reference to member educational_encounter
+         */
+        inline eProsima_user_DllExport AMM::UUID& educational_encounter()
+        {
+            return m_educational_encounter;
+        }
+        /*!
          * @brief This function copies the value in member location
          * @param _location New value to be copied in member location
          */
@@ -2321,39 +2313,65 @@ namespace AMM
             return m_location;
         }
         /*!
-         * @brief This function copies the value in member practitioner
-         * @param _practitioner New value to be copied in member practitioner
+         * @brief This function sets a value in member agent_type
+         * @param _agent_type New value for member agent_type
          */
-        inline eProsima_user_DllExport void practitioner(const std::string &_practitioner)
+        inline eProsima_user_DllExport void agent_type(AMM::EventAgentType _agent_type)
         {
-            m_practitioner = _practitioner;
+            m_agent_type = _agent_type;
         }
 
         /*!
-         * @brief This function moves the value in member practitioner
-         * @param _practitioner New value to be moved in member practitioner
+         * @brief This function returns the value of member agent_type
+         * @return Value of member agent_type
          */
-        inline eProsima_user_DllExport void practitioner(std::string &&_practitioner)
+        inline eProsima_user_DllExport AMM::EventAgentType agent_type() const
         {
-            m_practitioner = std::move(_practitioner);
+            return m_agent_type;
         }
 
         /*!
-         * @brief This function returns a constant reference to member practitioner
-         * @return Constant reference to member practitioner
+         * @brief This function returns a reference to member agent_type
+         * @return Reference to member agent_type
          */
-        inline eProsima_user_DllExport const std::string& practitioner() const
+        inline eProsima_user_DllExport AMM::EventAgentType& agent_type()
         {
-            return m_practitioner;
+            return m_agent_type;
+        }
+        /*!
+         * @brief This function copies the value in member agent_id
+         * @param _agent_id New value to be copied in member agent_id
+         */
+        inline eProsima_user_DllExport void agent_id(const AMM::UUID &_agent_id)
+        {
+            m_agent_id = _agent_id;
         }
 
         /*!
-         * @brief This function returns a reference to member practitioner
-         * @return Reference to member practitioner
+         * @brief This function moves the value in member agent_id
+         * @param _agent_id New value to be moved in member agent_id
          */
-        inline eProsima_user_DllExport std::string& practitioner()
+        inline eProsima_user_DllExport void agent_id(AMM::UUID &&_agent_id)
         {
-            return m_practitioner;
+            m_agent_id = std::move(_agent_id);
+        }
+
+        /*!
+         * @brief This function returns a constant reference to member agent_id
+         * @return Constant reference to member agent_id
+         */
+        inline eProsima_user_DllExport const AMM::UUID& agent_id() const
+        {
+            return m_agent_id;
+        }
+
+        /*!
+         * @brief This function returns a reference to member agent_id
+         * @return Reference to member agent_id
+         */
+        inline eProsima_user_DllExport AMM::UUID& agent_id()
+        {
+            return m_agent_id;
         }
         /*!
          * @brief This function copies the value in member type
@@ -2479,52 +2497,54 @@ namespace AMM
     private:
         AMM::UUID m_id;
         uint64_t m_timestamp;
+        AMM::UUID m_educational_encounter;
         AMM::FMA_Location m_location;
-        std::string m_practitioner;
+        AMM::EventAgentType m_agent_type;
+        AMM::UUID m_agent_id;
         std::string m_type;
         std::string m_data;
     };
     /*!
-     * @brief This class represents the structure AMM_Version defined by the user in the IDL file.
+     * @brief This class represents the structure Semantic_Version defined by the user in the IDL file.
      * @ingroup AMM_STANDARD
      */
-    class AMM_Version
+    class Semantic_Version
     {
     public:
 
         /*!
          * @brief Default constructor.
          */
-        eProsima_user_DllExport AMM_Version();
+        eProsima_user_DllExport Semantic_Version();
 
         /*!
          * @brief Default destructor.
          */
-        eProsima_user_DllExport ~AMM_Version();
+        eProsima_user_DllExport ~Semantic_Version();
 
         /*!
          * @brief Copy constructor.
-         * @param x Reference to the object AMM::AMM_Version that will be copied.
+         * @param x Reference to the object AMM::Semantic_Version that will be copied.
          */
-        eProsima_user_DllExport AMM_Version(const AMM_Version &x);
+        eProsima_user_DllExport Semantic_Version(const Semantic_Version &x);
 
         /*!
          * @brief Move constructor.
-         * @param x Reference to the object AMM::AMM_Version that will be copied.
+         * @param x Reference to the object AMM::Semantic_Version that will be copied.
          */
-        eProsima_user_DllExport AMM_Version(AMM_Version &&x);
+        eProsima_user_DllExport Semantic_Version(Semantic_Version &&x);
 
         /*!
          * @brief Copy assignment.
-         * @param x Reference to the object AMM::AMM_Version that will be copied.
+         * @param x Reference to the object AMM::Semantic_Version that will be copied.
          */
-        eProsima_user_DllExport AMM_Version& operator=(const AMM_Version &x);
+        eProsima_user_DllExport Semantic_Version& operator=(const Semantic_Version &x);
 
         /*!
          * @brief Move assignment.
-         * @param x Reference to the object AMM::AMM_Version that will be copied.
+         * @param x Reference to the object AMM::Semantic_Version that will be copied.
          */
-        eProsima_user_DllExport AMM_Version& operator=(AMM_Version &&x);
+        eProsima_user_DllExport Semantic_Version& operator=(Semantic_Version &&x);
 
         /*!
          * @brief This function sets a value in member major
@@ -2619,7 +2639,7 @@ namespace AMM
          * @param current_alignment Buffer alignment.
          * @return Serialized size.
          */
-        eProsima_user_DllExport static size_t getCdrSerializedSize(const AMM::AMM_Version& data, size_t current_alignment = 0);
+        eProsima_user_DllExport static size_t getCdrSerializedSize(const AMM::Semantic_Version& data, size_t current_alignment = 0);
 
 
         /*!
@@ -2878,6 +2898,41 @@ namespace AMM
             return m_serial_number;
         }
         /*!
+         * @brief This function copies the value in member module_id
+         * @param _module_id New value to be copied in member module_id
+         */
+        inline eProsima_user_DllExport void module_id(const AMM::UUID &_module_id)
+        {
+            m_module_id = _module_id;
+        }
+
+        /*!
+         * @brief This function moves the value in member module_id
+         * @param _module_id New value to be moved in member module_id
+         */
+        inline eProsima_user_DllExport void module_id(AMM::UUID &&_module_id)
+        {
+            m_module_id = std::move(_module_id);
+        }
+
+        /*!
+         * @brief This function returns a constant reference to member module_id
+         * @return Constant reference to member module_id
+         */
+        inline eProsima_user_DllExport const AMM::UUID& module_id() const
+        {
+            return m_module_id;
+        }
+
+        /*!
+         * @brief This function returns a reference to member module_id
+         * @return Reference to member module_id
+         */
+        inline eProsima_user_DllExport AMM::UUID& module_id()
+        {
+            return m_module_id;
+        }
+        /*!
          * @brief This function copies the value in member module_version
          * @param _module_version New value to be copied in member module_version
          */
@@ -2913,39 +2968,109 @@ namespace AMM
             return m_module_version;
         }
         /*!
-         * @brief This function copies the value in member amm_version
-         * @param _amm_version New value to be copied in member amm_version
+         * @brief This function copies the value in member configuration_version
+         * @param _configuration_version New value to be copied in member configuration_version
          */
-        inline eProsima_user_DllExport void amm_version(const AMM::AMM_Version &_amm_version)
+        inline eProsima_user_DllExport void configuration_version(const AMM::Semantic_Version &_configuration_version)
         {
-            m_amm_version = _amm_version;
+            m_configuration_version = _configuration_version;
         }
 
         /*!
-         * @brief This function moves the value in member amm_version
-         * @param _amm_version New value to be moved in member amm_version
+         * @brief This function moves the value in member configuration_version
+         * @param _configuration_version New value to be moved in member configuration_version
          */
-        inline eProsima_user_DllExport void amm_version(AMM::AMM_Version &&_amm_version)
+        inline eProsima_user_DllExport void configuration_version(AMM::Semantic_Version &&_configuration_version)
         {
-            m_amm_version = std::move(_amm_version);
+            m_configuration_version = std::move(_configuration_version);
         }
 
         /*!
-         * @brief This function returns a constant reference to member amm_version
-         * @return Constant reference to member amm_version
+         * @brief This function returns a constant reference to member configuration_version
+         * @return Constant reference to member configuration_version
          */
-        inline eProsima_user_DllExport const AMM::AMM_Version& amm_version() const
+        inline eProsima_user_DllExport const AMM::Semantic_Version& configuration_version() const
         {
-            return m_amm_version;
+            return m_configuration_version;
         }
 
         /*!
-         * @brief This function returns a reference to member amm_version
-         * @return Reference to member amm_version
+         * @brief This function returns a reference to member configuration_version
+         * @return Reference to member configuration_version
          */
-        inline eProsima_user_DllExport AMM::AMM_Version& amm_version()
+        inline eProsima_user_DllExport AMM::Semantic_Version& configuration_version()
         {
-            return m_amm_version;
+            return m_configuration_version;
+        }
+        /*!
+         * @brief This function copies the value in member AMM_version
+         * @param _AMM_version New value to be copied in member AMM_version
+         */
+        inline eProsima_user_DllExport void AMM_version(const AMM::Semantic_Version &_AMM_version)
+        {
+            m_AMM_version = _AMM_version;
+        }
+
+        /*!
+         * @brief This function moves the value in member AMM_version
+         * @param _AMM_version New value to be moved in member AMM_version
+         */
+        inline eProsima_user_DllExport void AMM_version(AMM::Semantic_Version &&_AMM_version)
+        {
+            m_AMM_version = std::move(_AMM_version);
+        }
+
+        /*!
+         * @brief This function returns a constant reference to member AMM_version
+         * @return Constant reference to member AMM_version
+         */
+        inline eProsima_user_DllExport const AMM::Semantic_Version& AMM_version() const
+        {
+            return m_AMM_version;
+        }
+
+        /*!
+         * @brief This function returns a reference to member AMM_version
+         * @return Reference to member AMM_version
+         */
+        inline eProsima_user_DllExport AMM::Semantic_Version& AMM_version()
+        {
+            return m_AMM_version;
+        }
+        /*!
+         * @brief This function copies the value in member ip_address
+         * @param _ip_address New value to be copied in member ip_address
+         */
+        inline eProsima_user_DllExport void ip_address(const std::array<uint8_t, 4> &_ip_address)
+        {
+            m_ip_address = _ip_address;
+        }
+
+        /*!
+         * @brief This function moves the value in member ip_address
+         * @param _ip_address New value to be moved in member ip_address
+         */
+        inline eProsima_user_DllExport void ip_address(std::array<uint8_t, 4> &&_ip_address)
+        {
+            m_ip_address = std::move(_ip_address);
+        }
+
+        /*!
+         * @brief This function returns a constant reference to member ip_address
+         * @return Constant reference to member ip_address
+         */
+        inline eProsima_user_DllExport const std::array<uint8_t, 4>& ip_address() const
+        {
+            return m_ip_address;
+        }
+
+        /*!
+         * @brief This function returns a reference to member ip_address
+         * @return Reference to member ip_address
+         */
+        inline eProsima_user_DllExport std::array<uint8_t, 4>& ip_address()
+        {
+            return m_ip_address;
         }
         /*!
          * @brief This function copies the value in member capabilities_schema
@@ -3039,8 +3164,11 @@ namespace AMM
         std::string m_manufacturer;
         std::string m_model;
         std::string m_serial_number;
+        AMM::UUID m_module_id;
         std::string m_module_version;
-        AMM::AMM_Version m_amm_version;
+        AMM::Semantic_Version m_configuration_version;
+        AMM::Semantic_Version m_AMM_version;
+        std::array<uint8_t, 4> m_ip_address;
         std::string m_capabilities_schema;
     };
     /*!
@@ -3325,30 +3453,65 @@ namespace AMM
         eProsima_user_DllExport PhysiologyValue& operator=(PhysiologyValue &&x);
 
         /*!
-         * @brief This function sets a value in member simulation_frame
-         * @param _simulation_frame New value for member simulation_frame
+         * @brief This function copies the value in member educational_encounter
+         * @param _educational_encounter New value to be copied in member educational_encounter
          */
-        inline eProsima_user_DllExport void simulation_frame(int64_t _simulation_frame)
+        inline eProsima_user_DllExport void educational_encounter(const AMM::UUID &_educational_encounter)
         {
-            m_simulation_frame = _simulation_frame;
+            m_educational_encounter = _educational_encounter;
         }
 
         /*!
-         * @brief This function returns the value of member simulation_frame
-         * @return Value of member simulation_frame
+         * @brief This function moves the value in member educational_encounter
+         * @param _educational_encounter New value to be moved in member educational_encounter
          */
-        inline eProsima_user_DllExport int64_t simulation_frame() const
+        inline eProsima_user_DllExport void educational_encounter(AMM::UUID &&_educational_encounter)
         {
-            return m_simulation_frame;
+            m_educational_encounter = std::move(_educational_encounter);
         }
 
         /*!
-         * @brief This function returns a reference to member simulation_frame
-         * @return Reference to member simulation_frame
+         * @brief This function returns a constant reference to member educational_encounter
+         * @return Constant reference to member educational_encounter
          */
-        inline eProsima_user_DllExport int64_t& simulation_frame()
+        inline eProsima_user_DllExport const AMM::UUID& educational_encounter() const
         {
-            return m_simulation_frame;
+            return m_educational_encounter;
+        }
+
+        /*!
+         * @brief This function returns a reference to member educational_encounter
+         * @return Reference to member educational_encounter
+         */
+        inline eProsima_user_DllExport AMM::UUID& educational_encounter()
+        {
+            return m_educational_encounter;
+        }
+        /*!
+         * @brief This function sets a value in member simulation_time
+         * @param _simulation_time New value for member simulation_time
+         */
+        inline eProsima_user_DllExport void simulation_time(int64_t _simulation_time)
+        {
+            m_simulation_time = _simulation_time;
+        }
+
+        /*!
+         * @brief This function returns the value of member simulation_time
+         * @return Value of member simulation_time
+         */
+        inline eProsima_user_DllExport int64_t simulation_time() const
+        {
+            return m_simulation_time;
+        }
+
+        /*!
+         * @brief This function returns a reference to member simulation_time
+         * @return Reference to member simulation_time
+         */
+        inline eProsima_user_DllExport int64_t& simulation_time()
+        {
+            return m_simulation_time;
         }
         /*!
          * @brief This function sets a value in member timestamp
@@ -3524,7 +3687,8 @@ namespace AMM
         eProsima_user_DllExport void serializeKey(eprosima::fastcdr::Cdr &cdr) const;
 
     private:
-        int64_t m_simulation_frame;
+        AMM::UUID m_educational_encounter;
+        int64_t m_simulation_time;
         uint64_t m_timestamp;
         std::string m_name;
         std::string m_unit;
@@ -3573,30 +3737,65 @@ namespace AMM
         eProsima_user_DllExport PhysiologyWaveform& operator=(PhysiologyWaveform &&x);
 
         /*!
-         * @brief This function sets a value in member simulation_frame
-         * @param _simulation_frame New value for member simulation_frame
+         * @brief This function copies the value in member educational_encounter
+         * @param _educational_encounter New value to be copied in member educational_encounter
          */
-        inline eProsima_user_DllExport void simulation_frame(int64_t _simulation_frame)
+        inline eProsima_user_DllExport void educational_encounter(const AMM::UUID &_educational_encounter)
         {
-            m_simulation_frame = _simulation_frame;
+            m_educational_encounter = _educational_encounter;
         }
 
         /*!
-         * @brief This function returns the value of member simulation_frame
-         * @return Value of member simulation_frame
+         * @brief This function moves the value in member educational_encounter
+         * @param _educational_encounter New value to be moved in member educational_encounter
          */
-        inline eProsima_user_DllExport int64_t simulation_frame() const
+        inline eProsima_user_DllExport void educational_encounter(AMM::UUID &&_educational_encounter)
         {
-            return m_simulation_frame;
+            m_educational_encounter = std::move(_educational_encounter);
         }
 
         /*!
-         * @brief This function returns a reference to member simulation_frame
-         * @return Reference to member simulation_frame
+         * @brief This function returns a constant reference to member educational_encounter
+         * @return Constant reference to member educational_encounter
          */
-        inline eProsima_user_DllExport int64_t& simulation_frame()
+        inline eProsima_user_DllExport const AMM::UUID& educational_encounter() const
         {
-            return m_simulation_frame;
+            return m_educational_encounter;
+        }
+
+        /*!
+         * @brief This function returns a reference to member educational_encounter
+         * @return Reference to member educational_encounter
+         */
+        inline eProsima_user_DllExport AMM::UUID& educational_encounter()
+        {
+            return m_educational_encounter;
+        }
+        /*!
+         * @brief This function sets a value in member simulation_time
+         * @param _simulation_time New value for member simulation_time
+         */
+        inline eProsima_user_DllExport void simulation_time(int64_t _simulation_time)
+        {
+            m_simulation_time = _simulation_time;
+        }
+
+        /*!
+         * @brief This function returns the value of member simulation_time
+         * @return Value of member simulation_time
+         */
+        inline eProsima_user_DllExport int64_t simulation_time() const
+        {
+            return m_simulation_time;
+        }
+
+        /*!
+         * @brief This function returns a reference to member simulation_time
+         * @return Reference to member simulation_time
+         */
+        inline eProsima_user_DllExport int64_t& simulation_time()
+        {
+            return m_simulation_time;
         }
         /*!
          * @brief This function sets a value in member timestamp
@@ -3772,7 +3971,8 @@ namespace AMM
         eProsima_user_DllExport void serializeKey(eprosima::fastcdr::Cdr &cdr) const;
 
     private:
-        int64_t m_simulation_frame;
+        AMM::UUID m_educational_encounter;
+        int64_t m_simulation_time;
         uint64_t m_timestamp;
         std::string m_name;
         std::string m_unit;
@@ -4122,6 +4322,41 @@ namespace AMM
         {
             return m_type;
         }
+        /*!
+         * @brief This function copies the value in member educational_encounter
+         * @param _educational_encounter New value to be copied in member educational_encounter
+         */
+        inline eProsima_user_DllExport void educational_encounter(const AMM::UUID &_educational_encounter)
+        {
+            m_educational_encounter = _educational_encounter;
+        }
+
+        /*!
+         * @brief This function moves the value in member educational_encounter
+         * @param _educational_encounter New value to be moved in member educational_encounter
+         */
+        inline eProsima_user_DllExport void educational_encounter(AMM::UUID &&_educational_encounter)
+        {
+            m_educational_encounter = std::move(_educational_encounter);
+        }
+
+        /*!
+         * @brief This function returns a constant reference to member educational_encounter
+         * @return Constant reference to member educational_encounter
+         */
+        inline eProsima_user_DllExport const AMM::UUID& educational_encounter() const
+        {
+            return m_educational_encounter;
+        }
+
+        /*!
+         * @brief This function returns a reference to member educational_encounter
+         * @return Reference to member educational_encounter
+         */
+        inline eProsima_user_DllExport AMM::UUID& educational_encounter()
+        {
+            return m_educational_encounter;
+        }
 
         /*!
          * @brief This function returns the maximum serialized size of an object
@@ -4176,6 +4411,7 @@ namespace AMM
     private:
         uint64_t m_timestamp;
         AMM::ControlType m_type;
+        AMM::UUID m_educational_encounter;
     };
     /*!
      * @brief This class represents the enumeration StatusValue defined by the user in the IDL file.
@@ -4233,7 +4469,7 @@ namespace AMM
          * @brief This function copies the value in member module_id
          * @param _module_id New value to be copied in member module_id
          */
-        inline eProsima_user_DllExport void module_id(const std::string &_module_id)
+        inline eProsima_user_DllExport void module_id(const AMM::UUID &_module_id)
         {
             m_module_id = _module_id;
         }
@@ -4242,7 +4478,7 @@ namespace AMM
          * @brief This function moves the value in member module_id
          * @param _module_id New value to be moved in member module_id
          */
-        inline eProsima_user_DllExport void module_id(std::string &&_module_id)
+        inline eProsima_user_DllExport void module_id(AMM::UUID &&_module_id)
         {
             m_module_id = std::move(_module_id);
         }
@@ -4251,7 +4487,7 @@ namespace AMM
          * @brief This function returns a constant reference to member module_id
          * @return Constant reference to member module_id
          */
-        inline eProsima_user_DllExport const std::string& module_id() const
+        inline eProsima_user_DllExport const AMM::UUID& module_id() const
         {
             return m_module_id;
         }
@@ -4260,7 +4496,7 @@ namespace AMM
          * @brief This function returns a reference to member module_id
          * @return Reference to member module_id
          */
-        inline eProsima_user_DllExport std::string& module_id()
+        inline eProsima_user_DllExport AMM::UUID& module_id()
         {
             return m_module_id;
         }
@@ -4298,6 +4534,41 @@ namespace AMM
         inline eProsima_user_DllExport std::string& module_name()
         {
             return m_module_name;
+        }
+        /*!
+         * @brief This function copies the value in member educational_encounter
+         * @param _educational_encounter New value to be copied in member educational_encounter
+         */
+        inline eProsima_user_DllExport void educational_encounter(const AMM::UUID &_educational_encounter)
+        {
+            m_educational_encounter = _educational_encounter;
+        }
+
+        /*!
+         * @brief This function moves the value in member educational_encounter
+         * @param _educational_encounter New value to be moved in member educational_encounter
+         */
+        inline eProsima_user_DllExport void educational_encounter(AMM::UUID &&_educational_encounter)
+        {
+            m_educational_encounter = std::move(_educational_encounter);
+        }
+
+        /*!
+         * @brief This function returns a constant reference to member educational_encounter
+         * @return Constant reference to member educational_encounter
+         */
+        inline eProsima_user_DllExport const AMM::UUID& educational_encounter() const
+        {
+            return m_educational_encounter;
+        }
+
+        /*!
+         * @brief This function returns a reference to member educational_encounter
+         * @return Reference to member educational_encounter
+         */
+        inline eProsima_user_DllExport AMM::UUID& educational_encounter()
+        {
+            return m_educational_encounter;
         }
         /*!
          * @brief This function copies the value in member capability
@@ -4473,8 +4744,9 @@ namespace AMM
         eProsima_user_DllExport void serializeKey(eprosima::fastcdr::Cdr &cdr) const;
 
     private:
-        std::string m_module_id;
+        AMM::UUID m_module_id;
         std::string m_module_name;
+        AMM::UUID m_educational_encounter;
         std::string m_capability;
         uint64_t m_timestamp;
         AMM::StatusValue m_value;

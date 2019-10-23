@@ -2,6 +2,13 @@
 
 namespace AMM {
 
+    std::string Utility::read_file_to_string(const std::string &filename) {
+       std::ifstream ifs(filename);
+       std::string fileContent((std::istreambuf_iterator<char>(ifs)),
+                               (std::istreambuf_iterator<char>()));
+       return fileContent;
+    }
+
     void Utility::add_once(std::vector<std::string> &vec, const std::string &element) {
        std::remove(vec.begin(), vec.end(), element);
        vec.push_back(element);

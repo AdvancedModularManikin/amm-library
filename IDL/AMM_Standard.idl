@@ -1,18 +1,18 @@
 module AMM
 {
-        struct FMA_Location
-        {
-            long FMAID;
-            string description;
-        };
+    struct FMA_Location
+    {
+        long FMAID;
+        string name;
+    };
 
-        struct UUID
-        {
-            string id;
-        };
+    /* Included in AMM namespace to avoid name conflicts in generated software bindings. */
+    struct UUID
+    {
+        string id;
+    };
 
-
-        enum AssessmentValue {
+    enum AssessmentValue {
         OMISSION_ERROR
        ,COMMISSION_ERROR
        ,EXECUTION_ERROR
@@ -22,7 +22,6 @@ module AMM
         /** QoS:
          *  Reliability: Reliable
          *  Durability: Transient Local
-         *  Partition: AMM
          */
     {
         UUID id;
@@ -31,17 +30,25 @@ module AMM
         string comment;
     };
 
+    enum EventAgentType {
+        LEARNER
+       ,INSTRUCTOR
+       ,SCENARIO
+       ,PHYSIOLOGY
+    };
+
     struct EventFragment
         /** QoS:
          *  Reliability: Reliable
          *  Durability: Volatile
-         *  Partition: AMM
          */
     {
-        UUID id;
+        @key UUID id;
         unsigned long long timestamp;
+        UUID educational_encounter;
         FMA_Location location;
-        string practitioner;
+        EventAgentType agent_type;
+        UUID agent_id;
         string type;
         string data;
     };
@@ -51,13 +58,14 @@ module AMM
          *  Reliability: Reliable
          *  Durability: Transient Local (In case of module disconnect/reconnect)
          *  Liveliness: Automatic, 1 second lease
-         *  Partition: AMM
          */
     {
         UUID id;
         unsigned long long timestamp;
+        @key UUID educational_encounter;
         FMA_Location location;
-        string practitioner;
+        EventAgentType agent_type;
+        UUID agent_id;
         string type;
         string data;
     };
@@ -65,24 +73,21 @@ module AMM
     enum FAR_Status {
         REQUESTING
        ,ACCEPTED
-       ,DENIED
+       ,REJECTED
     };
     struct FragmentAmendmentRequest
         /** QoS:
          *  Reliability: Reliable
          *  Durability: Volatile
-         *  Partition: AMM
          */
     {
-        UUID id;
+        @key UUID id;
         UUID fragment_id;
         FAR_Status status;
         // Values that can be amended
-        unsigned long long timestamp;
         FMA_Location location;
-        string practitioner;
-        string type;
-        string data;
+        EventAgentType agent_type;
+        UUID agent_id;
     };
 
     enum LogLevel {
@@ -97,11 +102,10 @@ module AMM
         /** QoS:
          *  Reliability: Reliable
          *  Durability: Transient Local
-         *  Partition: AMM
          */
     {
         unsigned long long timestamp;
-        @Key string module_id;
+        @Key UUID module_id;
         LogLevel level;
         string message;
     };
@@ -110,16 +114,12 @@ module AMM
         /** QoS:
          *  Reliability: Reliable
          *  Durability: Transient Local
-         *  Partition: AMM
          */
     {
         string name;
-        @Key string manufacturer;
-        @Key string model;
-        @Key string serial_number;
-        UUID id;
+        @Key UUID module_id;
+        UUID educational_encounter;
         unsigned long long timestamp;
-        octet ip_address[4];
         string capabilities_configuration;
     };
 
@@ -128,18 +128,19 @@ module AMM
          *  Reliability: Reliable
          *  Durability: Transient Local (In case of module disconnect/reconnect)
          *  Liveliness: Automatic, 1 second lease
-         *  Partition: AMM
          */
     {
         UUID id;
         unsigned long long timestamp;   // When the omission was detected.
+        @key UUID educational_encounter;
         FMA_Location location;
-        string practitioner;
+        EventAgentType agent_type;
+        UUID agent_id;
         string type;
         string data;
     };
 
-    struct AMM_Version {
+    struct Semantic_Version {
         unsigned short major;
         unsigned short minor;
         unsigned short patch;
@@ -148,24 +149,25 @@ module AMM
         /** QoS:
          *  Reliability: Reliable
          *  Durability: Transient Local
-         *  Partition: AMM
          */
     {
         string name;
         string description;
-        @Key string manufacturer;
-        @Key string model;
-        @Key string serial_number;
+        string manufacturer;
+        string model;
+        string serial_number;
+        @Key UUID module_id;
         string module_version;
-        AMM_Version amm_version;
-        string capabilities_schema;
+        Semantic_Version configuration_version;
+        Semantic_Version AMM_version;
+        octet ip_address[4];
+        string capabilities_schema; // Defined by CapabilitiesSchema.xsd
     };
 
     struct PhysiologyModification
         /** QoS:
          *  Reliability: Reliable
          *  Durability: Transient Local
-         *  Partition: AMM
          */
     {
         UUID id;
@@ -182,10 +184,10 @@ module AMM
          *  Ownership Strength: Set via Configuration if non-zero
          *  Presentation: Access Scope: Instance, Coherent Access: True, Order Access: False
          *  Liveliness: Automatic, 1 second lease
-         *  Partition: AMM
          */
     {
-        long long simulation_frame;
+        UUID educational_encounter;
+        long long simulation_time;
         unsigned long long timestamp;
         @Key string name;   // BioGears node path
         string unit;
@@ -199,10 +201,10 @@ module AMM
          *  Ownership: Exclusive
          *  Ownership Strength: Set via Configuration if non-zero
          *  Liveliness: Automatic, 1 second lease (Lower if feasible, requires testing)
-         *  Partition: AMM
          */
     {
-        long long simulation_frame;
+        UUID educational_encounter;
+        long long simulation_time;
         unsigned long long timestamp;
         @Key string name;   // BioGears node path
         string unit;
@@ -213,7 +215,6 @@ module AMM
         /** QoS:
          *  Reliability: Reliable
          *  Durability: Transient Local
-         *  Partition: AMM
          */
     {
         UUID id;
@@ -233,11 +234,11 @@ module AMM
          *  Reliability: Reliable
          *  Durability: Transient Local
          *  Liveliness: Automatic, 1 second lease
-         *  Partition: AMM
          */
     {
         unsigned long long timestamp;
         ControlType type;
+        @key UUID educational_encounter;
     };
 
     enum StatusValue {
@@ -250,11 +251,11 @@ module AMM
          *  Reliability: Reliable
          *  Durability: Transient Local
          *  Liveliness: Automatic, 1 second lease
-         *  Partition: AMM
          */
     {
-        @Key string module_id;
+        @Key UUID module_id;
         string module_name;
+        UUID educational_encounter;
         @Key string capability;
         unsigned long long timestamp;
         StatusValue value;

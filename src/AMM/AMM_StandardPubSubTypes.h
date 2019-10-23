@@ -95,6 +95,7 @@ namespace AMM
     	MD5 m_md5;
     	unsigned char* m_keyBuffer;
     };
+
     /*!
      * @brief This class represents the TopicDataType of the type EventFragment defined by the user in the IDL file.
      * @ingroup AMM_STANDARD
@@ -218,15 +219,15 @@ namespace AMM
     	unsigned char* m_keyBuffer;
     };
     /*!
-     * @brief This class represents the TopicDataType of the type AMM_Version defined by the user in the IDL file.
+     * @brief This class represents the TopicDataType of the type Semantic_Version defined by the user in the IDL file.
      * @ingroup AMM_STANDARD
      */
-    class AMM_VersionPubSubType : public eprosima::fastrtps::TopicDataType {
+    class Semantic_VersionPubSubType : public eprosima::fastrtps::TopicDataType {
     public:
-            typedef AMM_Version type;
+            typedef Semantic_Version type;
 
-    	AMM_VersionPubSubType();
-    	virtual ~AMM_VersionPubSubType();
+    	Semantic_VersionPubSubType();
+    	virtual ~Semantic_VersionPubSubType();
     	virtual bool serialize(void *data, eprosima::fastrtps::rtps::SerializedPayload_t *payload) override;
     	virtual bool deserialize(eprosima::fastrtps::rtps::SerializedPayload_t *payload, void *data) override;
         virtual std::function<uint32_t()> getSerializedSizeProvider(void* data) override;

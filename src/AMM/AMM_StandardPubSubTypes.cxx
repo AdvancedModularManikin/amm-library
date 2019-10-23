@@ -340,6 +340,7 @@ namespace AMM
         return true;
     }
 
+
     EventFragmentPubSubType::EventFragmentPubSubType()
     {
         setName("AMM::EventFragment");
@@ -960,25 +961,25 @@ namespace AMM
         return true;
     }
 
-    AMM_VersionPubSubType::AMM_VersionPubSubType()
+    Semantic_VersionPubSubType::Semantic_VersionPubSubType()
     {
-        setName("AMM::AMM_Version");
-        m_typeSize = static_cast<uint32_t>(AMM_Version::getMaxCdrSerializedSize()) + 4 /*encapsulation*/;
-        m_isGetKeyDefined = AMM_Version::isKeyDefined();
-        size_t keyLength = AMM_Version::getKeyMaxCdrSerializedSize()>16 ? AMM_Version::getKeyMaxCdrSerializedSize() : 16;
+        setName("AMM::Semantic_Version");
+        m_typeSize = static_cast<uint32_t>(Semantic_Version::getMaxCdrSerializedSize()) + 4 /*encapsulation*/;
+        m_isGetKeyDefined = Semantic_Version::isKeyDefined();
+        size_t keyLength = Semantic_Version::getKeyMaxCdrSerializedSize()>16 ? Semantic_Version::getKeyMaxCdrSerializedSize() : 16;
         m_keyBuffer = reinterpret_cast<unsigned char*>(malloc(keyLength));
         memset(m_keyBuffer, 0, keyLength);
     }
 
-    AMM_VersionPubSubType::~AMM_VersionPubSubType()
+    Semantic_VersionPubSubType::~Semantic_VersionPubSubType()
     {
         if(m_keyBuffer!=nullptr)
             free(m_keyBuffer);
     }
 
-    bool AMM_VersionPubSubType::serialize(void *data, SerializedPayload_t *payload)
+    bool Semantic_VersionPubSubType::serialize(void *data, SerializedPayload_t *payload)
     {
-        AMM_Version *p_type = static_cast<AMM_Version*>(data);
+        Semantic_Version *p_type = static_cast<Semantic_Version*>(data);
         eprosima::fastcdr::FastBuffer fastbuffer(reinterpret_cast<char*>(payload->data), payload->max_size); // Object that manages the raw buffer.
         eprosima::fastcdr::Cdr ser(fastbuffer, eprosima::fastcdr::Cdr::DEFAULT_ENDIAN,
                 eprosima::fastcdr::Cdr::DDS_CDR); // Object that serializes the data.
@@ -999,9 +1000,9 @@ namespace AMM
         return true;
     }
 
-    bool AMM_VersionPubSubType::deserialize(SerializedPayload_t* payload, void* data)
+    bool Semantic_VersionPubSubType::deserialize(SerializedPayload_t* payload, void* data)
     {
-        AMM_Version* p_type = static_cast<AMM_Version*>(data); //Convert DATA to pointer of your type
+        Semantic_Version* p_type = static_cast<Semantic_Version*>(data); //Convert DATA to pointer of your type
         eprosima::fastcdr::FastBuffer fastbuffer(reinterpret_cast<char*>(payload->data), payload->length); // Object that manages the raw buffer.
         eprosima::fastcdr::Cdr deser(fastbuffer, eprosima::fastcdr::Cdr::DEFAULT_ENDIAN,
                 eprosima::fastcdr::Cdr::DDS_CDR); // Object that deserializes the data.
@@ -1021,33 +1022,33 @@ namespace AMM
         return true;
     }
 
-    std::function<uint32_t()> AMM_VersionPubSubType::getSerializedSizeProvider(void* data)
+    std::function<uint32_t()> Semantic_VersionPubSubType::getSerializedSizeProvider(void* data)
     {
         return [data]() -> uint32_t
         {
-            return static_cast<uint32_t>(type::getCdrSerializedSize(*static_cast<AMM_Version*>(data))) + 4 /*encapsulation*/;
+            return static_cast<uint32_t>(type::getCdrSerializedSize(*static_cast<Semantic_Version*>(data))) + 4 /*encapsulation*/;
         };
     }
 
-    void* AMM_VersionPubSubType::createData()
+    void* Semantic_VersionPubSubType::createData()
     {
-        return reinterpret_cast<void*>(new AMM_Version());
+        return reinterpret_cast<void*>(new Semantic_Version());
     }
 
-    void AMM_VersionPubSubType::deleteData(void* data)
+    void Semantic_VersionPubSubType::deleteData(void* data)
     {
-        delete(reinterpret_cast<AMM_Version*>(data));
+        delete(reinterpret_cast<Semantic_Version*>(data));
     }
 
-    bool AMM_VersionPubSubType::getKey(void *data, InstanceHandle_t* handle, bool force_md5)
+    bool Semantic_VersionPubSubType::getKey(void *data, InstanceHandle_t* handle, bool force_md5)
     {
         if(!m_isGetKeyDefined)
             return false;
-        AMM_Version* p_type = static_cast<AMM_Version*>(data);
-        eprosima::fastcdr::FastBuffer fastbuffer(reinterpret_cast<char*>(m_keyBuffer),AMM_Version::getKeyMaxCdrSerializedSize());     // Object that manages the raw buffer.
+        Semantic_Version* p_type = static_cast<Semantic_Version*>(data);
+        eprosima::fastcdr::FastBuffer fastbuffer(reinterpret_cast<char*>(m_keyBuffer),Semantic_Version::getKeyMaxCdrSerializedSize());     // Object that manages the raw buffer.
         eprosima::fastcdr::Cdr ser(fastbuffer, eprosima::fastcdr::Cdr::BIG_ENDIANNESS);     // Object that serializes the data.
         p_type->serializeKey(ser);
-        if(force_md5 || AMM_Version::getKeyMaxCdrSerializedSize()>16)    {
+        if(force_md5 || Semantic_Version::getKeyMaxCdrSerializedSize()>16)    {
             m_md5.init();
             m_md5.update(m_keyBuffer, static_cast<unsigned int>(ser.getSerializedDataLength()));
             m_md5.finalize();
