@@ -13,6 +13,7 @@ namespace AMM {
 
        str.assign((std::istreambuf_iterator<char>(t)),
                   std::istreambuf_iterator<char>());
+       t.close();
        return str;
     }
 

@@ -962,7 +962,7 @@ size_t AMM::Log::getKeyMaxCdrSerializedSize(size_t current_alignment)
 	size_t current_align = current_alignment;
             
 
-     current_align += AMM::UUID::getMaxCdrSerializedSize(current_align); 
+
 
 
 
@@ -971,14 +971,14 @@ size_t AMM::Log::getKeyMaxCdrSerializedSize(size_t current_alignment)
 
 bool AMM::Log::isKeyDefined()
 {
-    return true;
+    return false;
 }
 
 void AMM::Log::serializeKey(eprosima::fastcdr::Cdr &scdr) const
 {
 	(void) scdr;
 	 
-	 scdr << m_module_id;  
+	 
 	 
 	 
 }
@@ -1095,7 +1095,7 @@ size_t AMM::ModuleConfiguration::getKeyMaxCdrSerializedSize(size_t current_align
 	size_t current_align = current_alignment;
             
 
-     current_align += AMM::UUID::getMaxCdrSerializedSize(current_align); 
+
 
 
 
@@ -1105,14 +1105,14 @@ size_t AMM::ModuleConfiguration::getKeyMaxCdrSerializedSize(size_t current_align
 
 bool AMM::ModuleConfiguration::isKeyDefined()
 {
-    return true;
+    return false;
 }
 
 void AMM::ModuleConfiguration::serializeKey(eprosima::fastcdr::Cdr &scdr) const
 {
 	(void) scdr;
 	 
-	 scdr << m_module_id;  
+	 
 	 
 	 
 	 
@@ -1514,8 +1514,10 @@ size_t AMM::OperationalDescription::getMaxCdrSerializedSize(size_t current_align
     current_alignment += AMM::UUID::getMaxCdrSerializedSize(current_alignment);
     current_alignment += 4 + eprosima::fastcdr::Cdr::alignment(current_alignment, 4) + 255 + 1;
 
-    current_alignment += AMM::Semantic_Version::getMaxCdrSerializedSize(current_alignment);
-    current_alignment += AMM::Semantic_Version::getMaxCdrSerializedSize(current_alignment);
+    current_alignment += 4 + eprosima::fastcdr::Cdr::alignment(current_alignment, 4) + 255 + 1;
+
+    current_alignment += 4 + eprosima::fastcdr::Cdr::alignment(current_alignment, 4) + 255 + 1;
+
     current_alignment += ((4) * 1) + eprosima::fastcdr::Cdr::alignment(current_alignment, 1);
 
 
@@ -1543,8 +1545,10 @@ size_t AMM::OperationalDescription::getCdrSerializedSize(const AMM::OperationalD
     current_alignment += AMM::UUID::getCdrSerializedSize(data.module_id(), current_alignment);
     current_alignment += 4 + eprosima::fastcdr::Cdr::alignment(current_alignment, 4) + data.module_version().size() + 1;
 
-    current_alignment += AMM::Semantic_Version::getCdrSerializedSize(data.configuration_version(), current_alignment);
-    current_alignment += AMM::Semantic_Version::getCdrSerializedSize(data.AMM_version(), current_alignment);
+    current_alignment += 4 + eprosima::fastcdr::Cdr::alignment(current_alignment, 4) + data.configuration_version().size() + 1;
+
+    current_alignment += 4 + eprosima::fastcdr::Cdr::alignment(current_alignment, 4) + data.AMM_version().size() + 1;
+
     current_alignment += ((4) * 1) + eprosima::fastcdr::Cdr::alignment(current_alignment, 1);
 
     current_alignment += 4 + eprosima::fastcdr::Cdr::alignment(current_alignment, 4) + data.capabilities_schema().size() + 1;
@@ -1592,7 +1596,7 @@ size_t AMM::OperationalDescription::getKeyMaxCdrSerializedSize(size_t current_al
 
 
 
-     current_align += AMM::UUID::getMaxCdrSerializedSize(current_align); 
+
 
 
 
@@ -1604,7 +1608,7 @@ size_t AMM::OperationalDescription::getKeyMaxCdrSerializedSize(size_t current_al
 
 bool AMM::OperationalDescription::isKeyDefined()
 {
-    return true;
+    return false;
 }
 
 void AMM::OperationalDescription::serializeKey(eprosima::fastcdr::Cdr &scdr) const
@@ -1615,7 +1619,7 @@ void AMM::OperationalDescription::serializeKey(eprosima::fastcdr::Cdr &scdr) con
 	 
 	 
 	 
-	 scdr << m_module_id;  
+	 
 	 
 	 
 	 
@@ -1875,8 +1879,7 @@ size_t AMM::PhysiologyValue::getKeyMaxCdrSerializedSize(size_t current_alignment
 
 
 
-     current_align += 4 + eprosima::fastcdr::Cdr::alignment(current_align, 4) + 255 + 1;
-     
+
 
 
 
@@ -1885,7 +1888,7 @@ size_t AMM::PhysiologyValue::getKeyMaxCdrSerializedSize(size_t current_alignment
 
 bool AMM::PhysiologyValue::isKeyDefined()
 {
-    return true;
+    return false;
 }
 
 void AMM::PhysiologyValue::serializeKey(eprosima::fastcdr::Cdr &scdr) const
@@ -1894,7 +1897,7 @@ void AMM::PhysiologyValue::serializeKey(eprosima::fastcdr::Cdr &scdr) const
 	 
 	 
 	 
-	 scdr << m_name;  
+	 
 	 
 	 
 }
@@ -2032,8 +2035,7 @@ size_t AMM::PhysiologyWaveform::getKeyMaxCdrSerializedSize(size_t current_alignm
 
 
 
-     current_align += 4 + eprosima::fastcdr::Cdr::alignment(current_align, 4) + 255 + 1;
-     
+
 
 
 
@@ -2042,7 +2044,7 @@ size_t AMM::PhysiologyWaveform::getKeyMaxCdrSerializedSize(size_t current_alignm
 
 bool AMM::PhysiologyWaveform::isKeyDefined()
 {
-    return true;
+    return false;
 }
 
 void AMM::PhysiologyWaveform::serializeKey(eprosima::fastcdr::Cdr &scdr) const
@@ -2051,7 +2053,7 @@ void AMM::PhysiologyWaveform::serializeKey(eprosima::fastcdr::Cdr &scdr) const
 	 
 	 
 	 
-	 scdr << m_name;  
+	 
 	 
 	 
 }
@@ -2435,11 +2437,10 @@ size_t AMM::Status::getKeyMaxCdrSerializedSize(size_t current_alignment)
 {
 	size_t current_align = current_alignment;
             
-     current_align += AMM::UUID::getMaxCdrSerializedSize(current_align); 
 
 
-     current_align += 4 + eprosima::fastcdr::Cdr::alignment(current_align, 4) + 255 + 1;
-     
+
+
 
 
 
@@ -2449,16 +2450,16 @@ size_t AMM::Status::getKeyMaxCdrSerializedSize(size_t current_alignment)
 
 bool AMM::Status::isKeyDefined()
 {
-    return true;
+    return false;
 }
 
 void AMM::Status::serializeKey(eprosima::fastcdr::Cdr &scdr) const
 {
 	(void) scdr;
-	 scdr << m_module_id;  
 	 
 	 
-	 scdr << m_capability;  
+	 
+	 
 	 
 	 
 	 

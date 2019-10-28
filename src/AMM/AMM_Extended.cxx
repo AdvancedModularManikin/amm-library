@@ -30,6 +30,8 @@ namespace { char dummy; }
 #include <fastcdr/exceptions/BadParamException.h>
 using namespace eprosima::fastcdr::exception;
 
+#include <utility>
+
 AMM::Tick::Tick()
 {
     m_frame = 0;
@@ -116,9 +118,7 @@ size_t AMM::Tick::getKeyMaxCdrSerializedSize(size_t current_alignment)
 {
 	size_t current_align = current_alignment;
             
-     current_align += 8 + eprosima::fastcdr::Cdr::alignment(current_align, 8);
 
-     
 
 
     return current_align;
@@ -126,13 +126,13 @@ size_t AMM::Tick::getKeyMaxCdrSerializedSize(size_t current_alignment)
 
 bool AMM::Tick::isKeyDefined()
 {
-    return true;
+    return false;
 }
 
 void AMM::Tick::serializeKey(eprosima::fastcdr::Cdr &scdr) const
 {
 	(void) scdr;
-	 scdr << m_frame;  
+	 
 	 
 }
 AMM::InstrumentData::InstrumentData()

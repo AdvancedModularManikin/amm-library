@@ -2971,7 +2971,7 @@ namespace AMM
          * @brief This function copies the value in member configuration_version
          * @param _configuration_version New value to be copied in member configuration_version
          */
-        inline eProsima_user_DllExport void configuration_version(const AMM::Semantic_Version &_configuration_version)
+        inline eProsima_user_DllExport void configuration_version(const std::string &_configuration_version)
         {
             m_configuration_version = _configuration_version;
         }
@@ -2980,7 +2980,7 @@ namespace AMM
          * @brief This function moves the value in member configuration_version
          * @param _configuration_version New value to be moved in member configuration_version
          */
-        inline eProsima_user_DllExport void configuration_version(AMM::Semantic_Version &&_configuration_version)
+        inline eProsima_user_DllExport void configuration_version(std::string &&_configuration_version)
         {
             m_configuration_version = std::move(_configuration_version);
         }
@@ -2989,7 +2989,7 @@ namespace AMM
          * @brief This function returns a constant reference to member configuration_version
          * @return Constant reference to member configuration_version
          */
-        inline eProsima_user_DllExport const AMM::Semantic_Version& configuration_version() const
+        inline eProsima_user_DllExport const std::string& configuration_version() const
         {
             return m_configuration_version;
         }
@@ -2998,7 +2998,7 @@ namespace AMM
          * @brief This function returns a reference to member configuration_version
          * @return Reference to member configuration_version
          */
-        inline eProsima_user_DllExport AMM::Semantic_Version& configuration_version()
+        inline eProsima_user_DllExport std::string& configuration_version()
         {
             return m_configuration_version;
         }
@@ -3006,7 +3006,7 @@ namespace AMM
          * @brief This function copies the value in member AMM_version
          * @param _AMM_version New value to be copied in member AMM_version
          */
-        inline eProsima_user_DllExport void AMM_version(const AMM::Semantic_Version &_AMM_version)
+        inline eProsima_user_DllExport void AMM_version(const std::string &_AMM_version)
         {
             m_AMM_version = _AMM_version;
         }
@@ -3015,7 +3015,7 @@ namespace AMM
          * @brief This function moves the value in member AMM_version
          * @param _AMM_version New value to be moved in member AMM_version
          */
-        inline eProsima_user_DllExport void AMM_version(AMM::Semantic_Version &&_AMM_version)
+        inline eProsima_user_DllExport void AMM_version(std::string &&_AMM_version)
         {
             m_AMM_version = std::move(_AMM_version);
         }
@@ -3024,7 +3024,7 @@ namespace AMM
          * @brief This function returns a constant reference to member AMM_version
          * @return Constant reference to member AMM_version
          */
-        inline eProsima_user_DllExport const AMM::Semantic_Version& AMM_version() const
+        inline eProsima_user_DllExport const std::string& AMM_version() const
         {
             return m_AMM_version;
         }
@@ -3033,7 +3033,7 @@ namespace AMM
          * @brief This function returns a reference to member AMM_version
          * @return Reference to member AMM_version
          */
-        inline eProsima_user_DllExport AMM::Semantic_Version& AMM_version()
+        inline eProsima_user_DllExport std::string& AMM_version()
         {
             return m_AMM_version;
         }
@@ -3166,8 +3166,8 @@ namespace AMM
         std::string m_serial_number;
         AMM::UUID m_module_id;
         std::string m_module_version;
-        AMM::Semantic_Version m_configuration_version;
-        AMM::Semantic_Version m_AMM_version;
+        std::string m_configuration_version;
+        std::string m_AMM_version;
         std::array<uint8_t, 4> m_ip_address;
         std::string m_capabilities_schema;
     };
