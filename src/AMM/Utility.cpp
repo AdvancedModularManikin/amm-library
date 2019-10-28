@@ -3,10 +3,17 @@
 namespace AMM {
 
     std::string Utility::read_file_to_string(const std::string &filename) {
-       std::ifstream ifs(filename);
-       std::string fileContent((std::istreambuf_iterator<char>(ifs)),
-                               (std::istreambuf_iterator<char>()));
-       return fileContent;
+       std::ifstream t(filename);
+       std::string str;
+
+       // Preallocate the memory up front
+       t.seekg(0, std::ios::end);
+       str.reserve(t.tellg());
+       t.seekg(0, std::ios::beg);
+
+       str.assign((std::istreambuf_iterator<char>(t)),
+                  std::istreambuf_iterator<char>());
+       return str;
     }
 
     void Utility::add_once(std::vector<std::string> &vec, const std::string &element) {
