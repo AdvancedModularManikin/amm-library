@@ -14,26 +14,26 @@
 #include "AMM/AMM_Standard.h"
 
 
-/// Naming Key:
-/// -----------------------------------
-///  LTNR = Listener
-///  ASMT = Assessment
-///  EVFR = Event Fragment
-///  EVRC = Event Record
-///  FARQ = Fragment Amendment Request
-///  ALOG = "AMM" Log
-///  MOCF = Module Configuration
-///  OMEV = Omitted Event
-///  OPDS = Operational Description
-///  PHMO = Physiology Modification
-///  PHVA = Physiology Value
-///  PHWV = Physiology Wave
-///  RDMO = Render Modification
-///  SMCN = Simulation Control
-///  STAT = Status
-///  TICK = Tick
-///  IDAT = Instrument Data
-///  CMND = Command
+// Naming Key:
+// -----------------------------------
+//  LTNR = Listener
+//  ASMT = Assessment
+//  EVFR = Event Fragment
+//  EVRC = Event Record
+//  FARQ = Fragment Amendment Request
+//  ALOG = "AMM" Log
+//  MOCF = Module Configuration
+//  OMEV = Omitted Event
+//  OPDS = Operational Description
+//  PHMO = Physiology Modification
+//  PHVA = Physiology Value
+//  PHWV = Physiology Wave
+//  RDMO = Render Modification
+//  SMCN = Simulation Control
+//  STAT = Status
+//  TICK = Tick
+//  IDAT = Instrument Data
+//  CMND = Command
 
 #define ASMT_TYPE AMM::AssessmentPubSubType
 #define ASMT_LTNR AMM::DDS_Listeners::AssessmentListener
@@ -2032,7 +2032,7 @@ namespace AMM {
     inline void DDSManager<U>::Shutdown(std::string &errmsg) {
        int err = 0;
 
-       /// Output from each decommission.
+       // Output from each decommission.
        std::string localerrmsg;
 
        if (DecommissionAssessment(localerrmsg) != 0) errmsg + localerrmsg + "\n";
