@@ -28,7 +28,7 @@ namespace AMM {
 /// U = Parent class (The class that contains a method intended to recieved subscribed event.)
 template <class T, class L, class A, class U = void>
 class AmmDataType {
-private:
+public:
 
    /// Pointer to the DDS Participant managed by the DDS Manager.
    eprosima::fastrtps::Participant* m_participant;
@@ -240,7 +240,7 @@ inline AmmDataType <T, L, A, U> :: AmmDataType (
    m_pubListener = pl;
 
    m_type = new T();
-   m_type->setName(topicName.c_str());
+   m_type->setName((topicName + "Type").c_str());
 
    if (IsTypeRegistered()) {
       return;
@@ -263,7 +263,7 @@ inline AmmDataType <T, L, A, U> :: AmmDataType (
    m_pubListener = pl;
 
    m_type = new T();
-   m_type->setName(topicName.c_str());
+   m_type->setName((topicName + "Type").c_str());
 
    if (IsTypeRegistered()) {
       err = 0;
@@ -295,7 +295,7 @@ inline AmmDataType <T, L, A, U> :: AmmDataType (
    m_pubListener = pl;
 
    m_type = new T();
-   m_type->setName(topicName.c_str());
+   m_type->setName((topicName + "Type").c_str());
 
    if (IsTypeRegistered()) {
       err = 0;
@@ -325,7 +325,7 @@ inline bool AmmDataType <T, L, A, U> :: IsTypeRegistered () {
 
    return eprosima::fastrtps::Domain::getRegisteredType(
       m_participant,
-      m_topicName.c_str(),
+      m_type->getName(),
       &type
    );
 }
@@ -654,7 +654,7 @@ inline int AmmDataType <T, L, A, U> :: RemoveSubscriber (std::string& errmsg) {
 /// A = AMM::Assessment
 template <class T, class L, class A>
 class AmmDataType <T, L, A, void> {
-private:
+public:
 
    /// Pointer to the DDS Participant managed by the DDS Manager.
    eprosima::fastrtps::Participant* m_participant;
@@ -861,7 +861,7 @@ inline AmmDataType <T, L, A, void> :: AmmDataType (
    m_pubListener = pl;
 
    m_type = new T();
-   m_type->setName(topicName.c_str());
+   m_type->setName((topicName + "Type").c_str());
 
    if (IsTypeRegistered()) {
       return;
@@ -884,7 +884,7 @@ inline AmmDataType <T, L, A, void> :: AmmDataType (
    m_pubListener = pl;
 
    m_type = new T();
-   m_type->setName(topicName.c_str());
+   m_type->setName((topicName + "Type").c_str());
 
    if (IsTypeRegistered()) {
       err = 0;
@@ -916,7 +916,7 @@ inline AmmDataType <T, L, A, void> :: AmmDataType (
    m_pubListener = pl;
 
    m_type = new T();
-   m_type->setName(topicName.c_str());
+   m_type->setName((topicName + "Type").c_str());
 
    if (IsTypeRegistered()) {
       err = 0;
@@ -946,7 +946,7 @@ inline bool AmmDataType <T, L, A, void> :: IsTypeRegistered () {
 
    return eprosima::fastrtps::Domain::getRegisteredType(
       m_participant,
-      m_topicName.c_str(),
+      m_type->getName(),
       &type
    );
 }

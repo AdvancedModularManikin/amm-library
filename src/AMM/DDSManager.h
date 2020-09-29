@@ -43,17 +43,17 @@
 #define EVFR_TYPE AMM::EventFragmentPubSubType
 #define EVFR_LTNR AMM::DDS_Listeners::EventFragmentListener
 #define EVFR      AMM::EventFragment
-#define EVFR_STR  "Event Fragment"
+#define EVFR_STR  "EventFragment"
 
 #define EVRC_TYPE AMM::EventRecordPubSubType
 #define EVRC_LTNR AMM::DDS_Listeners::EventRecordListener
 #define EVRC      AMM::EventRecord
-#define EVRC_STR  "Event Record"
+#define EVRC_STR  "EventRecord"
 
 #define FARQ_TYPE AMM::FragmentAmendmentRequestPubSubType
 #define FARQ_LTNR AMM::DDS_Listeners::FragmentAmendmentRequestListener
 #define FARQ      AMM::FragmentAmendmentRequest
-#define FARQ_STR  "Fragment Amendment Request"
+#define FARQ_STR  "FragmentAmendmentRequest"
 
 #define ALOG_TYPE AMM::LogPubSubType
 #define ALOG_LTNR AMM::DDS_Listeners::LogListener
@@ -63,42 +63,42 @@
 #define MOCF_TYPE AMM::ModuleConfigurationPubSubType
 #define MOCF_LTNR AMM::DDS_Listeners::ModuleConfigurationListener
 #define MOCF      AMM::ModuleConfiguration
-#define MOCF_STR  "Module Configuration"
+#define MOCF_STR  "ModuleConfiguration"
 
 #define OMEV_TYPE AMM::OmittedEventPubSubType
 #define OMEV_LTNR AMM::DDS_Listeners::OmittedEventListener
 #define OMEV      AMM::OmittedEvent
-#define OMEV_STR  "Omitted Event"
+#define OMEV_STR  "OmittedEvent"
 
 #define OPDS_TYPE AMM::OperationalDescriptionPubSubType
 #define OPDS_LTNR AMM::DDS_Listeners::OperationalDescriptionListener
 #define OPDS      AMM::OperationalDescription
-#define OPDS_STR  "Operational Description"
+#define OPDS_STR  "OperationalDescription"
 
 #define PHMO_TYPE AMM::PhysiologyModificationPubSubType
 #define PHMO_LTNR AMM::DDS_Listeners::PhysiologyModificationListener
 #define PHMO      AMM::PhysiologyModification
-#define PHMO_STR  "Physiology Modification"
+#define PHMO_STR  "PhysiologyModification"
 
 #define PHVA_TYPE AMM::PhysiologyValuePubSubType
 #define PHVA_LTNR AMM::DDS_Listeners::PhysiologyValueListener
 #define PHVA      AMM::PhysiologyValue
-#define PHVA_STR  "Physiology Value"
+#define PHVA_STR  "PhysiologyValue"
 
 #define PHWV_TYPE AMM::PhysiologyWaveformPubSubType
 #define PHWV_LTNR AMM::DDS_Listeners::PhysiologyWaveformListener
 #define PHWV      AMM::PhysiologyWaveform
-#define PHWV_STR  "Physiology Waveform"
+#define PHWV_STR  "PhysiologyWaveform"
 
 #define RDMO_TYPE AMM::RenderModificationPubSubType
 #define RDMO_LTNR AMM::DDS_Listeners::RenderModificationListener
 #define RDMO      AMM::RenderModification
-#define RDMO_STR  "Render Modification"
+#define RDMO_STR  "RenderModification"
 
 #define SMCN_TYPE AMM::SimulationControlPubSubType
 #define SMCN_LTNR AMM::DDS_Listeners::SimulationControlListener
 #define SMCN      AMM::SimulationControl
-#define SMCN_STR  "Simulation Control"
+#define SMCN_STR  "SimulationControl"
 
 #define STAT_TYPE AMM::StatusPubSubType
 #define STAT_LTNR AMM::DDS_Listeners::StatusListener
@@ -113,7 +113,7 @@
 #define IDAT_TYPE AMM::InstrumentDataPubSubType
 #define IDAT_LTNR AMM::DDS_Listeners::InstrumentDataListener
 #define IDAT      AMM::InstrumentData
-#define IDAT_STR  "Instrument Data"
+#define IDAT_STR  "InstrumentData"
 
 #define CMND_TYPE AMM::CommandPubSubType
 #define CMND_LTNR AMM::DDS_Listeners::CommandListener
@@ -133,145 +133,43 @@ namespace AMM {
     class DDSManager : public ListenerInterface {
 
     private:
-
-        /// Assessment type handler.
-        /// Handler for registering, publishering, and subscribing data for Assessment.
         AmmDataType<ASMT_TYPE, ASMT_LTNR, ASMT, U> *m_assessment;
-
-        /// Event Fragment type handler.
-        /// Handler for registering, publishering, and subscribing data for Event Fragment.
         AmmDataType<EVFR_TYPE, EVFR_LTNR, EVFR, U> *m_eventFragment;
-
-        /// Event Record type handler.
-        /// Handler for registering, publishering, and subscribing data for Event Record.
         AmmDataType<EVRC_TYPE, EVRC_LTNR, EVRC, U> *m_eventRecord;
-
-        /// Fragment Amendment Request type handler.
-        /// Handler for registering, publishering, and subscribing data for Fragment Amendment Request.
         AmmDataType<FARQ_TYPE, FARQ_LTNR, FARQ, U> *m_fragmentAmendmentRequest;
-
-        /// Log type handler.
-        /// Handler for registering, publishering, and subscribing data for Log.
         AmmDataType<ALOG_TYPE, ALOG_LTNR, ALOG, U> *m_log;
-
-        /// Module Configuration type handler.
-        /// Handler for registering, publishering, and subscribing data for Module Configuration.
         AmmDataType<MOCF_TYPE, MOCF_LTNR, MOCF, U> *m_moduleConfiguration;
-
-        /// Omitted Description type handler.
-        /// Handler for registering, publishering, and subscribing data for Omitted Description.
         AmmDataType<OMEV_TYPE, OMEV_LTNR, OMEV, U> *m_omittedEvent;
-
-        /// Operational Description type handler.
-        /// Handler for registering, publishering, and subscribing data for Operational Description.
         AmmDataType<OPDS_TYPE, OPDS_LTNR, OPDS, U> *m_operationalDescription;
-
-        /// Physiology Modification type handler.
-        /// Handler for registering, publishering, and subscribing data for Physiology Modification.
         AmmDataType<PHMO_TYPE, PHMO_LTNR, PHMO, U> *m_physiologyModification;
-
-        /// Physiology Value type handler.
-        /// Handler for registering, publishering, and subscribing data for Physiology Value.
         AmmDataType<PHVA_TYPE, PHVA_LTNR, PHVA, U> *m_physiologyValue;
-
-        /// Physiology Waveform type handler.
-        /// Handler for registering, publishering, and subscribing data for Physiology Waveform.
         AmmDataType<PHWV_TYPE, PHWV_LTNR, PHWV, U> *m_physiologyWaveform;
-
-        /// Render Modification type handler.
-        /// Handler for registering, publishering, and subscribing data for Render Modification.
         AmmDataType<RDMO_TYPE, RDMO_LTNR, RDMO, U> *m_renderModification;
-
-        /// Simulation Control type handler.
-        /// Handler for registering, publishering, and subscribing data for Simulation Control.
         AmmDataType<SMCN_TYPE, SMCN_LTNR, SMCN, U> *m_simulationControl;
-
-        /// Status type handler.
-        /// Handler for registering, publishering, and subscribing data for Status.
         AmmDataType<STAT_TYPE, STAT_LTNR, STAT, U> *m_status;
-
-        /// Tick type handler.
-        /// Handler for registering, publishering, and subscribing data for Tick.
         AmmDataType<TICK_TYPE, TICK_LTNR, TICK, U> *m_tick;
-
-        /// Instrument Data type handler.
-        /// Handler for registering, publishering, and subscribing data for Instrument Data.
         AmmDataType<IDAT_TYPE, IDAT_LTNR, IDAT, U> *m_instrumentData;
-
-        /// Command type handler.
-        /// Handler for registering, publishering, and subscribing data for Command.
         AmmDataType<CMND_TYPE, CMND_LTNR, CMND, U> *m_command;
 
-        /// Initializer flag for Assessment.
-        /// State of whether the AMMDataType pointer for Assessment is valid.
         bool m_isAssessmentInit = false;
-
-        /// Initializer flag for Event Fragment.
-        /// State of whether the AMMDataType pointer for Event Fragment is valid.
         bool m_isEventFragInit = false;
-
-        /// Initializer flag for Event Record.
-        /// State of whether the AMMDataType pointer for Event Record is valid.
         bool m_isEventRecInit = false;
-
-        /// Initializer flag for Fragment Amendment Request.
-        /// State of whether the AMMDataType pointer for Fragment Amendment Request is valid.
         bool m_isFragAmendReqInit = false;
-
-        /// Initializer flag for Log.
-        /// State of whether the AMMDataType pointer for Log is valid.
         bool m_isLogInit = false;
-
-        /// Initializer flag for Module Configuration.
-        /// State of whether the AMMDataType pointer for Module Configuration is valid.
         bool m_isModConfigInit = false;
-
-        /// Initializer flag for Omitted Event.
-        /// State of whether the AMMDataType pointer for Omitted Event is valid.
         bool m_isOmitEventInit = false;
-
-        /// Initializer flag for Operational Description.
-        /// State of whether the AMMDataType pointer for Operational Description is valid.
         bool m_isOpDescriptInit = false;
-
-        /// Initializer flag for Physiology Modification.
-        /// State of whether the AMMDataType pointer for Physiology Modification is valid.
         bool m_isPhysModInit = false;
-
-        /// Initializer flag for Physiology Value.
-        /// State of whether the AMMDataType pointer for Physiology Value is valid.
         bool m_isPhysValInit = false;
-
-        /// Initializer flag for Physiology Waveform.
-        /// State of whether the AMMDataType pointer for Physiology Waveform is valid.
         bool m_isPhysWaveInit = false;
-
-        /// Initializer flag for Render Modification.
-        /// State of whether the AMMDataType pointer for Render Modification is valid.
         bool m_isRendModInit = false;
-
-        /// Initializer flag for Simulation Control.
-        /// State of whether the AMMDataType pointer for Simulation Control is valid.
         bool m_isSimControlInit = false;
-
-        /// Initializer flag for Status.
-        /// State of whether the AMMDataType pointer for Status is valid.
         bool m_isStatusInit = false;
-
-        /// Initializer flag for Tick.
-        /// State of whether the AMMDataType pointer for Tick is valid.
         bool m_isTickInit = false;
-
-        /// Initializer flag for Instrument Data.
-        /// State of whether the AMMDataType pointer for Instrument Data is valid.
         bool m_isInstDataInit = false;
-
-        /// Initializer flag for Command.
-        /// State of whether the AMMDataType pointer for Command is valid.
         bool m_isCommandInit = false;
 
-
-    private:
+    public:
 
         /// UUID of this module.
         std::string m_moduleId;
@@ -302,1701 +200,434 @@ namespace AMM {
         /// Default deconstructor.
         ~DDSManager() {};
 
+        // std::string GetModuleName ();
+
         /// Default shutdown command for the module.
         /// Should always be used before exiting the executable, because this ensures all Participant activity
         /// is properly terminated and cleaned up for memory management sake on the DDS network.
-        /// @note Shutdown routine will not stop if an error flag is raised. Will ignore and continue on.
         void Shutdown();
 
-        /// Override shutdown outputting an error message if any error flags are raised suring shutdown.
-        /// @param errmsg Error message output.
-        /// @note Shutdown routine will not stop if an error flag is raised. Will ignore and continue on.
         void Shutdown(std::string &errmsg);
 
-        /// Generates a random UUID.
-        /// @returns A string form of a UUID.
         static std::string GenerateUuidString();
 
-        /// Initializer routine for Assessment.
-        /// Initializes m_assessment with a new AmmDataType pointer.
-        /// @returns 0 if successful.
         int InitializeAssessment();
-
-        /// Overload initializer routine for Assessment.
-        /// Initializes m_assessment with a new AmmDataType pointer.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int InitializeAssessment(std::string &errmsg);
-
-        /// State of whether Assessment is currently valid.
-        /// @returns True if m_assessment is valid pointer.
         bool IsAssessmentInitialized();
-
-        /// Create the data publisher for Assessment on this module.
-        /// Allows Assessment data to be published to the DDS network.
-        /// @returns 0 if successful.
         int CreateAssessmentPublisher();
-
-        /// Create the data publisher for Assessment on this module.
-        /// Allows Assessment data to be published to the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int CreateAssessmentPublisher(std::string &errmsg);
-
-        /// Remove the publisher for Assessment on this module from the DDS network.
-        /// @returns 0 if successful.
         int RemoveAssessmentPublisher();
-
-        /// Remove the publisher for Assessment on this module from the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int RemoveAssessmentPublisher(std::string &errmsg);
-
-        /// Create the data subscriber for Assessment published events on this module.
-        /// Allows the module to receive Assessment data when it is published on the DDS network.
-        /// @param parentClass Reference to the object that is receiving the subscribed event callback.
-        /// @param onEvent Method reference of parentClass that is be used as a callback for subscribed events.
-        /// @returns 0 if successful.
         int CreateAssessmentSubscriber(
            U *parentClass, void (U::*onEvent)(AMM::Assessment &, eprosima::fastrtps::SampleInfo_t *)
         );
-
-        /// Create the data subscriber for Assessment published events on this module.
-        /// Allows the module to receive Assessment data when it is published on the DDS network.
-        /// @param errmsg Error message output.
-        /// @param parentClass Reference to the object that is receiving the subscribed event callback.
-        /// @param onEvent Method reference of parentClass that is be used as a callback for subscribed events.
-        /// @returns 0 if successful.
         int CreateAssessmentSubscriber(
            std::string &errmsg, U *parentClass,
            void (U::*onEvent)(AMM::Assessment &, eprosima::fastrtps::SampleInfo_t *)
         );
-
-        /// Remove the subscriber for Assessment on this module from the DDS network.
-        /// @returns 0 if successful.
         int RemoveAssessmentSubscriber();
-
-        /// Remove the subscriber for Assessment on this module from the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int RemoveAssessmentSubscriber(std::string &errmsg);
-
-        /// Call upon the active publisher for Assessment to write data to the DDS network.
-        /// @param a Reference to Assessment data to be written.
-        /// @returns 0 if successful.
-        /// @returns 1 if Publisher has not been created or if some other error occurred.
         int WriteAssessment(AMM::Assessment &a);
-
-        /// Call upon the active publisher for Assessment to write data to the DDS network.
-        /// @param errmsg Error message output.
-        /// @param a Reference to Assessment data to be written.
-        /// @returns 0 if successful.
-        /// @returns 1 if Publisher has not been created or if some other error occurred.
         int WriteAssessment(std::string &errmsg, AMM::Assessment &a);
-
-        /// Listener Interface override for handling Assessment subscribed events.
-        /// Calls OnEvent on m_assessment passing along data to the handler defined by
-        /// the user in CreateAssessmentSubscriber.
-        /// @see AmmDataType::OnEvent
-        /// @see ListenerInterface::onNewAssessment
-        /// @param assessment incoming Assessment data from the DDS network.
-        /// @param info FastRTPS sample info.
         void onNewAssessment(AMM::Assessment assessment, eprosima::fastrtps::SampleInfo_t *info) override;
-
-        /// Clean up Assessment and set it to an inactive state.
-        /// Calls Delete on m_assessment.
-        /// @returns 0 if successful.
         int DecommissionAssessment();
-
-        /// Clean up assessment and set it to an inactive state.
-        /// Calls Delete on m_assessment.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int DecommissionAssessment(std::string &errmsg);
+
 
         // - - - Event Fragment - - -
 
-        /// Initializer routine for Event Fragment.
-        /// Initializes m_eventFragment with a new AmmDataType pointer.
-        /// @returns 0 if successful.
         int InitializeEventFragment();
-
-        /// Overload initializer routine for Event Fragment.
-        /// Initializes m_eventFragment with a new AmmDataType pointer.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int InitializeEventFragment(std::string &errmsg);
-
-        /// State of whether Event Fragment is currently valid.
-        /// @returns True if m_eventFragment is valid pointer.
         bool IsEventFragmentInitialzied();
-
-        /// Create the data publisher for Event Fragment on this module.
-        /// Allows Event Fragment data to be published to the DDS network.
-        /// @returns 0 if successful.
         int CreateEventFragmentPublisher();
-
-        /// Create the data publisher for Event Fragment on this module.
-        /// Allows Event Fragment data to be published to the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int CreateEventFragmentPublisher(std::string &errmsg);
-
-        /// Remove the publisher for Event Fragment on this module from the DDS network.
-        /// @returns 0 if successful.
         int RemoveEventFragmentPublisher();
-
-        /// Remove the publisher for Event Fragment on this module from the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int RemoveEventFragmentPublisher(std::string &errmsg);
-
-        /// Create the data subscriber for Event Fragment published events on this module.
-        /// Allows the module to receive Event Fragment data when it is published on the DDS network.
-        /// @param parentClass Reference to the object that is receiving the subscribed event callback.
-        /// @param onEvent Method reference of parentClass that is be used as a callback for subscribed events.
-        /// @returns 0 if successful.
         int CreateEventFragmentSubscriber(
            U *parentClass, void (U::*onEvent)(AMM::EventFragment &, eprosima::fastrtps::SampleInfo_t *)
         );
-
-        /// Create the data subscriber for Event Fragment published events on this module.
-        /// Allows the module to receive Event Fragment data when it is published on the DDS network.
-        /// @param errmsg Error message output.
-        /// @param parentClass Reference to the object that is receiving the subscribed event callback.
-        /// @param onEvent Method reference of parentClass that is be used as a callback for subscribed events.
-        /// @returns 0 if successful.
         int CreateEventFragmentSubscriber(
            std::string &errmsg, U *parentClass,
            void (U::*onEvent)(AMM::EventFragment &, eprosima::fastrtps::SampleInfo_t *)
         );
-
-        /// Remove the subscriber for Event Fragment on this module from the DDS network.
-        /// @returns 0 if successful.
         int RemoveEventFragmentSubscriber();
-
-        /// Remove the subscriber for Event Fragment on this module from the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int RemoveEventFragmentSubscriber(std::string &errmsg);
-
-        /// Call upon the active publisher for Event Fragment to write data to the DDS network.
-        /// @param a Reference to Event Fragment data to be written.
-        /// @returns 0 if successful.
-        /// @returns 1 if Publisher has not been created or if some other error occurred.
         int WriteEventFragment(AMM::EventFragment &a);
-
-        /// Call upon the active publisher for Event Fragment to write data to the DDS network.
-        /// @param errmsg Error message output.
-        /// @param a Reference to Event Fragment data to be written.
-        /// @returns 0 if successful.
-        /// @returns 1 if Publisher has not been created or if some other error occurred.
         int WriteEventFragment(std::string &errmsg, AMM::EventFragment &a);
-
-        /// Listener Interface override for handling Assessment subscribed events.
-        /// Calls OnEvent on m_eventFragment passing along data to the handler defined by
-        /// the user in CreateEventFragmentSubscriber.
-        /// @see AmmDataType::OnEvent
-        /// @see DDSManager::m_aseessment
-        /// @see ListenerInterface::onNewEventFragment
-        /// @param eventFrag incoming Event Fragment data from the DDS network.
-        /// @param info FastRTPS sample info.
         void onNewEventFragment(AMM::EventFragment eventFrag, eprosima::fastrtps::SampleInfo_t *info) override;
-
-        /// Clean up Event Fragment and set it to an inactive state.
-        /// Calls Delete on m_eventFragment.
-        /// @returns 0 if successful.
         int DecommissionEventFragment();
-
-        /// Clean up Event Fragment and set it to an inactive state.
-        /// Calls Delete on m_eventFragment.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int DecommissionEventFragment(std::string &errmsg);
+
 
         // - - - Event Record - - -
 
-        /// Initializer routine for Event Record.
-        /// Initializes m_eventRecord with a new AmmDataType pointer.
-        /// @returns 0 if successful.
         int InitializeEventRecord();
-
-        /// Overload initializer routine for Event Record.
-        /// Initializes m_eventRecord with a new AmmDataType pointer.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int InitializeEventRecord(std::string &errmsg);
-
-        /// State of whether Event Record is currently valid.
-        /// @returns True if m_eventRecord is valid pointer.
         bool IsEventRecordInitialized();
-
-        /// Create the data publisher for Event Record on this module.
-        /// Allows Event Record data to be published to the DDS network.
-        /// @returns 0 if successful.
         int CreateEventRecordPublisher();
-
-        /// Create the data publisher for Event Record on this module.
-        /// Allows Event Fragment data to be published to the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int CreateEventRecordPublisher(std::string &errmsg);
-
-        /// Remove the publisher for Event Record on this module from the DDS network.
-        /// @returns 0 if successful.
         int RemoveEventRecordPublisher();
-
-        /// Remove the publisher for Event Record on this module from the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int RemoveEventRecordPublisher(std::string &errmsg);
-
-        /// Create the data subscriber for Event Record published events on this module.
-        /// Allows the module to receive Event Record data when it is published on the DDS network.
-        /// @param parentClass Reference to the object that is receiving the subscribed event callback.
-        /// @param onEvent Method reference of parentClass that is be used as a callback for subscribed events.
-        /// @returns 0 if successful.
         int CreateEventRecordSubscriber(
            U *parentClass, void (U::*onEvent)(AMM::EventRecord &, eprosima::fastrtps::SampleInfo_t *)
         );
-
-        /// Create the data subscriber for Event Record published events on this module.
-        /// Allows the module to receive Event Record data when it is published on the DDS network.
-        /// @param errmsg Error message output.
-        /// @param parentClass Reference to the object that is receiving the subscribed event callback.
-        /// @param onEvent Method reference of parentClass that is be used as a callback for subscribed events.
-        /// @returns 0 if successful.
         int CreateEventRecordSubscriber(
            std::string &errmsg, U *parentClass,
            void (U::*onEvent)(AMM::EventRecord &, eprosima::fastrtps::SampleInfo_t *)
         );
-
-        /// Remove the subscriber for Event Record on this module from the DDS network.
-        /// @returns 0 if successful.
         int RemoveEventRecordSubscriber();
-
-        /// Remove the subscriber for Event Record on this module from the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int RemoveEventRecordSubscriber(std::string &errmsg);
-
-        /// Call upon the active publisher for Event Record to write data to the DDS network.
-        /// @param a Reference to Event Record data to be written.
-        /// @returns 0 if successful.
-        /// @returns 1 if Publisher has not been created or if some other error occurred.
         int WriteEventRecord(AMM::EventRecord &a);
-
-        /// Call upon the active publisher for Event Record to write data to the DDS network.
-        /// @param errmsg Error message output.
-        /// @param a Reference to Event Record data to be written.
-        /// @returns 0 if successful.
-        /// @returns 1 if Publisher has not been created or if some other error occurred.
         int WriteEventRecord(std::string &errmsg, AMM::EventRecord &a);
-
-        /// Listener Interface override for handling Event Record subscribed events.
-        /// Calls OnEvent on m_eventRecord passing along data to the handler defined by
-        /// the user in CreateEventRecordSubscriber.
-        /// @see AmmDataType::OnEvent
-        /// @see ListenerInterface::onNewEventRecord
-        /// @param eventFrag incoming Event Record data from the DDS network.
-        /// @param info FastRTPS sample info.
         void onNewEventRecord(AMM::EventRecord eventRec, eprosima::fastrtps::SampleInfo_t *info) override;
-
-        /// Clean up Event Record and set it to an inactive state.
-        /// Calls Delete on m_eventRecord.
-        /// @returns 0 if successful.
         int DecommissionEventRecord();
-
-        /// Clean up Event Record and set it to an inactive state.
-        /// Calls Delete on m_eventRecord.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int DecommissionEventRecord(std::string &errmsg);
+
 
         // - - - Fragment Amendment Request - - -
 
-        /// Initializer routine for Fragment Amendment Request.
-        /// Initializes m_fragmentAmendmentRequest with a new AmmDataType pointer.
-        /// @returns 0 if successful.
         int InitializeFragmentAmendmentRequest();
-
-        /// Overload initializer routine for Fragment Amendment Request.
-        /// Initializes m_fragmentAmendmentRequest with a new AmmDataType pointer.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int InitializeFragmentAmendmentRequest(std::string &errmsg);
-
-        /// State of whether Fragment Amendment Request is currently valid.
-        /// @returns True if m_fragmentAmendmentRequest is valid pointer.
         bool IsFragmentAmendmentRequestInitialized();
-
-        /// Create the data publisher for Fragment Amendment Request on this module.
-        /// Allows Fragment Amendment Request data to be published to the DDS network.
-        /// @returns 0 if successful.
         int CreateFragmentAmendmentRequestPublisher();
-
-        /// Create the data publisher for Fragment Amendment Request on this module.
-        /// Allows Fragment Amendment Request data to be published to the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int CreateFragmentAmendmentRequestPublisher(std::string &errmsg);
-
-        /// Remove the publisher for Fragment Amendment Request on this module from the DDS network.
-        /// @returns 0 if successful.
         int RemoveFragmentAmendmentRequestPublisher();
-
-        /// Remove the publisher for Fragment Amendment Request on this module from the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int RemoveFragmentAmendmentRequestPublisher(std::string &errmsg);
-
-        /// Create the data subscriber for Fragment Amendment Request published events on this module.
-        /// Allows the module to receive Fragment Amendment Request data when it is published on the DDS network.
-        /// @param parentClass Reference to the object that is receiving the subscribed event callback.
-        /// @param onEvent Method reference of parentClass that is be used as a callback for subscribed events.
-        /// @returns 0 if successful.
         int CreateFragmentAmendmentRequestSubscriber(
            U *parentClass, void (U::*onEvent)(AMM::FragmentAmendmentRequest &, eprosima::fastrtps::SampleInfo_t *)
         );
-
-        /// Create the data subscriber for Fragment Amendment Request published events on this module.
-        /// Allows the module to receive Fragment Amendment Request data when it is published on the DDS network.
-        /// @param errmsg Error message output.
-        /// @param parentClass Reference to the object that is receiving the subscribed event callback.
-        /// @param onEvent Method reference of parentClass that is be used as a callback for subscribed events.
-        /// @returns 0 if successful.
         int CreateFragmentAmendmentRequestSubscriber(
            std::string &errmsg, U *parentClass,
            void (U::*onEvent)(AMM::FragmentAmendmentRequest &, eprosima::fastrtps::SampleInfo_t *)
         );
-
-        /// Remove the subscriber for Fragment Amendment Request on this module from the DDS network.
-        /// @returns 0 if successful.
         int RemoveFragmentAmendmentRequestSubscriber();
-
-        /// Remove the subscriber for Fragment Amendment Request on this module from the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int RemoveFragmentAmendmentRequestSubscriber(std::string &errmsg);
-
-        /// Call upon the active publisher for Fragment Amendment Request to write data to the DDS network.
-        /// @param a Reference to Fragment Amendment Request data to be written.
-        /// @returns 0 if successful.
-        /// @returns 1 if Publisher has not been created or if some other error occurred.
         int WriteFragmentAmendmentRequest(AMM::FragmentAmendmentRequest &a);
-
-        /// Call upon the active publisher for Fragment Amendmnet Request to write data to the DDS network.
-        /// @param errmsg Error message output.
-        /// @param a Reference to Fragment Amendment Request data to be written.
-        /// @returns 0 if successful.
-        /// @returns 1 if Publisher has not been created or if some other error occurred.
         int WriteFragmentAmendmentRequest(std::string &errmsg, AMM::FragmentAmendmentRequest &a);
-
-        /// Listener Interface override for handling Fragment Amendment Request subscribed events.
-        /// Calls OnEvent on m_fragmentAmendmentRequest passing along data to the handler defined by
-        /// the user in CreateFragmentAmendmentRequestSubscriber.
-        /// @see AmmDataType::OnEvent
-        /// @see ListenerInterface::onNewFragmentAmendmentRequest
-        /// @param ffar incoming Fragment Amendment Request data from the DDS network.
-        /// @param info FastRTPS sample info.
         void onNewFragmentAmendmentRequest(AMM::FragmentAmendmentRequest ffar,
                                            eprosima::fastrtps::SampleInfo_t *info) override;
-
-        /// Clean up Fragment Amendment Request and set it to an inactive state.
-        /// Calls Delete on m_fragmentAmendmentRequest.
-        /// @returns 0 if successful.
         int DecommissionFragmentAmendmentRequest();
-
-        /// Clean up Fragment Amendment Request and set it to an inactive state.
-        /// Calls Delete on m_fragmentAmendmentRequest.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int DecommissionFragmentAmendmentRequest(std::string &errmsg);
 
+
         // - - - Log - - -
-
-        /// Initializer routine for Log.
-        /// Initializes m_log with a new AmmDataType pointer.
-        /// @returns 0 if successful.
         int InitializeLog();
-
-        /// Overload initializer routine for Log.
-        /// Initializes m_log with a new AmmDataType pointer.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int InitializeLog(std::string &errmsg);
-
-        /// State of whether Log is currently valid.
-        /// @returns True if m_log is valid pointer.
         bool IsLogInitialized();
-
-        /// Create the data publisher for Log on this module.
-        /// Allows Log data to be published to the DDS network.
-        /// @returns 0 if successful.
         int CreateLogPublisher();
-
-        /// Create the data publisher for Log on this module.
-        /// Allows Log data to be published to the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int CreateLogPublisher(std::string &errmsg);
-
-        /// Remove the publisher for Log on this module from the DDS network.
-        /// @returns 0 if successful.
         int RemoveLogPublisher();
-
-        /// Remove the publisher for Log on this module from the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int RemoveLogPublisher(std::string &errmsg);
-
-        /// Create the data subscriber for Log published events on this module.
-        /// Allows the module to receive Log data when it is published on the DDS network.
-        /// @param parentClass Reference to the object that is receiving the subscribed event callback.
-        /// @param onEvent Method reference of parentClass that is be used as a callback for subscribed events.
-        /// @returns 0 if successful.
         int CreateLogSubscriber(
            U *parentClass, void (U::*onEvent)(AMM::Log &, eprosima::fastrtps::SampleInfo_t *)
         );
-
-        /// Create the data subscriber for Log published events on this module.
-        /// Allows the module to receive Log data when it is published on the DDS network.
-        /// @param errmsg Error message output.
-        /// @param parentClass Reference to the object that is receiving the subscribed event callback.
-        /// @param onEvent Method reference of parentClass that is be used as a callback for subscribed events.
-        /// @returns 0 if successful.
         int CreateLogSubscriber(
            std::string &errmsg, U *parentClass, void (U::*onEvent)(AMM::Log &, eprosima::fastrtps::SampleInfo_t *)
         );
-
-        /// Remove the subscriber for Log on this module from the DDS network.
-        /// @returns 0 if successful.
         int RemoveLogSubscriber();
-
-        /// Remove the subscriber for Log on this module from the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int RemoveLogSubscriber(std::string &errmsg);
-
-        /// Call upon the active publisher for Log to write data to the DDS network.
-        /// @param a Reference to Log data to be written.
-        /// @returns 0 if successful.
-        /// @returns 1 if Publisher has not been created or if some other error occurred.
         int WriteLog(AMM::Log &a);
-
-        /// Call upon the active publisher for Log to write data to the DDS network.
-        /// @param errmsg Error message output.
-        /// @param a Reference to Log data to be written.
-        /// @returns 0 if successful.
-        /// @returns 1 if Publisher has not been created or if some other error occurred.
         int WriteLog(std::string &errmsg, AMM::Log &a);
-
-        /// Listener Interface override for handling Log subscribed events.
-        /// Calls OnEvent on m_log passing along data to the handler defined by
-        /// the user in CreateLogSubscriber.
-        /// @see AmmDataType::OnEvent
-        /// @see ListenerInterface::onNewLog
-        /// @param log incoming Log data from the DDS network.
-        /// @param info FastRTPS sample info.
         void onNewLog(AMM::Log eventRec, eprosima::fastrtps::SampleInfo_t *info) override;
-
-        /// Clean up Log and set it to an inactive state.
-        /// Calls Delete on m_log.
-        /// @returns 0 if successful.
         int DecommissionLog();
-
-        /// Clean up Log and set it to an inactive state.
-        /// Calls Delete on m_log.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int DecommissionLog(std::string &errmsg);
+
 
         // - - - Module Configuration - - -
 
-        /// Initializer routine for Module Configuration.
-        /// Initializes m_moduleConfiguration with a new AmmDataType pointer.
-        /// @returns 0 if successful.
         int InitializeModuleConfiguration();
-
-        /// Overload initializer routine for Module Configuration.
-        /// Initializes m_moduleConfiguration with a new AmmDataType pointer.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int InitializeModuleConfiguration(std::string &errmsg);
-
-        /// State of whether Module Configuration is currently valid.
-        /// @returns True if m_moduleConfiguration is valid pointer.
         bool IsModuleConfigurationInitialized();
-
-        /// Create the data publisher for Module Configuration on this module.
-        /// Allows Module Configuration data to be published to the DDS network.
-        /// @returns 0 if successful.
         int CreateModuleConfigurationPublisher();
-
-        /// Create the data publisher for Module Configuration on this module.
-        /// Allows Module Configuration data to be published to the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int CreateModuleConfigurationPublisher(std::string &errmsg);
-
-        /// Remove the publisher for Module Configuration on this module from the DDS network.
-        /// @returns 0 if successful.
         int RemoveModuleConfigurationPublisher();
-
-        /// Remove the publisher for Module Configuration on this module from the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int RemoveModuleConfigurationPublisher(std::string &errmsg);
-
-        /// Create the data subscriber for Module Configuration published events on this module.
-        /// Allows the module to receive Module Configuration data when it is published on the DDS network.
-        /// @param parentClass Reference to the object that is receiving the subscribed event callback.
-        /// @param onEvent Method reference of parentClass that is be used as a callback for subscribed events.
-        /// @returns 0 if successful.
         int CreateModuleConfigurationSubscriber(
            U *parentClass, void (U::*onEvent)(AMM::ModuleConfiguration &, eprosima::fastrtps::SampleInfo_t *)
         );
-
-        /// Create the data subscriber for Module Configuration published events on this module.
-        /// Allows the module to receive Module Configuration data when it is published on the DDS network.
-        /// @param errmsg Error message output.
-        /// @param parentClass Reference to the object that is receiving the subscribed event callback.
-        /// @param onEvent Method reference of parentClass that is be used as a callback for subscribed events.
-        /// @returns 0 if successful.
         int CreateModuleConfigurationSubscriber(
            std::string &errmsg, U *parentClass,
            void (U::*onEvent)(AMM::ModuleConfiguration &, eprosima::fastrtps::SampleInfo_t *)
         );
-
-        /// Remove the subscriber for Module Configuration on this module from the DDS network.
-        /// @returns 0 if successful.
         int RemoveModuleConfigurationSubscriber();
-
-        /// Remove the subscriber for Module Configuration on this module from the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int RemoveModuleConfigurationSubscriber(std::string &errmsg);
-
-        /// Call upon the active publisher for Module Configuration to write data to the DDS network.
-        /// @param a Reference to Module Configuration data to be written.
-        /// @returns 0 if successful.
-        /// @returns 1 if Publisher has not been created or if some other error occurred.
         int WriteModuleConfiguration(AMM::ModuleConfiguration &a);
-
-        /// Call upon the active publisher for Module Configuration to write data to the DDS network.
-        /// @param errmsg Error message output.
-        /// @param a Reference to Module Configuration data to be written.
-        /// @returns 0 if successful.
-        /// @returns 1 if Publisher has not been created or if some other error occurred.
         int WriteModuleConfiguration(std::string &errmsg, AMM::ModuleConfiguration &a);
-
-        /// Listener Interface override for handling Module Configuration subscribed events.
-        /// Calls OnEvent on m_moduleConfiguration passing along data to the handler defined by
-        /// the user in CreateModuleConfigurationSubscriber.
-        /// @see AmmDataType::OnEvent
-        /// @see ListenerInterface::onNewModuleConfiguration
-        /// @param modConfig incoming Module Configuration data from the DDS network.
-        /// @param info FastRTPS sample info.
-        void
-        onNewModuleConfiguration(AMM::ModuleConfiguration modConfig, eprosima::fastrtps::SampleInfo_t *info) override;
-
-        /// Clean up Module Configuration and set it to an inactive state.
-        /// Calls Delete on m_moduleConfiguration.
-        /// @returns 0 if successful.
+        void onNewModuleConfiguration(AMM::ModuleConfiguration modConfig, eprosima::fastrtps::SampleInfo_t *info) override;
         int DecommissionModuleConfiguration();
-
-        /// Clean up Module Configuration and set it to an inactive state.
-        /// Calls Delete on m_moduleConfiguration.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int DecommissionModuleConfiguration(std::string &errmsg);
+
 
         // - - - Omitted Event - - -
 
-        /// Initializer routine for Omitted Event.
-        /// Initializes m_omittedEvent with a new AmmDataType pointer.
-        /// @returns 0 if successful.
         int InitializeOmittedEvent();
-
-        /// Overload initializer routine for Omitted Event.
-        /// Initializes m_omittedEvent with a new AmmDataType pointer.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int InitializeOmittedEvent(std::string &errmsg);
-
-        /// State of whether Omitted Event is currently valid.
-        /// @returns True if m_omittedEvent is valid pointer.
         bool IsOmittedEventInitialized();
-
-        /// Create the data publisher for Omitted Event on this module.
-        /// Allows Omitted Event data to be published to the DDS network.
-        /// @returns 0 if successful.
         int CreateOmittedEventPublisher();
-
-        /// Create the data publisher for Omitted Event on this module.
-        /// Allows Omitted Event data to be published to the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int CreateOmittedEventPublisher(std::string &errmsg);
-
-        /// Remove the publisher for Omitted Event on this module from the DDS network.
-        /// @returns 0 if successful.
         int RemoveOmittedEventPublisher();
-
-        /// Remove the publisher for Omitted Event on this module from the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int RemoveOmittedEventPublisher(std::string &errmsg);
-
-        /// Create the data subscriber for Omitted Event published events on this module.
-        /// Allows the module to receive Omitted Event data when it is published on the DDS network.
-        /// @param parentClass Reference to the object that is receiving the subscribed event callback.
-        /// @param onEvent Method reference of parentClass that is be used as a callback for subscribed events.
-        /// @returns 0 if successful.
         int CreateOmittedEventSubscriber(
            U *parentClass, void (U::*onEvent)(AMM::OmittedEvent &, eprosima::fastrtps::SampleInfo_t *)
         );
-
-        /// Create the data subscriber for Omitted Event published events on this module.
-        /// Allows the module to receive Omitted Event data when it is published on the DDS network.
-        /// @param errmsg Error message output.
-        /// @param parentClass Reference to the object that is receiving the subscribed event callback.
-        /// @param onEvent Method reference of parentClass that is be used as a callback for subscribed events.
-        /// @returns 0 if successful.
         int CreateOmittedEventSubscriber(
            std::string &errmsg, U *parentClass,
            void (U::*onEvent)(AMM::OmittedEvent &, eprosima::fastrtps::SampleInfo_t *)
         );
-
-        /// Remove the subscriber for Omitted Event on this module from the DDS network.
-        /// @returns 0 if successful.
         int RemoveOmittedEventSubscriber();
-
-        /// Remove the subscriber for Omitted Event on this module from the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int RemoveOmittedEventSubscriber(std::string &errmsg);
-
-        /// Call upon the active publisher for Omitted Event to write data to the DDS network.
-        /// @param a Reference to Omitted Event data to be written.
-        /// @returns 0 if successful.
-        /// @returns 1 if Publisher has not been created or if some other error occurred.
         int WriteOmittedEvent(AMM::OmittedEvent &a);
-
-        /// Call upon the active publisher for Omitted Event to write data to the DDS network.
-        /// @param errmsg Error message output.
-        /// @param a Reference to Omitted Event data to be written.
-        /// @returns 0 if successful.
-        /// @returns 1 if Publisher has not been created or if some other error occurred.
         int WriteOmittedEvent(std::string &errmsg, AMM::OmittedEvent &a);
-
-        /// Listener Interface override for handling Omitted Event subscribed events.
-        /// Calls OnEvent on m_omittedEvent passing along data to the handler defined by
-        /// the user in CreateOmittedEventSubscriber.
-        /// @see AmmDataType::OnEvent
-        /// @see ListenerInterface::onNewOmittedEvent
-        /// @param omittedEvent incoming Omitted Event data from the DDS network.
-        /// @param info FastRTPS sample info..
         void onNewOmittedEvent(AMM::OmittedEvent omittedEvent, eprosima::fastrtps::SampleInfo_t *info) override;
-
-        /// Clean up Omitted Event and set it to an inactive state.
-        /// Calls Delete on m_omittedEvent.
-        /// @returns 0 if successful.
         int DecommissionOmittedEvent();
-
-        /// Clean up Omitted Event and set it to an inactive state.
-        /// Calls Delete on m_omittedEvent.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int DecommissionOmittedEvent(std::string &errmsg);
+
 
         // - - - Operational Description - - -
 
-        /// Initializer routine for Operational Description.
-        /// Initializes m_operationalDescription with a new AmmDataType pointer.
-        /// @returns 0 if successful.
         int InitializeOperationalDescription();
-
-        /// Overload initializer routine for Operational Description.
-        /// Initializes m_operationalDescription with a new AmmDataType pointer.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int InitializeOperationalDescription(std::string &errmsg);
-
-        /// State of whether Operational Description is currently valid.
-        /// @returns True if m_operationalDescription is valid pointer.
         bool IsOperationalDescriptionInitialized();
-
-        /// Create the data publisher for Operational Description on this module.
-        /// Allows Operational Description data to be published to the DDS network.
-        /// @returns 0 if successful.
         int CreateOperationalDescriptionPublisher();
-
-        /// Create the data publisher for Operational Desription on this module.
-        /// Allows Operational Description data to be published to the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int CreateOperationalDescriptionPublisher(std::string &errmsg);
-
-        /// Remove the publisher for Operational Description on this module from the DDS network.
-        /// @returns 0 if successful.
         int RemoveOperationalDescriptionPublisher();
-
-        /// Remove the publisher for Operational Description on this module from the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int RemoveOperationalDescriptionPublisher(std::string &errmsg);
-
-        /// Create the data subscriber for Operational Description published events on this module.
-        /// Allows the module to receive Operational Description data when it is published on the DDS network.
-        /// @param parentClass Reference to the object that is receiving the subscribed event callback.
-        /// @param onEvent Method reference of parentClass that is be used as a callback for subscribed events.
-        /// @returns 0 if successful.
         int CreateOperationalDescriptionSubscriber(
            U *parentClass, void (U::*onEvent)(AMM::OperationalDescription &, eprosima::fastrtps::SampleInfo_t *)
         );
-
-        /// Create the data subscriber for Operational Description published events on this module.
-        /// Allows the module to receive Operational Description data when it is published on the DDS network.
-        /// @param errmsg Error message output.
-        /// @param parentClass Reference to the object that is receiving the subscribed event callback.
-        /// @param onEvent Method reference of parentClass that is be used as a callback for subscribed events.
-        /// @returns 0 if successful.
         int CreateOperationalDescriptionSubscriber(
            std::string &errmsg, U *parentClass,
            void (U::*onEvent)(AMM::OperationalDescription &, eprosima::fastrtps::SampleInfo_t *)
         );
-
-        /// Remove the subscriber for Operation Description on this module from the DDS network.
-        /// @returns 0 if successful.
         int RemoveOperationalDescriptionSubscriber();
-
-        /// Remove the subscriber for Operational Description on this module from the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int RemoveOperationalDescriptionSubscriber(std::string &errmsg);
-
-        /// Call upon the active publisher for Operational Description to write data to the DDS network.
-        /// @param a Reference to Operational Description data to be written.
-        /// @returns 0 if successful.
-        /// @returns 1 if Publisher has not been created or if some other error occurred.
         int WriteOperationalDescription(AMM::OperationalDescription &a);
-
-        /// Call upon the active publisher for Operational Description to write data to the DDS network.
-        /// @param errmsg Error message output.
-        /// @param a Reference to Operational Description data to be written.
-        /// @returns 0 if successful.
-        /// @returns 1 if Publisher has not been created or if some other error occurred.
         int WriteOperationalDescription(std::string &errmsg, AMM::OperationalDescription &a);
-
-        /// Listener Interface override for handling Operational Description subscribed events.
-        /// Calls OnEvent on m_operationalDescription passing along data to the handler defined by
-        /// the user in CreateOperationalDescriptionSubscriber.
-        /// @see AmmDataType::OnEvent
-        /// @see ListenerInterface::onNewOperationalDescription
-        /// @param opDescript incoming Operational Description data from the DDS network.
-        /// @param info FastRTPS sample info.
         void onNewOperationalDescription(AMM::OperationalDescription opDescript,
                                          eprosima::fastrtps::SampleInfo_t *info) override;
-
-        /// Clean up Operational Description and set it to an inactive state.
-        /// Calls Delete on m_operationalDescription.
-        /// @returns 0 if successful.
         int DecommissionOperationalDescription();
-
-        /// Clean up Operational Description and set it to an inactive state.
-        /// Calls Delete on m_operationalDescription.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int DecommissionOperationalDescription(std::string &errmsg);
+
 
         // - - - Physiology Modification - - -
 
-        /// Initializer routine for Physiology Modification.
-        /// Initializes m_physiologyModification with a new AmmDataType pointer.
-        /// @returns 0 if successful.
         int InitializePhysiologyModification();
-
-        /// Overload initializer routine for Physiology Modification.
-        /// Initializes m_physiologyModification with a new AmmDataType pointer.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int InitializePhysiologyModification(std::string &errmsg);
-
-        /// State of whether Physiology Modfication is currently valid.
-        /// @returns True if m_physiologyModification is valid pointer.
         bool IsPhysiologyModificationInitialized();
-
-        /// Create the data publisher for Physiology Modification on this module.
-        /// Allows Physiology Modification data to be published to the DDS network.
-        /// @returns 0 if successful.
         int CreatePhysiologyModificationPublisher();
-
-        /// Create the data publisher for Physiology Modification on this module.
-        /// Allows Physiology Modification data to be published to the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int CreatePhysiologyModificationPublisher(std::string &errmsg);
-
-        /// Remove the publisher for Physiology Modification on this module from the DDS network.
-        /// @returns 0 if successful.
         int RemovePhysiologyModificationPublisher();
-
-        /// Remove the publisher for Physiology Modification on this module from the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int RemovePhysiologyModificationPublisher(std::string &errmsg);
-
-        /// Create the data subscriber for Physiology Modification published events on this module.
-        /// Allows the module to receive Physiology Modification data when it is published on the DDS network.
-        /// @param parentClass Reference to the object that is receiving the subscribed event callback.
-        /// @param onEvent Method reference of parentClass that is be used as a callback for subscribed events.
-        /// @returns 0 if successful.
         int CreatePhysiologyModificationSubscriber(
            U *parentClass, void (U::*onEvent)(AMM::PhysiologyModification &, eprosima::fastrtps::SampleInfo_t *)
         );
-
-        /// Create the data subscriber for Physiology Modification published events on this module.
-        /// Allows the module to receive Physiology Modification data when it is published on the DDS network.
-        /// @param errmsg Error message output.
-        /// @param parentClass Reference to the object that is receiving the subscribed event callback.
-        /// @param onEvent Method reference of parentClass that is be used as a callback for subscribed events.
-        /// @returns 0 if successful.
         int CreatePhysiologyModificationSubscriber(
            std::string &errmsg, U *parentClass,
            void (U::*onEvent)(AMM::PhysiologyModification &, eprosima::fastrtps::SampleInfo_t *)
         );
-
-        /// Remove the subscriber for Physiology Modification on this module from the DDS network.
-        /// @returns 0 if successful.
         int RemovePhysiologyModificationSubscriber();
-
-        /// Remove the subscriber for Physiology Modification on this module from the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int RemovePhysiologyModificationSubscriber(std::string &errmsg);
-
-        /// Call upon the active publisher for Physiology Modification to write data to the DDS network.
-        /// @param a Reference to Physiology Modification data to be written.
-        /// @returns 0 if successful.
-        /// @returns 1 if Publisher has not been created or if some other error occurred.
         int WritePhysiologyModification(AMM::PhysiologyModification &a);
-
-        /// Call upon the active publisher for Physiology Modification to write data to the DDS network.
-        /// @param errmsg Error message output.
-        /// @param a Reference to Physiology Modification data to be written.
-        /// @returns 0 if successful.
-        /// @returns 1 if Publisher has not been created or if some other error occurred.
         int WritePhysiologyModification(std::string &errmsg, AMM::PhysiologyModification &a);
-
-        /// Listener Interface override for handling Physiology Modification subscribed events.
-        /// Calls OnEvent on m_physiologyModification passing along data to the handler defined by
-        /// the user in CreatePhysiologyModificationSubscriber.
-        /// @see AmmDataType::OnEvent
-        /// @see ListenerInterface::onNewPhysiologyModification
-        /// @param physMod incoming Physiology Modification data from the DDS network.
-        /// @param info FastRTPS sample info.
         void onNewPhysiologyModification(AMM::PhysiologyModification physMod,
                                          eprosima::fastrtps::SampleInfo_t *info) override;
-
-        /// Clean up Physiology Modification and set it to an inactive state.
-        /// Calls Delete on m_physiologyModification.
-        /// @returns 0 if successful.
         int DecommissionPhysiologyModification();
-
-        /// Clean up Physiology Modification and set it to an inactive state.
-        /// Calls Delete on m_physiologyModification.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int DecommissionPhysiologyModification(std::string &errmsg);
+
 
         // - - - Physioogy Value - - -
 
-        /// Initializer routine for Physiology Value.
-        /// Initializes m_physiologyValue with a new AmmDataType pointer.
-        /// @returns 0 if successful.
         int InitializePhysiologyValue();
-
-        /// Overload initializer routine for Physiology Value.
-        /// Initializes m_physiologyValue with a new AmmDataType pointer.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int InitializePhysiologyValue(std::string &errmsg);
-
-        /// State of whether Physiology Value is currently valid.
-        /// @returns True if m_physiologyValue is valid pointer.
         bool IsPhysiologyValueInitialized();
-
-        /// Create the data publisher for Physiology Value on this module.
-        /// Allows Physiology Value data to be published to the DDS network.
-        /// @returns 0 if successful.
         int CreatePhysiologyValuePublisher();
-
-        /// Create the data publisher for Physiology Value on this module.
-        /// Allows Physiology Value data to be published to the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int CreatePhysiologyValuePublisher(std::string &errmsg);
-
-        /// Remove the publisher for Physiology Value on this module from the DDS network.
-        /// @returns 0 if successful.
         int RemovePhysiologyValuePublisher();
-
-        /// Remove the publisher for Physiology Value on this module from the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int RemovePhysiologyValuePublisher(std::string &errmsg);
-
-        /// Create the data subscriber for Physiology Value published events on this module.
-        /// Allows the module to receive Physiology Value data when it is published on the DDS network.
-        /// @param parentClass Reference to the object that is receiving the subscribed event callback.
-        /// @param onEvent Method reference of parentClass that is be used as a callback for subscribed events.
-        /// @returns 0 if successful.
         int CreatePhysiologyValueSubscriber(
            U *parentClass, void (U::*onEvent)(AMM::PhysiologyValue &, eprosima::fastrtps::SampleInfo_t *)
         );
-
-        /// Create the data subscriber for Physiology Value published events on this module.
-        /// Allows the module to receive Physiology Value data when it is published on the DDS network.
-        /// @param errmsg Error message output.
-        /// @param parentClass Reference to the object that is receiving the subscribed event callback.
-        /// @param onEvent Method reference of parentClass that is be used as a callback for subscribed events.
-        /// @returns 0 if successful.
         int CreatePhysiologyValueSubscriber(
            std::string &errmsg, U *parentClass,
            void (U::*onEvent)(AMM::PhysiologyValue &, eprosima::fastrtps::SampleInfo_t *)
         );
-
-        /// Remove the subscriber for Physiology Value on this module from the DDS network.
-        /// @returns 0 if successful.
         int RemovePhysiologyValueSubscriber();
-
-        /// Remove the subscriber for Physiology Value on this module from the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int RemovePhysiologyValueSubscriber(std::string &errmsg);
-
-        /// Call upon the active publisher for Physiology Value to write data to the DDS network.
-        /// @param a Reference to Physiology Value data to be written.
-        /// @returns 0 if successful.
-        /// @returns 1 if Publisher has not been created or if some other error occurred.
         int WritePhysiologyValue(AMM::PhysiologyValue &a);
-
-        /// Call upon the active publisher for Physiology Value to write data to the DDS network.
-        /// @param errmsg Error message output.
-        /// @param a Reference to Physiology Value data to be written.
-        /// @returns 0 if successful.
-        /// @returns 1 if Publisher has not been created or if some other error occurred.
         int WritePhysiologyValue(std::string &errmsg, AMM::PhysiologyValue &a);
-
-        /// Listener Interface override for handling Physiology Value subscribed events.
-        /// Calls OnEvent on m_physiologyValue passing along data to the handler defined by
-        /// the user in CreatePhysiologyValueSubscriber.
-        /// @see AmmDataType::OnEvent
-        /// @see ListenerInterface::onNewPhysiologyValue
-        /// @param physVal incoming Physiology Value data from the DDS network.
-        /// @param info FastRTPS sample info.
         void onNewPhysiologyValue(AMM::PhysiologyValue physVal, eprosima::fastrtps::SampleInfo_t *info) override;
-
-        /// Clean up Physiology Value and set it to an inactive state.
-        /// Calls Delete on m_physiologyValue.
-        /// @returns 0 if successful.
         int DecommissionPhysiologyValue();
-
-        /// Clean up Physiology Value and set it to an inactive state.
-        /// Calls Delete on m_physiologyValue.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int DecommissionPhysiologyValue(std::string &errmsg);
+
 
         // - - - Physiology Waveform - - -
 
-        /// Initializer routine for Physiology Waveform.
-        /// Initializes m_physiologyWaveform with a new AmmDataType pointer.
-        /// @returns 0 if successful.
         int InitializePhysiologyWaveform();
-
-        /// Overload initializer routine for Physiology Waveform.
-        /// Initializes m_physiolgyWaveform with a new AmmDataType pointer.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int InitializePhysiologyWaveform(std::string &errmsg);
-
-        /// State of whether Physiology Waveform is currently valid.
-        /// @returns True if m_physiologyWaveform is valid pointer.
         bool IsPhysiologyWaveformInitialized();
-
-        /// Create the data publisher for Physiology Waveform on this module.
-        /// Allows Physiology Waveform data to be published to the DDS network.
-        /// @returns 0 if successful.
         int CreatePhysiologyWaveformPublisher();
-
-        /// Create the data publisher for Physiology Waveform on this module.
-        /// Allows Physiology Waveform data to be published to the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int CreatePhysiologyWaveformPublisher(std::string &errmsg);
-
-        /// Remove the publisher for Physiology Waveform on this module from the DDS network.
-        /// @returns 0 if successful.
         int RemovePhysiologyWaveformPublisher();
-
-        /// Remove the publisher for Physiology Waveform on this module from the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int RemovePhysiologyWaveformPublisher(std::string &errmsg);
-
-        /// Create the data subscriber for Physiology Waveform published events on this module.
-        /// Allows the module to receive Physiology Waeform data when it is published on the DDS network.
-        /// @param parentClass Reference to the object that is receiving the subscribed event callback.
-        /// @param onEvent Method reference of parentClass that is be used as a callback for subscribed events.
-        /// @returns 0 if successful.
         int CreatePhysiologyWaveformSubscriber(
            U *parentClass, void (U::*onEvent)(AMM::PhysiologyWaveform &, eprosima::fastrtps::SampleInfo_t *)
         );
-
-        /// Create the data subscriber for Physiology Waveform published events on this module.
-        /// Allows the module to receive Physiology Waveform data when it is published on the DDS network.
-        /// @param errmsg Error message output.
-        /// @param parentClass Reference to the object that is receiving the subscribed event callback.
-        /// @param onEvent Method reference of parentClass that is be used as a callback for subscribed events.
-        /// @returns 0 if successful.
         int CreatePhysiologyWaveformSubscriber(
            std::string &errmsg, U *parentClass,
            void (U::*onEvent)(AMM::PhysiologyWaveform &, eprosima::fastrtps::SampleInfo_t *)
         );
-
-        /// Remove the subscriber for Physiology Waveform on this module from the DDS network.
-        /// @returns 0 if successful.
         int RemovePhysiologyWaveformSubscriber();
-
-        /// Remove the subscriber for Physiology Waveform on this module from the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int RemovePhysiologyWaveformSubscriber(std::string &errmsg);
-
-        /// Call upon the active publisher for Physiology Waveform to write data to the DDS network.
-        /// @param a Reference to Physiology Waveform data to be written.
-        /// @returns 0 if successful.
-        /// @returns 1 if Publisher has not been created or if some other error occurred.
         int WritePhysiologyWaveform(AMM::PhysiologyWaveform &a);
-
-        /// Call upon the active publisher for Physiology Waveform to write data to the DDS network.
-        /// @param errmsg Error message output.
-        /// @param a Reference to Physiology Waveform data to be written.
-        /// @returns 0 if successful.
-        /// @returns 1 if Publisher has not been created or if some other error occurred.
         int WritePhysiologyWaveform(std::string &errmsg, AMM::PhysiologyWaveform &a);
-
-        /// Listener Interface override for handling Physiology Waveform subscribed events.
-        /// Calls OnEvent on m_physiologyWaveform passing along data to the handler defined by
-        /// the user in CreatePhysiologyWaveformSubscriber.
-        /// @see AmmDataType::OnEvent
-        /// @see ListenerInterface::onNewPhysiologyWaveform
-        /// @param eventFrag incoming Physiology Waveform data from the DDS network.
-        /// @param info FastRTPS sample info.
         void onNewPhysiologyWaveform(AMM::PhysiologyWaveform physWave, eprosima::fastrtps::SampleInfo_t *info) override;
-
-        /// Clean up Physiology Waveform and set it to an inactive state.
-        /// Calls Delete on m_physiologyWaveform.
-        /// @returns 0 if successful.
         int DecommissionPhysiologyWaveform();
-
-        /// Clean up Physiology Waveform and set it to an inactive state.
-        /// Calls Delete on m_physiologyWaveform.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int DecommissionPhysiologyWaveform(std::string &errmsg);
+
 
         // - - - Render Modification - - -
 
-        /// Initializer routine for Render Modification.
-        /// Initializes m_renderModification with a new AmmDataType pointer.
-        /// @returns 0 if successful.
         int InitializeRenderModification();
-
-        /// Overload initializer routine for Render Modification.
-        /// Initializes m_renderModification with a new AmmDataType pointer.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int InitializeRenderModification(std::string &errmsg);
-
-        /// State of whether Render Modification is currently valid.
-        /// @returns True if m_renderModification is valid pointer.
         bool IsRenderModificationInitialized();
-
-        /// Create the data publisher for Render Modification on this module.
-        /// Allows Render Modification data to be published to the DDS network.
-        /// @returns 0 if successful.
         int CreateRenderModificationPublisher();
-
-        /// Create the data publisher for Render Modification on this module.
-        /// Allows Render Modification data to be published to the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int CreateRenderModificationPublisher(std::string &errmsg);
-
-        /// Remove the publisher for Render Modification on this module from the DDS network.
-        /// @returns 0 if successful.
         int RemoveRenderModificationPublisher();
-
-        /// Remove the publisher for Render Modification on this module from the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int RemoveRenderModificationPublisher(std::string &errmsg);
-
-        /// Create the data subscriber for Render Modification published events on this module.
-        /// Allows the module to receive Render Modification data when it is published on the DDS network.
-        /// @param parentClass Reference to the object that is receiving the subscribed event callback.
-        /// @param onEvent Method reference of parentClass that is be used as a callback for subscribed events.
-        /// @returns 0 if successful.
         int CreateRenderModificationSubscriber(
            U *parentClass, void (U::*onEvent)(AMM::RenderModification &, eprosima::fastrtps::SampleInfo_t *)
         );
-
-        /// Create the data subscriber for Render Modification published events on this module.
-        /// Allows the module to receive Render Modification data when it is published on the DDS network.
-        /// @param errmsg Error message output.
-        /// @param parentClass Reference to the object that is receiving the subscribed event callback.
-        /// @param onEvent Method reference of parentClass that is be used as a callback for subscribed events.
-        /// @returns 0 if successful.
         int CreateRenderModificationSubscriber(
            std::string &errmsg, U *parentClass,
            void (U::*onEvent)(AMM::RenderModification &, eprosima::fastrtps::SampleInfo_t *)
         );
-
-        /// Remove the subscriber for Render Modification on this module from the DDS network.
-        /// @returns 0 if successful.
         int RemoveRenderModificationSubscriber();
-
-        /// Remove the subscriber for Render Modification on this module from the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int RemoveRenderModificationSubscriber(std::string &errmsg);
-
-        /// Call upon the active publisher for Render Modification to write data to the DDS network.
-        /// @param a Reference to Render Modification data to be written.
-        /// @returns 0 if successful.
-        /// @returns 1 if Publisher has not been created or if some other error occurred.
         int WriteRenderModification(AMM::RenderModification &a);
-
-        /// Call upon the active publisher for Render Modification to write data to the DDS network.
-        /// @param errmsg Error message output.
-        /// @param a Reference to Render Modification data to be written.
-        /// @returns 0 if successful.
-        /// @returns 1 if Publisher has not been created or if some other error occurred.
         int WriteRenderModification(std::string &errmsg, AMM::RenderModification &a);
-
-        /// Listener Interface override for handling Render Modification subscribed events.
-        /// Calls OnEvent on m_renderModification passing along data to the handler defined by
-        /// the user in CreateRenderModificationSubscriber.
-        /// @see AmmDataType::OnEvent
-        /// @see ListenerInterface::onNewRenderModification
-        /// @param eventFrag incoming Render Modification data from the DDS network.
-        /// @param info FastRTPS sample info.
         void onNewRenderModification(AMM::RenderModification rendMod, eprosima::fastrtps::SampleInfo_t *info) override;
-
-        /// Clean up Render Modification and set it to an inactive state.
-        /// Calls Delete on m_renderModification.
-        /// @returns 0 if successful.
         int DecommissionRenderModification();
-
-        /// Clean up Render Modification and set it to an inactive state.
-        /// Calls Delete on m_renderModification.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int DecommissionRenderModification(std::string &errmsg);
+
 
         // - - - Simulation Control - - -
 
-        /// Initializer routine for Simulation Control.
-        /// Initializes m_simulationControl with a new AmmDataType pointer.
-        /// @returns 0 if successful.
         int InitializeSimulationControl();
-
-        /// Overload initializer routine for Simulation Control.
-        /// Initializes m_simulationControl with a new AmmDataType pointer.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int InitializeSimulationControl(std::string &errmsg);
-
-        /// State of whether Simulation Control is currently valid.
-        /// @returns True if m_simulationControl is valid pointer.
         bool IsSimulationControlInitialized();
-
-        /// Create the data publisher for Simulation Control on this module.
-        /// Allows Simulation Control data to be published to the DDS network.
-        /// @returns 0 if successful.
         int CreateSimulationControlPublisher();
-
-        /// Create the data publisher for Eve on this module.
-        /// Allows Simulation Control data to be published to the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int CreateSimulationControlPublisher(std::string &errmsg);
-
-        /// Remove the publisher for Simulation Control on this module from the DDS network.
-        /// @returns 0 if successful.
         int RemoveSimulationControlPublisher();
-
-        /// Remove the publisher for Simulation Control on this module from the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int RemoveSimulationControlPublisher(std::string &errmsg);
-
-        /// Create the data subscriber for Simulation Control published events on this module.
-        /// Allows the module to receive Simulation Control data when it is published on the DDS network.
-        /// @param parentClass Reference to the object that is receiving the subscribed event callback.
-        /// @param onEvent Method reference of parentClass that is be used as a callback for subscribed events.
-        /// @returns 0 if successful.
         int CreateSimulationControlSubscriber(
            U *parentClass, void (U::*onEvent)(AMM::SimulationControl &, eprosima::fastrtps::SampleInfo_t *)
         );
-
-        /// Create the data subscriber for Simulation Control published events on this module.
-        /// Allows the module to receive Simulation Control data when it is published on the DDS network.
-        /// @param errmsg Error message output.
-        /// @param parentClass Reference to the object that is receiving the subscribed event callback.
-        /// @param onEvent Method reference of parentClass that is be used as a callback for subscribed events.
-        /// @returns 0 if successful.
         int CreateSimulationControlSubscriber(
            std::string &errmsg, U *parentClass,
            void (U::*onEvent)(AMM::SimulationControl &, eprosima::fastrtps::SampleInfo_t *)
         );
-
-        /// Remove the subscriber for Simulation Control on this module from the DDS network.
-        /// @returns 0 if successful.
         int RemoveSimulationControlSubscriber();
-
-        /// Remove the subscriber for Simulation Control on this module from the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int RemoveSimulationControlSubscriber(std::string &errmsg);
-
-        /// Call upon the active publisher for Simulation Control to write data to the DDS network.
-        /// @param a Reference to Simulation Control data to be written.
-        /// @returns 0 if successful.
-        /// @returns 1 if Publisher has not been created or if some other error occurred.
         int WriteSimulationControl(AMM::SimulationControl &a);
-
-        /// Call upon the active publisher for Simulation Control to write data to the DDS network.
-        /// @param errmsg Error message output.
-        /// @param a Reference to Simulation Control data to be written.
-        /// @returns 0 if successful.
-        /// @returns 1 if Publisher has not been created or if some other error occurred.
         int WriteSimulationControl(std::string &errmsg, AMM::SimulationControl &a);
-
-        /// Listener Interface override for handling Simulation Control subscribed events.
-        /// Calls OnEvent on m_simulationControl passing along data to the handler defined by
-        /// the user in CreateSimulationControlSubscriber.
-        /// @see AmmDataType::OnEvent
-        /// @see ListenerInterface::onNewSimulationControl
-        /// @param eventFrag incoming Simulation Control data from the DDS network.
-        /// @param info FastRTPS sample info.
         void onNewSimulationControl(AMM::SimulationControl simControl, eprosima::fastrtps::SampleInfo_t *info) override;
-
-        /// Clean up Simulation Control and set it to an inactive state.
-        /// Calls Delete on m_simulationControl.
-        /// @returns 0 if successful.
         int DecommissionSimulationControl();
-
-        /// Clean up Simulation Control and set it to an inactive state.
-        /// Calls Delete on m_simulationControl.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int DecommissionSimulationControl(std::string &errmsg);
+
 
         // - - - Status - - -
 
-        /// Initializer routine for Status.
-        /// Initializes m_stuatus with a new AmmDataType pointer.
-        /// @returns 0 if successful.
         int InitializeStatus();
-
-        /// Overload initializer routine for Status.
-        /// Initializes m_status with a new AmmDataType pointer.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int InitializeStatus(std::string &errmsg);
-
-        /// State of whether Status is currently valid.
-        /// @returns True if m_status is valid pointer.
         bool IsStatusInitialized();
-
-        /// Create the data publisher for Status on this module.
-        /// Allows Status data to be published to the DDS network.
-        /// @returns 0 if successful.
         int CreateStatusPublisher();
-
-        /// Create the data publisher for Status on this module.
-        /// Allows Status data to be published to the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int CreateStatusPublisher(std::string &errmsg);
-
-        /// Remove the publisher for Status on this module from the DDS network.
-        /// @returns 0 if successful.
         int RemoveStatusPublisher();
-
-        /// Remove the publisher for Status on this module from the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int RemoveStatusPublisher(std::string &errmsg);
-
-        /// Create the data subscriber for Status published events on this module.
-        /// Allows the module to receive Status data when it is published on the DDS network.
-        /// @param parentClass Reference to the object that is receiving the subscribed event callback.
-        /// @param onEvent Method reference of parentClass that is be used as a callback for subscribed events.
-        /// @returns 0 if successful.
         int CreateStatusSubscriber(
            U *parentClass, void (U::*onEvent)(AMM::Status &, eprosima::fastrtps::SampleInfo_t *)
         );
-
-        /// Create the data subscriber for Status published events on this module.
-        /// Allows the module to receive Status data when it is published on the DDS network.
-        /// @param errmsg Error message output.
-        /// @param parentClass Reference to the object that is receiving the subscribed event callback.
-        /// @param onEvent Method reference of parentClass that is be used as a callback for subscribed events.
-        /// @returns 0 if successful.
         int CreateStatusSubscriber(
            std::string &errmsg, U *parentClass, void (U::*onEvent)(AMM::Status &, eprosima::fastrtps::SampleInfo_t *)
         );
-
-        /// Remove the subscriber for Status on this module from the DDS network.
-        /// @returns 0 if successful.
         int RemoveStatusSubscriber();
-
-        /// Remove the subscriber for Status on this module from the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int RemoveStatusSubscriber(std::string &errmsg);
-
-        /// Call upon the active publisher for Status to write data to the DDS network.
-        /// @param a Reference to Status data to be written.
-        /// @returns 0 if successful.
-        /// @returns 1 if Publisher has not been created or if some other error occurred.
         int WriteStatus(AMM::Status &a);
-
-        /// Call upon the active publisher for Status to write data to the DDS network.
-        /// @param errmsg Error message output.
-        /// @param a Reference to Status data to be written.
-        /// @returns 0 if successful.
-        /// @returns 1 if Publisher has not been created or if some other error occurred.
         int WriteStatus(std::string &errmsg, AMM::Status &a);
-
-        /// Listener Interface override for handling Status subscribed events.
-        /// Calls OnEvent on m_status passing along data to the handler defined by
-        /// the user in CreateStatusSubscriber.
-        /// @see AmmDataType::OnEvent
-        /// @see ListenerInterface::onNewStatus
-        /// @param status incoming Status data from the DDS network.
-        /// @param info FastRTPS sample info.
         void onNewStatus(AMM::Status status, eprosima::fastrtps::SampleInfo_t *info) override;
-
-        /// Clean up Status and set it to an inactive state.
-        /// Calls Delete on m_status.
-        /// @returns 0 if successful.
         int DecommissionStatus();
-
-        /// Clean up Status and set it to an inactive state.
-        /// Calls Delete on m_status.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int DecommissionStatus(std::string &errmsg);
+
 
         // - - - Tick - - -
 
-        /// Initializer routine for Tick.
-        /// Initializes m_tick with a new AmmDataType pointer.
-        /// @returns 0 if successful.
         int InitializeTick();
-
-        /// Overload initializer routine for Tick.
-        /// Initializes m_tick with a new AmmDataType pointer.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int InitializeTick(std::string &errmsg);
-
-        /// State of whether Tick is currently valid.
-        /// @returns True if m_tick is valid pointer.
         bool IsTickInitialized();
-
-        /// Create the data publisher for Tick on this module.
-        /// Allows Tick data to be published to the DDS network.
-        /// @returns 0 if successful.
         int CreateTickPublisher();
-
-        /// Create the data publisher for Tick on this module.
-        /// Allows Tick data to be published to the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int CreateTickPublisher(std::string &errmsg);
-
-        /// Remove the publisher for Tick on this module from the DDS network.
-        /// @returns 0 if successful.
         int RemoveTickPublisher();
-
-        /// Remove the publisher for Tick on this module from the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int RemoveTickPublisher(std::string &errmsg);
-
-        /// Create the data subscriber for Tick published events on this module.
-        /// Allows the module to receive Tick data when it is published on the DDS network.
-        /// @param parentClass Reference to the object that is receiving the subscribed event callback.
-        /// @param onEvent Method reference of parentClass that is be used as a callback for subscribed events.
-        /// @returns 0 if successful.
         int CreateTickSubscriber(
            U *parentClass, void (U::*onEvent)(AMM::Tick &, eprosima::fastrtps::SampleInfo_t *)
         );
-
-        /// Create the data subscriber for Tick published events on this module.
-        /// Allows the module to receive Tick data when it is published on the DDS network.
-        /// @param errmsg Error message output.
-        /// @param parentClass Reference to the object that is receiving the subscribed event callback.
-        /// @param onEvent Method reference of parentClass that is be used as a callback for subscribed events.
-        /// @returns 0 if successful.
         int CreateTickSubscriber(
            std::string &errmsg, U *parentClass, void (U::*onEvent)(AMM::Tick &, eprosima::fastrtps::SampleInfo_t *)
         );
-
-        /// Remove the subscriber for Tick on this module from the DDS network.
-        /// @returns 0 if successful.
         int RemoveTickSubscriber();
-
-        /// Remove the subscriber for Tick on this module from the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int RemoveTickSubscriber(std::string &errmsg);
-
-        /// Call upon the active publisher for Tick to write data to the DDS network.
-        /// @param a Reference to Tick data to be written.
-        /// @returns 0 if successful.
-        /// @returns 1 if Publisher has not been created or if some other error occurred.
         int WriteTick(AMM::Tick &a);
-
-        /// Call upon the active publisher for Tick to write data to the DDS network.
-        /// @param errmsg Error message output.
-        /// @param a Reference to Tick data to be written.
-        /// @returns 0 if successful.
-        /// @returns 1 if Publisher has not been created or if some other error occurred.
         int WriteTick(std::string &errmsg, AMM::Tick &a);
-
-        /// Listener Interface override for handling Tick subscribed events.
-        /// Calls OnEvent on m_tick passing along data to the handler defined by
-        /// the user in CreateTickSubscriber.
-        /// @see AmmDataType::OnEvent
-        /// @see ListenerInterface::onNewTick
-        /// @param tick incoming Tick data from the DDS network.
-        /// @param info FastRTPS sample info.
         void onNewTick(AMM::Tick tick, eprosima::fastrtps::SampleInfo_t *info) override;
-
-        /// Clean up Tick and set it to an inactive state.
-        /// Calls Delete on m_tick.
-        /// @returns 0 if successful.
         int DecommissionTick();
-
-        /// Clean up Tick and set it to an inactive state.
-        /// Calls Delete on m_tick.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int DecommissionTick(std::string &errmsg);
+
 
         // - - - Instrument Data - - -
 
-        /// Initializer routine for Instrument Data.
-        /// Initializes m_instrumentData with a new AmmDataType pointer.
-        /// @returns 0 if successful.
         int InitializeInstrumentData();
-
-        /// Overload initializer routine for Instrument Data.
-        /// Initializes m_instrumentData with a new AmmDataType pointer.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int InitializeInstrumentData(std::string &errmsg);
-
-        /// State of whether Instrument Data is currently valid.
-        /// @returns True if m_instrumentData is valid pointer.
         bool IsInstrumentDataInitialized();
-
-        /// Create the data publisher for Instrument Data on this module.
-        /// Allows Instrument Data data to be published to the DDS network.
-        /// @returns 0 if successful.
         int CreateInstrumentDataPublisher();
-
-        /// Create the data publisher for Instrument Data on this module.
-        /// Allows Instrument Data data to be published to the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int CreateInstrumentDataPublisher(std::string &errmsg);
-
-        /// Remove the publisher for Instrument Data on this module from the DDS network.
-        /// @returns 0 if successful.
         int RemoveInstrumentDataPublisher();
-
-        /// Remove the publisher for Instrument Data on this module from the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int RemoveInstrumentDataPublisher(std::string &errmsg);
-
-        /// Create the data subscriber for Instrument Data published events on this module.
-        /// Allows the module to receive Instrument Data data when it is published on the DDS network.
-        /// @param parentClass Reference to the object that is receiving the subscribed event callback.
-        /// @param onEvent Method reference of parentClass that is be used as a callback for subscribed events.
-        /// @returns 0 if successful.
         int CreateInstrumentDataSubscriber(
            U *parentClass, void (U::*onEvent)(AMM::InstrumentData &, eprosima::fastrtps::SampleInfo_t *)
         );
-
-        /// Create the data subscriber for Instrument Data published events on this module.
-        /// Allows the module to receive Instrument Data data when it is published on the DDS network.
-        /// @param errmsg Error message output.
-        /// @param parentClass Reference to the object that is receiving the subscribed event callback.
-        /// @param onEvent Method reference of parentClass that is be used as a callback for subscribed events.
-        /// @returns 0 if successful.
         int CreateInstrumentDataSubscriber(
            std::string &errmsg, U *parentClass,
            void (U::*onEvent)(AMM::InstrumentData &, eprosima::fastrtps::SampleInfo_t *)
         );
-
-        /// Remove the subscriber for Instrument Data on this module from the DDS network.
-        /// @returns 0 if successful.
         int RemoveInstrumentDataSubscriber();
-
-        /// Remove the subscriber for Instrument Data on this module from the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int RemoveInstrumentDataSubscriber(std::string &errmsg);
-
-        /// Call upon the active publisher for Instrument Data to write data to the DDS network.
-        /// @param a Reference to Instrument Data data to be written.
-        /// @returns 0 if successful.
-        /// @returns 1 if Publisher has not been created or if some other error occurred.
         int WriteInstrumentData(AMM::InstrumentData &a);
-
-        /// Call upon the active publisher for Instrument Data to write data to the DDS network.
-        /// @param errmsg Error message output.
-        /// @param a Reference to Instrument Data data to be written.
-        /// @returns 0 if successful.
-        /// @returns 1 if Publisher has not been created or if some other error occurred.
         int WriteInstrumentData(std::string &errmsg, AMM::InstrumentData &a);
-
-        /// Listener Interface override for handling Instrument Data subscribed events.
-        /// Calls OnEvent on m_instrumentData passing along data to the handler defined by
-        /// the user in CreateInstrumentDataSubscriber.
-        /// @see AmmDataType::OnEvent
-        /// @see ListenerInterface::onNewInstrumentData
-        /// @param instData incoming Instrument Data data from the DDS network.
-        /// @param info FastRTPS sample info.
         void onNewInstrumentData(AMM::InstrumentData instData, eprosima::fastrtps::SampleInfo_t *info) override;
-
-        /// Clean up Instrument Data and set it to an inactive state.
-        /// Calls Delete on m_instrumentData.
-        /// @returns 0 if successful.
         int DecommissionInstrumentData();
-
-        /// Clean up Instrument Data and set it to an inactive state.
-        /// Calls Delete on m_instrumentData.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int DecommissionInstrumentData(std::string &errmsg);
 
+
         // - - - Command - - -
-
-        /// Initializer routine for Command.
-        /// Initializes m_command with a new AmmDataType pointer.
-        /// @returns 0 if successful.
         int InitializeCommand();
-
-        /// Overload initializer routine for Command.
-        /// Initializes m_command with a new AmmDataType pointer.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int InitializeCommand(std::string &errmsg);
-
-        /// State of whether Command is currently valid.
-        /// @returns True if m_command is valid pointer.
         bool IsCommandInitialized();
-
-        /// Create the data publisher for Command on this module.
-        /// Allows Command data to be published to the DDS network.
-        /// @returns 0 if successful.
         int CreateCommandPublisher();
-
-        /// Create the data publisher for Command on this module.
-        /// Allows Command data to be published to the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int CreateCommandPublisher(std::string &errmsg);
-
-        /// Remove the publisher for Command on this module from the DDS network.
-        /// @returns 0 if successful.
         int RemoveCommandPublisher();
-
-        /// Remove the publisher for Command on this module from the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int RemoveCommandPublisher(std::string &errmsg);
-
-        /// Create the data subscriber for Command published events on this module.
-        /// Allows the module to receive Command data when it is published on the DDS network.
-        /// @param parentClass Reference to the object that is receiving the subscribed event callback.
-        /// @param onEvent Method reference of parentClass that is be used as a callback for subscribed events.
-        /// @returns 0 if successful.
         int CreateCommandSubscriber(
            U *parentClass, void (U::*onEvent)(AMM::Command &, eprosima::fastrtps::SampleInfo_t *)
         );
-
-        /// Create the data subscriber for Command published events on this module.
-        /// Allows the module to receive Command data when it is published on the DDS network.
-        /// @param errmsg Error message output.
-        /// @param parentClass Reference to the object that is receiving the subscribed event callback.
-        /// @param onEvent Method reference of parentClass that is be used as a callback for subscribed events.
-        /// @returns 0 if successful.
         int CreateCommandSubscriber(
            std::string &errmsg, U *parentClass, void (U::*onEvent)(AMM::Command &, eprosima::fastrtps::SampleInfo_t *)
         );
-
-        /// Remove the subscriber for Command on this module from the DDS network.
-        /// @returns 0 if successful.
         int RemoveCommandSubscriber();
-
-        /// Remove the subscriber for Command on this module from the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int RemoveCommandSubscriber(std::string &errmsg);
-
-        /// Call upon the active publisher for Command to write data to the DDS network.
-        /// @param a Reference to Command data to be written.
-        /// @returns 0 if successful.
-        /// @returns 1 if Publisher has not been created or if some other error occurred.
         int WriteCommand(AMM::Command &a);
-
-        /// Call upon the active publisher for Command to write data to the DDS network.
-        /// @param errmsg Error message output.
-        /// @param a Reference to Command data to be written.
-        /// @returns 0 if successful.
-        /// @returns 1 if Publisher has not been created or if some other error occurred.
         int WriteCommand(std::string &errmsg, AMM::Command &a);
-
-        /// Listener Interface override for handling Command subscribed events.
-        /// Calls OnEvent on m_command passing along data to the handler defined by
-        /// the user in CreateCommandSubscriber.
-        /// @see AmmDataType::OnEvent
-        /// @see ListenerInterface::onNewCommand
-        /// @param command incoming Command data from the DDS network.
-        /// @param info FastRTPS sample info.
         void onNewCommand(AMM::Command command, eprosima::fastrtps::SampleInfo_t *info) override;
-
-        /// Clean up Command and set it to an inactive state.
-        /// Calls Delete on m_command.
-        /// @returns 0 if successful.
         int DecommissionCommand();
-
-        /// Clean up Command and set it to an inactive state.
-        /// Calls Delete on m_command.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int DecommissionCommand(std::string &errmsg);
 
 
@@ -2025,7 +656,7 @@ namespace AMM {
 
        m_moduleId = DDSManager::GenerateUuidString();
        m_moduleName = m_participant->getAttributes().rtps.getName();
-
+       // std::cout << "Module Name: " + m_moduleName << std::endl;
     }
 
     template<class U>
@@ -4690,146 +3321,45 @@ namespace AMM {
     template<>
     class DDSManager<void> : public ListenerInterface {
 
-    private:
+    public:
 
-        /// Assessment type handler.
-        /// Handler for registering, publishering, and subscribing data for Assessment.
         AmmDataType<ASMT_TYPE, ASMT_LTNR, ASMT> *m_assessment;
-
-        /// Event Fragment type handler.
-        /// Handler for registering, publishering, and subscribing data for Event Fragment.
         AmmDataType<EVFR_TYPE, EVFR_LTNR, EVFR> *m_eventFragment;
-
-        /// Event Record type handler.
-        /// Handler for registering, publishering, and subscribing data for Event Record.
         AmmDataType<EVRC_TYPE, EVRC_LTNR, EVRC> *m_eventRecord;
-
-        /// Fragment Amendment Request type handler.
-        /// Handler for registering, publishering, and subscribing data for Fragment Amendment Request.
         AmmDataType<FARQ_TYPE, FARQ_LTNR, FARQ> *m_fragmentAmendmentRequest;
-
-        /// Log type handler.
-        /// Handler for registering, publishering, and subscribing data for Log.
         AmmDataType<ALOG_TYPE, ALOG_LTNR, ALOG> *m_log;
-
-        /// Module Configuration type handler.
-        /// Handler for registering, publishering, and subscribing data for Module Configuration.
         AmmDataType<MOCF_TYPE, MOCF_LTNR, MOCF> *m_moduleConfiguration;
-
-        /// Omitted Description type handler.
-        /// Handler for registering, publishering, and subscribing data for Omitted Description.
         AmmDataType<OMEV_TYPE, OMEV_LTNR, OMEV> *m_omittedEvent;
-
-        /// Operational Description type handler.
-        /// Handler for registering, publishering, and subscribing data for Operational Description.
         AmmDataType<OPDS_TYPE, OPDS_LTNR, OPDS> *m_operationalDescription;
-
-        /// Physiology Modification type handler.
-        /// Handler for registering, publishering, and subscribing data for Physiology Modification.
         AmmDataType<PHMO_TYPE, PHMO_LTNR, PHMO> *m_physiologyModification;
-
-        /// Physiology Value type handler.
-        /// Handler for registering, publishering, and subscribing data for Physiology Value.
         AmmDataType<PHVA_TYPE, PHVA_LTNR, PHVA> *m_physiologyValue;
-
-        /// Physiology Waveform type handler.
-        /// Handler for registering, publishering, and subscribing data for Physiology Waveform.
         AmmDataType<PHWV_TYPE, PHWV_LTNR, PHWV> *m_physiologyWaveform;
-
-        /// Render Modification type handler.
-        /// Handler for registering, publishering, and subscribing data for Render Modification.
         AmmDataType<RDMO_TYPE, RDMO_LTNR, RDMO> *m_renderModification;
-
-        /// Simulation Control type handler.
-        /// Handler for registering, publishering, and subscribing data for Simulation Control.
         AmmDataType<SMCN_TYPE, SMCN_LTNR, SMCN> *m_simulationControl;
-
-        /// Status type handler.
-        /// Handler for registering, publishering, and subscribing data for Status.
         AmmDataType<STAT_TYPE, STAT_LTNR, STAT> *m_status;
-
-        /// Tick type handler.
-        /// Handler for registering, publishering, and subscribing data for Tick.
         AmmDataType<TICK_TYPE, TICK_LTNR, TICK> *m_tick;
-
-        /// Instrument Data type handler.
-        /// Handler for registering, publishering, and subscribing data for Instrument Data.
         AmmDataType<IDAT_TYPE, IDAT_LTNR, IDAT> *m_instrumentData;
-
-        /// Command type handler.
-        /// Handler for registering, publishering, and subscribing data for Command.
         AmmDataType<CMND_TYPE, CMND_LTNR, CMND> *m_command;
 
-        /// Initializer flag for Assessment.
-        /// State of whether the AMMDataType pointer for Assessment is valid.
         bool m_isAssessmentInit = false;
-
-        /// Initializer flag for Event Fragment.
-        /// State of whether the AMMDataType pointer for Event Fragment is valid.
         bool m_isEventFragInit = false;
-
-        /// Initializer flag for Event Record.
-        /// State of whether the AMMDataType pointer for Event Record is valid.
         bool m_isEventRecInit = false;
-
-        /// Initializer flag for Fragment Amendment Request.
-        /// State of whether the AMMDataType pointer for Fragment Amendment Request is valid.
         bool m_isFragAmendReqInit = false;
-
-        /// Initializer flag for Log.
-        /// State of whether the AMMDataType pointer for Log is valid.
         bool m_isLogInit = false;
-
-        /// Initializer flag for Module Configuration.
-        /// State of whether the AMMDataType pointer for Module Configuration is valid.
         bool m_isModConfigInit = false;
-
-        /// Initializer flag for Omitted Event.
-        /// State of whether the AMMDataType pointer for Omitted Event is valid.
         bool m_isOmitEventInit = false;
-
-        /// Initializer flag for Operational Description.
-        /// State of whether the AMMDataType pointer for Operational Description is valid.
         bool m_isOpDescriptInit = false;
-
-        /// Initializer flag for Physiology Modification.
-        /// State of whether the AMMDataType pointer for Physiology Modification is valid.
         bool m_isPhysModInit = false;
-
-        /// Initializer flag for Physiology Value.
-        /// State of whether the AMMDataType pointer for Physiology Value is valid.
         bool m_isPhysValInit = false;
-
-        /// Initializer flag for Physiology Waveform.
-        /// State of whether the AMMDataType pointer for Physiology Waveform is valid.
         bool m_isPhysWaveInit = false;
-
-        /// Initializer flag for Render Modification.
-        /// State of whether the AMMDataType pointer for Render Modification is valid.
         bool m_isRendModInit = false;
-
-        /// Initializer flag for Simulation Control.
-        /// State of whether the AMMDataType pointer for Simulation Control is valid.
         bool m_isSimControlInit = false;
-
-        /// Initializer flag for Status.
-        /// State of whether the AMMDataType pointer for Status is valid.
         bool m_isStatusInit = false;
-
-        /// Initializer flag for Tick.
-        /// State of whether the AMMDataType pointer for Tick is valid.
         bool m_isTickInit = false;
-
-        /// Initializer flag for Instrument Data.
-        /// State of whether the AMMDataType pointer for Instrument Data is valid.
         bool m_isInstDataInit = false;
-
-        /// Initializer flag for Command.
-        /// State of whether the AMMDataType pointer for Command is valid.
         bool m_isCommandInit = false;
 
-
-    private:
+   public:
 
         /// UUID of this module.
         std::string m_moduleId;
@@ -4860,1688 +3390,416 @@ namespace AMM {
         /// Default deconstructor.
         ~DDSManager() {};
 
-        /// Default shutdown command for the module.
-        /// Should always be used before exiting the executable, because this ensures all Participant activity
-        /// is properly terminated and cleaned up for memory management sake on the DDS network.
-        /// @note Shutdown routine will not stop if an error flag is raised. Will ignore and continue on.
         void Shutdown();
-
-        /// Override shutdown outputting an error message if any error flags are raised suring shutdown.
-        /// @param errmsg Error message output.
-        /// @note Shutdown routine will not stop if an error flag is raised. Will ignore and continue on.
         void Shutdown(std::string &errmsg);
-
-        /// Generates a random UUID.
-        /// @returns A string form of a UUID.
         static std::string GenerateUuidString();
 
-        /// Initializer routine for Assessment.
-        /// Initializes m_assessment with a new AmmDataType pointer.
-        /// @returns 0 if successful.
         int InitializeAssessment();
-
-        /// Overload initializer routine for Assessment.
-        /// Initializes m_assessment with a new AmmDataType pointer.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int InitializeAssessment(std::string &errmsg);
-
-        /// State of whether Assessment is currently valid.
-        /// @returns True if m_assessment is valid pointer.
         bool IsAssessmentInitialized();
-
-        /// Create the data publisher for Assessment on this module.
-        /// Allows Assessment data to be published to the DDS network.
-        /// @returns 0 if successful.
         int CreateAssessmentPublisher();
-
-        /// Create the data publisher for Assessment on this module.
-        /// Allows Assessment data to be published to the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int CreateAssessmentPublisher(std::string &errmsg);
-
-        /// Remove the publisher for Assessment on this module from the DDS network.
-        /// @returns 0 if successful.
         int RemoveAssessmentPublisher();
-
-        /// Remove the publisher for Assessment on this module from the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int RemoveAssessmentPublisher(std::string &errmsg);
-
-        /// Create the data subscriber for Assessment published events on this module.
-        /// Allows the module to receive Assessment data when it is published on the DDS network.
-        /// @param parentClass Reference to the object that is receiving the subscribed event callback.
-        /// @param onEvent Method reference of parentClass that is be used as a callback for subscribed events.
-        /// @returns 0 if successful.
         int CreateAssessmentSubscriber(
            void (*onEvent)(AMM::Assessment &, eprosima::fastrtps::SampleInfo_t *)
         );
-
-        /// Create the data subscriber for Assessment published events on this module.
-        /// Allows the module to receive Assessment data when it is published on the DDS network.
-        /// @param errmsg Error message output.
-        /// @param parentClass Reference to the object that is receiving the subscribed event callback.
-        /// @param onEvent Method reference of parentClass that is be used as a callback for subscribed events.
-        /// @returns 0 if successful.
         int CreateAssessmentSubscriber(
            std::string &errmsg, void (*onEvent)(AMM::Assessment &, eprosima::fastrtps::SampleInfo_t *)
         );
-
-        /// Remove the subscriber for Assessment on this module from the DDS network.
-        /// @returns 0 if successful.
         int RemoveAssessmentSubscriber();
-
-        /// Remove the subscriber for Assessment on this module from the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int RemoveAssessmentSubscriber(std::string &errmsg);
-
-        /// Call upon the active publisher for Assessment to write data to the DDS network.
-        /// @param a Reference to Assessment data to be written.
-        /// @returns 0 if successful.
-        /// @returns 1 if Publisher has not been created or if some other error occurred.
         int WriteAssessment(AMM::Assessment &a);
-
-        /// Call upon the active publisher for Assessment to write data to the DDS network.
-        /// @param errmsg Error message output.
-        /// @param a Reference to Assessment data to be written.
-        /// @returns 0 if successful.
-        /// @returns 1 if Publisher has not been created or if some other error occurred.
         int WriteAssessment(std::string &errmsg, AMM::Assessment &a);
-
-        /// Listener Interface override for handling Assessment subscribed events.
-        /// Calls OnEvent on m_assessment passing along data to the handler defined by
-        /// the user in CreateAssessmentSubscriber.
-        /// @see AmmDataType::OnEvent
-        /// @see ListenerInterface::onNewAssessment
-        /// @param assessment incoming Assessment data from the DDS network.
-        /// @param info FastRTPS sample info.
         void onNewAssessment(AMM::Assessment assessment, eprosima::fastrtps::SampleInfo_t *info) override;
-
-        /// Clean up Assessment and set it to an inactive state.
-        /// Calls Delete on m_assessment.
-        /// @returns 0 if successful.
         int DecommissionAssessment();
-
-        /// Clean up assessment and set it to an inactive state.
-        /// Calls Delete on m_assessment.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int DecommissionAssessment(std::string &errmsg);
+
 
         // - - - Event Fragment - - -
 
-        /// Initializer routine for Event Fragment.
-        /// Initializes m_eventFragment with a new AmmDataType pointer.
-        /// @returns 0 if successful.
         int InitializeEventFragment();
-
-        /// Overload initializer routine for Event Fragment.
-        /// Initializes m_eventFragment with a new AmmDataType pointer.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int InitializeEventFragment(std::string &errmsg);
-
-        /// State of whether Event Fragment is currently valid.
-        /// @returns True if m_eventFragment is valid pointer.
         bool IsEventFragmentInitialzied();
-
-        /// Create the data publisher for Event Fragment on this module.
-        /// Allows Event Fragment data to be published to the DDS network.
-        /// @returns 0 if successful.
         int CreateEventFragmentPublisher();
-
-        /// Create the data publisher for Event Fragment on this module.
-        /// Allows Event Fragment data to be published to the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int CreateEventFragmentPublisher(std::string &errmsg);
-
-        /// Remove the publisher for Event Fragment on this module from the DDS network.
-        /// @returns 0 if successful.
         int RemoveEventFragmentPublisher();
-
-        /// Remove the publisher for Event Fragment on this module from the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int RemoveEventFragmentPublisher(std::string &errmsg);
-
-        /// Create the data subscriber for Event Fragment published events on this module.
-        /// Allows the module to receive Event Fragment data when it is published on the DDS network.
-        /// @param parentClass Reference to the object that is receiving the subscribed event callback.
-        /// @param onEvent Method reference of parentClass that is be used as a callback for subscribed events.
-        /// @returns 0 if successful.
         int CreateEventFragmentSubscriber(
            void (*onEvent)(AMM::EventFragment &, eprosima::fastrtps::SampleInfo_t *)
         );
-
-        /// Create the data subscriber for Event Fragment published events on this module.
-        /// Allows the module to receive Event Fragment data when it is published on the DDS network.
-        /// @param errmsg Error message output.
-        /// @param parentClass Reference to the object that is receiving the subscribed event callback.
-        /// @param onEvent Method reference of parentClass that is be used as a callback for subscribed events.
-        /// @returns 0 if successful.
         int CreateEventFragmentSubscriber(
            std::string &errmsg, void (*onEvent)(AMM::EventFragment &, eprosima::fastrtps::SampleInfo_t *)
         );
-
-        /// Remove the subscriber for Event Fragment on this module from the DDS network.
-        /// @returns 0 if successful.
         int RemoveEventFragmentSubscriber();
-
-        /// Remove the subscriber for Event Fragment on this module from the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int RemoveEventFragmentSubscriber(std::string &errmsg);
-
-        /// Call upon the active publisher for Event Fragment to write data to the DDS network.
-        /// @param a Reference to Event Fragment data to be written.
-        /// @returns 0 if successful.
-        /// @returns 1 if Publisher has not been created or if some other error occurred.
         int WriteEventFragment(AMM::EventFragment &a);
-
-        /// Call upon the active publisher for Event Fragment to write data to the DDS network.
-        /// @param errmsg Error message output.
-        /// @param a Reference to Event Fragment data to be written.
-        /// @returns 0 if successful.
-        /// @returns 1 if Publisher has not been created or if some other error occurred.
         int WriteEventFragment(std::string &errmsg, AMM::EventFragment &a);
-
-        /// Listener Interface override for handling Assessment subscribed events.
-        /// Calls OnEvent on m_eventFragment passing along data to the handler defined by
-        /// the user in CreateEventFragmentSubscriber.
-        /// @see AmmDataType::OnEvent
-        /// @see DDSManager::m_aseessment
-        /// @see ListenerInterface::onNewEventFragment
-        /// @param eventFrag incoming Event Fragment data from the DDS network.
-        /// @param info FastRTPS sample info.
         void onNewEventFragment(AMM::EventFragment eventFrag, eprosima::fastrtps::SampleInfo_t *info) override;
-
-        /// Clean up Event Fragment and set it to an inactive state.
-        /// Calls Delete on m_eventFragment.
-        /// @returns 0 if successful.
         int DecommissionEventFragment();
-
-        /// Clean up Event Fragment and set it to an inactive state.
-        /// Calls Delete on m_eventFragment.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int DecommissionEventFragment(std::string &errmsg);
+
 
         // - - - Event Record - - -
 
-        /// Initializer routine for Event Record.
-        /// Initializes m_eventRecord with a new AmmDataType pointer.
-        /// @returns 0 if successful.
         int InitializeEventRecord();
-
-        /// Overload initializer routine for Event Record.
-        /// Initializes m_eventRecord with a new AmmDataType pointer.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int InitializeEventRecord(std::string &errmsg);
-
-        /// State of whether Event Record is currently valid.
-        /// @returns True if m_eventRecord is valid pointer.
         bool IsEventRecordInitialized();
-
-        /// Create the data publisher for Event Record on this module.
-        /// Allows Event Record data to be published to the DDS network.
-        /// @returns 0 if successful.
         int CreateEventRecordPublisher();
-
-        /// Create the data publisher for Event Record on this module.
-        /// Allows Event Fragment data to be published to the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int CreateEventRecordPublisher(std::string &errmsg);
-
-        /// Remove the publisher for Event Record on this module from the DDS network.
-        /// @returns 0 if successful.
         int RemoveEventRecordPublisher();
-
-        /// Remove the publisher for Event Record on this module from the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int RemoveEventRecordPublisher(std::string &errmsg);
-
-        /// Create the data subscriber for Event Record published events on this module.
-        /// Allows the module to receive Event Record data when it is published on the DDS network.
-        /// @param parentClass Reference to the object that is receiving the subscribed event callback.
-        /// @param onEvent Method reference of parentClass that is be used as a callback for subscribed events.
-        /// @returns 0 if successful.
         int CreateEventRecordSubscriber(
            void (*onEvent)(AMM::EventRecord &, eprosima::fastrtps::SampleInfo_t *)
         );
-
-        /// Create the data subscriber for Event Record published events on this module.
-        /// Allows the module to receive Event Record data when it is published on the DDS network.
-        /// @param errmsg Error message output.
-        /// @param parentClass Reference to the object that is receiving the subscribed event callback.
-        /// @param onEvent Method reference of parentClass that is be used as a callback for subscribed events.
-        /// @returns 0 if successful.
         int CreateEventRecordSubscriber(
            std::string &errmsg, void (*onEvent)(AMM::EventRecord &, eprosima::fastrtps::SampleInfo_t *)
         );
-
-        /// Remove the subscriber for Event Record on this module from the DDS network.
-        /// @returns 0 if successful.
         int RemoveEventRecordSubscriber();
-
-        /// Remove the subscriber for Event Record on this module from the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int RemoveEventRecordSubscriber(std::string &errmsg);
-
-        /// Call upon the active publisher for Event Record to write data to the DDS network.
-        /// @param a Reference to Event Record data to be written.
-        /// @returns 0 if successful.
-        /// @returns 1 if Publisher has not been created or if some other error occurred.
         int WriteEventRecord(AMM::EventRecord &a);
-
-        /// Call upon the active publisher for Event Record to write data to the DDS network.
-        /// @param errmsg Error message output.
-        /// @param a Reference to Event Record data to be written.
-        /// @returns 0 if successful.
-        /// @returns 1 if Publisher has not been created or if some other error occurred.
         int WriteEventRecord(std::string &errmsg, AMM::EventRecord &a);
-
-        /// Listener Interface override for handling Event Record subscribed events.
-        /// Calls OnEvent on m_eventRecord passing along data to the handler defined by
-        /// the user in CreateEventRecordSubscriber.
-        /// @see AmmDataType::OnEvent
-        /// @see ListenerInterface::onNewEventRecord
-        /// @param eventFrag incoming Event Record data from the DDS network.
-        /// @param info FastRTPS sample info.
         void onNewEventRecord(AMM::EventRecord eventRec, eprosima::fastrtps::SampleInfo_t *info) override;
-
-        /// Clean up Event Record and set it to an inactive state.
-        /// Calls Delete on m_eventRecord.
-        /// @returns 0 if successful.
         int DecommissionEventRecord();
-
-        /// Clean up Event Record and set it to an inactive state.
-        /// Calls Delete on m_eventRecord.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int DecommissionEventRecord(std::string &errmsg);
+
 
         // - - - Fragment Amendment Request - - -
 
-        /// Initializer routine for Fragment Amendment Request.
-        /// Initializes m_fragmentAmendmentRequest with a new AmmDataType pointer.
-        /// @returns 0 if successful.
         int InitializeFragmentAmendmentRequest();
-
-        /// Overload initializer routine for Fragment Amendment Request.
-        /// Initializes m_fragmentAmendmentRequest with a new AmmDataType pointer.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int InitializeFragmentAmendmentRequest(std::string &errmsg);
-
-        /// State of whether Fragment Amendment Request is currently valid.
-        /// @returns True if m_fragmentAmendmentRequest is valid pointer.
         bool IsFragmentAmendmentRequestInitialized();
-
-        /// Create the data publisher for Fragment Amendment Request on this module.
-        /// Allows Fragment Amendment Request data to be published to the DDS network.
-        /// @returns 0 if successful.
         int CreateFragmentAmendmentRequestPublisher();
-
-        /// Create the data publisher for Fragment Amendment Request on this module.
-        /// Allows Fragment Amendment Request data to be published to the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int CreateFragmentAmendmentRequestPublisher(std::string &errmsg);
-
-        /// Remove the publisher for Fragment Amendment Request on this module from the DDS network.
-        /// @returns 0 if successful.
         int RemoveFragmentAmendmentRequestPublisher();
-
-        /// Remove the publisher for Fragment Amendment Request on this module from the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int RemoveFragmentAmendmentRequestPublisher(std::string &errmsg);
-
-        /// Create the data subscriber for Fragment Amendment Request published events on this module.
-        /// Allows the module to receive Fragment Amendment Request data when it is published on the DDS network.
-        /// @param parentClass Reference to the object that is receiving the subscribed event callback.
-        /// @param onEvent Method reference of parentClass that is be used as a callback for subscribed events.
-        /// @returns 0 if successful.
         int CreateFragmentAmendmentRequestSubscriber(
            void (*onEvent)(AMM::FragmentAmendmentRequest &, eprosima::fastrtps::SampleInfo_t *)
         );
-
-        /// Create the data subscriber for Fragment Amendment Request published events on this module.
-        /// Allows the module to receive Fragment Amendment Request data when it is published on the DDS network.
-        /// @param errmsg Error message output.
-        /// @param parentClass Reference to the object that is receiving the subscribed event callback.
-        /// @param onEvent Method reference of parentClass that is be used as a callback for subscribed events.
-        /// @returns 0 if successful.
         int CreateFragmentAmendmentRequestSubscriber(
            std::string &errmsg, void (*onEvent)(AMM::FragmentAmendmentRequest &, eprosima::fastrtps::SampleInfo_t *)
         );
-
-        /// Remove the subscriber for Fragment Amendment Request on this module from the DDS network.
-        /// @returns 0 if successful.
         int RemoveFragmentAmendmentRequestSubscriber();
-
-        /// Remove the subscriber for Fragment Amendment Request on this module from the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int RemoveFragmentAmendmentRequestSubscriber(std::string &errmsg);
-
-        /// Call upon the active publisher for Fragment Amendment Request to write data to the DDS network.
-        /// @param a Reference to Fragment Amendment Request data to be written.
-        /// @returns 0 if successful.
-        /// @returns 1 if Publisher has not been created or if some other error occurred.
         int WriteFragmentAmendmentRequest(AMM::FragmentAmendmentRequest &a);
-
-        /// Call upon the active publisher for Fragment Amendmnet Request to write data to the DDS network.
-        /// @param errmsg Error message output.
-        /// @param a Reference to Fragment Amendment Request data to be written.
-        /// @returns 0 if successful.
-        /// @returns 1 if Publisher has not been created or if some other error occurred.
         int WriteFragmentAmendmentRequest(std::string &errmsg, AMM::FragmentAmendmentRequest &a);
-
-        /// Listener Interface override for handling Fragment Amendment Request subscribed events.
-        /// Calls OnEvent on m_fragmentAmendmentRequest passing along data to the handler defined by
-        /// the user in CreateFragmentAmendmentRequestSubscriber.
-        /// @see AmmDataType::OnEvent
-        /// @see ListenerInterface::onNewFragmentAmendmentRequest
-        /// @param ffar incoming Fragment Amendment Request data from the DDS network.
-        /// @param info FastRTPS sample info.
         void onNewFragmentAmendmentRequest(AMM::FragmentAmendmentRequest ffar,
                                            eprosima::fastrtps::SampleInfo_t *info) override;
-
-        /// Clean up Fragment Amendment Request and set it to an inactive state.
-        /// Calls Delete on m_fragmentAmendmentRequest.
-        /// @returns 0 if successful.
         int DecommissionFragmentAmendmentRequest();
-
-        /// Clean up Fragment Amendment Request and set it to an inactive state.
-        /// Calls Delete on m_fragmentAmendmentRequest.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int DecommissionFragmentAmendmentRequest(std::string &errmsg);
+
 
         // - - - Log - - -
 
-        /// Initializer routine for Log.
-        /// Initializes m_log with a new AmmDataType pointer.
-        /// @returns 0 if successful.
         int InitializeLog();
-
-        /// Overload initializer routine for Log.
-        /// Initializes m_log with a new AmmDataType pointer.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int InitializeLog(std::string &errmsg);
-
-        /// State of whether Log is currently valid.
-        /// @returns True if m_log is valid pointer.
         bool IsLogInitialized();
-
-        /// Create the data publisher for Log on this module.
-        /// Allows Log data to be published to the DDS network.
-        /// @returns 0 if successful.
         int CreateLogPublisher();
-
-        /// Create the data publisher for Log on this module.
-        /// Allows Log data to be published to the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int CreateLogPublisher(std::string &errmsg);
-
-        /// Remove the publisher for Log on this module from the DDS network.
-        /// @returns 0 if successful.
         int RemoveLogPublisher();
-
-        /// Remove the publisher for Log on this module from the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int RemoveLogPublisher(std::string &errmsg);
-
-        /// Create the data subscriber for Log published events on this module.
-        /// Allows the module to receive Log data when it is published on the DDS network.
-        /// @param parentClass Reference to the object that is receiving the subscribed event callback.
-        /// @param onEvent Method reference of parentClass that is be used as a callback for subscribed events.
-        /// @returns 0 if successful.
         int CreateLogSubscriber(
            void (*onEvent)(AMM::Log &, eprosima::fastrtps::SampleInfo_t *)
         );
-
-        /// Create the data subscriber for Log published events on this module.
-        /// Allows the module to receive Log data when it is published on the DDS network.
-        /// @param errmsg Error message output.
-        /// @param parentClass Reference to the object that is receiving the subscribed event callback.
-        /// @param onEvent Method reference of parentClass that is be used as a callback for subscribed events.
-        /// @returns 0 if successful.
         int CreateLogSubscriber(
            std::string &errmsg, void (*onEvent)(AMM::Log &, eprosima::fastrtps::SampleInfo_t *)
         );
-
-        /// Remove the subscriber for Log on this module from the DDS network.
-        /// @returns 0 if successful.
         int RemoveLogSubscriber();
-
-        /// Remove the subscriber for Log on this module from the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int RemoveLogSubscriber(std::string &errmsg);
-
-        /// Call upon the active publisher for Log to write data to the DDS network.
-        /// @param a Reference to Log data to be written.
-        /// @returns 0 if successful.
-        /// @returns 1 if Publisher has not been created or if some other error occurred.
         int WriteLog(AMM::Log &a);
-
-        /// Call upon the active publisher for Log to write data to the DDS network.
-        /// @param errmsg Error message output.
-        /// @param a Reference to Log data to be written.
-        /// @returns 0 if successful.
-        /// @returns 1 if Publisher has not been created or if some other error occurred.
         int WriteLog(std::string &errmsg, AMM::Log &a);
-
-        /// Listener Interface override for handling Log subscribed events.
-        /// Calls OnEvent on m_log passing along data to the handler defined by
-        /// the user in CreateLogSubscriber.
-        /// @see AmmDataType::OnEvent
-        /// @see ListenerInterface::onNewLog
-        /// @param log incoming Log data from the DDS network.
-        /// @param info FastRTPS sample info.
         void onNewLog(AMM::Log eventRec, eprosima::fastrtps::SampleInfo_t *info) override;
-
-        /// Clean up Log and set it to an inactive state.
-        /// Calls Delete on m_log.
-        /// @returns 0 if successful.
         int DecommissionLog();
-
-        /// Clean up Log and set it to an inactive state.
-        /// Calls Delete on m_log.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int DecommissionLog(std::string &errmsg);
+
 
         // - - - Module Configuration - - -
 
-        /// Initializer routine for Module Configuration.
-        /// Initializes m_moduleConfiguration with a new AmmDataType pointer.
-        /// @returns 0 if successful.
         int InitializeModuleConfiguration();
-
-        /// Overload initializer routine for Module Configuration.
-        /// Initializes m_moduleConfiguration with a new AmmDataType pointer.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int InitializeModuleConfiguration(std::string &errmsg);
-
-        /// State of whether Module Configuration is currently valid.
-        /// @returns True if m_moduleConfiguration is valid pointer.
         bool IsModuleConfigurationInitialized();
-
-        /// Create the data publisher for Module Configuration on this module.
-        /// Allows Module Configuration data to be published to the DDS network.
-        /// @returns 0 if successful.
         int CreateModuleConfigurationPublisher();
-
-        /// Create the data publisher for Module Configuration on this module.
-        /// Allows Module Configuration data to be published to the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int CreateModuleConfigurationPublisher(std::string &errmsg);
-
-        /// Remove the publisher for Module Configuration on this module from the DDS network.
-        /// @returns 0 if successful.
         int RemoveModuleConfigurationPublisher();
-
-        /// Remove the publisher for Module Configuration on this module from the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int RemoveModuleConfigurationPublisher(std::string &errmsg);
-
-        /// Create the data subscriber for Module Configuration published events on this module.
-        /// Allows the module to receive Module Configuration data when it is published on the DDS network.
-        /// @param parentClass Reference to the object that is receiving the subscribed event callback.
-        /// @param onEvent Method reference of parentClass that is be used as a callback for subscribed events.
-        /// @returns 0 if successful.
         int CreateModuleConfigurationSubscriber(
            void (*onEvent)(AMM::ModuleConfiguration &, eprosima::fastrtps::SampleInfo_t *)
         );
-
-        /// Create the data subscriber for Module Configuration published events on this module.
-        /// Allows the module to receive Module Configuration data when it is published on the DDS network.
-        /// @param errmsg Error message output.
-        /// @param parentClass Reference to the object that is receiving the subscribed event callback.
-        /// @param onEvent Method reference of parentClass that is be used as a callback for subscribed events.
-        /// @returns 0 if successful.
         int CreateModuleConfigurationSubscriber(
            std::string &errmsg, void (*onEvent)(AMM::ModuleConfiguration &, eprosima::fastrtps::SampleInfo_t *)
         );
-
-        /// Remove the subscriber for Module Configuration on this module from the DDS network.
-        /// @returns 0 if successful.
         int RemoveModuleConfigurationSubscriber();
-
-        /// Remove the subscriber for Module Configuration on this module from the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int RemoveModuleConfigurationSubscriber(std::string &errmsg);
-
-        /// Call upon the active publisher for Module Configuration to write data to the DDS network.
-        /// @param a Reference to Module Configuration data to be written.
-        /// @returns 0 if successful.
-        /// @returns 1 if Publisher has not been created or if some other error occurred.
         int WriteModuleConfiguration(AMM::ModuleConfiguration &a);
-
-        /// Call upon the active publisher for Module Configuration to write data to the DDS network.
-        /// @param errmsg Error message output.
-        /// @param a Reference to Module Configuration data to be written.
-        /// @returns 0 if successful.
-        /// @returns 1 if Publisher has not been created or if some other error occurred.
         int WriteModuleConfiguration(std::string &errmsg, AMM::ModuleConfiguration &a);
-
-        /// Listener Interface override for handling Module Configuration subscribed events.
-        /// Calls OnEvent on m_moduleConfiguration passing along data to the handler defined by
-        /// the user in CreateModuleConfigurationSubscriber.
-        /// @see AmmDataType::OnEvent
-        /// @see ListenerInterface::onNewModuleConfiguration
-        /// @param modConfig incoming Module Configuration data from the DDS network.
-        /// @param info FastRTPS sample info.
-        void
-        onNewModuleConfiguration(AMM::ModuleConfiguration modConfig, eprosima::fastrtps::SampleInfo_t *info) override;
-
-        /// Clean up Module Configuration and set it to an inactive state.
-        /// Calls Delete on m_moduleConfiguration.
-        /// @returns 0 if successful.
+        void onNewModuleConfiguration(AMM::ModuleConfiguration modConfig, eprosima::fastrtps::SampleInfo_t *info) override;
         int DecommissionModuleConfiguration();
-
-        /// Clean up Module Configuration and set it to an inactive state.
-        /// Calls Delete on m_moduleConfiguration.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int DecommissionModuleConfiguration(std::string &errmsg);
+
 
         // - - - Omitted Event - - -
 
-        /// Initializer routine for Omitted Event.
-        /// Initializes m_omittedEvent with a new AmmDataType pointer.
-        /// @returns 0 if successful.
         int InitializeOmittedEvent();
-
-        /// Overload initializer routine for Omitted Event.
-        /// Initializes m_omittedEvent with a new AmmDataType pointer.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int InitializeOmittedEvent(std::string &errmsg);
-
-        /// State of whether Omitted Event is currently valid.
-        /// @returns True if m_omittedEvent is valid pointer.
         bool IsOmittedEventInitialized();
-
-        /// Create the data publisher for Omitted Event on this module.
-        /// Allows Omitted Event data to be published to the DDS network.
-        /// @returns 0 if successful.
         int CreateOmittedEventPublisher();
-
-        /// Create the data publisher for Omitted Event on this module.
-        /// Allows Omitted Event data to be published to the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int CreateOmittedEventPublisher(std::string &errmsg);
-
-        /// Remove the publisher for Omitted Event on this module from the DDS network.
-        /// @returns 0 if successful.
         int RemoveOmittedEventPublisher();
-
-        /// Remove the publisher for Omitted Event on this module from the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int RemoveOmittedEventPublisher(std::string &errmsg);
-
-        /// Create the data subscriber for Omitted Event published events on this module.
-        /// Allows the module to receive Omitted Event data when it is published on the DDS network.
-        /// @param parentClass Reference to the object that is receiving the subscribed event callback.
-        /// @param onEvent Method reference of parentClass that is be used as a callback for subscribed events.
-        /// @returns 0 if successful.
         int CreateOmittedEventSubscriber(
            void (*onEvent)(AMM::OmittedEvent &, eprosima::fastrtps::SampleInfo_t *)
         );
-
-        /// Create the data subscriber for Omitted Event published events on this module.
-        /// Allows the module to receive Omitted Event data when it is published on the DDS network.
-        /// @param errmsg Error message output.
-        /// @param parentClass Reference to the object that is receiving the subscribed event callback.
-        /// @param onEvent Method reference of parentClass that is be used as a callback for subscribed events.
-        /// @returns 0 if successful.
         int CreateOmittedEventSubscriber(
            std::string &errmsg, void (*onEvent)(AMM::OmittedEvent &, eprosima::fastrtps::SampleInfo_t *)
         );
-
-        /// Remove the subscriber for Omitted Event on this module from the DDS network.
-        /// @returns 0 if successful.
         int RemoveOmittedEventSubscriber();
-
-        /// Remove the subscriber for Omitted Event on this module from the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int RemoveOmittedEventSubscriber(std::string &errmsg);
-
-        /// Call upon the active publisher for Omitted Event to write data to the DDS network.
-        /// @param a Reference to Omitted Event data to be written.
-        /// @returns 0 if successful.
-        /// @returns 1 if Publisher has not been created or if some other error occurred.
         int WriteOmittedEvent(AMM::OmittedEvent &a);
-
-        /// Call upon the active publisher for Omitted Event to write data to the DDS network.
-        /// @param errmsg Error message output.
-        /// @param a Reference to Omitted Event data to be written.
-        /// @returns 0 if successful.
-        /// @returns 1 if Publisher has not been created or if some other error occurred.
         int WriteOmittedEvent(std::string &errmsg, AMM::OmittedEvent &a);
-
-        /// Listener Interface override for handling Omitted Event subscribed events.
-        /// Calls OnEvent on m_omittedEvent passing along data to the handler defined by
-        /// the user in CreateOmittedEventSubscriber.
-        /// @see AmmDataType::OnEvent
-        /// @see ListenerInterface::onNewOmittedEvent
-        /// @param omittedEvent incoming Omitted Event data from the DDS network.
-        /// @param info FastRTPS sample info..
         void onNewOmittedEvent(AMM::OmittedEvent omittedEvent, eprosima::fastrtps::SampleInfo_t *info) override;
-
-        /// Clean up Omitted Event and set it to an inactive state.
-        /// Calls Delete on m_omittedEvent.
-        /// @returns 0 if successful.
         int DecommissionOmittedEvent();
-
-        /// Clean up Omitted Event and set it to an inactive state.
-        /// Calls Delete on m_omittedEvent.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int DecommissionOmittedEvent(std::string &errmsg);
+
 
         // - - - Operational Description - - -
 
-        /// Initializer routine for Operational Description.
-        /// Initializes m_operationalDescription with a new AmmDataType pointer.
-        /// @returns 0 if successful.
         int InitializeOperationalDescription();
-
-        /// Overload initializer routine for Operational Description.
-        /// Initializes m_operationalDescription with a new AmmDataType pointer.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int InitializeOperationalDescription(std::string &errmsg);
-
-        /// State of whether Operational Description is currently valid.
-        /// @returns True if m_operationalDescription is valid pointer.
         bool IsOperationalDescriptionInitialized();
-
-        /// Create the data publisher for Operational Description on this module.
-        /// Allows Operational Description data to be published to the DDS network.
-        /// @returns 0 if successful.
         int CreateOperationalDescriptionPublisher();
-
-        /// Create the data publisher for Operational Desription on this module.
-        /// Allows Operational Description data to be published to the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int CreateOperationalDescriptionPublisher(std::string &errmsg);
-
-        /// Remove the publisher for Operational Description on this module from the DDS network.
-        /// @returns 0 if successful.
         int RemoveOperationalDescriptionPublisher();
-
-        /// Remove the publisher for Operational Description on this module from the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int RemoveOperationalDescriptionPublisher(std::string &errmsg);
-
-        /// Create the data subscriber for Operational Description published events on this module.
-        /// Allows the module to receive Operational Description data when it is published on the DDS network.
-        /// @param parentClass Reference to the object that is receiving the subscribed event callback.
-        /// @param onEvent Method reference of parentClass that is be used as a callback for subscribed events.
-        /// @returns 0 if successful.
         int CreateOperationalDescriptionSubscriber(
            void (*onEvent)(AMM::OperationalDescription &, eprosima::fastrtps::SampleInfo_t *)
         );
-
-        /// Create the data subscriber for Operational Description published events on this module.
-        /// Allows the module to receive Operational Description data when it is published on the DDS network.
-        /// @param errmsg Error message output.
-        /// @param parentClass Reference to the object that is receiving the subscribed event callback.
-        /// @param onEvent Method reference of parentClass that is be used as a callback for subscribed events.
-        /// @returns 0 if successful.
         int CreateOperationalDescriptionSubscriber(
            std::string &errmsg, void (*onEvent)(AMM::OperationalDescription &, eprosima::fastrtps::SampleInfo_t *)
         );
-
-        /// Remove the subscriber for Operation Description on this module from the DDS network.
-        /// @returns 0 if successful.
         int RemoveOperationalDescriptionSubscriber();
-
-        /// Remove the subscriber for Operational Description on this module from the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int RemoveOperationalDescriptionSubscriber(std::string &errmsg);
-
-        /// Call upon the active publisher for Operational Description to write data to the DDS network.
-        /// @param a Reference to Operational Description data to be written.
-        /// @returns 0 if successful.
-        /// @returns 1 if Publisher has not been created or if some other error occurred.
         int WriteOperationalDescription(AMM::OperationalDescription &a);
-
-        /// Call upon the active publisher for Operational Description to write data to the DDS network.
-        /// @param errmsg Error message output.
-        /// @param a Reference to Operational Description data to be written.
-        /// @returns 0 if successful.
-        /// @returns 1 if Publisher has not been created or if some other error occurred.
         int WriteOperationalDescription(std::string &errmsg, AMM::OperationalDescription &a);
-
-        /// Listener Interface override for handling Operational Description subscribed events.
-        /// Calls OnEvent on m_operationalDescription passing along data to the handler defined by
-        /// the user in CreateOperationalDescriptionSubscriber.
-        /// @see AmmDataType::OnEvent
-        /// @see ListenerInterface::onNewOperationalDescription
-        /// @param opDescript incoming Operational Description data from the DDS network.
-        /// @param info FastRTPS sample info.
         void onNewOperationalDescription(AMM::OperationalDescription opDescript,
                                          eprosima::fastrtps::SampleInfo_t *info) override;
-
-        /// Clean up Operational Description and set it to an inactive state.
-        /// Calls Delete on m_operationalDescription.
-        /// @returns 0 if successful.
         int DecommissionOperationalDescription();
-
-        /// Clean up Operational Description and set it to an inactive state.
-        /// Calls Delete on m_operationalDescription.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int DecommissionOperationalDescription(std::string &errmsg);
+
 
         // - - - Physiology Modification - - -
 
-        /// Initializer routine for Physiology Modification.
-        /// Initializes m_physiologyModification with a new AmmDataType pointer.
-        /// @returns 0 if successful.
         int InitializePhysiologyModification();
-
-        /// Overload initializer routine for Physiology Modification.
-        /// Initializes m_physiologyModification with a new AmmDataType pointer.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int InitializePhysiologyModification(std::string &errmsg);
-
-        /// State of whether Physiology Modfication is currently valid.
-        /// @returns True if m_physiologyModification is valid pointer.
         bool IsPhysiologyModificationInitialized();
-
-        /// Create the data publisher for Physiology Modification on this module.
-        /// Allows Physiology Modification data to be published to the DDS network.
-        /// @returns 0 if successful.
         int CreatePhysiologyModificationPublisher();
-
-        /// Create the data publisher for Physiology Modification on this module.
-        /// Allows Physiology Modification data to be published to the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int CreatePhysiologyModificationPublisher(std::string &errmsg);
-
-        /// Remove the publisher for Physiology Modification on this module from the DDS network.
-        /// @returns 0 if successful.
         int RemovePhysiologyModificationPublisher();
-
-        /// Remove the publisher for Physiology Modification on this module from the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int RemovePhysiologyModificationPublisher(std::string &errmsg);
-
-        /// Create the data subscriber for Physiology Modification published events on this module.
-        /// Allows the module to receive Physiology Modification data when it is published on the DDS network.
-        /// @param parentClass Reference to the object that is receiving the subscribed event callback.
-        /// @param onEvent Method reference of parentClass that is be used as a callback for subscribed events.
-        /// @returns 0 if successful.
         int CreatePhysiologyModificationSubscriber(
            void (*onEvent)(AMM::PhysiologyModification &, eprosima::fastrtps::SampleInfo_t *)
         );
-
-        /// Create the data subscriber for Physiology Modification published events on this module.
-        /// Allows the module to receive Physiology Modification data when it is published on the DDS network.
-        /// @param errmsg Error message output.
-        /// @param parentClass Reference to the object that is receiving the subscribed event callback.
-        /// @param onEvent Method reference of parentClass that is be used as a callback for subscribed events.
-        /// @returns 0 if successful.
         int CreatePhysiologyModificationSubscriber(
            std::string &errmsg, void (*onEvent)(AMM::PhysiologyModification &, eprosima::fastrtps::SampleInfo_t *)
         );
-
-        /// Remove the subscriber for Physiology Modification on this module from the DDS network.
-        /// @returns 0 if successful.
         int RemovePhysiologyModificationSubscriber();
-
-        /// Remove the subscriber for Physiology Modification on this module from the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int RemovePhysiologyModificationSubscriber(std::string &errmsg);
-
-        /// Call upon the active publisher for Physiology Modification to write data to the DDS network.
-        /// @param a Reference to Physiology Modification data to be written.
-        /// @returns 0 if successful.
-        /// @returns 1 if Publisher has not been created or if some other error occurred.
         int WritePhysiologyModification(AMM::PhysiologyModification &a);
-
-        /// Call upon the active publisher for Physiology Modification to write data to the DDS network.
-        /// @param errmsg Error message output.
-        /// @param a Reference to Physiology Modification data to be written.
-        /// @returns 0 if successful.
-        /// @returns 1 if Publisher has not been created or if some other error occurred.
         int WritePhysiologyModification(std::string &errmsg, AMM::PhysiologyModification &a);
-
-        /// Listener Interface override for handling Physiology Modification subscribed events.
-        /// Calls OnEvent on m_physiologyModification passing along data to the handler defined by
-        /// the user in CreatePhysiologyModificationSubscriber.
-        /// @see AmmDataType::OnEvent
-        /// @see ListenerInterface::onNewPhysiologyModification
-        /// @param physMod incoming Physiology Modification data from the DDS network.
-        /// @param info FastRTPS sample info.
         void onNewPhysiologyModification(AMM::PhysiologyModification physMod,
                                          eprosima::fastrtps::SampleInfo_t *info) override;
-
-        /// Clean up Physiology Modification and set it to an inactive state.
-        /// Calls Delete on m_physiologyModification.
-        /// @returns 0 if successful.
         int DecommissionPhysiologyModification();
-
-        /// Clean up Physiology Modification and set it to an inactive state.
-        /// Calls Delete on m_physiologyModification.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int DecommissionPhysiologyModification(std::string &errmsg);
+
 
         // - - - Physioogy Value - - -
 
-        /// Initializer routine for Physiology Value.
-        /// Initializes m_physiologyValue with a new AmmDataType pointer.
-        /// @returns 0 if successful.
         int InitializePhysiologyValue();
-
-        /// Overload initializer routine for Physiology Value.
-        /// Initializes m_physiologyValue with a new AmmDataType pointer.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int InitializePhysiologyValue(std::string &errmsg);
-
-        /// State of whether Physiology Value is currently valid.
-        /// @returns True if m_physiologyValue is valid pointer.
         bool IsPhysiologyValueInitialized();
-
-        /// Create the data publisher for Physiology Value on this module.
-        /// Allows Physiology Value data to be published to the DDS network.
-        /// @returns 0 if successful.
         int CreatePhysiologyValuePublisher();
-
-        /// Create the data publisher for Physiology Value on this module.
-        /// Allows Physiology Value data to be published to the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int CreatePhysiologyValuePublisher(std::string &errmsg);
-
-        /// Remove the publisher for Physiology Value on this module from the DDS network.
-        /// @returns 0 if successful.
         int RemovePhysiologyValuePublisher();
-
-        /// Remove the publisher for Physiology Value on this module from the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int RemovePhysiologyValuePublisher(std::string &errmsg);
-
-        /// Create the data subscriber for Physiology Value published events on this module.
-        /// Allows the module to receive Physiology Value data when it is published on the DDS network.
-        /// @param parentClass Reference to the object that is receiving the subscribed event callback.
-        /// @param onEvent Method reference of parentClass that is be used as a callback for subscribed events.
-        /// @returns 0 if successful.
         int CreatePhysiologyValueSubscriber(
            void (*onEvent)(AMM::PhysiologyValue &, eprosima::fastrtps::SampleInfo_t *)
         );
-
-        /// Create the data subscriber for Physiology Value published events on this module.
-        /// Allows the module to receive Physiology Value data when it is published on the DDS network.
-        /// @param errmsg Error message output.
-        /// @param parentClass Reference to the object that is receiving the subscribed event callback.
-        /// @param onEvent Method reference of parentClass that is be used as a callback for subscribed events.
-        /// @returns 0 if successful.
         int CreatePhysiologyValueSubscriber(
            std::string &errmsg, void (*onEvent)(AMM::PhysiologyValue &, eprosima::fastrtps::SampleInfo_t *)
         );
-
-        /// Remove the subscriber for Physiology Value on this module from the DDS network.
-        /// @returns 0 if successful.
         int RemovePhysiologyValueSubscriber();
-
-        /// Remove the subscriber for Physiology Value on this module from the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int RemovePhysiologyValueSubscriber(std::string &errmsg);
-
-        /// Call upon the active publisher for Physiology Value to write data to the DDS network.
-        /// @param a Reference to Physiology Value data to be written.
-        /// @returns 0 if successful.
-        /// @returns 1 if Publisher has not been created or if some other error occurred.
         int WritePhysiologyValue(AMM::PhysiologyValue &a);
-
-        /// Call upon the active publisher for Physiology Value to write data to the DDS network.
-        /// @param errmsg Error message output.
-        /// @param a Reference to Physiology Value data to be written.
-        /// @returns 0 if successful.
-        /// @returns 1 if Publisher has not been created or if some other error occurred.
         int WritePhysiologyValue(std::string &errmsg, AMM::PhysiologyValue &a);
-
-        /// Listener Interface override for handling Physiology Value subscribed events.
-        /// Calls OnEvent on m_physiologyValue passing along data to the handler defined by
-        /// the user in CreatePhysiologyValueSubscriber.
-        /// @see AmmDataType::OnEvent
-        /// @see ListenerInterface::onNewPhysiologyValue
-        /// @param physVal incoming Physiology Value data from the DDS network.
-        /// @param info FastRTPS sample info.
         void onNewPhysiologyValue(AMM::PhysiologyValue physVal, eprosima::fastrtps::SampleInfo_t *info) override;
-
-        /// Clean up Physiology Value and set it to an inactive state.
-        /// Calls Delete on m_physiologyValue.
-        /// @returns 0 if successful.
         int DecommissionPhysiologyValue();
-
-        /// Clean up Physiology Value and set it to an inactive state.
-        /// Calls Delete on m_physiologyValue.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int DecommissionPhysiologyValue(std::string &errmsg);
+
 
         // - - - Physiology Waveform - - -
 
-        /// Initializer routine for Physiology Waveform.
-        /// Initializes m_physiologyWaveform with a new AmmDataType pointer.
-        /// @returns 0 if successful.
         int InitializePhysiologyWaveform();
-
-        /// Overload initializer routine for Physiology Waveform.
-        /// Initializes m_physiolgyWaveform with a new AmmDataType pointer.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int InitializePhysiologyWaveform(std::string &errmsg);
-
-        /// State of whether Physiology Waveform is currently valid.
-        /// @returns True if m_physiologyWaveform is valid pointer.
         bool IsPhysiologyWaveformInitialized();
-
-        /// Create the data publisher for Physiology Waveform on this module.
-        /// Allows Physiology Waveform data to be published to the DDS network.
-        /// @returns 0 if successful.
         int CreatePhysiologyWaveformPublisher();
-
-        /// Create the data publisher for Physiology Waveform on this module.
-        /// Allows Physiology Waveform data to be published to the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int CreatePhysiologyWaveformPublisher(std::string &errmsg);
-
-        /// Remove the publisher for Physiology Waveform on this module from the DDS network.
-        /// @returns 0 if successful.
         int RemovePhysiologyWaveformPublisher();
-
-        /// Remove the publisher for Physiology Waveform on this module from the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int RemovePhysiologyWaveformPublisher(std::string &errmsg);
-
-        /// Create the data subscriber for Physiology Waveform published events on this module.
-        /// Allows the module to receive Physiology Waeform data when it is published on the DDS network.
-        /// @param parentClass Reference to the object that is receiving the subscribed event callback.
-        /// @param onEvent Method reference of parentClass that is be used as a callback for subscribed events.
-        /// @returns 0 if successful.
         int CreatePhysiologyWaveformSubscriber(
            void (*onEvent)(AMM::PhysiologyWaveform &, eprosima::fastrtps::SampleInfo_t *)
         );
-
-        /// Create the data subscriber for Physiology Waveform published events on this module.
-        /// Allows the module to receive Physiology Waveform data when it is published on the DDS network.
-        /// @param errmsg Error message output.
-        /// @param parentClass Reference to the object that is receiving the subscribed event callback.
-        /// @param onEvent Method reference of parentClass that is be used as a callback for subscribed events.
-        /// @returns 0 if successful.
         int CreatePhysiologyWaveformSubscriber(
            std::string &errmsg, void (*onEvent)(AMM::PhysiologyWaveform &, eprosima::fastrtps::SampleInfo_t *)
         );
-
-        /// Remove the subscriber for Physiology Waveform on this module from the DDS network.
-        /// @returns 0 if successful.
         int RemovePhysiologyWaveformSubscriber();
-
-        /// Remove the subscriber for Physiology Waveform on this module from the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int RemovePhysiologyWaveformSubscriber(std::string &errmsg);
-
-        /// Call upon the active publisher for Physiology Waveform to write data to the DDS network.
-        /// @param a Reference to Physiology Waveform data to be written.
-        /// @returns 0 if successful.
-        /// @returns 1 if Publisher has not been created or if some other error occurred.
         int WritePhysiologyWaveform(AMM::PhysiologyWaveform &a);
-
-        /// Call upon the active publisher for Physiology Waveform to write data to the DDS network.
-        /// @param errmsg Error message output.
-        /// @param a Reference to Physiology Waveform data to be written.
-        /// @returns 0 if successful.
-        /// @returns 1 if Publisher has not been created or if some other error occurred.
         int WritePhysiologyWaveform(std::string &errmsg, AMM::PhysiologyWaveform &a);
-
-        /// Listener Interface override for handling Physiology Waveform subscribed events.
-        /// Calls OnEvent on m_physiologyWaveform passing along data to the handler defined by
-        /// the user in CreatePhysiologyWaveformSubscriber.
-        /// @see AmmDataType::OnEvent
-        /// @see ListenerInterface::onNewPhysiologyWaveform
-        /// @param eventFrag incoming Physiology Waveform data from the DDS network.
-        /// @param info FastRTPS sample info.
         void onNewPhysiologyWaveform(AMM::PhysiologyWaveform physWave, eprosima::fastrtps::SampleInfo_t *info) override;
-
-        /// Clean up Physiology Waveform and set it to an inactive state.
-        /// Calls Delete on m_physiologyWaveform.
-        /// @returns 0 if successful.
         int DecommissionPhysiologyWaveform();
-
-        /// Clean up Physiology Waveform and set it to an inactive state.
-        /// Calls Delete on m_physiologyWaveform.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int DecommissionPhysiologyWaveform(std::string &errmsg);
+
 
         // - - - Render Modification - - -
 
-        /// Initializer routine for Render Modification.
-        /// Initializes m_renderModification with a new AmmDataType pointer.
-        /// @returns 0 if successful.
         int InitializeRenderModification();
-
-        /// Overload initializer routine for Render Modification.
-        /// Initializes m_renderModification with a new AmmDataType pointer.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int InitializeRenderModification(std::string &errmsg);
-
-        /// State of whether Render Modification is currently valid.
-        /// @returns True if m_renderModification is valid pointer.
         bool IsRenderModificationInitialized();
-
-        /// Create the data publisher for Render Modification on this module.
-        /// Allows Render Modification data to be published to the DDS network.
-        /// @returns 0 if successful.
         int CreateRenderModificationPublisher();
-
-        /// Create the data publisher for Render Modification on this module.
-        /// Allows Render Modification data to be published to the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int CreateRenderModificationPublisher(std::string &errmsg);
-
-        /// Remove the publisher for Render Modification on this module from the DDS network.
-        /// @returns 0 if successful.
         int RemoveRenderModificationPublisher();
-
-        /// Remove the publisher for Render Modification on this module from the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int RemoveRenderModificationPublisher(std::string &errmsg);
-
-        /// Create the data subscriber for Render Modification published events on this module.
-        /// Allows the module to receive Render Modification data when it is published on the DDS network.
-        /// @param parentClass Reference to the object that is receiving the subscribed event callback.
-        /// @param onEvent Method reference of parentClass that is be used as a callback for subscribed events.
-        /// @returns 0 if successful.
         int CreateRenderModificationSubscriber(
            void (*onEvent)(AMM::RenderModification &, eprosima::fastrtps::SampleInfo_t *)
         );
-
-        /// Create the data subscriber for Render Modification published events on this module.
-        /// Allows the module to receive Render Modification data when it is published on the DDS network.
-        /// @param errmsg Error message output.
-        /// @param parentClass Reference to the object that is receiving the subscribed event callback.
-        /// @param onEvent Method reference of parentClass that is be used as a callback for subscribed events.
-        /// @returns 0 if successful.
         int CreateRenderModificationSubscriber(
            std::string &errmsg, void (*onEvent)(AMM::RenderModification &, eprosima::fastrtps::SampleInfo_t *)
         );
-
-        /// Remove the subscriber for Render Modification on this module from the DDS network.
-        /// @returns 0 if successful.
         int RemoveRenderModificationSubscriber();
-
-        /// Remove the subscriber for Render Modification on this module from the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int RemoveRenderModificationSubscriber(std::string &errmsg);
-
-        /// Call upon the active publisher for Render Modification to write data to the DDS network.
-        /// @param a Reference to Render Modification data to be written.
-        /// @returns 0 if successful.
-        /// @returns 1 if Publisher has not been created or if some other error occurred.
         int WriteRenderModification(AMM::RenderModification &a);
-
-        /// Call upon the active publisher for Render Modification to write data to the DDS network.
-        /// @param errmsg Error message output.
-        /// @param a Reference to Render Modification data to be written.
-        /// @returns 0 if successful.
-        /// @returns 1 if Publisher has not been created or if some other error occurred.
         int WriteRenderModification(std::string &errmsg, AMM::RenderModification &a);
-
-        /// Listener Interface override for handling Render Modification subscribed events.
-        /// Calls OnEvent on m_renderModification passing along data to the handler defined by
-        /// the user in CreateRenderModificationSubscriber.
-        /// @see AmmDataType::OnEvent
-        /// @see ListenerInterface::onNewRenderModification
-        /// @param eventFrag incoming Render Modification data from the DDS network.
-        /// @param info FastRTPS sample info.
         void onNewRenderModification(AMM::RenderModification rendMod, eprosima::fastrtps::SampleInfo_t *info) override;
-
-        /// Clean up Render Modification and set it to an inactive state.
-        /// Calls Delete on m_renderModification.
-        /// @returns 0 if successful.
         int DecommissionRenderModification();
-
-        /// Clean up Render Modification and set it to an inactive state.
-        /// Calls Delete on m_renderModification.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int DecommissionRenderModification(std::string &errmsg);
+
 
         // - - - Simulation Control - - -
 
-        /// Initializer routine for Simulation Control.
-        /// Initializes m_simulationControl with a new AmmDataType pointer.
-        /// @returns 0 if successful.
         int InitializeSimulationControl();
-
-        /// Overload initializer routine for Simulation Control.
-        /// Initializes m_simulationControl with a new AmmDataType pointer.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int InitializeSimulationControl(std::string &errmsg);
-
-        /// State of whether Simulation Control is currently valid.
-        /// @returns True if m_simulationControl is valid pointer.
         bool IsSimulationControlInitialized();
-
-        /// Create the data publisher for Simulation Control on this module.
-        /// Allows Simulation Control data to be published to the DDS network.
-        /// @returns 0 if successful.
         int CreateSimulationControlPublisher();
-
-        /// Create the data publisher for Eve on this module.
-        /// Allows Simulation Control data to be published to the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int CreateSimulationControlPublisher(std::string &errmsg);
-
-        /// Remove the publisher for Simulation Control on this module from the DDS network.
-        /// @returns 0 if successful.
         int RemoveSimulationControlPublisher();
-
-        /// Remove the publisher for Simulation Control on this module from the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int RemoveSimulationControlPublisher(std::string &errmsg);
-
-        /// Create the data subscriber for Simulation Control published events on this module.
-        /// Allows the module to receive Simulation Control data when it is published on the DDS network.
-        /// @param parentClass Reference to the object that is receiving the subscribed event callback.
-        /// @param onEvent Method reference of parentClass that is be used as a callback for subscribed events.
-        /// @returns 0 if successful.
         int CreateSimulationControlSubscriber(
            void (*onEvent)(AMM::SimulationControl &, eprosima::fastrtps::SampleInfo_t *)
         );
-
-        /// Create the data subscriber for Simulation Control published events on this module.
-        /// Allows the module to receive Simulation Control data when it is published on the DDS network.
-        /// @param errmsg Error message output.
-        /// @param parentClass Reference to the object that is receiving the subscribed event callback.
-        /// @param onEvent Method reference of parentClass that is be used as a callback for subscribed events.
-        /// @returns 0 if successful.
         int CreateSimulationControlSubscriber(
            std::string &errmsg, void (*onEvent)(AMM::SimulationControl &, eprosima::fastrtps::SampleInfo_t *)
         );
-
-        /// Remove the subscriber for Simulation Control on this module from the DDS network.
-        /// @returns 0 if successful.
         int RemoveSimulationControlSubscriber();
-
-        /// Remove the subscriber for Simulation Control on this module from the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int RemoveSimulationControlSubscriber(std::string &errmsg);
-
-        /// Call upon the active publisher for Simulation Control to write data to the DDS network.
-        /// @param a Reference to Simulation Control data to be written.
-        /// @returns 0 if successful.
-        /// @returns 1 if Publisher has not been created or if some other error occurred.
         int WriteSimulationControl(AMM::SimulationControl &a);
-
-        /// Call upon the active publisher for Simulation Control to write data to the DDS network.
-        /// @param errmsg Error message output.
-        /// @param a Reference to Simulation Control data to be written.
-        /// @returns 0 if successful.
-        /// @returns 1 if Publisher has not been created or if some other error occurred.
         int WriteSimulationControl(std::string &errmsg, AMM::SimulationControl &a);
-
-        /// Listener Interface override for handling Simulation Control subscribed events.
-        /// Calls OnEvent on m_simulationControl passing along data to the handler defined by
-        /// the user in CreateSimulationControlSubscriber.
-        /// @see AmmDataType::OnEvent
-        /// @see ListenerInterface::onNewSimulationControl
-        /// @param eventFrag incoming Simulation Control data from the DDS network.
-        /// @param info FastRTPS sample info.
         void onNewSimulationControl(AMM::SimulationControl simControl, eprosima::fastrtps::SampleInfo_t *info) override;
-
-        /// Clean up Simulation Control and set it to an inactive state.
-        /// Calls Delete on m_simulationControl.
-        /// @returns 0 if successful.
         int DecommissionSimulationControl();
-
-        /// Clean up Simulation Control and set it to an inactive state.
-        /// Calls Delete on m_simulationControl.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int DecommissionSimulationControl(std::string &errmsg);
+
 
         // - - - Status - - -
 
-        /// Initializer routine for Status.
-        /// Initializes m_stuatus with a new AmmDataType pointer.
-        /// @returns 0 if successful.
         int InitializeStatus();
-
-        /// Overload initializer routine for Status.
-        /// Initializes m_status with a new AmmDataType pointer.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int InitializeStatus(std::string &errmsg);
-
-        /// State of whether Status is currently valid.
-        /// @returns True if m_status is valid pointer.
         bool IsStatusInitialized();
-
-        /// Create the data publisher for Status on this module.
-        /// Allows Status data to be published to the DDS network.
-        /// @returns 0 if successful.
         int CreateStatusPublisher();
-
-        /// Create the data publisher for Status on this module.
-        /// Allows Status data to be published to the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int CreateStatusPublisher(std::string &errmsg);
-
-        /// Remove the publisher for Status on this module from the DDS network.
-        /// @returns 0 if successful.
         int RemoveStatusPublisher();
-
-        /// Remove the publisher for Status on this module from the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int RemoveStatusPublisher(std::string &errmsg);
-
-        /// Create the data subscriber for Status published events on this module.
-        /// Allows the module to receive Status data when it is published on the DDS network.
-        /// @param parentClass Reference to the object that is receiving the subscribed event callback.
-        /// @param onEvent Method reference of parentClass that is be used as a callback for subscribed events.
-        /// @returns 0 if successful.
         int CreateStatusSubscriber(
            void (*onEvent)(AMM::Status &, eprosima::fastrtps::SampleInfo_t *)
         );
-
-        /// Create the data subscriber for Status published events on this module.
-        /// Allows the module to receive Status data when it is published on the DDS network.
-        /// @param errmsg Error message output.
-        /// @param parentClass Reference to the object that is receiving the subscribed event callback.
-        /// @param onEvent Method reference of parentClass that is be used as a callback for subscribed events.
-        /// @returns 0 if successful.
         int CreateStatusSubscriber(
            std::string &errmsg, void (*onEvent)(AMM::Status &, eprosima::fastrtps::SampleInfo_t *)
         );
-
-        /// Remove the subscriber for Status on this module from the DDS network.
-        /// @returns 0 if successful.
         int RemoveStatusSubscriber();
-
-        /// Remove the subscriber for Status on this module from the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int RemoveStatusSubscriber(std::string &errmsg);
-
-        /// Call upon the active publisher for Status to write data to the DDS network.
-        /// @param a Reference to Status data to be written.
-        /// @returns 0 if successful.
-        /// @returns 1 if Publisher has not been created or if some other error occurred.
         int WriteStatus(AMM::Status &a);
-
-        /// Call upon the active publisher for Status to write data to the DDS network.
-        /// @param errmsg Error message output.
-        /// @param a Reference to Status data to be written.
-        /// @returns 0 if successful.
-        /// @returns 1 if Publisher has not been created or if some other error occurred.
         int WriteStatus(std::string &errmsg, AMM::Status &a);
-
-        /// Listener Interface override for handling Status subscribed events.
-        /// Calls OnEvent on m_status passing along data to the handler defined by
-        /// the user in CreateStatusSubscriber.
-        /// @see AmmDataType::OnEvent
-        /// @see ListenerInterface::onNewStatus
-        /// @param status incoming Status data from the DDS network.
-        /// @param info FastRTPS sample info.
         void onNewStatus(AMM::Status status, eprosima::fastrtps::SampleInfo_t *info) override;
-
-        /// Clean up Status and set it to an inactive state.
-        /// Calls Delete on m_status.
-        /// @returns 0 if successful.
         int DecommissionStatus();
-
-        /// Clean up Status and set it to an inactive state.
-        /// Calls Delete on m_status.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int DecommissionStatus(std::string &errmsg);
+
 
         // - - - Tick - - -
 
-        /// Initializer routine for Tick.
-        /// Initializes m_tick with a new AmmDataType pointer.
-        /// @returns 0 if successful.
         int InitializeTick();
-
-        /// Overload initializer routine for Tick.
-        /// Initializes m_tick with a new AmmDataType pointer.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int InitializeTick(std::string &errmsg);
-
-        /// State of whether Tick is currently valid.
-        /// @returns True if m_tick is valid pointer.
         bool IsTickInitialized();
-
-        /// Create the data publisher for Tick on this module.
-        /// Allows Tick data to be published to the DDS network.
-        /// @returns 0 if successful.
         int CreateTickPublisher();
-
-        /// Create the data publisher for Tick on this module.
-        /// Allows Tick data to be published to the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int CreateTickPublisher(std::string &errmsg);
-
-        /// Remove the publisher for Tick on this module from the DDS network.
-        /// @returns 0 if successful.
         int RemoveTickPublisher();
-
-        /// Remove the publisher for Tick on this module from the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int RemoveTickPublisher(std::string &errmsg);
-
-        /// Create the data subscriber for Tick published events on this module.
-        /// Allows the module to receive Tick data when it is published on the DDS network.
-        /// @param parentClass Reference to the object that is receiving the subscribed event callback.
-        /// @param onEvent Method reference of parentClass that is be used as a callback for subscribed events.
-        /// @returns 0 if successful.
         int CreateTickSubscriber(
            void (*onEvent)(AMM::Tick &, eprosima::fastrtps::SampleInfo_t *)
         );
-
-        /// Create the data subscriber for Tick published events on this module.
-        /// Allows the module to receive Tick data when it is published on the DDS network.
-        /// @param errmsg Error message output.
-        /// @param parentClass Reference to the object that is receiving the subscribed event callback.
-        /// @param onEvent Method reference of parentClass that is be used as a callback for subscribed events.
-        /// @returns 0 if successful.
         int CreateTickSubscriber(
            std::string &errmsg, void (*onEvent)(AMM::Tick &, eprosima::fastrtps::SampleInfo_t *)
         );
-
-        /// Remove the subscriber for Tick on this module from the DDS network.
-        /// @returns 0 if successful.
         int RemoveTickSubscriber();
-
-        /// Remove the subscriber for Tick on this module from the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int RemoveTickSubscriber(std::string &errmsg);
-
-        /// Call upon the active publisher for Tick to write data to the DDS network.
-        /// @param a Reference to Tick data to be written.
-        /// @returns 0 if successful.
-        /// @returns 1 if Publisher has not been created or if some other error occurred.
         int WriteTick(AMM::Tick &a);
-
-        /// Call upon the active publisher for Tick to write data to the DDS network.
-        /// @param errmsg Error message output.
-        /// @param a Reference to Tick data to be written.
-        /// @returns 0 if successful.
-        /// @returns 1 if Publisher has not been created or if some other error occurred.
         int WriteTick(std::string &errmsg, AMM::Tick &a);
-
-        /// Listener Interface override for handling Tick subscribed events.
-        /// Calls OnEvent on m_tick passing along data to the handler defined by
-        /// the user in CreateTickSubscriber.
-        /// @see AmmDataType::OnEvent
-        /// @see ListenerInterface::onNewTick
-        /// @param tick incoming Tick data from the DDS network.
-        /// @param info FastRTPS sample info.
         void onNewTick(AMM::Tick tick, eprosima::fastrtps::SampleInfo_t *info) override;
-
-        /// Clean up Tick and set it to an inactive state.
-        /// Calls Delete on m_tick.
-        /// @returns 0 if successful.
         int DecommissionTick();
-
-        /// Clean up Tick and set it to an inactive state.
-        /// Calls Delete on m_tick.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int DecommissionTick(std::string &errmsg);
+
 
         // - - - Instrument Data - - -
 
-        /// Initializer routine for Instrument Data.
-        /// Initializes m_instrumentData with a new AmmDataType pointer.
-        /// @returns 0 if successful.
         int InitializeInstrumentData();
-
-        /// Overload initializer routine for Instrument Data.
-        /// Initializes m_instrumentData with a new AmmDataType pointer.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int InitializeInstrumentData(std::string &errmsg);
-
-        /// State of whether Instrument Data is currently valid.
-        /// @returns True if m_instrumentData is valid pointer.
         bool IsInstrumentDataInitialized();
-
-        /// Create the data publisher for Instrument Data on this module.
-        /// Allows Instrument Data data to be published to the DDS network.
-        /// @returns 0 if successful.
         int CreateInstrumentDataPublisher();
-
-        /// Create the data publisher for Instrument Data on this module.
-        /// Allows Instrument Data data to be published to the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int CreateInstrumentDataPublisher(std::string &errmsg);
-
-        /// Remove the publisher for Instrument Data on this module from the DDS network.
-        /// @returns 0 if successful.
         int RemoveInstrumentDataPublisher();
-
-        /// Remove the publisher for Instrument Data on this module from the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int RemoveInstrumentDataPublisher(std::string &errmsg);
-
-        /// Create the data subscriber for Instrument Data published events on this module.
-        /// Allows the module to receive Instrument Data data when it is published on the DDS network.
-        /// @param parentClass Reference to the object that is receiving the subscribed event callback.
-        /// @param onEvent Method reference of parentClass that is be used as a callback for subscribed events.
-        /// @returns 0 if successful.
         int CreateInstrumentDataSubscriber(
            void (*onEvent)(AMM::InstrumentData &, eprosima::fastrtps::SampleInfo_t *)
         );
-
-        /// Create the data subscriber for Instrument Data published events on this module.
-        /// Allows the module to receive Instrument Data data when it is published on the DDS network.
-        /// @param errmsg Error message output.
-        /// @param parentClass Reference to the object that is receiving the subscribed event callback.
-        /// @param onEvent Method reference of parentClass that is be used as a callback for subscribed events.
-        /// @returns 0 if successful.
         int CreateInstrumentDataSubscriber(
            std::string &errmsg, void (*onEvent)(AMM::InstrumentData &, eprosima::fastrtps::SampleInfo_t *)
         );
-
-        /// Remove the subscriber for Instrument Data on this module from the DDS network.
-        /// @returns 0 if successful.
         int RemoveInstrumentDataSubscriber();
-
-        /// Remove the subscriber for Instrument Data on this module from the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int RemoveInstrumentDataSubscriber(std::string &errmsg);
-
-        /// Call upon the active publisher for Instrument Data to write data to the DDS network.
-        /// @param a Reference to Instrument Data data to be written.
-        /// @returns 0 if successful.
-        /// @returns 1 if Publisher has not been created or if some other error occurred.
         int WriteInstrumentData(AMM::InstrumentData &a);
-
-        /// Call upon the active publisher for Instrument Data to write data to the DDS network.
-        /// @param errmsg Error message output.
-        /// @param a Reference to Instrument Data data to be written.
-        /// @returns 0 if successful.
-        /// @returns 1 if Publisher has not been created or if some other error occurred.
         int WriteInstrumentData(std::string &errmsg, AMM::InstrumentData &a);
-
-        /// Listener Interface override for handling Instrument Data subscribed events.
-        /// Calls OnEvent on m_instrumentData passing along data to the handler defined by
-        /// the user in CreateInstrumentDataSubscriber.
-        /// @see AmmDataType::OnEvent
-        /// @see ListenerInterface::onNewInstrumentData
-        /// @param instData incoming Instrument Data data from the DDS network.
-        /// @param info FastRTPS sample info.
         void onNewInstrumentData(AMM::InstrumentData instData, eprosima::fastrtps::SampleInfo_t *info) override;
-
-        /// Clean up Instrument Data and set it to an inactive state.
-        /// Calls Delete on m_instrumentData.
-        /// @returns 0 if successful.
         int DecommissionInstrumentData();
-
-        /// Clean up Instrument Data and set it to an inactive state.
-        /// Calls Delete on m_instrumentData.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int DecommissionInstrumentData(std::string &errmsg);
+
 
         // - - - Command - - -
 
-        /// Initializer routine for Command.
-        /// Initializes m_command with a new AmmDataType pointer.
-        /// @returns 0 if successful.
         int InitializeCommand();
-
-        /// Overload initializer routine for Command.
-        /// Initializes m_command with a new AmmDataType pointer.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int InitializeCommand(std::string &errmsg);
-
-        /// State of whether Command is currently valid.
-        /// @returns True if m_command is valid pointer.
         bool IsCommandInitialized();
-
-        /// Create the data publisher for Command on this module.
-        /// Allows Command data to be published to the DDS network.
-        /// @returns 0 if successful.
         int CreateCommandPublisher();
-
-        /// Create the data publisher for Command on this module.
-        /// Allows Command data to be published to the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int CreateCommandPublisher(std::string &errmsg);
-
-        /// Remove the publisher for Command on this module from the DDS network.
-        /// @returns 0 if successful.
         int RemoveCommandPublisher();
-
-        /// Remove the publisher for Command on this module from the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int RemoveCommandPublisher(std::string &errmsg);
-
-        /// Create the data subscriber for Command published events on this module.
-        /// Allows the module to receive Command data when it is published on the DDS network.
-        /// @param parentClass Reference to the object that is receiving the subscribed event callback.
-        /// @param onEvent Method reference of parentClass that is be used as a callback for subscribed events.
-        /// @returns 0 if successful.
         int CreateCommandSubscriber(
            void (*onEvent)(AMM::Command &, eprosima::fastrtps::SampleInfo_t *)
         );
-
-        /// Create the data subscriber for Command published events on this module.
-        /// Allows the module to receive Command data when it is published on the DDS network.
-        /// @param errmsg Error message output.
-        /// @param parentClass Reference to the object that is receiving the subscribed event callback.
-        /// @param onEvent Method reference of parentClass that is be used as a callback for subscribed events.
-        /// @returns 0 if successful.
         int CreateCommandSubscriber(
            std::string &errmsg, void (*onEvent)(AMM::Command &, eprosima::fastrtps::SampleInfo_t *)
         );
-
-        /// Remove the subscriber for Command on this module from the DDS network.
-        /// @returns 0 if successful.
         int RemoveCommandSubscriber();
-
-        /// Remove the subscriber for Command on this module from the DDS network.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int RemoveCommandSubscriber(std::string &errmsg);
-
-        /// Call upon the active publisher for Command to write data to the DDS network.
-        /// @param a Reference to Command data to be written.
-        /// @returns 0 if successful.
-        /// @returns 1 if Publisher has not been created or if some other error occurred.
         int WriteCommand(AMM::Command &a);
-
-        /// Call upon the active publisher for Command to write data to the DDS network.
-        /// @param errmsg Error message output.
-        /// @param a Reference to Command data to be written.
-        /// @returns 0 if successful.
-        /// @returns 1 if Publisher has not been created or if some other error occurred.
         int WriteCommand(std::string &errmsg, AMM::Command &a);
-
-        /// Listener Interface override for handling Command subscribed events.
-        /// Calls OnEvent on m_command passing along data to the handler defined by
-        /// the user in CreateCommandSubscriber.
-        /// @see AmmDataType::OnEvent
-        /// @see ListenerInterface::onNewCommand
-        /// @param command incoming Command data from the DDS network.
-        /// @param info FastRTPS sample info.
         void onNewCommand(AMM::Command command, eprosima::fastrtps::SampleInfo_t *info) override;
-
-        /// Clean up Command and set it to an inactive state.
-        /// Calls Delete on m_command.
-        /// @returns 0 if successful.
         int DecommissionCommand();
-
-        /// Clean up Command and set it to an inactive state.
-        /// Calls Delete on m_command.
-        /// @param errmsg Error message output.
-        /// @returns 0 if successful.
         int DecommissionCommand(std::string &errmsg);
 
 
