@@ -149,6 +149,8 @@ namespace AMM {
             return "Execution Error";
          case 3:
             return "Success";
+         default:
+            return "ENUM_VAL_NOT_MATCHED";
       }
    }
 
@@ -162,6 +164,8 @@ namespace AMM {
             return "Scenario";
          case 3:
             return "Physiology";
+         default:
+            return "ENUM_VAL_NOT_MATCHED";
       }
    }
 
@@ -173,6 +177,8 @@ namespace AMM {
             return "Accepted";
          case 2:
             return "Rejected";
+         default:
+            return "ENUM_VAL_NOT_MATCHED";
       }
    }
 
@@ -189,7 +195,9 @@ namespace AMM {
          case 4:
             return "Debug";
          case 5:
-            return "Tracer - \"Cheers, love!\"";
+            return "Trace";
+         default:
+            return "ENUM_VAL_NOT_MATCHED";
       }
    }
 
@@ -203,6 +211,8 @@ namespace AMM {
             return "Reset";
          case 3:
             return "Save";
+         default:
+            return "ENUM_VAL_NOT_MATCHED";
       }
    }
 
@@ -214,6 +224,8 @@ namespace AMM {
             return "Inoperative";
          case 2:
             return "Exigent";
+         default:
+            return "ENUM_VAL_NOT_MATCHED";
       }
    }
 
