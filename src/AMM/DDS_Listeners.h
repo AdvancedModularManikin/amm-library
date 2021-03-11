@@ -11,8 +11,6 @@
 
 #include <fastrtps/Domain.h>
 
-#include <fastrtps/utils/eClock.h>
-
 #include <fastrtps/Domain.h>
 #include <fastrtps/fastrtps_fwd.h>
 #include <fastrtps/publisher/PublisherListener.h>

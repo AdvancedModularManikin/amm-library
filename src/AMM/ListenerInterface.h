@@ -14,8 +14,6 @@
 
 #include <fastrtps/rtps/reader/ReaderListener.h>
 
-#include <fastrtps/utils/eClock.h>
-
 #include <fastrtps/fastrtps_fwd.h>
 #include <fastrtps/participant/ParticipantListener.h>
 #include <fastrtps/rtps/builtin/data/ReaderProxyData.h>
