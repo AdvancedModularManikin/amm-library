@@ -21,8 +21,6 @@
 #include <fastrtps/rtps/builtin/BuiltinProtocols.h>
 #include <fastrtps/rtps/builtin/liveliness/WLP.h>
 
-#include <fastrtps/rtps/resources/AsyncWriterThread.h>
-
 #include <fastrtps/rtps/reader/StatelessReader.h>
 #include <fastrtps/rtps/writer/StatelessWriter.h>
 
