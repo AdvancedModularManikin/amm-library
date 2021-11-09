@@ -347,6 +347,7 @@ inline int AmmDataType <T, L, A, U> :: CreatePublisher () {
          "amm_publisher", //pa,
          m_pubListener
       );
+      m_publisher->updateAttributes(pa);
    } catch (std::exception& e) {
       std::cerr << e.what() << std::endl;
       return 1;
@@ -381,6 +382,7 @@ inline int AmmDataType <T, L, A, U> :: CreatePublisher (std::string& errmsg) {
          "amm_publisher", //pa,
          m_pubListener
       );
+       m_publisher->updateAttributes(pa);
    } catch (std::exception& e) {
       errmsg = "Create publisher failed -- ";
       errmsg.append(e.what());
@@ -421,9 +423,11 @@ inline int AmmDataType <T, L, A, U> :: CreateSubscriber (
    try {
       m_subscriber = eprosima::fastrtps::Domain::createSubscriber(
          m_participant,
-         "amm_subscriber",//sa,
+         "amm_subscriber", //sa,
          m_listener
       );
+      m_subscriber->updateAttributes(sa);
+
    } catch (std::exception& e) {
       std::cerr << e.what() << std::endl;
       delete m_listener;
@@ -469,6 +473,8 @@ inline int AmmDataType <T, L, A, U> :: CreateSubscriber (
          "amm_subscriber",// sa,
          m_listener
       );
+       m_subscriber->updateAttributes(sa);
+
    } catch (std::exception& e) {
       errmsg = "Create subscriber failed -- ";
       errmsg.append(e.what());
@@ -965,9 +971,10 @@ inline int AmmDataType <T, L, A, void> :: CreatePublisher () {
    try {
       m_publisher = eprosima::fastrtps::Domain::createPublisher(
          m_participant,
-         pa,
+         "amm_publisher", // pa,
          m_pubListener
       );
+       m_publisher->updateAttributes(pa);
    } catch (std::exception& e) {
       std::cerr << e.what() << std::endl;
       return 1;
@@ -999,9 +1006,10 @@ inline int AmmDataType <T, L, A, void> :: CreatePublisher (std::string& errmsg) 
    try {
       m_publisher = eprosima::fastrtps::Domain::createPublisher(
          m_participant,
-         pa,
+         "amm_publisher", // pa,
          m_pubListener
       );
+       m_publisher->updateAttributes(pa);
    } catch (std::exception& e) {
       errmsg = "Create publisher failed -- ";
       errmsg.append(e.what());
@@ -1041,9 +1049,11 @@ inline int AmmDataType <T, L, A, void> :: CreateSubscriber (
    try {
       m_subscriber = eprosima::fastrtps::Domain::createSubscriber(
          m_participant,
-         "amm_subscriber, "//sa,
+         "amm_subscriber", //sa,
          m_listener
       );
+       m_subscriber->updateAttributes(sa);
+
    } catch (std::exception& e) {
       std::cerr << e.what() << std::endl;
       delete m_listener;
@@ -1087,6 +1097,8 @@ inline int AmmDataType <T, L, A, void> :: CreateSubscriber (
          "amm_subscriber", // sa,
          m_listener
       );
+       m_subscriber->updateAttributes(sa);
+
    } catch (std::exception& e) {
       errmsg = "Create subscriber failed -- ";
       errmsg.append(e.what());
