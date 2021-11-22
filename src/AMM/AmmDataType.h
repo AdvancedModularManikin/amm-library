@@ -338,8 +338,10 @@ namespace AMM {
         if (!IsTypeRegistered()) return 1;
 
         eprosima::fastrtps::PublisherAttributes pa;
+
         pa.topic.topicDataType = m_type->getName();
         pa.topic.topicName = m_topicName;
+        pa.historyMemoryPolicy = PREALLOCATED_WITH_REALLOC_MEMORY_MODE;
         if (m_topicName.compare("Physiology Waveform") == 0) {
             // LOG_INFO << "Setting phys waveform to Best Effort";
             pa.qos.m_reliability.kind = BEST_EFFORT_RELIABILITY_QOS;
@@ -378,6 +380,7 @@ namespace AMM {
         eprosima::fastrtps::PublisherAttributes pa;
         pa.topic.topicDataType = m_type->getName();
         pa.topic.topicName = m_topicName;
+        pa.historyMemoryPolicy = PREALLOCATED_WITH_REALLOC_MEMORY_MODE;
         if (m_topicName.compare("Physiology Waveform") == 0) {
             // LOG_INFO << "Setting phys waveform to Best Effort";
             pa.qos.m_reliability.kind = BEST_EFFORT_RELIABILITY_QOS;
@@ -425,7 +428,7 @@ namespace AMM {
         eprosima::fastrtps::SubscriberAttributes sa;
         sa.topic.topicDataType = m_type->getName();
         sa.topic.topicName = m_topicName;
-
+        sa.historyMemoryPolicy = PREALLOCATED_WITH_REALLOC_MEMORY_MODE;
         try {
             m_subscriber = eprosima::fastrtps::Domain::createSubscriber(
                     m_participant,
@@ -471,7 +474,7 @@ namespace AMM {
         eprosima::fastrtps::SubscriberAttributes sa;
         sa.topic.topicDataType = m_type->getName();
         sa.topic.topicName = m_topicName;
-
+        sa.historyMemoryPolicy = PREALLOCATED_WITH_REALLOC_MEMORY_MODE;
         try {
             m_subscriber = eprosima::fastrtps::Domain::createSubscriber(
                     m_participant,
@@ -1045,7 +1048,7 @@ namespace AMM {
         eprosima::fastrtps::SubscriberAttributes sa;
         sa.topic.topicDataType = m_type->getName();
         sa.topic.topicName = m_topicName;
-
+        sa.historyMemoryPolicy = PREALLOCATED_WITH_REALLOC_MEMORY_MODE;
         try {
             m_subscriber = eprosima::fastrtps::Domain::createSubscriber(
                     m_participant,
@@ -1088,7 +1091,7 @@ namespace AMM {
         eprosima::fastrtps::SubscriberAttributes sa;
         sa.topic.topicDataType = m_type->getName();
         sa.topic.topicName = m_topicName;
-
+        sa.historyMemoryPolicy = PREALLOCATED_WITH_REALLOC_MEMORY_MODE;
         try {
             m_subscriber = eprosima::fastrtps::Domain::createSubscriber(
                     m_participant,
