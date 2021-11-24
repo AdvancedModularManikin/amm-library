@@ -8,7 +8,7 @@ module AMM
                 struct InstrumentData
                 {
                     string instrument;
-                    string payload;
+                    string<4096> payload;
                 };
 
 
