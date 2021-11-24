@@ -3,6 +3,7 @@
 
 #include <string>
 
+#include <fastrtps/TopicDataType.h>
 #include <fastrtps/Domain.h>
 #include <fastrtps/participant/Participant.h>
 #include <fastrtps/publisher/Publisher.h>

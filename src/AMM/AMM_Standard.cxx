@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-/*! 
+/*!
  * @file AMM_Standard.cpp
  * This source file contains the definition of the described types in the IDL file.
  *
@@ -21,8 +21,10 @@
 
 #ifdef _WIN32
 // Remove linker warning LNK4221 on Visual Studio
-namespace { char dummy; }
-#endif
+namespace {
+char dummy;
+}  // namespace
+#endif  // _WIN32
 
 #include "AMM_Standard.h"
 #include <fastcdr/Cdr.h>
@@ -34,47 +36,58 @@ using namespace eprosima::fastcdr::exception;
 
 AMM::FMA_Location::FMA_Location()
 {
+    // m_FMAID com.eprosima.idl.parser.typecode.PrimitiveTypeCode@43738a82
     m_FMAID = 0;
-
-
+    // m_name com.eprosima.idl.parser.typecode.StringTypeCode@75881071
+    m_name ="";
 
 }
 
 AMM::FMA_Location::~FMA_Location()
 {
+
+
 }
 
-AMM::FMA_Location::FMA_Location(const FMA_Location &x)
+AMM::FMA_Location::FMA_Location(
+        const FMA_Location& x)
 {
     m_FMAID = x.m_FMAID;
     m_name = x.m_name;
 }
 
-AMM::FMA_Location::FMA_Location(FMA_Location &&x)
+AMM::FMA_Location::FMA_Location(
+        FMA_Location&& x)
 {
     m_FMAID = x.m_FMAID;
     m_name = std::move(x.m_name);
 }
 
-AMM::FMA_Location& AMM::FMA_Location::operator=(const FMA_Location &x)
+AMM::FMA_Location& AMM::FMA_Location::operator =(
+        const FMA_Location& x)
 {
+
     m_FMAID = x.m_FMAID;
     m_name = x.m_name;
 
     return *this;
 }
 
-AMM::FMA_Location& AMM::FMA_Location::operator=(FMA_Location &&x)
+AMM::FMA_Location& AMM::FMA_Location::operator =(
+        FMA_Location&& x)
 {
+
     m_FMAID = x.m_FMAID;
     m_name = std::move(x.m_name);
 
     return *this;
 }
 
-size_t AMM::FMA_Location::getMaxCdrSerializedSize(size_t current_alignment)
+size_t AMM::FMA_Location::getMaxCdrSerializedSize(
+        size_t current_alignment)
 {
     size_t initial_alignment = current_alignment;
+
 
     current_alignment += 4 + eprosima::fastcdr::Cdr::alignment(current_alignment, 4);
 
@@ -85,10 +98,13 @@ size_t AMM::FMA_Location::getMaxCdrSerializedSize(size_t current_alignment)
     return current_alignment - initial_alignment;
 }
 
-size_t AMM::FMA_Location::getCdrSerializedSize(const AMM::FMA_Location& data, size_t current_alignment)
+size_t AMM::FMA_Location::getCdrSerializedSize(
+        const AMM::FMA_Location& data,
+        size_t current_alignment)
 {
     (void)data;
     size_t initial_alignment = current_alignment;
+
 
     current_alignment += 4 + eprosima::fastcdr::Cdr::alignment(current_alignment, 4);
 
@@ -99,22 +115,95 @@ size_t AMM::FMA_Location::getCdrSerializedSize(const AMM::FMA_Location& data, si
     return current_alignment - initial_alignment;
 }
 
-void AMM::FMA_Location::serialize(eprosima::fastcdr::Cdr &scdr) const
+void AMM::FMA_Location::serialize(
+        eprosima::fastcdr::Cdr& scdr) const
 {
+
     scdr << m_FMAID;
     scdr << m_name;
+
 }
 
-void AMM::FMA_Location::deserialize(eprosima::fastcdr::Cdr &dcdr)
+void AMM::FMA_Location::deserialize(
+        eprosima::fastcdr::Cdr& dcdr)
 {
+
     dcdr >> m_FMAID;
     dcdr >> m_name;
 }
 
-size_t AMM::FMA_Location::getKeyMaxCdrSerializedSize(size_t current_alignment)
+/*!
+ * @brief This function sets a value in member FMAID
+ * @param _FMAID New value for member FMAID
+ */
+void AMM::FMA_Location::FMAID(
+        int32_t _FMAID)
 {
-	size_t current_align = current_alignment;
-            
+    m_FMAID = _FMAID;
+}
+
+/*!
+ * @brief This function returns the value of member FMAID
+ * @return Value of member FMAID
+ */
+int32_t AMM::FMA_Location::FMAID() const
+{
+    return m_FMAID;
+}
+
+/*!
+ * @brief This function returns a reference to member FMAID
+ * @return Reference to member FMAID
+ */
+int32_t& AMM::FMA_Location::FMAID()
+{
+    return m_FMAID;
+}
+
+/*!
+ * @brief This function copies the value in member name
+ * @param _name New value to be copied in member name
+ */
+void AMM::FMA_Location::name(
+        const std::string& _name)
+{
+    m_name = _name;
+}
+
+/*!
+ * @brief This function moves the value in member name
+ * @param _name New value to be moved in member name
+ */
+void AMM::FMA_Location::name(
+        std::string&& _name)
+{
+    m_name = std::move(_name);
+}
+
+/*!
+ * @brief This function returns a constant reference to member name
+ * @return Constant reference to member name
+ */
+const std::string& AMM::FMA_Location::name() const
+{
+    return m_name;
+}
+
+/*!
+ * @brief This function returns a reference to member name
+ * @return Reference to member name
+ */
+std::string& AMM::FMA_Location::name()
+{
+    return m_name;
+}
+
+size_t AMM::FMA_Location::getKeyMaxCdrSerializedSize(
+        size_t current_alignment)
+{
+    size_t current_align = current_alignment;
+
+
 
 
 
@@ -126,14 +215,17 @@ bool AMM::FMA_Location::isKeyDefined()
     return false;
 }
 
-void AMM::FMA_Location::serializeKey(eprosima::fastcdr::Cdr &scdr) const
+void AMM::FMA_Location::serializeKey(
+        eprosima::fastcdr::Cdr& scdr) const
 {
-	(void) scdr;
-	 
-	 
+    (void) scdr;
+      
 }
+
 AMM::UUID::UUID()
 {
+    // m_id com.eprosima.idl.parser.typecode.StringTypeCode@a74868d
+    m_id ="";
 
 }
 
@@ -141,63 +233,119 @@ AMM::UUID::~UUID()
 {
 }
 
-AMM::UUID::UUID(const UUID &x)
+AMM::UUID::UUID(
+        const UUID& x)
 {
     m_id = x.m_id;
 }
 
-AMM::UUID::UUID(UUID &&x)
+AMM::UUID::UUID(
+        UUID&& x)
 {
     m_id = std::move(x.m_id);
 }
 
-AMM::UUID& AMM::UUID::operator=(const UUID &x)
+AMM::UUID& AMM::UUID::operator =(
+        const UUID& x)
 {
+
     m_id = x.m_id;
 
     return *this;
 }
 
-AMM::UUID& AMM::UUID::operator=(UUID &&x)
+AMM::UUID& AMM::UUID::operator =(
+        UUID&& x)
 {
+
     m_id = std::move(x.m_id);
 
     return *this;
 }
 
-size_t AMM::UUID::getMaxCdrSerializedSize(size_t current_alignment)
+size_t AMM::UUID::getMaxCdrSerializedSize(
+        size_t current_alignment)
 {
     size_t initial_alignment = current_alignment;
+
 
     current_alignment += 4 + eprosima::fastcdr::Cdr::alignment(current_alignment, 4) + 255 + 1;
 
     return current_alignment - initial_alignment;
 }
 
-size_t AMM::UUID::getCdrSerializedSize(const AMM::UUID& data, size_t current_alignment)
+size_t AMM::UUID::getCdrSerializedSize(
+        const AMM::UUID& data,
+        size_t current_alignment)
 {
     (void)data;
     size_t initial_alignment = current_alignment;
+
 
     current_alignment += 4 + eprosima::fastcdr::Cdr::alignment(current_alignment, 4) + data.id().size() + 1;
 
     return current_alignment - initial_alignment;
 }
 
-void AMM::UUID::serialize(eprosima::fastcdr::Cdr &scdr) const
+void AMM::UUID::serialize(
+        eprosima::fastcdr::Cdr& scdr) const
 {
+
     scdr << m_id;
+
 }
 
-void AMM::UUID::deserialize(eprosima::fastcdr::Cdr &dcdr)
+void AMM::UUID::deserialize(
+        eprosima::fastcdr::Cdr& dcdr)
 {
+
     dcdr >> m_id;
 }
 
-size_t AMM::UUID::getKeyMaxCdrSerializedSize(size_t current_alignment)
+/*!
+ * @brief This function copies the value in member id
+ * @param _id New value to be copied in member id
+ */
+void AMM::UUID::id(
+        const std::string& _id)
 {
-	size_t current_align = current_alignment;
-            
+    m_id = _id;
+}
+
+/*!
+ * @brief This function moves the value in member id
+ * @param _id New value to be moved in member id
+ */
+void AMM::UUID::id(
+        std::string&& _id)
+{
+    m_id = std::move(_id);
+}
+
+/*!
+ * @brief This function returns a constant reference to member id
+ * @return Constant reference to member id
+ */
+const std::string& AMM::UUID::id() const
+{
+    return m_id;
+}
+
+/*!
+ * @brief This function returns a reference to member id
+ * @return Reference to member id
+ */
+std::string& AMM::UUID::id()
+{
+    return m_id;
+}
+
+size_t AMM::UUID::getKeyMaxCdrSerializedSize(
+        size_t current_alignment)
+{
+    size_t current_align = current_alignment;
+
+
 
     return current_align;
 }
@@ -207,27 +355,37 @@ bool AMM::UUID::isKeyDefined()
     return false;
 }
 
-void AMM::UUID::serializeKey(eprosima::fastcdr::Cdr &scdr) const
+void AMM::UUID::serializeKey(
+        eprosima::fastcdr::Cdr& scdr) const
 {
-	(void) scdr;
-	 
+    (void) scdr;
+     
 }
+
 
 AMM::Assessment::Assessment()
 {
+    // m_id com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@49c43f4e
 
+    // m_event_id com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@49c43f4e
 
+    // m_value com.eprosima.idl.parser.typecode.EnumTypeCode@290dbf45
     m_value = AMM::OMISSION_ERROR;
-
-
+    // m_comment com.eprosima.idl.parser.typecode.StringTypeCode@12028586
+    m_comment ="";
 
 }
 
 AMM::Assessment::~Assessment()
 {
+
+
+
+
 }
 
-AMM::Assessment::Assessment(const Assessment &x)
+AMM::Assessment::Assessment(
+        const Assessment& x)
 {
     m_id = x.m_id;
     m_event_id = x.m_event_id;
@@ -235,7 +393,8 @@ AMM::Assessment::Assessment(const Assessment &x)
     m_comment = x.m_comment;
 }
 
-AMM::Assessment::Assessment(Assessment &&x)
+AMM::Assessment::Assessment(
+        Assessment&& x)
 {
     m_id = std::move(x.m_id);
     m_event_id = std::move(x.m_event_id);
@@ -243,8 +402,10 @@ AMM::Assessment::Assessment(Assessment &&x)
     m_comment = std::move(x.m_comment);
 }
 
-AMM::Assessment& AMM::Assessment::operator=(const Assessment &x)
+AMM::Assessment& AMM::Assessment::operator =(
+        const Assessment& x)
 {
+
     m_id = x.m_id;
     m_event_id = x.m_event_id;
     m_value = x.m_value;
@@ -253,8 +414,10 @@ AMM::Assessment& AMM::Assessment::operator=(const Assessment &x)
     return *this;
 }
 
-AMM::Assessment& AMM::Assessment::operator=(Assessment &&x)
+AMM::Assessment& AMM::Assessment::operator =(
+        Assessment&& x)
 {
+
     m_id = std::move(x.m_id);
     m_event_id = std::move(x.m_event_id);
     m_value = x.m_value;
@@ -263,9 +426,11 @@ AMM::Assessment& AMM::Assessment::operator=(Assessment &&x)
     return *this;
 }
 
-size_t AMM::Assessment::getMaxCdrSerializedSize(size_t current_alignment)
+size_t AMM::Assessment::getMaxCdrSerializedSize(
+        size_t current_alignment)
 {
     size_t initial_alignment = current_alignment;
+
 
     current_alignment += AMM::UUID::getMaxCdrSerializedSize(current_alignment);
     current_alignment += AMM::UUID::getMaxCdrSerializedSize(current_alignment);
@@ -278,10 +443,13 @@ size_t AMM::Assessment::getMaxCdrSerializedSize(size_t current_alignment)
     return current_alignment - initial_alignment;
 }
 
-size_t AMM::Assessment::getCdrSerializedSize(const AMM::Assessment& data, size_t current_alignment)
+size_t AMM::Assessment::getCdrSerializedSize(
+        const AMM::Assessment& data,
+        size_t current_alignment)
 {
     (void)data;
     size_t initial_alignment = current_alignment;
+
 
     current_alignment += AMM::UUID::getCdrSerializedSize(data.id(), current_alignment);
     current_alignment += AMM::UUID::getCdrSerializedSize(data.event_id(), current_alignment);
@@ -294,16 +462,21 @@ size_t AMM::Assessment::getCdrSerializedSize(const AMM::Assessment& data, size_t
     return current_alignment - initial_alignment;
 }
 
-void AMM::Assessment::serialize(eprosima::fastcdr::Cdr &scdr) const
+void AMM::Assessment::serialize(
+        eprosima::fastcdr::Cdr& scdr) const
 {
+
     scdr << m_id;
     scdr << m_event_id;
     scdr << (uint32_t)m_value;
     scdr << m_comment;
+
 }
 
-void AMM::Assessment::deserialize(eprosima::fastcdr::Cdr &dcdr)
+void AMM::Assessment::deserialize(
+        eprosima::fastcdr::Cdr& dcdr)
 {
+
     dcdr >> m_id;
     dcdr >> m_event_id;
     {
@@ -311,13 +484,156 @@ void AMM::Assessment::deserialize(eprosima::fastcdr::Cdr &dcdr)
         dcdr >> enum_value;
         m_value = (AMM::AssessmentValue)enum_value;
     }
+
     dcdr >> m_comment;
 }
 
-size_t AMM::Assessment::getKeyMaxCdrSerializedSize(size_t current_alignment)
+/*!
+ * @brief This function copies the value in member id
+ * @param _id New value to be copied in member id
+ */
+void AMM::Assessment::id(
+        const AMM::UUID& _id)
 {
-	size_t current_align = current_alignment;
-            
+    m_id = _id;
+}
+
+/*!
+ * @brief This function moves the value in member id
+ * @param _id New value to be moved in member id
+ */
+void AMM::Assessment::id(
+        AMM::UUID&& _id)
+{
+    m_id = std::move(_id);
+}
+
+/*!
+ * @brief This function returns a constant reference to member id
+ * @return Constant reference to member id
+ */
+const AMM::UUID& AMM::Assessment::id() const
+{
+    return m_id;
+}
+
+/*!
+ * @brief This function returns a reference to member id
+ * @return Reference to member id
+ */
+AMM::UUID& AMM::Assessment::id()
+{
+    return m_id;
+}
+/*!
+ * @brief This function copies the value in member event_id
+ * @param _event_id New value to be copied in member event_id
+ */
+void AMM::Assessment::event_id(
+        const AMM::UUID& _event_id)
+{
+    m_event_id = _event_id;
+}
+
+/*!
+ * @brief This function moves the value in member event_id
+ * @param _event_id New value to be moved in member event_id
+ */
+void AMM::Assessment::event_id(
+        AMM::UUID&& _event_id)
+{
+    m_event_id = std::move(_event_id);
+}
+
+/*!
+ * @brief This function returns a constant reference to member event_id
+ * @return Constant reference to member event_id
+ */
+const AMM::UUID& AMM::Assessment::event_id() const
+{
+    return m_event_id;
+}
+
+/*!
+ * @brief This function returns a reference to member event_id
+ * @return Reference to member event_id
+ */
+AMM::UUID& AMM::Assessment::event_id()
+{
+    return m_event_id;
+}
+/*!
+ * @brief This function sets a value in member value
+ * @param _value New value for member value
+ */
+void AMM::Assessment::value(
+        AMM::AssessmentValue _value)
+{
+    m_value = _value;
+}
+
+/*!
+ * @brief This function returns the value of member value
+ * @return Value of member value
+ */
+AMM::AssessmentValue AMM::Assessment::value() const
+{
+    return m_value;
+}
+
+/*!
+ * @brief This function returns a reference to member value
+ * @return Reference to member value
+ */
+AMM::AssessmentValue& AMM::Assessment::value()
+{
+    return m_value;
+}
+
+/*!
+ * @brief This function copies the value in member comment
+ * @param _comment New value to be copied in member comment
+ */
+void AMM::Assessment::comment(
+        const std::string& _comment)
+{
+    m_comment = _comment;
+}
+
+/*!
+ * @brief This function moves the value in member comment
+ * @param _comment New value to be moved in member comment
+ */
+void AMM::Assessment::comment(
+        std::string&& _comment)
+{
+    m_comment = std::move(_comment);
+}
+
+/*!
+ * @brief This function returns a constant reference to member comment
+ * @return Constant reference to member comment
+ */
+const std::string& AMM::Assessment::comment() const
+{
+    return m_comment;
+}
+
+/*!
+ * @brief This function returns a reference to member comment
+ * @return Reference to member comment
+ */
+std::string& AMM::Assessment::comment()
+{
+    return m_comment;
+}
+
+size_t AMM::Assessment::getKeyMaxCdrSerializedSize(
+        size_t current_alignment)
+{
+    size_t current_align = current_alignment;
+
+
 
 
 
@@ -331,35 +647,49 @@ bool AMM::Assessment::isKeyDefined()
     return false;
 }
 
-void AMM::Assessment::serializeKey(eprosima::fastcdr::Cdr &scdr) const
+void AMM::Assessment::serializeKey(
+        eprosima::fastcdr::Cdr& scdr) const
 {
-	(void) scdr;
-	 
-	 
-	 
-	 
+    (void) scdr;
+        
 }
+
 
 AMM::EventFragment::EventFragment()
 {
+    // m_id com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@49c43f4e
 
+    // m_timestamp com.eprosima.idl.parser.typecode.PrimitiveTypeCode@3444d69d
     m_timestamp = 0;
+    // m_educational_encounter com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@49c43f4e
 
+    // m_location com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@1372ed45
 
-
+    // m_agent_type com.eprosima.idl.parser.typecode.EnumTypeCode@6a79c292
     m_agent_type = AMM::LEARNER;
+    // m_agent_id com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@49c43f4e
 
-
-
-
+    // m_type com.eprosima.idl.parser.typecode.StringTypeCode@21a947fe
+    m_type ="";
+    // m_data com.eprosima.idl.parser.typecode.StringTypeCode@5606c0b
+    m_data ="";
 
 }
 
 AMM::EventFragment::~EventFragment()
 {
+
+
+
+
+
+
+
+
 }
 
-AMM::EventFragment::EventFragment(const EventFragment &x)
+AMM::EventFragment::EventFragment(
+        const EventFragment& x)
 {
     m_id = x.m_id;
     m_timestamp = x.m_timestamp;
@@ -371,7 +701,8 @@ AMM::EventFragment::EventFragment(const EventFragment &x)
     m_data = x.m_data;
 }
 
-AMM::EventFragment::EventFragment(EventFragment &&x)
+AMM::EventFragment::EventFragment(
+        EventFragment&& x)
 {
     m_id = std::move(x.m_id);
     m_timestamp = x.m_timestamp;
@@ -383,8 +714,10 @@ AMM::EventFragment::EventFragment(EventFragment &&x)
     m_data = std::move(x.m_data);
 }
 
-AMM::EventFragment& AMM::EventFragment::operator=(const EventFragment &x)
+AMM::EventFragment& AMM::EventFragment::operator =(
+        const EventFragment& x)
 {
+
     m_id = x.m_id;
     m_timestamp = x.m_timestamp;
     m_educational_encounter = x.m_educational_encounter;
@@ -397,8 +730,10 @@ AMM::EventFragment& AMM::EventFragment::operator=(const EventFragment &x)
     return *this;
 }
 
-AMM::EventFragment& AMM::EventFragment::operator=(EventFragment &&x)
+AMM::EventFragment& AMM::EventFragment::operator =(
+        EventFragment&& x)
 {
+
     m_id = std::move(x.m_id);
     m_timestamp = x.m_timestamp;
     m_educational_encounter = std::move(x.m_educational_encounter);
@@ -411,9 +746,11 @@ AMM::EventFragment& AMM::EventFragment::operator=(EventFragment &&x)
     return *this;
 }
 
-size_t AMM::EventFragment::getMaxCdrSerializedSize(size_t current_alignment)
+size_t AMM::EventFragment::getMaxCdrSerializedSize(
+        size_t current_alignment)
 {
     size_t initial_alignment = current_alignment;
+
 
     current_alignment += AMM::UUID::getMaxCdrSerializedSize(current_alignment);
     current_alignment += 8 + eprosima::fastcdr::Cdr::alignment(current_alignment, 8);
@@ -427,16 +764,19 @@ size_t AMM::EventFragment::getMaxCdrSerializedSize(size_t current_alignment)
     current_alignment += AMM::UUID::getMaxCdrSerializedSize(current_alignment);
     current_alignment += 4 + eprosima::fastcdr::Cdr::alignment(current_alignment, 4) + 255 + 1;
 
-    current_alignment += 4 + eprosima::fastcdr::Cdr::alignment(current_alignment, 4) + 255 + 1;
+    current_alignment += 4 + eprosima::fastcdr::Cdr::alignment(current_alignment, 4) + 4096 + 1;
 
 
     return current_alignment - initial_alignment;
 }
 
-size_t AMM::EventFragment::getCdrSerializedSize(const AMM::EventFragment& data, size_t current_alignment)
+size_t AMM::EventFragment::getCdrSerializedSize(
+        const AMM::EventFragment& data,
+        size_t current_alignment)
 {
     (void)data;
     size_t initial_alignment = current_alignment;
+
 
     current_alignment += AMM::UUID::getCdrSerializedSize(data.id(), current_alignment);
     current_alignment += 8 + eprosima::fastcdr::Cdr::alignment(current_alignment, 8);
@@ -456,8 +796,10 @@ size_t AMM::EventFragment::getCdrSerializedSize(const AMM::EventFragment& data, 
     return current_alignment - initial_alignment;
 }
 
-void AMM::EventFragment::serialize(eprosima::fastcdr::Cdr &scdr) const
+void AMM::EventFragment::serialize(
+        eprosima::fastcdr::Cdr& scdr) const
 {
+
     scdr << m_id;
     scdr << m_timestamp;
     scdr << m_educational_encounter;
@@ -466,10 +808,13 @@ void AMM::EventFragment::serialize(eprosima::fastcdr::Cdr &scdr) const
     scdr << m_agent_id;
     scdr << m_type;
     scdr << m_data;
+
 }
 
-void AMM::EventFragment::deserialize(eprosima::fastcdr::Cdr &dcdr)
+void AMM::EventFragment::deserialize(
+        eprosima::fastcdr::Cdr& dcdr)
 {
+
     dcdr >> m_id;
     dcdr >> m_timestamp;
     dcdr >> m_educational_encounter;
@@ -479,15 +824,297 @@ void AMM::EventFragment::deserialize(eprosima::fastcdr::Cdr &dcdr)
         dcdr >> enum_value;
         m_agent_type = (AMM::EventAgentType)enum_value;
     }
+
     dcdr >> m_agent_id;
     dcdr >> m_type;
     dcdr >> m_data;
 }
 
-size_t AMM::EventFragment::getKeyMaxCdrSerializedSize(size_t current_alignment)
+/*!
+ * @brief This function copies the value in member id
+ * @param _id New value to be copied in member id
+ */
+void AMM::EventFragment::id(
+        const AMM::UUID& _id)
 {
-	size_t current_align = current_alignment;
-            
+    m_id = _id;
+}
+
+/*!
+ * @brief This function moves the value in member id
+ * @param _id New value to be moved in member id
+ */
+void AMM::EventFragment::id(
+        AMM::UUID&& _id)
+{
+    m_id = std::move(_id);
+}
+
+/*!
+ * @brief This function returns a constant reference to member id
+ * @return Constant reference to member id
+ */
+const AMM::UUID& AMM::EventFragment::id() const
+{
+    return m_id;
+}
+
+/*!
+ * @brief This function returns a reference to member id
+ * @return Reference to member id
+ */
+AMM::UUID& AMM::EventFragment::id()
+{
+    return m_id;
+}
+/*!
+ * @brief This function sets a value in member timestamp
+ * @param _timestamp New value for member timestamp
+ */
+void AMM::EventFragment::timestamp(
+        uint64_t _timestamp)
+{
+    m_timestamp = _timestamp;
+}
+
+/*!
+ * @brief This function returns the value of member timestamp
+ * @return Value of member timestamp
+ */
+uint64_t AMM::EventFragment::timestamp() const
+{
+    return m_timestamp;
+}
+
+/*!
+ * @brief This function returns a reference to member timestamp
+ * @return Reference to member timestamp
+ */
+uint64_t& AMM::EventFragment::timestamp()
+{
+    return m_timestamp;
+}
+
+/*!
+ * @brief This function copies the value in member educational_encounter
+ * @param _educational_encounter New value to be copied in member educational_encounter
+ */
+void AMM::EventFragment::educational_encounter(
+        const AMM::UUID& _educational_encounter)
+{
+    m_educational_encounter = _educational_encounter;
+}
+
+/*!
+ * @brief This function moves the value in member educational_encounter
+ * @param _educational_encounter New value to be moved in member educational_encounter
+ */
+void AMM::EventFragment::educational_encounter(
+        AMM::UUID&& _educational_encounter)
+{
+    m_educational_encounter = std::move(_educational_encounter);
+}
+
+/*!
+ * @brief This function returns a constant reference to member educational_encounter
+ * @return Constant reference to member educational_encounter
+ */
+const AMM::UUID& AMM::EventFragment::educational_encounter() const
+{
+    return m_educational_encounter;
+}
+
+/*!
+ * @brief This function returns a reference to member educational_encounter
+ * @return Reference to member educational_encounter
+ */
+AMM::UUID& AMM::EventFragment::educational_encounter()
+{
+    return m_educational_encounter;
+}
+/*!
+ * @brief This function copies the value in member location
+ * @param _location New value to be copied in member location
+ */
+void AMM::EventFragment::location(
+        const AMM::FMA_Location& _location)
+{
+    m_location = _location;
+}
+
+/*!
+ * @brief This function moves the value in member location
+ * @param _location New value to be moved in member location
+ */
+void AMM::EventFragment::location(
+        AMM::FMA_Location&& _location)
+{
+    m_location = std::move(_location);
+}
+
+/*!
+ * @brief This function returns a constant reference to member location
+ * @return Constant reference to member location
+ */
+const AMM::FMA_Location& AMM::EventFragment::location() const
+{
+    return m_location;
+}
+
+/*!
+ * @brief This function returns a reference to member location
+ * @return Reference to member location
+ */
+AMM::FMA_Location& AMM::EventFragment::location()
+{
+    return m_location;
+}
+/*!
+ * @brief This function sets a value in member agent_type
+ * @param _agent_type New value for member agent_type
+ */
+void AMM::EventFragment::agent_type(
+        AMM::EventAgentType _agent_type)
+{
+    m_agent_type = _agent_type;
+}
+
+/*!
+ * @brief This function returns the value of member agent_type
+ * @return Value of member agent_type
+ */
+AMM::EventAgentType AMM::EventFragment::agent_type() const
+{
+    return m_agent_type;
+}
+
+/*!
+ * @brief This function returns a reference to member agent_type
+ * @return Reference to member agent_type
+ */
+AMM::EventAgentType& AMM::EventFragment::agent_type()
+{
+    return m_agent_type;
+}
+
+/*!
+ * @brief This function copies the value in member agent_id
+ * @param _agent_id New value to be copied in member agent_id
+ */
+void AMM::EventFragment::agent_id(
+        const AMM::UUID& _agent_id)
+{
+    m_agent_id = _agent_id;
+}
+
+/*!
+ * @brief This function moves the value in member agent_id
+ * @param _agent_id New value to be moved in member agent_id
+ */
+void AMM::EventFragment::agent_id(
+        AMM::UUID&& _agent_id)
+{
+    m_agent_id = std::move(_agent_id);
+}
+
+/*!
+ * @brief This function returns a constant reference to member agent_id
+ * @return Constant reference to member agent_id
+ */
+const AMM::UUID& AMM::EventFragment::agent_id() const
+{
+    return m_agent_id;
+}
+
+/*!
+ * @brief This function returns a reference to member agent_id
+ * @return Reference to member agent_id
+ */
+AMM::UUID& AMM::EventFragment::agent_id()
+{
+    return m_agent_id;
+}
+/*!
+ * @brief This function copies the value in member type
+ * @param _type New value to be copied in member type
+ */
+void AMM::EventFragment::type(
+        const std::string& _type)
+{
+    m_type = _type;
+}
+
+/*!
+ * @brief This function moves the value in member type
+ * @param _type New value to be moved in member type
+ */
+void AMM::EventFragment::type(
+        std::string&& _type)
+{
+    m_type = std::move(_type);
+}
+
+/*!
+ * @brief This function returns a constant reference to member type
+ * @return Constant reference to member type
+ */
+const std::string& AMM::EventFragment::type() const
+{
+    return m_type;
+}
+
+/*!
+ * @brief This function returns a reference to member type
+ * @return Reference to member type
+ */
+std::string& AMM::EventFragment::type()
+{
+    return m_type;
+}
+/*!
+ * @brief This function copies the value in member data
+ * @param _data New value to be copied in member data
+ */
+void AMM::EventFragment::data(
+        const std::string& _data)
+{
+    m_data = _data;
+}
+
+/*!
+ * @brief This function moves the value in member data
+ * @param _data New value to be moved in member data
+ */
+void AMM::EventFragment::data(
+        std::string&& _data)
+{
+    m_data = std::move(_data);
+}
+
+/*!
+ * @brief This function returns a constant reference to member data
+ * @return Constant reference to member data
+ */
+const std::string& AMM::EventFragment::data() const
+{
+    return m_data;
+}
+
+/*!
+ * @brief This function returns a reference to member data
+ * @return Reference to member data
+ */
+std::string& AMM::EventFragment::data()
+{
+    return m_data;
+}
+
+size_t AMM::EventFragment::getKeyMaxCdrSerializedSize(
+        size_t current_alignment)
+{
+    size_t current_align = current_alignment;
+
+
 
 
 
@@ -505,38 +1132,48 @@ bool AMM::EventFragment::isKeyDefined()
     return false;
 }
 
-void AMM::EventFragment::serializeKey(eprosima::fastcdr::Cdr &scdr) const
+void AMM::EventFragment::serializeKey(
+        eprosima::fastcdr::Cdr& scdr) const
 {
-	(void) scdr;
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
+    (void) scdr;
+            
 }
+
 AMM::EventRecord::EventRecord()
 {
+    // m_id com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@49c43f4e
 
+    // m_timestamp com.eprosima.idl.parser.typecode.PrimitiveTypeCode@6166e06f
     m_timestamp = 0;
+    // m_educational_encounter com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@49c43f4e
 
+    // m_location com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@1372ed45
 
-
+    // m_agent_type com.eprosima.idl.parser.typecode.EnumTypeCode@6a79c292
     m_agent_type = AMM::LEARNER;
+    // m_agent_id com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@49c43f4e
 
-
-
-
+    // m_type com.eprosima.idl.parser.typecode.StringTypeCode@641147d0
+    m_type ="";
+    // m_data com.eprosima.idl.parser.typecode.StringTypeCode@6e38921c
+    m_data ="";
 
 }
 
 AMM::EventRecord::~EventRecord()
 {
+
+
+
+
+
+
+
+
 }
 
-AMM::EventRecord::EventRecord(const EventRecord &x)
+AMM::EventRecord::EventRecord(
+        const EventRecord& x)
 {
     m_id = x.m_id;
     m_timestamp = x.m_timestamp;
@@ -548,7 +1185,8 @@ AMM::EventRecord::EventRecord(const EventRecord &x)
     m_data = x.m_data;
 }
 
-AMM::EventRecord::EventRecord(EventRecord &&x)
+AMM::EventRecord::EventRecord(
+        EventRecord&& x)
 {
     m_id = std::move(x.m_id);
     m_timestamp = x.m_timestamp;
@@ -560,8 +1198,10 @@ AMM::EventRecord::EventRecord(EventRecord &&x)
     m_data = std::move(x.m_data);
 }
 
-AMM::EventRecord& AMM::EventRecord::operator=(const EventRecord &x)
+AMM::EventRecord& AMM::EventRecord::operator =(
+        const EventRecord& x)
 {
+
     m_id = x.m_id;
     m_timestamp = x.m_timestamp;
     m_educational_encounter = x.m_educational_encounter;
@@ -574,8 +1214,10 @@ AMM::EventRecord& AMM::EventRecord::operator=(const EventRecord &x)
     return *this;
 }
 
-AMM::EventRecord& AMM::EventRecord::operator=(EventRecord &&x)
+AMM::EventRecord& AMM::EventRecord::operator =(
+        EventRecord&& x)
 {
+
     m_id = std::move(x.m_id);
     m_timestamp = x.m_timestamp;
     m_educational_encounter = std::move(x.m_educational_encounter);
@@ -588,9 +1230,11 @@ AMM::EventRecord& AMM::EventRecord::operator=(EventRecord &&x)
     return *this;
 }
 
-size_t AMM::EventRecord::getMaxCdrSerializedSize(size_t current_alignment)
+size_t AMM::EventRecord::getMaxCdrSerializedSize(
+        size_t current_alignment)
 {
     size_t initial_alignment = current_alignment;
+
 
     current_alignment += AMM::UUID::getMaxCdrSerializedSize(current_alignment);
     current_alignment += 8 + eprosima::fastcdr::Cdr::alignment(current_alignment, 8);
@@ -604,16 +1248,19 @@ size_t AMM::EventRecord::getMaxCdrSerializedSize(size_t current_alignment)
     current_alignment += AMM::UUID::getMaxCdrSerializedSize(current_alignment);
     current_alignment += 4 + eprosima::fastcdr::Cdr::alignment(current_alignment, 4) + 255 + 1;
 
-    current_alignment += 4 + eprosima::fastcdr::Cdr::alignment(current_alignment, 4) + 255 + 1;
+    current_alignment += 4 + eprosima::fastcdr::Cdr::alignment(current_alignment, 4) + 4096 + 1;
 
 
     return current_alignment - initial_alignment;
 }
 
-size_t AMM::EventRecord::getCdrSerializedSize(const AMM::EventRecord& data, size_t current_alignment)
+size_t AMM::EventRecord::getCdrSerializedSize(
+        const AMM::EventRecord& data,
+        size_t current_alignment)
 {
     (void)data;
     size_t initial_alignment = current_alignment;
+
 
     current_alignment += AMM::UUID::getCdrSerializedSize(data.id(), current_alignment);
     current_alignment += 8 + eprosima::fastcdr::Cdr::alignment(current_alignment, 8);
@@ -633,8 +1280,10 @@ size_t AMM::EventRecord::getCdrSerializedSize(const AMM::EventRecord& data, size
     return current_alignment - initial_alignment;
 }
 
-void AMM::EventRecord::serialize(eprosima::fastcdr::Cdr &scdr) const
+void AMM::EventRecord::serialize(
+        eprosima::fastcdr::Cdr& scdr) const
 {
+
     scdr << m_id;
     scdr << m_timestamp;
     scdr << m_educational_encounter;
@@ -643,10 +1292,13 @@ void AMM::EventRecord::serialize(eprosima::fastcdr::Cdr &scdr) const
     scdr << m_agent_id;
     scdr << m_type;
     scdr << m_data;
+
 }
 
-void AMM::EventRecord::deserialize(eprosima::fastcdr::Cdr &dcdr)
+void AMM::EventRecord::deserialize(
+        eprosima::fastcdr::Cdr& dcdr)
 {
+
     dcdr >> m_id;
     dcdr >> m_timestamp;
     dcdr >> m_educational_encounter;
@@ -656,15 +1308,297 @@ void AMM::EventRecord::deserialize(eprosima::fastcdr::Cdr &dcdr)
         dcdr >> enum_value;
         m_agent_type = (AMM::EventAgentType)enum_value;
     }
+
     dcdr >> m_agent_id;
     dcdr >> m_type;
     dcdr >> m_data;
 }
 
-size_t AMM::EventRecord::getKeyMaxCdrSerializedSize(size_t current_alignment)
+/*!
+ * @brief This function copies the value in member id
+ * @param _id New value to be copied in member id
+ */
+void AMM::EventRecord::id(
+        const AMM::UUID& _id)
 {
-	size_t current_align = current_alignment;
-            
+    m_id = _id;
+}
+
+/*!
+ * @brief This function moves the value in member id
+ * @param _id New value to be moved in member id
+ */
+void AMM::EventRecord::id(
+        AMM::UUID&& _id)
+{
+    m_id = std::move(_id);
+}
+
+/*!
+ * @brief This function returns a constant reference to member id
+ * @return Constant reference to member id
+ */
+const AMM::UUID& AMM::EventRecord::id() const
+{
+    return m_id;
+}
+
+/*!
+ * @brief This function returns a reference to member id
+ * @return Reference to member id
+ */
+AMM::UUID& AMM::EventRecord::id()
+{
+    return m_id;
+}
+/*!
+ * @brief This function sets a value in member timestamp
+ * @param _timestamp New value for member timestamp
+ */
+void AMM::EventRecord::timestamp(
+        uint64_t _timestamp)
+{
+    m_timestamp = _timestamp;
+}
+
+/*!
+ * @brief This function returns the value of member timestamp
+ * @return Value of member timestamp
+ */
+uint64_t AMM::EventRecord::timestamp() const
+{
+    return m_timestamp;
+}
+
+/*!
+ * @brief This function returns a reference to member timestamp
+ * @return Reference to member timestamp
+ */
+uint64_t& AMM::EventRecord::timestamp()
+{
+    return m_timestamp;
+}
+
+/*!
+ * @brief This function copies the value in member educational_encounter
+ * @param _educational_encounter New value to be copied in member educational_encounter
+ */
+void AMM::EventRecord::educational_encounter(
+        const AMM::UUID& _educational_encounter)
+{
+    m_educational_encounter = _educational_encounter;
+}
+
+/*!
+ * @brief This function moves the value in member educational_encounter
+ * @param _educational_encounter New value to be moved in member educational_encounter
+ */
+void AMM::EventRecord::educational_encounter(
+        AMM::UUID&& _educational_encounter)
+{
+    m_educational_encounter = std::move(_educational_encounter);
+}
+
+/*!
+ * @brief This function returns a constant reference to member educational_encounter
+ * @return Constant reference to member educational_encounter
+ */
+const AMM::UUID& AMM::EventRecord::educational_encounter() const
+{
+    return m_educational_encounter;
+}
+
+/*!
+ * @brief This function returns a reference to member educational_encounter
+ * @return Reference to member educational_encounter
+ */
+AMM::UUID& AMM::EventRecord::educational_encounter()
+{
+    return m_educational_encounter;
+}
+/*!
+ * @brief This function copies the value in member location
+ * @param _location New value to be copied in member location
+ */
+void AMM::EventRecord::location(
+        const AMM::FMA_Location& _location)
+{
+    m_location = _location;
+}
+
+/*!
+ * @brief This function moves the value in member location
+ * @param _location New value to be moved in member location
+ */
+void AMM::EventRecord::location(
+        AMM::FMA_Location&& _location)
+{
+    m_location = std::move(_location);
+}
+
+/*!
+ * @brief This function returns a constant reference to member location
+ * @return Constant reference to member location
+ */
+const AMM::FMA_Location& AMM::EventRecord::location() const
+{
+    return m_location;
+}
+
+/*!
+ * @brief This function returns a reference to member location
+ * @return Reference to member location
+ */
+AMM::FMA_Location& AMM::EventRecord::location()
+{
+    return m_location;
+}
+/*!
+ * @brief This function sets a value in member agent_type
+ * @param _agent_type New value for member agent_type
+ */
+void AMM::EventRecord::agent_type(
+        AMM::EventAgentType _agent_type)
+{
+    m_agent_type = _agent_type;
+}
+
+/*!
+ * @brief This function returns the value of member agent_type
+ * @return Value of member agent_type
+ */
+AMM::EventAgentType AMM::EventRecord::agent_type() const
+{
+    return m_agent_type;
+}
+
+/*!
+ * @brief This function returns a reference to member agent_type
+ * @return Reference to member agent_type
+ */
+AMM::EventAgentType& AMM::EventRecord::agent_type()
+{
+    return m_agent_type;
+}
+
+/*!
+ * @brief This function copies the value in member agent_id
+ * @param _agent_id New value to be copied in member agent_id
+ */
+void AMM::EventRecord::agent_id(
+        const AMM::UUID& _agent_id)
+{
+    m_agent_id = _agent_id;
+}
+
+/*!
+ * @brief This function moves the value in member agent_id
+ * @param _agent_id New value to be moved in member agent_id
+ */
+void AMM::EventRecord::agent_id(
+        AMM::UUID&& _agent_id)
+{
+    m_agent_id = std::move(_agent_id);
+}
+
+/*!
+ * @brief This function returns a constant reference to member agent_id
+ * @return Constant reference to member agent_id
+ */
+const AMM::UUID& AMM::EventRecord::agent_id() const
+{
+    return m_agent_id;
+}
+
+/*!
+ * @brief This function returns a reference to member agent_id
+ * @return Reference to member agent_id
+ */
+AMM::UUID& AMM::EventRecord::agent_id()
+{
+    return m_agent_id;
+}
+/*!
+ * @brief This function copies the value in member type
+ * @param _type New value to be copied in member type
+ */
+void AMM::EventRecord::type(
+        const std::string& _type)
+{
+    m_type = _type;
+}
+
+/*!
+ * @brief This function moves the value in member type
+ * @param _type New value to be moved in member type
+ */
+void AMM::EventRecord::type(
+        std::string&& _type)
+{
+    m_type = std::move(_type);
+}
+
+/*!
+ * @brief This function returns a constant reference to member type
+ * @return Constant reference to member type
+ */
+const std::string& AMM::EventRecord::type() const
+{
+    return m_type;
+}
+
+/*!
+ * @brief This function returns a reference to member type
+ * @return Reference to member type
+ */
+std::string& AMM::EventRecord::type()
+{
+    return m_type;
+}
+/*!
+ * @brief This function copies the value in member data
+ * @param _data New value to be copied in member data
+ */
+void AMM::EventRecord::data(
+        const std::string& _data)
+{
+    m_data = _data;
+}
+
+/*!
+ * @brief This function moves the value in member data
+ * @param _data New value to be moved in member data
+ */
+void AMM::EventRecord::data(
+        std::string&& _data)
+{
+    m_data = std::move(_data);
+}
+
+/*!
+ * @brief This function returns a constant reference to member data
+ * @return Constant reference to member data
+ */
+const std::string& AMM::EventRecord::data() const
+{
+    return m_data;
+}
+
+/*!
+ * @brief This function returns a reference to member data
+ * @return Reference to member data
+ */
+std::string& AMM::EventRecord::data()
+{
+    return m_data;
+}
+
+size_t AMM::EventRecord::getKeyMaxCdrSerializedSize(
+        size_t current_alignment)
+{
+    size_t current_align = current_alignment;
+
+
 
 
 
@@ -682,37 +1616,43 @@ bool AMM::EventRecord::isKeyDefined()
     return false;
 }
 
-void AMM::EventRecord::serializeKey(eprosima::fastcdr::Cdr &scdr) const
+void AMM::EventRecord::serializeKey(
+        eprosima::fastcdr::Cdr& scdr) const
 {
-	(void) scdr;
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
+    (void) scdr;
+            
 }
+
 
 AMM::FragmentAmendmentRequest::FragmentAmendmentRequest()
 {
+    // m_id com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@49c43f4e
 
+    // m_fragment_id com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@49c43f4e
 
+    // m_status com.eprosima.idl.parser.typecode.EnumTypeCode@473b46c3
     m_status = AMM::REQUESTING;
+    // m_location com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@1372ed45
 
-
+    // m_agent_type com.eprosima.idl.parser.typecode.EnumTypeCode@6a79c292
     m_agent_type = AMM::LEARNER;
-
+    // m_agent_id com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@49c43f4e
 
 
 }
 
 AMM::FragmentAmendmentRequest::~FragmentAmendmentRequest()
 {
+
+
+
+
+
+
 }
 
-AMM::FragmentAmendmentRequest::FragmentAmendmentRequest(const FragmentAmendmentRequest &x)
+AMM::FragmentAmendmentRequest::FragmentAmendmentRequest(
+        const FragmentAmendmentRequest& x)
 {
     m_id = x.m_id;
     m_fragment_id = x.m_fragment_id;
@@ -722,7 +1662,8 @@ AMM::FragmentAmendmentRequest::FragmentAmendmentRequest(const FragmentAmendmentR
     m_agent_id = x.m_agent_id;
 }
 
-AMM::FragmentAmendmentRequest::FragmentAmendmentRequest(FragmentAmendmentRequest &&x)
+AMM::FragmentAmendmentRequest::FragmentAmendmentRequest(
+        FragmentAmendmentRequest&& x)
 {
     m_id = std::move(x.m_id);
     m_fragment_id = std::move(x.m_fragment_id);
@@ -732,8 +1673,10 @@ AMM::FragmentAmendmentRequest::FragmentAmendmentRequest(FragmentAmendmentRequest
     m_agent_id = std::move(x.m_agent_id);
 }
 
-AMM::FragmentAmendmentRequest& AMM::FragmentAmendmentRequest::operator=(const FragmentAmendmentRequest &x)
+AMM::FragmentAmendmentRequest& AMM::FragmentAmendmentRequest::operator =(
+        const FragmentAmendmentRequest& x)
 {
+
     m_id = x.m_id;
     m_fragment_id = x.m_fragment_id;
     m_status = x.m_status;
@@ -744,8 +1687,10 @@ AMM::FragmentAmendmentRequest& AMM::FragmentAmendmentRequest::operator=(const Fr
     return *this;
 }
 
-AMM::FragmentAmendmentRequest& AMM::FragmentAmendmentRequest::operator=(FragmentAmendmentRequest &&x)
+AMM::FragmentAmendmentRequest& AMM::FragmentAmendmentRequest::operator =(
+        FragmentAmendmentRequest&& x)
 {
+
     m_id = std::move(x.m_id);
     m_fragment_id = std::move(x.m_fragment_id);
     m_status = x.m_status;
@@ -756,9 +1701,11 @@ AMM::FragmentAmendmentRequest& AMM::FragmentAmendmentRequest::operator=(Fragment
     return *this;
 }
 
-size_t AMM::FragmentAmendmentRequest::getMaxCdrSerializedSize(size_t current_alignment)
+size_t AMM::FragmentAmendmentRequest::getMaxCdrSerializedSize(
+        size_t current_alignment)
 {
     size_t initial_alignment = current_alignment;
+
 
     current_alignment += AMM::UUID::getMaxCdrSerializedSize(current_alignment);
     current_alignment += AMM::UUID::getMaxCdrSerializedSize(current_alignment);
@@ -774,10 +1721,13 @@ size_t AMM::FragmentAmendmentRequest::getMaxCdrSerializedSize(size_t current_ali
     return current_alignment - initial_alignment;
 }
 
-size_t AMM::FragmentAmendmentRequest::getCdrSerializedSize(const AMM::FragmentAmendmentRequest& data, size_t current_alignment)
+size_t AMM::FragmentAmendmentRequest::getCdrSerializedSize(
+        const AMM::FragmentAmendmentRequest& data,
+        size_t current_alignment)
 {
     (void)data;
     size_t initial_alignment = current_alignment;
+
 
     current_alignment += AMM::UUID::getCdrSerializedSize(data.id(), current_alignment);
     current_alignment += AMM::UUID::getCdrSerializedSize(data.fragment_id(), current_alignment);
@@ -793,18 +1743,23 @@ size_t AMM::FragmentAmendmentRequest::getCdrSerializedSize(const AMM::FragmentAm
     return current_alignment - initial_alignment;
 }
 
-void AMM::FragmentAmendmentRequest::serialize(eprosima::fastcdr::Cdr &scdr) const
+void AMM::FragmentAmendmentRequest::serialize(
+        eprosima::fastcdr::Cdr& scdr) const
 {
+
     scdr << m_id;
     scdr << m_fragment_id;
     scdr << (uint32_t)m_status;
     scdr << m_location;
     scdr << (uint32_t)m_agent_type;
     scdr << m_agent_id;
+
 }
 
-void AMM::FragmentAmendmentRequest::deserialize(eprosima::fastcdr::Cdr &dcdr)
+void AMM::FragmentAmendmentRequest::deserialize(
+        eprosima::fastcdr::Cdr& dcdr)
 {
+
     dcdr >> m_id;
     dcdr >> m_fragment_id;
     {
@@ -812,19 +1767,228 @@ void AMM::FragmentAmendmentRequest::deserialize(eprosima::fastcdr::Cdr &dcdr)
         dcdr >> enum_value;
         m_status = (AMM::FAR_Status)enum_value;
     }
+
     dcdr >> m_location;
     {
         uint32_t enum_value = 0;
         dcdr >> enum_value;
         m_agent_type = (AMM::EventAgentType)enum_value;
     }
+
     dcdr >> m_agent_id;
 }
 
-size_t AMM::FragmentAmendmentRequest::getKeyMaxCdrSerializedSize(size_t current_alignment)
+/*!
+ * @brief This function copies the value in member id
+ * @param _id New value to be copied in member id
+ */
+void AMM::FragmentAmendmentRequest::id(
+        const AMM::UUID& _id)
 {
-	size_t current_align = current_alignment;
-            
+    m_id = _id;
+}
+
+/*!
+ * @brief This function moves the value in member id
+ * @param _id New value to be moved in member id
+ */
+void AMM::FragmentAmendmentRequest::id(
+        AMM::UUID&& _id)
+{
+    m_id = std::move(_id);
+}
+
+/*!
+ * @brief This function returns a constant reference to member id
+ * @return Constant reference to member id
+ */
+const AMM::UUID& AMM::FragmentAmendmentRequest::id() const
+{
+    return m_id;
+}
+
+/*!
+ * @brief This function returns a reference to member id
+ * @return Reference to member id
+ */
+AMM::UUID& AMM::FragmentAmendmentRequest::id()
+{
+    return m_id;
+}
+/*!
+ * @brief This function copies the value in member fragment_id
+ * @param _fragment_id New value to be copied in member fragment_id
+ */
+void AMM::FragmentAmendmentRequest::fragment_id(
+        const AMM::UUID& _fragment_id)
+{
+    m_fragment_id = _fragment_id;
+}
+
+/*!
+ * @brief This function moves the value in member fragment_id
+ * @param _fragment_id New value to be moved in member fragment_id
+ */
+void AMM::FragmentAmendmentRequest::fragment_id(
+        AMM::UUID&& _fragment_id)
+{
+    m_fragment_id = std::move(_fragment_id);
+}
+
+/*!
+ * @brief This function returns a constant reference to member fragment_id
+ * @return Constant reference to member fragment_id
+ */
+const AMM::UUID& AMM::FragmentAmendmentRequest::fragment_id() const
+{
+    return m_fragment_id;
+}
+
+/*!
+ * @brief This function returns a reference to member fragment_id
+ * @return Reference to member fragment_id
+ */
+AMM::UUID& AMM::FragmentAmendmentRequest::fragment_id()
+{
+    return m_fragment_id;
+}
+/*!
+ * @brief This function sets a value in member status
+ * @param _status New value for member status
+ */
+void AMM::FragmentAmendmentRequest::status(
+        AMM::FAR_Status _status)
+{
+    m_status = _status;
+}
+
+/*!
+ * @brief This function returns the value of member status
+ * @return Value of member status
+ */
+AMM::FAR_Status AMM::FragmentAmendmentRequest::status() const
+{
+    return m_status;
+}
+
+/*!
+ * @brief This function returns a reference to member status
+ * @return Reference to member status
+ */
+AMM::FAR_Status& AMM::FragmentAmendmentRequest::status()
+{
+    return m_status;
+}
+
+/*!
+ * @brief This function copies the value in member location
+ * @param _location New value to be copied in member location
+ */
+void AMM::FragmentAmendmentRequest::location(
+        const AMM::FMA_Location& _location)
+{
+    m_location = _location;
+}
+
+/*!
+ * @brief This function moves the value in member location
+ * @param _location New value to be moved in member location
+ */
+void AMM::FragmentAmendmentRequest::location(
+        AMM::FMA_Location&& _location)
+{
+    m_location = std::move(_location);
+}
+
+/*!
+ * @brief This function returns a constant reference to member location
+ * @return Constant reference to member location
+ */
+const AMM::FMA_Location& AMM::FragmentAmendmentRequest::location() const
+{
+    return m_location;
+}
+
+/*!
+ * @brief This function returns a reference to member location
+ * @return Reference to member location
+ */
+AMM::FMA_Location& AMM::FragmentAmendmentRequest::location()
+{
+    return m_location;
+}
+/*!
+ * @brief This function sets a value in member agent_type
+ * @param _agent_type New value for member agent_type
+ */
+void AMM::FragmentAmendmentRequest::agent_type(
+        AMM::EventAgentType _agent_type)
+{
+    m_agent_type = _agent_type;
+}
+
+/*!
+ * @brief This function returns the value of member agent_type
+ * @return Value of member agent_type
+ */
+AMM::EventAgentType AMM::FragmentAmendmentRequest::agent_type() const
+{
+    return m_agent_type;
+}
+
+/*!
+ * @brief This function returns a reference to member agent_type
+ * @return Reference to member agent_type
+ */
+AMM::EventAgentType& AMM::FragmentAmendmentRequest::agent_type()
+{
+    return m_agent_type;
+}
+
+/*!
+ * @brief This function copies the value in member agent_id
+ * @param _agent_id New value to be copied in member agent_id
+ */
+void AMM::FragmentAmendmentRequest::agent_id(
+        const AMM::UUID& _agent_id)
+{
+    m_agent_id = _agent_id;
+}
+
+/*!
+ * @brief This function moves the value in member agent_id
+ * @param _agent_id New value to be moved in member agent_id
+ */
+void AMM::FragmentAmendmentRequest::agent_id(
+        AMM::UUID&& _agent_id)
+{
+    m_agent_id = std::move(_agent_id);
+}
+
+/*!
+ * @brief This function returns a constant reference to member agent_id
+ * @return Constant reference to member agent_id
+ */
+const AMM::UUID& AMM::FragmentAmendmentRequest::agent_id() const
+{
+    return m_agent_id;
+}
+
+/*!
+ * @brief This function returns a reference to member agent_id
+ * @return Reference to member agent_id
+ */
+AMM::UUID& AMM::FragmentAmendmentRequest::agent_id()
+{
+    return m_agent_id;
+}
+
+size_t AMM::FragmentAmendmentRequest::getKeyMaxCdrSerializedSize(
+        size_t current_alignment)
+{
+    size_t current_align = current_alignment;
+
+
 
 
 
@@ -840,33 +2004,37 @@ bool AMM::FragmentAmendmentRequest::isKeyDefined()
     return false;
 }
 
-void AMM::FragmentAmendmentRequest::serializeKey(eprosima::fastcdr::Cdr &scdr) const
+void AMM::FragmentAmendmentRequest::serializeKey(
+        eprosima::fastcdr::Cdr& scdr) const
 {
-	(void) scdr;
-	 
-	 
-	 
-	 
-	 
-	 
+    (void) scdr;
+          
 }
+
 
 AMM::Log::Log()
 {
+    // m_timestamp com.eprosima.idl.parser.typecode.PrimitiveTypeCode@77be656f
     m_timestamp = 0;
+    // m_module_id com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@49c43f4e
 
-
+    // m_level com.eprosima.idl.parser.typecode.EnumTypeCode@62bd765
     m_level = AMM::L_FATAL;
-
-
+    // m_message com.eprosima.idl.parser.typecode.StringTypeCode@23a5fd2
+    m_message ="";
 
 }
 
 AMM::Log::~Log()
 {
+
+
+
+
 }
 
-AMM::Log::Log(const Log &x)
+AMM::Log::Log(
+        const Log& x)
 {
     m_timestamp = x.m_timestamp;
     m_module_id = x.m_module_id;
@@ -874,7 +2042,8 @@ AMM::Log::Log(const Log &x)
     m_message = x.m_message;
 }
 
-AMM::Log::Log(Log &&x)
+AMM::Log::Log(
+        Log&& x)
 {
     m_timestamp = x.m_timestamp;
     m_module_id = std::move(x.m_module_id);
@@ -882,8 +2051,10 @@ AMM::Log::Log(Log &&x)
     m_message = std::move(x.m_message);
 }
 
-AMM::Log& AMM::Log::operator=(const Log &x)
+AMM::Log& AMM::Log::operator =(
+        const Log& x)
 {
+
     m_timestamp = x.m_timestamp;
     m_module_id = x.m_module_id;
     m_level = x.m_level;
@@ -892,8 +2063,10 @@ AMM::Log& AMM::Log::operator=(const Log &x)
     return *this;
 }
 
-AMM::Log& AMM::Log::operator=(Log &&x)
+AMM::Log& AMM::Log::operator =(
+        Log&& x)
 {
+
     m_timestamp = x.m_timestamp;
     m_module_id = std::move(x.m_module_id);
     m_level = x.m_level;
@@ -902,9 +2075,11 @@ AMM::Log& AMM::Log::operator=(Log &&x)
     return *this;
 }
 
-size_t AMM::Log::getMaxCdrSerializedSize(size_t current_alignment)
+size_t AMM::Log::getMaxCdrSerializedSize(
+        size_t current_alignment)
 {
     size_t initial_alignment = current_alignment;
+
 
     current_alignment += 8 + eprosima::fastcdr::Cdr::alignment(current_alignment, 8);
 
@@ -919,10 +2094,13 @@ size_t AMM::Log::getMaxCdrSerializedSize(size_t current_alignment)
     return current_alignment - initial_alignment;
 }
 
-size_t AMM::Log::getCdrSerializedSize(const AMM::Log& data, size_t current_alignment)
+size_t AMM::Log::getCdrSerializedSize(
+        const AMM::Log& data,
+        size_t current_alignment)
 {
     (void)data;
     size_t initial_alignment = current_alignment;
+
 
     current_alignment += 8 + eprosima::fastcdr::Cdr::alignment(current_alignment, 8);
 
@@ -937,16 +2115,21 @@ size_t AMM::Log::getCdrSerializedSize(const AMM::Log& data, size_t current_align
     return current_alignment - initial_alignment;
 }
 
-void AMM::Log::serialize(eprosima::fastcdr::Cdr &scdr) const
+void AMM::Log::serialize(
+        eprosima::fastcdr::Cdr& scdr) const
 {
+
     scdr << m_timestamp;
     scdr << m_module_id;
     scdr << (uint32_t)m_level;
     scdr << m_message;
+
 }
 
-void AMM::Log::deserialize(eprosima::fastcdr::Cdr &dcdr)
+void AMM::Log::deserialize(
+        eprosima::fastcdr::Cdr& dcdr)
 {
+
     dcdr >> m_timestamp;
     dcdr >> m_module_id;
     {
@@ -954,13 +2137,147 @@ void AMM::Log::deserialize(eprosima::fastcdr::Cdr &dcdr)
         dcdr >> enum_value;
         m_level = (AMM::LogLevel)enum_value;
     }
+
     dcdr >> m_message;
 }
 
-size_t AMM::Log::getKeyMaxCdrSerializedSize(size_t current_alignment)
+/*!
+ * @brief This function sets a value in member timestamp
+ * @param _timestamp New value for member timestamp
+ */
+void AMM::Log::timestamp(
+        uint64_t _timestamp)
 {
-	size_t current_align = current_alignment;
-            
+    m_timestamp = _timestamp;
+}
+
+/*!
+ * @brief This function returns the value of member timestamp
+ * @return Value of member timestamp
+ */
+uint64_t AMM::Log::timestamp() const
+{
+    return m_timestamp;
+}
+
+/*!
+ * @brief This function returns a reference to member timestamp
+ * @return Reference to member timestamp
+ */
+uint64_t& AMM::Log::timestamp()
+{
+    return m_timestamp;
+}
+
+/*!
+ * @brief This function copies the value in member module_id
+ * @param _module_id New value to be copied in member module_id
+ */
+void AMM::Log::module_id(
+        const AMM::UUID& _module_id)
+{
+    m_module_id = _module_id;
+}
+
+/*!
+ * @brief This function moves the value in member module_id
+ * @param _module_id New value to be moved in member module_id
+ */
+void AMM::Log::module_id(
+        AMM::UUID&& _module_id)
+{
+    m_module_id = std::move(_module_id);
+}
+
+/*!
+ * @brief This function returns a constant reference to member module_id
+ * @return Constant reference to member module_id
+ */
+const AMM::UUID& AMM::Log::module_id() const
+{
+    return m_module_id;
+}
+
+/*!
+ * @brief This function returns a reference to member module_id
+ * @return Reference to member module_id
+ */
+AMM::UUID& AMM::Log::module_id()
+{
+    return m_module_id;
+}
+/*!
+ * @brief This function sets a value in member level
+ * @param _level New value for member level
+ */
+void AMM::Log::level(
+        AMM::LogLevel _level)
+{
+    m_level = _level;
+}
+
+/*!
+ * @brief This function returns the value of member level
+ * @return Value of member level
+ */
+AMM::LogLevel AMM::Log::level() const
+{
+    return m_level;
+}
+
+/*!
+ * @brief This function returns a reference to member level
+ * @return Reference to member level
+ */
+AMM::LogLevel& AMM::Log::level()
+{
+    return m_level;
+}
+
+/*!
+ * @brief This function copies the value in member message
+ * @param _message New value to be copied in member message
+ */
+void AMM::Log::message(
+        const std::string& _message)
+{
+    m_message = _message;
+}
+
+/*!
+ * @brief This function moves the value in member message
+ * @param _message New value to be moved in member message
+ */
+void AMM::Log::message(
+        std::string&& _message)
+{
+    m_message = std::move(_message);
+}
+
+/*!
+ * @brief This function returns a constant reference to member message
+ * @return Constant reference to member message
+ */
+const std::string& AMM::Log::message() const
+{
+    return m_message;
+}
+
+/*!
+ * @brief This function returns a reference to member message
+ * @return Reference to member message
+ */
+std::string& AMM::Log::message()
+{
+    return m_message;
+}
+
+size_t AMM::Log::getKeyMaxCdrSerializedSize(
+        size_t current_alignment)
+{
+    size_t current_align = current_alignment;
+
+
 
 
 
@@ -974,30 +2291,39 @@ bool AMM::Log::isKeyDefined()
     return false;
 }
 
-void AMM::Log::serializeKey(eprosima::fastcdr::Cdr &scdr) const
+void AMM::Log::serializeKey(
+        eprosima::fastcdr::Cdr& scdr) const
 {
-	(void) scdr;
-	 
-	 
-	 
-	 
+    (void) scdr;
+        
 }
+
 AMM::ModuleConfiguration::ModuleConfiguration()
 {
+    // m_name com.eprosima.idl.parser.typecode.StringTypeCode@70b0b186
+    m_name ="";
+    // m_module_id com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@49c43f4e
 
+    // m_educational_encounter com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@49c43f4e
 
-
+    // m_timestamp com.eprosima.idl.parser.typecode.PrimitiveTypeCode@5d20e46
     m_timestamp = 0;
-
-
+    // m_capabilities_configuration com.eprosima.idl.parser.typecode.StringTypeCode@709ba3fb
+    m_capabilities_configuration ="";
 
 }
 
 AMM::ModuleConfiguration::~ModuleConfiguration()
 {
+
+
+
+
+
 }
 
-AMM::ModuleConfiguration::ModuleConfiguration(const ModuleConfiguration &x)
+AMM::ModuleConfiguration::ModuleConfiguration(
+        const ModuleConfiguration& x)
 {
     m_name = x.m_name;
     m_module_id = x.m_module_id;
@@ -1006,7 +2332,8 @@ AMM::ModuleConfiguration::ModuleConfiguration(const ModuleConfiguration &x)
     m_capabilities_configuration = x.m_capabilities_configuration;
 }
 
-AMM::ModuleConfiguration::ModuleConfiguration(ModuleConfiguration &&x)
+AMM::ModuleConfiguration::ModuleConfiguration(
+        ModuleConfiguration&& x)
 {
     m_name = std::move(x.m_name);
     m_module_id = std::move(x.m_module_id);
@@ -1015,8 +2342,10 @@ AMM::ModuleConfiguration::ModuleConfiguration(ModuleConfiguration &&x)
     m_capabilities_configuration = std::move(x.m_capabilities_configuration);
 }
 
-AMM::ModuleConfiguration& AMM::ModuleConfiguration::operator=(const ModuleConfiguration &x)
+AMM::ModuleConfiguration& AMM::ModuleConfiguration::operator =(
+        const ModuleConfiguration& x)
 {
+
     m_name = x.m_name;
     m_module_id = x.m_module_id;
     m_educational_encounter = x.m_educational_encounter;
@@ -1026,8 +2355,10 @@ AMM::ModuleConfiguration& AMM::ModuleConfiguration::operator=(const ModuleConfig
     return *this;
 }
 
-AMM::ModuleConfiguration& AMM::ModuleConfiguration::operator=(ModuleConfiguration &&x)
+AMM::ModuleConfiguration& AMM::ModuleConfiguration::operator =(
+        ModuleConfiguration&& x)
 {
+
     m_name = std::move(x.m_name);
     m_module_id = std::move(x.m_module_id);
     m_educational_encounter = std::move(x.m_educational_encounter);
@@ -1037,9 +2368,11 @@ AMM::ModuleConfiguration& AMM::ModuleConfiguration::operator=(ModuleConfiguratio
     return *this;
 }
 
-size_t AMM::ModuleConfiguration::getMaxCdrSerializedSize(size_t current_alignment)
+size_t AMM::ModuleConfiguration::getMaxCdrSerializedSize(
+        size_t current_alignment)
 {
     size_t initial_alignment = current_alignment;
+
 
     current_alignment += 4 + eprosima::fastcdr::Cdr::alignment(current_alignment, 4) + 255 + 1;
 
@@ -1048,16 +2381,19 @@ size_t AMM::ModuleConfiguration::getMaxCdrSerializedSize(size_t current_alignmen
     current_alignment += 8 + eprosima::fastcdr::Cdr::alignment(current_alignment, 8);
 
 
-    current_alignment += 4 + eprosima::fastcdr::Cdr::alignment(current_alignment, 4) + 255 + 1;
+    current_alignment += 4 + eprosima::fastcdr::Cdr::alignment(current_alignment, 4) + 12000 + 1;
 
 
     return current_alignment - initial_alignment;
 }
 
-size_t AMM::ModuleConfiguration::getCdrSerializedSize(const AMM::ModuleConfiguration& data, size_t current_alignment)
+size_t AMM::ModuleConfiguration::getCdrSerializedSize(
+        const AMM::ModuleConfiguration& data,
+        size_t current_alignment)
 {
     (void)data;
     size_t initial_alignment = current_alignment;
+
 
     current_alignment += 4 + eprosima::fastcdr::Cdr::alignment(current_alignment, 4) + data.name().size() + 1;
 
@@ -1072,17 +2408,22 @@ size_t AMM::ModuleConfiguration::getCdrSerializedSize(const AMM::ModuleConfigura
     return current_alignment - initial_alignment;
 }
 
-void AMM::ModuleConfiguration::serialize(eprosima::fastcdr::Cdr &scdr) const
+void AMM::ModuleConfiguration::serialize(
+        eprosima::fastcdr::Cdr& scdr) const
 {
+
     scdr << m_name;
     scdr << m_module_id;
     scdr << m_educational_encounter;
     scdr << m_timestamp;
     scdr << m_capabilities_configuration;
+
 }
 
-void AMM::ModuleConfiguration::deserialize(eprosima::fastcdr::Cdr &dcdr)
+void AMM::ModuleConfiguration::deserialize(
+        eprosima::fastcdr::Cdr& dcdr)
 {
+
     dcdr >> m_name;
     dcdr >> m_module_id;
     dcdr >> m_educational_encounter;
@@ -1090,10 +2431,189 @@ void AMM::ModuleConfiguration::deserialize(eprosima::fastcdr::Cdr &dcdr)
     dcdr >> m_capabilities_configuration;
 }
 
-size_t AMM::ModuleConfiguration::getKeyMaxCdrSerializedSize(size_t current_alignment)
+/*!
+ * @brief This function copies the value in member name
+ * @param _name New value to be copied in member name
+ */
+void AMM::ModuleConfiguration::name(
+        const std::string& _name)
 {
-	size_t current_align = current_alignment;
-            
+    m_name = _name;
+}
+
+/*!
+ * @brief This function moves the value in member name
+ * @param _name New value to be moved in member name
+ */
+void AMM::ModuleConfiguration::name(
+        std::string&& _name)
+{
+    m_name = std::move(_name);
+}
+
+/*!
+ * @brief This function returns a constant reference to member name
+ * @return Constant reference to member name
+ */
+const std::string& AMM::ModuleConfiguration::name() const
+{
+    return m_name;
+}
+
+/*!
+ * @brief This function returns a reference to member name
+ * @return Reference to member name
+ */
+std::string& AMM::ModuleConfiguration::name()
+{
+    return m_name;
+}
+/*!
+ * @brief This function copies the value in member module_id
+ * @param _module_id New value to be copied in member module_id
+ */
+void AMM::ModuleConfiguration::module_id(
+        const AMM::UUID& _module_id)
+{
+    m_module_id = _module_id;
+}
+
+/*!
+ * @brief This function moves the value in member module_id
+ * @param _module_id New value to be moved in member module_id
+ */
+void AMM::ModuleConfiguration::module_id(
+        AMM::UUID&& _module_id)
+{
+    m_module_id = std::move(_module_id);
+}
+
+/*!
+ * @brief This function returns a constant reference to member module_id
+ * @return Constant reference to member module_id
+ */
+const AMM::UUID& AMM::ModuleConfiguration::module_id() const
+{
+    return m_module_id;
+}
+
+/*!
+ * @brief This function returns a reference to member module_id
+ * @return Reference to member module_id
+ */
+AMM::UUID& AMM::ModuleConfiguration::module_id()
+{
+    return m_module_id;
+}
+/*!
+ * @brief This function copies the value in member educational_encounter
+ * @param _educational_encounter New value to be copied in member educational_encounter
+ */
+void AMM::ModuleConfiguration::educational_encounter(
+        const AMM::UUID& _educational_encounter)
+{
+    m_educational_encounter = _educational_encounter;
+}
+
+/*!
+ * @brief This function moves the value in member educational_encounter
+ * @param _educational_encounter New value to be moved in member educational_encounter
+ */
+void AMM::ModuleConfiguration::educational_encounter(
+        AMM::UUID&& _educational_encounter)
+{
+    m_educational_encounter = std::move(_educational_encounter);
+}
+
+/*!
+ * @brief This function returns a constant reference to member educational_encounter
+ * @return Constant reference to member educational_encounter
+ */
+const AMM::UUID& AMM::ModuleConfiguration::educational_encounter() const
+{
+    return m_educational_encounter;
+}
+
+/*!
+ * @brief This function returns a reference to member educational_encounter
+ * @return Reference to member educational_encounter
+ */
+AMM::UUID& AMM::ModuleConfiguration::educational_encounter()
+{
+    return m_educational_encounter;
+}
+/*!
+ * @brief This function sets a value in member timestamp
+ * @param _timestamp New value for member timestamp
+ */
+void AMM::ModuleConfiguration::timestamp(
+        uint64_t _timestamp)
+{
+    m_timestamp = _timestamp;
+}
+
+/*!
+ * @brief This function returns the value of member timestamp
+ * @return Value of member timestamp
+ */
+uint64_t AMM::ModuleConfiguration::timestamp() const
+{
+    return m_timestamp;
+}
+
+/*!
+ * @brief This function returns a reference to member timestamp
+ * @return Reference to member timestamp
+ */
+uint64_t& AMM::ModuleConfiguration::timestamp()
+{
+    return m_timestamp;
+}
+
+/*!
+ * @brief This function copies the value in member capabilities_configuration
+ * @param _capabilities_configuration New value to be copied in member capabilities_configuration
+ */
+void AMM::ModuleConfiguration::capabilities_configuration(
+        const std::string& _capabilities_configuration)
+{
+    m_capabilities_configuration = _capabilities_configuration;
+}
+
+/*!
+ * @brief This function moves the value in member capabilities_configuration
+ * @param _capabilities_configuration New value to be moved in member capabilities_configuration
+ */
+void AMM::ModuleConfiguration::capabilities_configuration(
+        std::string&& _capabilities_configuration)
+{
+    m_capabilities_configuration = std::move(_capabilities_configuration);
+}
+
+/*!
+ * @brief This function returns a constant reference to member capabilities_configuration
+ * @return Constant reference to member capabilities_configuration
+ */
+const std::string& AMM::ModuleConfiguration::capabilities_configuration() const
+{
+    return m_capabilities_configuration;
+}
+
+/*!
+ * @brief This function returns a reference to member capabilities_configuration
+ * @return Reference to member capabilities_configuration
+ */
+std::string& AMM::ModuleConfiguration::capabilities_configuration()
+{
+    return m_capabilities_configuration;
+}
+
+size_t AMM::ModuleConfiguration::getKeyMaxCdrSerializedSize(
+        size_t current_alignment)
+{
+    size_t current_align = current_alignment;
+
+
 
 
 
@@ -1108,35 +2628,48 @@ bool AMM::ModuleConfiguration::isKeyDefined()
     return false;
 }
 
-void AMM::ModuleConfiguration::serializeKey(eprosima::fastcdr::Cdr &scdr) const
+void AMM::ModuleConfiguration::serializeKey(
+        eprosima::fastcdr::Cdr& scdr) const
 {
-	(void) scdr;
-	 
-	 
-	 
-	 
-	 
+    (void) scdr;
+         
 }
+
 AMM::OmittedEvent::OmittedEvent()
 {
+    // m_id com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@49c43f4e
 
+    // m_timestamp com.eprosima.idl.parser.typecode.PrimitiveTypeCode@58c1c010
     m_timestamp = 0;
+    // m_educational_encounter com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@49c43f4e
 
+    // m_location com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@1372ed45
 
-
+    // m_agent_type com.eprosima.idl.parser.typecode.EnumTypeCode@6a79c292
     m_agent_type = AMM::LEARNER;
+    // m_agent_id com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@49c43f4e
 
-
-
-
+    // m_type com.eprosima.idl.parser.typecode.StringTypeCode@b7f23d9
+    m_type ="";
+    // m_data com.eprosima.idl.parser.typecode.StringTypeCode@61d47554
+    m_data ="";
 
 }
 
 AMM::OmittedEvent::~OmittedEvent()
 {
+
+
+
+
+
+
+
+
 }
 
-AMM::OmittedEvent::OmittedEvent(const OmittedEvent &x)
+AMM::OmittedEvent::OmittedEvent(
+        const OmittedEvent& x)
 {
     m_id = x.m_id;
     m_timestamp = x.m_timestamp;
@@ -1148,7 +2681,8 @@ AMM::OmittedEvent::OmittedEvent(const OmittedEvent &x)
     m_data = x.m_data;
 }
 
-AMM::OmittedEvent::OmittedEvent(OmittedEvent &&x)
+AMM::OmittedEvent::OmittedEvent(
+        OmittedEvent&& x)
 {
     m_id = std::move(x.m_id);
     m_timestamp = x.m_timestamp;
@@ -1160,8 +2694,10 @@ AMM::OmittedEvent::OmittedEvent(OmittedEvent &&x)
     m_data = std::move(x.m_data);
 }
 
-AMM::OmittedEvent& AMM::OmittedEvent::operator=(const OmittedEvent &x)
+AMM::OmittedEvent& AMM::OmittedEvent::operator =(
+        const OmittedEvent& x)
 {
+
     m_id = x.m_id;
     m_timestamp = x.m_timestamp;
     m_educational_encounter = x.m_educational_encounter;
@@ -1174,8 +2710,10 @@ AMM::OmittedEvent& AMM::OmittedEvent::operator=(const OmittedEvent &x)
     return *this;
 }
 
-AMM::OmittedEvent& AMM::OmittedEvent::operator=(OmittedEvent &&x)
+AMM::OmittedEvent& AMM::OmittedEvent::operator =(
+        OmittedEvent&& x)
 {
+
     m_id = std::move(x.m_id);
     m_timestamp = x.m_timestamp;
     m_educational_encounter = std::move(x.m_educational_encounter);
@@ -1188,9 +2726,11 @@ AMM::OmittedEvent& AMM::OmittedEvent::operator=(OmittedEvent &&x)
     return *this;
 }
 
-size_t AMM::OmittedEvent::getMaxCdrSerializedSize(size_t current_alignment)
+size_t AMM::OmittedEvent::getMaxCdrSerializedSize(
+        size_t current_alignment)
 {
     size_t initial_alignment = current_alignment;
+
 
     current_alignment += AMM::UUID::getMaxCdrSerializedSize(current_alignment);
     current_alignment += 8 + eprosima::fastcdr::Cdr::alignment(current_alignment, 8);
@@ -1204,16 +2744,19 @@ size_t AMM::OmittedEvent::getMaxCdrSerializedSize(size_t current_alignment)
     current_alignment += AMM::UUID::getMaxCdrSerializedSize(current_alignment);
     current_alignment += 4 + eprosima::fastcdr::Cdr::alignment(current_alignment, 4) + 255 + 1;
 
-    current_alignment += 4 + eprosima::fastcdr::Cdr::alignment(current_alignment, 4) + 255 + 1;
+    current_alignment += 4 + eprosima::fastcdr::Cdr::alignment(current_alignment, 4) + 4096 + 1;
 
 
     return current_alignment - initial_alignment;
 }
 
-size_t AMM::OmittedEvent::getCdrSerializedSize(const AMM::OmittedEvent& data, size_t current_alignment)
+size_t AMM::OmittedEvent::getCdrSerializedSize(
+        const AMM::OmittedEvent& data,
+        size_t current_alignment)
 {
     (void)data;
     size_t initial_alignment = current_alignment;
+
 
     current_alignment += AMM::UUID::getCdrSerializedSize(data.id(), current_alignment);
     current_alignment += 8 + eprosima::fastcdr::Cdr::alignment(current_alignment, 8);
@@ -1233,8 +2776,10 @@ size_t AMM::OmittedEvent::getCdrSerializedSize(const AMM::OmittedEvent& data, si
     return current_alignment - initial_alignment;
 }
 
-void AMM::OmittedEvent::serialize(eprosima::fastcdr::Cdr &scdr) const
+void AMM::OmittedEvent::serialize(
+        eprosima::fastcdr::Cdr& scdr) const
 {
+
     scdr << m_id;
     scdr << m_timestamp;
     scdr << m_educational_encounter;
@@ -1243,10 +2788,13 @@ void AMM::OmittedEvent::serialize(eprosima::fastcdr::Cdr &scdr) const
     scdr << m_agent_id;
     scdr << m_type;
     scdr << m_data;
+
 }
 
-void AMM::OmittedEvent::deserialize(eprosima::fastcdr::Cdr &dcdr)
+void AMM::OmittedEvent::deserialize(
+        eprosima::fastcdr::Cdr& dcdr)
 {
+
     dcdr >> m_id;
     dcdr >> m_timestamp;
     dcdr >> m_educational_encounter;
@@ -1256,15 +2804,297 @@ void AMM::OmittedEvent::deserialize(eprosima::fastcdr::Cdr &dcdr)
         dcdr >> enum_value;
         m_agent_type = (AMM::EventAgentType)enum_value;
     }
+
     dcdr >> m_agent_id;
     dcdr >> m_type;
     dcdr >> m_data;
 }
 
-size_t AMM::OmittedEvent::getKeyMaxCdrSerializedSize(size_t current_alignment)
+/*!
+ * @brief This function copies the value in member id
+ * @param _id New value to be copied in member id
+ */
+void AMM::OmittedEvent::id(
+        const AMM::UUID& _id)
 {
-	size_t current_align = current_alignment;
-            
+    m_id = _id;
+}
+
+/*!
+ * @brief This function moves the value in member id
+ * @param _id New value to be moved in member id
+ */
+void AMM::OmittedEvent::id(
+        AMM::UUID&& _id)
+{
+    m_id = std::move(_id);
+}
+
+/*!
+ * @brief This function returns a constant reference to member id
+ * @return Constant reference to member id
+ */
+const AMM::UUID& AMM::OmittedEvent::id() const
+{
+    return m_id;
+}
+
+/*!
+ * @brief This function returns a reference to member id
+ * @return Reference to member id
+ */
+AMM::UUID& AMM::OmittedEvent::id()
+{
+    return m_id;
+}
+/*!
+ * @brief This function sets a value in member timestamp
+ * @param _timestamp New value for member timestamp
+ */
+void AMM::OmittedEvent::timestamp(
+        uint64_t _timestamp)
+{
+    m_timestamp = _timestamp;
+}
+
+/*!
+ * @brief This function returns the value of member timestamp
+ * @return Value of member timestamp
+ */
+uint64_t AMM::OmittedEvent::timestamp() const
+{
+    return m_timestamp;
+}
+
+/*!
+ * @brief This function returns a reference to member timestamp
+ * @return Reference to member timestamp
+ */
+uint64_t& AMM::OmittedEvent::timestamp()
+{
+    return m_timestamp;
+}
+
+/*!
+ * @brief This function copies the value in member educational_encounter
+ * @param _educational_encounter New value to be copied in member educational_encounter
+ */
+void AMM::OmittedEvent::educational_encounter(
+        const AMM::UUID& _educational_encounter)
+{
+    m_educational_encounter = _educational_encounter;
+}
+
+/*!
+ * @brief This function moves the value in member educational_encounter
+ * @param _educational_encounter New value to be moved in member educational_encounter
+ */
+void AMM::OmittedEvent::educational_encounter(
+        AMM::UUID&& _educational_encounter)
+{
+    m_educational_encounter = std::move(_educational_encounter);
+}
+
+/*!
+ * @brief This function returns a constant reference to member educational_encounter
+ * @return Constant reference to member educational_encounter
+ */
+const AMM::UUID& AMM::OmittedEvent::educational_encounter() const
+{
+    return m_educational_encounter;
+}
+
+/*!
+ * @brief This function returns a reference to member educational_encounter
+ * @return Reference to member educational_encounter
+ */
+AMM::UUID& AMM::OmittedEvent::educational_encounter()
+{
+    return m_educational_encounter;
+}
+/*!
+ * @brief This function copies the value in member location
+ * @param _location New value to be copied in member location
+ */
+void AMM::OmittedEvent::location(
+        const AMM::FMA_Location& _location)
+{
+    m_location = _location;
+}
+
+/*!
+ * @brief This function moves the value in member location
+ * @param _location New value to be moved in member location
+ */
+void AMM::OmittedEvent::location(
+        AMM::FMA_Location&& _location)
+{
+    m_location = std::move(_location);
+}
+
+/*!
+ * @brief This function returns a constant reference to member location
+ * @return Constant reference to member location
+ */
+const AMM::FMA_Location& AMM::OmittedEvent::location() const
+{
+    return m_location;
+}
+
+/*!
+ * @brief This function returns a reference to member location
+ * @return Reference to member location
+ */
+AMM::FMA_Location& AMM::OmittedEvent::location()
+{
+    return m_location;
+}
+/*!
+ * @brief This function sets a value in member agent_type
+ * @param _agent_type New value for member agent_type
+ */
+void AMM::OmittedEvent::agent_type(
+        AMM::EventAgentType _agent_type)
+{
+    m_agent_type = _agent_type;
+}
+
+/*!
+ * @brief This function returns the value of member agent_type
+ * @return Value of member agent_type
+ */
+AMM::EventAgentType AMM::OmittedEvent::agent_type() const
+{
+    return m_agent_type;
+}
+
+/*!
+ * @brief This function returns a reference to member agent_type
+ * @return Reference to member agent_type
+ */
+AMM::EventAgentType& AMM::OmittedEvent::agent_type()
+{
+    return m_agent_type;
+}
+
+/*!
+ * @brief This function copies the value in member agent_id
+ * @param _agent_id New value to be copied in member agent_id
+ */
+void AMM::OmittedEvent::agent_id(
+        const AMM::UUID& _agent_id)
+{
+    m_agent_id = _agent_id;
+}
+
+/*!
+ * @brief This function moves the value in member agent_id
+ * @param _agent_id New value to be moved in member agent_id
+ */
+void AMM::OmittedEvent::agent_id(
+        AMM::UUID&& _agent_id)
+{
+    m_agent_id = std::move(_agent_id);
+}
+
+/*!
+ * @brief This function returns a constant reference to member agent_id
+ * @return Constant reference to member agent_id
+ */
+const AMM::UUID& AMM::OmittedEvent::agent_id() const
+{
+    return m_agent_id;
+}
+
+/*!
+ * @brief This function returns a reference to member agent_id
+ * @return Reference to member agent_id
+ */
+AMM::UUID& AMM::OmittedEvent::agent_id()
+{
+    return m_agent_id;
+}
+/*!
+ * @brief This function copies the value in member type
+ * @param _type New value to be copied in member type
+ */
+void AMM::OmittedEvent::type(
+        const std::string& _type)
+{
+    m_type = _type;
+}
+
+/*!
+ * @brief This function moves the value in member type
+ * @param _type New value to be moved in member type
+ */
+void AMM::OmittedEvent::type(
+        std::string&& _type)
+{
+    m_type = std::move(_type);
+}
+
+/*!
+ * @brief This function returns a constant reference to member type
+ * @return Constant reference to member type
+ */
+const std::string& AMM::OmittedEvent::type() const
+{
+    return m_type;
+}
+
+/*!
+ * @brief This function returns a reference to member type
+ * @return Reference to member type
+ */
+std::string& AMM::OmittedEvent::type()
+{
+    return m_type;
+}
+/*!
+ * @brief This function copies the value in member data
+ * @param _data New value to be copied in member data
+ */
+void AMM::OmittedEvent::data(
+        const std::string& _data)
+{
+    m_data = _data;
+}
+
+/*!
+ * @brief This function moves the value in member data
+ * @param _data New value to be moved in member data
+ */
+void AMM::OmittedEvent::data(
+        std::string&& _data)
+{
+    m_data = std::move(_data);
+}
+
+/*!
+ * @brief This function returns a constant reference to member data
+ * @return Constant reference to member data
+ */
+const std::string& AMM::OmittedEvent::data() const
+{
+    return m_data;
+}
+
+/*!
+ * @brief This function returns a reference to member data
+ * @return Reference to member data
+ */
+std::string& AMM::OmittedEvent::data()
+{
+    return m_data;
+}
+
+size_t AMM::OmittedEvent::getKeyMaxCdrSerializedSize(
+        size_t current_alignment)
+{
+    size_t current_align = current_alignment;
+
+
 
 
 
@@ -1282,49 +3112,51 @@ bool AMM::OmittedEvent::isKeyDefined()
     return false;
 }
 
-void AMM::OmittedEvent::serializeKey(eprosima::fastcdr::Cdr &scdr) const
+void AMM::OmittedEvent::serializeKey(
+        eprosima::fastcdr::Cdr& scdr) const
 {
-	(void) scdr;
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
+    (void) scdr;
+            
 }
+
 AMM::Semantic_Version::Semantic_Version()
 {
+    // m_major com.eprosima.idl.parser.typecode.PrimitiveTypeCode@3f200884
     m_major = 0;
-
+    // m_minor com.eprosima.idl.parser.typecode.PrimitiveTypeCode@4d339552
     m_minor = 0;
-
+    // m_patch com.eprosima.idl.parser.typecode.PrimitiveTypeCode@f0f2775
     m_patch = 0;
-
 
 }
 
 AMM::Semantic_Version::~Semantic_Version()
 {
+
+
+
 }
 
-AMM::Semantic_Version::Semantic_Version(const Semantic_Version &x)
+AMM::Semantic_Version::Semantic_Version(
+        const Semantic_Version& x)
 {
     m_major = x.m_major;
     m_minor = x.m_minor;
     m_patch = x.m_patch;
 }
 
-AMM::Semantic_Version::Semantic_Version(Semantic_Version &&x)
+AMM::Semantic_Version::Semantic_Version(
+        Semantic_Version&& x)
 {
     m_major = x.m_major;
     m_minor = x.m_minor;
     m_patch = x.m_patch;
 }
 
-AMM::Semantic_Version& AMM::Semantic_Version::operator=(const Semantic_Version &x)
+AMM::Semantic_Version& AMM::Semantic_Version::operator =(
+        const Semantic_Version& x)
 {
+
     m_major = x.m_major;
     m_minor = x.m_minor;
     m_patch = x.m_patch;
@@ -1332,8 +3164,10 @@ AMM::Semantic_Version& AMM::Semantic_Version::operator=(const Semantic_Version &
     return *this;
 }
 
-AMM::Semantic_Version& AMM::Semantic_Version::operator=(Semantic_Version &&x)
+AMM::Semantic_Version& AMM::Semantic_Version::operator =(
+        Semantic_Version&& x)
 {
+
     m_major = x.m_major;
     m_minor = x.m_minor;
     m_patch = x.m_patch;
@@ -1341,9 +3175,11 @@ AMM::Semantic_Version& AMM::Semantic_Version::operator=(Semantic_Version &&x)
     return *this;
 }
 
-size_t AMM::Semantic_Version::getMaxCdrSerializedSize(size_t current_alignment)
+size_t AMM::Semantic_Version::getMaxCdrSerializedSize(
+        size_t current_alignment)
 {
     size_t initial_alignment = current_alignment;
+
 
     current_alignment += 2 + eprosima::fastcdr::Cdr::alignment(current_alignment, 2);
 
@@ -1358,11 +3194,14 @@ size_t AMM::Semantic_Version::getMaxCdrSerializedSize(size_t current_alignment)
     return current_alignment - initial_alignment;
 }
 
-size_t AMM::Semantic_Version::getCdrSerializedSize(const AMM::Semantic_Version& data, size_t current_alignment)
+size_t AMM::Semantic_Version::getCdrSerializedSize(
+        const AMM::Semantic_Version& data,
+        size_t current_alignment)
 {
     (void)data;
     size_t initial_alignment = current_alignment;
 
+
     current_alignment += 2 + eprosima::fastcdr::Cdr::alignment(current_alignment, 2);
 
 
@@ -1376,24 +3215,116 @@ size_t AMM::Semantic_Version::getCdrSerializedSize(const AMM::Semantic_Version& 
     return current_alignment - initial_alignment;
 }
 
-void AMM::Semantic_Version::serialize(eprosima::fastcdr::Cdr &scdr) const
+void AMM::Semantic_Version::serialize(
+        eprosima::fastcdr::Cdr& scdr) const
 {
+
     scdr << m_major;
     scdr << m_minor;
     scdr << m_patch;
+
 }
 
-void AMM::Semantic_Version::deserialize(eprosima::fastcdr::Cdr &dcdr)
+void AMM::Semantic_Version::deserialize(
+        eprosima::fastcdr::Cdr& dcdr)
 {
+
     dcdr >> m_major;
     dcdr >> m_minor;
     dcdr >> m_patch;
 }
 
-size_t AMM::Semantic_Version::getKeyMaxCdrSerializedSize(size_t current_alignment)
+/*!
+ * @brief This function sets a value in member major
+ * @param _major New value for member major
+ */
+void AMM::Semantic_Version::major(
+        uint16_t _major)
 {
-	size_t current_align = current_alignment;
-            
+    m_major = _major;
+}
+
+/*!
+ * @brief This function returns the value of member major
+ * @return Value of member major
+ */
+uint16_t AMM::Semantic_Version::major() const
+{
+    return m_major;
+}
+
+/*!
+ * @brief This function returns a reference to member major
+ * @return Reference to member major
+ */
+uint16_t& AMM::Semantic_Version::major()
+{
+    return m_major;
+}
+
+/*!
+ * @brief This function sets a value in member minor
+ * @param _minor New value for member minor
+ */
+void AMM::Semantic_Version::minor(
+        uint16_t _minor)
+{
+    m_minor = _minor;
+}
+
+/*!
+ * @brief This function returns the value of member minor
+ * @return Value of member minor
+ */
+uint16_t AMM::Semantic_Version::minor() const
+{
+    return m_minor;
+}
+
+/*!
+ * @brief This function returns a reference to member minor
+ * @return Reference to member minor
+ */
+uint16_t& AMM::Semantic_Version::minor()
+{
+    return m_minor;
+}
+
+/*!
+ * @brief This function sets a value in member patch
+ * @param _patch New value for member patch
+ */
+void AMM::Semantic_Version::patch(
+        uint16_t _patch)
+{
+    m_patch = _patch;
+}
+
+/*!
+ * @brief This function returns the value of member patch
+ * @return Value of member patch
+ */
+uint16_t AMM::Semantic_Version::patch() const
+{
+    return m_patch;
+}
+
+/*!
+ * @brief This function returns a reference to member patch
+ * @return Reference to member patch
+ */
+uint16_t& AMM::Semantic_Version::patch()
+{
+    return m_patch;
+}
+
+
+size_t AMM::Semantic_Version::getKeyMaxCdrSerializedSize(
+        size_t current_alignment)
+{
+    size_t current_align = current_alignment;
+
+
 
 
 
@@ -1406,34 +3337,57 @@ bool AMM::Semantic_Version::isKeyDefined()
     return false;
 }
 
-void AMM::Semantic_Version::serializeKey(eprosima::fastcdr::Cdr &scdr) const
+void AMM::Semantic_Version::serializeKey(
+        eprosima::fastcdr::Cdr& scdr) const
 {
-	(void) scdr;
-	 
-	 
-	 
+    (void) scdr;
+       
 }
+
 AMM::OperationalDescription::OperationalDescription()
 {
+    // m_name com.eprosima.idl.parser.typecode.StringTypeCode@77e4c80f
+    m_name ="";
+    // m_description com.eprosima.idl.parser.typecode.StringTypeCode@35fc6dc4
+    m_description ="";
+    // m_manufacturer com.eprosima.idl.parser.typecode.StringTypeCode@7fe8ea47
+    m_manufacturer ="";
+    // m_model com.eprosima.idl.parser.typecode.StringTypeCode@226a82c4
+    m_model ="";
+    // m_serial_number com.eprosima.idl.parser.typecode.StringTypeCode@64d2d351
+    m_serial_number ="";
+    // m_module_id com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@49c43f4e
 
-
-
-
-
-
-
-
-
+    // m_module_version com.eprosima.idl.parser.typecode.StringTypeCode@1b68b9a4
+    m_module_version ="";
+    // m_configuration_version com.eprosima.idl.parser.typecode.StringTypeCode@4f9a3314
+    m_configuration_version ="";
+    // m_AMM_version com.eprosima.idl.parser.typecode.StringTypeCode@3b2c72c2
+    m_AMM_version ="";
+    // m_ip_address com.eprosima.idl.parser.typecode.ArrayTypeCode@491666ad
     memset(&m_ip_address, 0, (4) * 1);
-
+    // m_capabilities_schema com.eprosima.idl.parser.typecode.StringTypeCode@176d53b2
+    m_capabilities_schema ="";
 
 }
 
 AMM::OperationalDescription::~OperationalDescription()
 {
+
+
+
+
+
+
+
+
+
+
+
 }
 
-AMM::OperationalDescription::OperationalDescription(const OperationalDescription &x)
+AMM::OperationalDescription::OperationalDescription(
+        const OperationalDescription& x)
 {
     m_name = x.m_name;
     m_description = x.m_description;
@@ -1448,7 +3402,8 @@ AMM::OperationalDescription::OperationalDescription(const OperationalDescription
     m_capabilities_schema = x.m_capabilities_schema;
 }
 
-AMM::OperationalDescription::OperationalDescription(OperationalDescription &&x)
+AMM::OperationalDescription::OperationalDescription(
+        OperationalDescription&& x)
 {
     m_name = std::move(x.m_name);
     m_description = std::move(x.m_description);
@@ -1463,8 +3418,10 @@ AMM::OperationalDescription::OperationalDescription(OperationalDescription &&x)
     m_capabilities_schema = std::move(x.m_capabilities_schema);
 }
 
-AMM::OperationalDescription& AMM::OperationalDescription::operator=(const OperationalDescription &x)
+AMM::OperationalDescription& AMM::OperationalDescription::operator =(
+        const OperationalDescription& x)
 {
+
     m_name = x.m_name;
     m_description = x.m_description;
     m_manufacturer = x.m_manufacturer;
@@ -1480,8 +3437,10 @@ AMM::OperationalDescription& AMM::OperationalDescription::operator=(const Operat
     return *this;
 }
 
-AMM::OperationalDescription& AMM::OperationalDescription::operator=(OperationalDescription &&x)
+AMM::OperationalDescription& AMM::OperationalDescription::operator =(
+        OperationalDescription&& x)
 {
+
     m_name = std::move(x.m_name);
     m_description = std::move(x.m_description);
     m_manufacturer = std::move(x.m_manufacturer);
@@ -1497,9 +3456,11 @@ AMM::OperationalDescription& AMM::OperationalDescription::operator=(OperationalD
     return *this;
 }
 
-size_t AMM::OperationalDescription::getMaxCdrSerializedSize(size_t current_alignment)
+size_t AMM::OperationalDescription::getMaxCdrSerializedSize(
+        size_t current_alignment)
 {
     size_t initial_alignment = current_alignment;
+
 
     current_alignment += 4 + eprosima::fastcdr::Cdr::alignment(current_alignment, 4) + 255 + 1;
 
@@ -1521,16 +3482,19 @@ size_t AMM::OperationalDescription::getMaxCdrSerializedSize(size_t current_align
     current_alignment += ((4) * 1) + eprosima::fastcdr::Cdr::alignment(current_alignment, 1);
 
 
-    current_alignment += 4 + eprosima::fastcdr::Cdr::alignment(current_alignment, 4) + 255 + 1;
+    current_alignment += 4 + eprosima::fastcdr::Cdr::alignment(current_alignment, 4) + 12000 + 1;
 
 
     return current_alignment - initial_alignment;
 }
 
-size_t AMM::OperationalDescription::getCdrSerializedSize(const AMM::OperationalDescription& data, size_t current_alignment)
+size_t AMM::OperationalDescription::getCdrSerializedSize(
+        const AMM::OperationalDescription& data,
+        size_t current_alignment)
 {
     (void)data;
     size_t initial_alignment = current_alignment;
+
 
     current_alignment += 4 + eprosima::fastcdr::Cdr::alignment(current_alignment, 4) + data.name().size() + 1;
 
@@ -1549,7 +3513,10 @@ size_t AMM::OperationalDescription::getCdrSerializedSize(const AMM::OperationalD
 
     current_alignment += 4 + eprosima::fastcdr::Cdr::alignment(current_alignment, 4) + data.AMM_version().size() + 1;
 
-    current_alignment += ((4) * 1) + eprosima::fastcdr::Cdr::alignment(current_alignment, 1);
+    if ((4) > 0)
+    {
+        current_alignment += ((4) * 1) + eprosima::fastcdr::Cdr::alignment(current_alignment, 1);
+    }
 
     current_alignment += 4 + eprosima::fastcdr::Cdr::alignment(current_alignment, 4) + data.capabilities_schema().size() + 1;
 
@@ -1557,8 +3524,10 @@ size_t AMM::OperationalDescription::getCdrSerializedSize(const AMM::OperationalD
     return current_alignment - initial_alignment;
 }
 
-void AMM::OperationalDescription::serialize(eprosima::fastcdr::Cdr &scdr) const
+void AMM::OperationalDescription::serialize(
+        eprosima::fastcdr::Cdr& scdr) const
 {
+
     scdr << m_name;
     scdr << m_description;
     scdr << m_manufacturer;
@@ -1569,11 +3538,15 @@ void AMM::OperationalDescription::serialize(eprosima::fastcdr::Cdr &scdr) const
     scdr << m_configuration_version;
     scdr << m_AMM_version;
     scdr << m_ip_address;
+
     scdr << m_capabilities_schema;
+
 }
 
-void AMM::OperationalDescription::deserialize(eprosima::fastcdr::Cdr &dcdr)
+void AMM::OperationalDescription::deserialize(
+        eprosima::fastcdr::Cdr& dcdr)
 {
+
     dcdr >> m_name;
     dcdr >> m_description;
     dcdr >> m_manufacturer;
@@ -1584,13 +3557,424 @@ void AMM::OperationalDescription::deserialize(eprosima::fastcdr::Cdr &dcdr)
     dcdr >> m_configuration_version;
     dcdr >> m_AMM_version;
     dcdr >> m_ip_address;
+
     dcdr >> m_capabilities_schema;
 }
 
-size_t AMM::OperationalDescription::getKeyMaxCdrSerializedSize(size_t current_alignment)
+/*!
+ * @brief This function copies the value in member name
+ * @param _name New value to be copied in member name
+ */
+void AMM::OperationalDescription::name(
+        const std::string& _name)
 {
-	size_t current_align = current_alignment;
-            
+    m_name = _name;
+}
+
+/*!
+ * @brief This function moves the value in member name
+ * @param _name New value to be moved in member name
+ */
+void AMM::OperationalDescription::name(
+        std::string&& _name)
+{
+    m_name = std::move(_name);
+}
+
+/*!
+ * @brief This function returns a constant reference to member name
+ * @return Constant reference to member name
+ */
+const std::string& AMM::OperationalDescription::name() const
+{
+    return m_name;
+}
+
+/*!
+ * @brief This function returns a reference to member name
+ * @return Reference to member name
+ */
+std::string& AMM::OperationalDescription::name()
+{
+    return m_name;
+}
+/*!
+ * @brief This function copies the value in member description
+ * @param _description New value to be copied in member description
+ */
+void AMM::OperationalDescription::description(
+        const std::string& _description)
+{
+    m_description = _description;
+}
+
+/*!
+ * @brief This function moves the value in member description
+ * @param _description New value to be moved in member description
+ */
+void AMM::OperationalDescription::description(
+        std::string&& _description)
+{
+    m_description = std::move(_description);
+}
+
+/*!
+ * @brief This function returns a constant reference to member description
+ * @return Constant reference to member description
+ */
+const std::string& AMM::OperationalDescription::description() const
+{
+    return m_description;
+}
+
+/*!
+ * @brief This function returns a reference to member description
+ * @return Reference to member description
+ */
+std::string& AMM::OperationalDescription::description()
+{
+    return m_description;
+}
+/*!
+ * @brief This function copies the value in member manufacturer
+ * @param _manufacturer New value to be copied in member manufacturer
+ */
+void AMM::OperationalDescription::manufacturer(
+        const std::string& _manufacturer)
+{
+    m_manufacturer = _manufacturer;
+}
+
+/*!
+ * @brief This function moves the value in member manufacturer
+ * @param _manufacturer New value to be moved in member manufacturer
+ */
+void AMM::OperationalDescription::manufacturer(
+        std::string&& _manufacturer)
+{
+    m_manufacturer = std::move(_manufacturer);
+}
+
+/*!
+ * @brief This function returns a constant reference to member manufacturer
+ * @return Constant reference to member manufacturer
+ */
+const std::string& AMM::OperationalDescription::manufacturer() const
+{
+    return m_manufacturer;
+}
+
+/*!
+ * @brief This function returns a reference to member manufacturer
+ * @return Reference to member manufacturer
+ */
+std::string& AMM::OperationalDescription::manufacturer()
+{
+    return m_manufacturer;
+}
+/*!
+ * @brief This function copies the value in member model
+ * @param _model New value to be copied in member model
+ */
+void AMM::OperationalDescription::model(
+        const std::string& _model)
+{
+    m_model = _model;
+}
+
+/*!
+ * @brief This function moves the value in member model
+ * @param _model New value to be moved in member model
+ */
+void AMM::OperationalDescription::model(
+        std::string&& _model)
+{
+    m_model = std::move(_model);
+}
+
+/*!
+ * @brief This function returns a constant reference to member model
+ * @return Constant reference to member model
+ */
+const std::string& AMM::OperationalDescription::model() const
+{
+    return m_model;
+}
+
+/*!
+ * @brief This function returns a reference to member model
+ * @return Reference to member model
+ */
+std::string& AMM::OperationalDescription::model()
+{
+    return m_model;
+}
+/*!
+ * @brief This function copies the value in member serial_number
+ * @param _serial_number New value to be copied in member serial_number
+ */
+void AMM::OperationalDescription::serial_number(
+        const std::string& _serial_number)
+{
+    m_serial_number = _serial_number;
+}
+
+/*!
+ * @brief This function moves the value in member serial_number
+ * @param _serial_number New value to be moved in member serial_number
+ */
+void AMM::OperationalDescription::serial_number(
+        std::string&& _serial_number)
+{
+    m_serial_number = std::move(_serial_number);
+}
+
+/*!
+ * @brief This function returns a constant reference to member serial_number
+ * @return Constant reference to member serial_number
+ */
+const std::string& AMM::OperationalDescription::serial_number() const
+{
+    return m_serial_number;
+}
+
+/*!
+ * @brief This function returns a reference to member serial_number
+ * @return Reference to member serial_number
+ */
+std::string& AMM::OperationalDescription::serial_number()
+{
+    return m_serial_number;
+}
+/*!
+ * @brief This function copies the value in member module_id
+ * @param _module_id New value to be copied in member module_id
+ */
+void AMM::OperationalDescription::module_id(
+        const AMM::UUID& _module_id)
+{
+    m_module_id = _module_id;
+}
+
+/*!
+ * @brief This function moves the value in member module_id
+ * @param _module_id New value to be moved in member module_id
+ */
+void AMM::OperationalDescription::module_id(
+        AMM::UUID&& _module_id)
+{
+    m_module_id = std::move(_module_id);
+}
+
+/*!
+ * @brief This function returns a constant reference to member module_id
+ * @return Constant reference to member module_id
+ */
+const AMM::UUID& AMM::OperationalDescription::module_id() const
+{
+    return m_module_id;
+}
+
+/*!
+ * @brief This function returns a reference to member module_id
+ * @return Reference to member module_id
+ */
+AMM::UUID& AMM::OperationalDescription::module_id()
+{
+    return m_module_id;
+}
+/*!
+ * @brief This function copies the value in member module_version
+ * @param _module_version New value to be copied in member module_version
+ */
+void AMM::OperationalDescription::module_version(
+        const std::string& _module_version)
+{
+    m_module_version = _module_version;
+}
+
+/*!
+ * @brief This function moves the value in member module_version
+ * @param _module_version New value to be moved in member module_version
+ */
+void AMM::OperationalDescription::module_version(
+        std::string&& _module_version)
+{
+    m_module_version = std::move(_module_version);
+}
+
+/*!
+ * @brief This function returns a constant reference to member module_version
+ * @return Constant reference to member module_version
+ */
+const std::string& AMM::OperationalDescription::module_version() const
+{
+    return m_module_version;
+}
+
+/*!
+ * @brief This function returns a reference to member module_version
+ * @return Reference to member module_version
+ */
+std::string& AMM::OperationalDescription::module_version()
+{
+    return m_module_version;
+}
+/*!
+ * @brief This function copies the value in member configuration_version
+ * @param _configuration_version New value to be copied in member configuration_version
+ */
+void AMM::OperationalDescription::configuration_version(
+        const std::string& _configuration_version)
+{
+    m_configuration_version = _configuration_version;
+}
+
+/*!
+ * @brief This function moves the value in member configuration_version
+ * @param _configuration_version New value to be moved in member configuration_version
+ */
+void AMM::OperationalDescription::configuration_version(
+        std::string&& _configuration_version)
+{
+    m_configuration_version = std::move(_configuration_version);
+}
+
+/*!
+ * @brief This function returns a constant reference to member configuration_version
+ * @return Constant reference to member configuration_version
+ */
+const std::string& AMM::OperationalDescription::configuration_version() const
+{
+    return m_configuration_version;
+}
+
+/*!
+ * @brief This function returns a reference to member configuration_version
+ * @return Reference to member configuration_version
+ */
+std::string& AMM::OperationalDescription::configuration_version()
+{
+    return m_configuration_version;
+}
+/*!
+ * @brief This function copies the value in member AMM_version
+ * @param _AMM_version New value to be copied in member AMM_version
+ */
+void AMM::OperationalDescription::AMM_version(
+        const std::string& _AMM_version)
+{
+    m_AMM_version = _AMM_version;
+}
+
+/*!
+ * @brief This function moves the value in member AMM_version
+ * @param _AMM_version New value to be moved in member AMM_version
+ */
+void AMM::OperationalDescription::AMM_version(
+        std::string&& _AMM_version)
+{
+    m_AMM_version = std::move(_AMM_version);
+}
+
+/*!
+ * @brief This function returns a constant reference to member AMM_version
+ * @return Constant reference to member AMM_version
+ */
+const std::string& AMM::OperationalDescription::AMM_version() const
+{
+    return m_AMM_version;
+}
+
+/*!
+ * @brief This function returns a reference to member AMM_version
+ * @return Reference to member AMM_version
+ */
+std::string& AMM::OperationalDescription::AMM_version()
+{
+    return m_AMM_version;
+}
+/*!
+ * @brief This function copies the value in member ip_address
+ * @param _ip_address New value to be copied in member ip_address
+ */
+void AMM::OperationalDescription::ip_address(
+        const std::array<uint8_t, 4>& _ip_address)
+{
+    m_ip_address = _ip_address;
+}
+
+/*!
+ * @brief This function moves the value in member ip_address
+ * @param _ip_address New value to be moved in member ip_address
+ */
+void AMM::OperationalDescription::ip_address(
+        std::array<uint8_t, 4>&& _ip_address)
+{
+    m_ip_address = std::move(_ip_address);
+}
+
+/*!
+ * @brief This function returns a constant reference to member ip_address
+ * @return Constant reference to member ip_address
+ */
+const std::array<uint8_t, 4>& AMM::OperationalDescription::ip_address() const
+{
+    return m_ip_address;
+}
+
+/*!
+ * @brief This function returns a reference to member ip_address
+ * @return Reference to member ip_address
+ */
+std::array<uint8_t, 4>& AMM::OperationalDescription::ip_address()
+{
+    return m_ip_address;
+}
+/*!
+ * @brief This function copies the value in member capabilities_schema
+ * @param _capabilities_schema New value to be copied in member capabilities_schema
+ */
+void AMM::OperationalDescription::capabilities_schema(
+        const std::string& _capabilities_schema)
+{
+    m_capabilities_schema = _capabilities_schema;
+}
+
+/*!
+ * @brief This function moves the value in member capabilities_schema
+ * @param _capabilities_schema New value to be moved in member capabilities_schema
+ */
+void AMM::OperationalDescription::capabilities_schema(
+        std::string&& _capabilities_schema)
+{
+    m_capabilities_schema = std::move(_capabilities_schema);
+}
+
+/*!
+ * @brief This function returns a constant reference to member capabilities_schema
+ * @return Constant reference to member capabilities_schema
+ */
+const std::string& AMM::OperationalDescription::capabilities_schema() const
+{
+    return m_capabilities_schema;
+}
+
+/*!
+ * @brief This function returns a reference to member capabilities_schema
+ * @return Reference to member capabilities_schema
+ */
+std::string& AMM::OperationalDescription::capabilities_schema()
+{
+    return m_capabilities_schema;
+}
+
+size_t AMM::OperationalDescription::getKeyMaxCdrSerializedSize(
+        size_t current_alignment)
+{
+    size_t current_align = current_alignment;
+
+
 
 
 
@@ -1611,35 +3995,36 @@ bool AMM::OperationalDescription::isKeyDefined()
     return false;
 }
 
-void AMM::OperationalDescription::serializeKey(eprosima::fastcdr::Cdr &scdr) const
+void AMM::OperationalDescription::serializeKey(
+        eprosima::fastcdr::Cdr& scdr) const
 {
-	(void) scdr;
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
+    (void) scdr;
+               
 }
+
 AMM::PhysiologyModification::PhysiologyModification()
 {
+    // m_id com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@49c43f4e
 
+    // m_event_id com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@49c43f4e
 
-
-
+    // m_type com.eprosima.idl.parser.typecode.StringTypeCode@18a70f16
+    m_type ="";
+    // m_data com.eprosima.idl.parser.typecode.StringTypeCode@62e136d3
+    m_data ="";
 
 }
 
 AMM::PhysiologyModification::~PhysiologyModification()
 {
+
+
+
+
 }
 
-AMM::PhysiologyModification::PhysiologyModification(const PhysiologyModification &x)
+AMM::PhysiologyModification::PhysiologyModification(
+        const PhysiologyModification& x)
 {
     m_id = x.m_id;
     m_event_id = x.m_event_id;
@@ -1647,7 +4032,8 @@ AMM::PhysiologyModification::PhysiologyModification(const PhysiologyModification
     m_data = x.m_data;
 }
 
-AMM::PhysiologyModification::PhysiologyModification(PhysiologyModification &&x)
+AMM::PhysiologyModification::PhysiologyModification(
+        PhysiologyModification&& x)
 {
     m_id = std::move(x.m_id);
     m_event_id = std::move(x.m_event_id);
@@ -1655,8 +4041,10 @@ AMM::PhysiologyModification::PhysiologyModification(PhysiologyModification &&x)
     m_data = std::move(x.m_data);
 }
 
-AMM::PhysiologyModification& AMM::PhysiologyModification::operator=(const PhysiologyModification &x)
+AMM::PhysiologyModification& AMM::PhysiologyModification::operator =(
+        const PhysiologyModification& x)
 {
+
     m_id = x.m_id;
     m_event_id = x.m_event_id;
     m_type = x.m_type;
@@ -1665,8 +4053,10 @@ AMM::PhysiologyModification& AMM::PhysiologyModification::operator=(const Physio
     return *this;
 }
 
-AMM::PhysiologyModification& AMM::PhysiologyModification::operator=(PhysiologyModification &&x)
+AMM::PhysiologyModification& AMM::PhysiologyModification::operator =(
+        PhysiologyModification&& x)
 {
+
     m_id = std::move(x.m_id);
     m_event_id = std::move(x.m_event_id);
     m_type = std::move(x.m_type);
@@ -1675,24 +4065,29 @@ AMM::PhysiologyModification& AMM::PhysiologyModification::operator=(PhysiologyMo
     return *this;
 }
 
-size_t AMM::PhysiologyModification::getMaxCdrSerializedSize(size_t current_alignment)
+size_t AMM::PhysiologyModification::getMaxCdrSerializedSize(
+        size_t current_alignment)
 {
     size_t initial_alignment = current_alignment;
 
+
     current_alignment += AMM::UUID::getMaxCdrSerializedSize(current_alignment);
     current_alignment += AMM::UUID::getMaxCdrSerializedSize(current_alignment);
     current_alignment += 4 + eprosima::fastcdr::Cdr::alignment(current_alignment, 4) + 255 + 1;
 
-    current_alignment += 4 + eprosima::fastcdr::Cdr::alignment(current_alignment, 4) + 255 + 1;
+    current_alignment += 4 + eprosima::fastcdr::Cdr::alignment(current_alignment, 4) + 4096 + 1;
 
 
     return current_alignment - initial_alignment;
 }
 
-size_t AMM::PhysiologyModification::getCdrSerializedSize(const AMM::PhysiologyModification& data, size_t current_alignment)
+size_t AMM::PhysiologyModification::getCdrSerializedSize(
+        const AMM::PhysiologyModification& data,
+        size_t current_alignment)
 {
     (void)data;
     size_t initial_alignment = current_alignment;
+
 
     current_alignment += AMM::UUID::getCdrSerializedSize(data.id(), current_alignment);
     current_alignment += AMM::UUID::getCdrSerializedSize(data.event_id(), current_alignment);
@@ -1704,26 +4099,182 @@ size_t AMM::PhysiologyModification::getCdrSerializedSize(const AMM::PhysiologyMo
     return current_alignment - initial_alignment;
 }
 
-void AMM::PhysiologyModification::serialize(eprosima::fastcdr::Cdr &scdr) const
+void AMM::PhysiologyModification::serialize(
+        eprosima::fastcdr::Cdr& scdr) const
 {
+
     scdr << m_id;
     scdr << m_event_id;
     scdr << m_type;
     scdr << m_data;
+
 }
 
-void AMM::PhysiologyModification::deserialize(eprosima::fastcdr::Cdr &dcdr)
+void AMM::PhysiologyModification::deserialize(
+        eprosima::fastcdr::Cdr& dcdr)
 {
+
     dcdr >> m_id;
     dcdr >> m_event_id;
     dcdr >> m_type;
     dcdr >> m_data;
 }
 
-size_t AMM::PhysiologyModification::getKeyMaxCdrSerializedSize(size_t current_alignment)
+/*!
+ * @brief This function copies the value in member id
+ * @param _id New value to be copied in member id
+ */
+void AMM::PhysiologyModification::id(
+        const AMM::UUID& _id)
 {
-	size_t current_align = current_alignment;
-            
+    m_id = _id;
+}
+
+/*!
+ * @brief This function moves the value in member id
+ * @param _id New value to be moved in member id
+ */
+void AMM::PhysiologyModification::id(
+        AMM::UUID&& _id)
+{
+    m_id = std::move(_id);
+}
+
+/*!
+ * @brief This function returns a constant reference to member id
+ * @return Constant reference to member id
+ */
+const AMM::UUID& AMM::PhysiologyModification::id() const
+{
+    return m_id;
+}
+
+/*!
+ * @brief This function returns a reference to member id
+ * @return Reference to member id
+ */
+AMM::UUID& AMM::PhysiologyModification::id()
+{
+    return m_id;
+}
+/*!
+ * @brief This function copies the value in member event_id
+ * @param _event_id New value to be copied in member event_id
+ */
+void AMM::PhysiologyModification::event_id(
+        const AMM::UUID& _event_id)
+{
+    m_event_id = _event_id;
+}
+
+/*!
+ * @brief This function moves the value in member event_id
+ * @param _event_id New value to be moved in member event_id
+ */
+void AMM::PhysiologyModification::event_id(
+        AMM::UUID&& _event_id)
+{
+    m_event_id = std::move(_event_id);
+}
+
+/*!
+ * @brief This function returns a constant reference to member event_id
+ * @return Constant reference to member event_id
+ */
+const AMM::UUID& AMM::PhysiologyModification::event_id() const
+{
+    return m_event_id;
+}
+
+/*!
+ * @brief This function returns a reference to member event_id
+ * @return Reference to member event_id
+ */
+AMM::UUID& AMM::PhysiologyModification::event_id()
+{
+    return m_event_id;
+}
+/*!
+ * @brief This function copies the value in member type
+ * @param _type New value to be copied in member type
+ */
+void AMM::PhysiologyModification::type(
+        const std::string& _type)
+{
+    m_type = _type;
+}
+
+/*!
+ * @brief This function moves the value in member type
+ * @param _type New value to be moved in member type
+ */
+void AMM::PhysiologyModification::type(
+        std::string&& _type)
+{
+    m_type = std::move(_type);
+}
+
+/*!
+ * @brief This function returns a constant reference to member type
+ * @return Constant reference to member type
+ */
+const std::string& AMM::PhysiologyModification::type() const
+{
+    return m_type;
+}
+
+/*!
+ * @brief This function returns a reference to member type
+ * @return Reference to member type
+ */
+std::string& AMM::PhysiologyModification::type()
+{
+    return m_type;
+}
+/*!
+ * @brief This function copies the value in member data
+ * @param _data New value to be copied in member data
+ */
+void AMM::PhysiologyModification::data(
+        const std::string& _data)
+{
+    m_data = _data;
+}
+
+/*!
+ * @brief This function moves the value in member data
+ * @param _data New value to be moved in member data
+ */
+void AMM::PhysiologyModification::data(
+        std::string&& _data)
+{
+    m_data = std::move(_data);
+}
+
+/*!
+ * @brief This function returns a constant reference to member data
+ * @return Constant reference to member data
+ */
+const std::string& AMM::PhysiologyModification::data() const
+{
+    return m_data;
+}
+
+/*!
+ * @brief This function returns a reference to member data
+ * @return Reference to member data
+ */
+std::string& AMM::PhysiologyModification::data()
+{
+    return m_data;
+}
+
+size_t AMM::PhysiologyModification::getKeyMaxCdrSerializedSize(
+        size_t current_alignment)
+{
+    size_t current_align = current_alignment;
+
+
 
 
 
@@ -1737,33 +4288,42 @@ bool AMM::PhysiologyModification::isKeyDefined()
     return false;
 }
 
-void AMM::PhysiologyModification::serializeKey(eprosima::fastcdr::Cdr &scdr) const
+void AMM::PhysiologyModification::serializeKey(
+        eprosima::fastcdr::Cdr& scdr) const
 {
-	(void) scdr;
-	 
-	 
-	 
-	 
+    (void) scdr;
+        
 }
+
 AMM::PhysiologyValue::PhysiologyValue()
 {
+    // m_educational_encounter com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@49c43f4e
 
+    // m_simulation_time com.eprosima.idl.parser.typecode.PrimitiveTypeCode@4206a205
     m_simulation_time = 0;
-
+    // m_timestamp com.eprosima.idl.parser.typecode.PrimitiveTypeCode@29ba4338
     m_timestamp = 0;
-
-
-
+    // m_name com.eprosima.idl.parser.typecode.StringTypeCode@57175e74
+    m_name ="";
+    // m_unit com.eprosima.idl.parser.typecode.StringTypeCode@7bb58ca3
+    m_unit ="";
+    // m_value com.eprosima.idl.parser.typecode.PrimitiveTypeCode@c540f5a
     m_value = 0.0;
-
 
 }
 
 AMM::PhysiologyValue::~PhysiologyValue()
 {
+
+
+
+
+
+
 }
 
-AMM::PhysiologyValue::PhysiologyValue(const PhysiologyValue &x)
+AMM::PhysiologyValue::PhysiologyValue(
+        const PhysiologyValue& x)
 {
     m_educational_encounter = x.m_educational_encounter;
     m_simulation_time = x.m_simulation_time;
@@ -1773,7 +4333,8 @@ AMM::PhysiologyValue::PhysiologyValue(const PhysiologyValue &x)
     m_value = x.m_value;
 }
 
-AMM::PhysiologyValue::PhysiologyValue(PhysiologyValue &&x)
+AMM::PhysiologyValue::PhysiologyValue(
+        PhysiologyValue&& x)
 {
     m_educational_encounter = std::move(x.m_educational_encounter);
     m_simulation_time = x.m_simulation_time;
@@ -1783,8 +4344,10 @@ AMM::PhysiologyValue::PhysiologyValue(PhysiologyValue &&x)
     m_value = x.m_value;
 }
 
-AMM::PhysiologyValue& AMM::PhysiologyValue::operator=(const PhysiologyValue &x)
+AMM::PhysiologyValue& AMM::PhysiologyValue::operator =(
+        const PhysiologyValue& x)
 {
+
     m_educational_encounter = x.m_educational_encounter;
     m_simulation_time = x.m_simulation_time;
     m_timestamp = x.m_timestamp;
@@ -1795,8 +4358,10 @@ AMM::PhysiologyValue& AMM::PhysiologyValue::operator=(const PhysiologyValue &x)
     return *this;
 }
 
-AMM::PhysiologyValue& AMM::PhysiologyValue::operator=(PhysiologyValue &&x)
+AMM::PhysiologyValue& AMM::PhysiologyValue::operator =(
+        PhysiologyValue&& x)
 {
+
     m_educational_encounter = std::move(x.m_educational_encounter);
     m_simulation_time = x.m_simulation_time;
     m_timestamp = x.m_timestamp;
@@ -1807,9 +4372,11 @@ AMM::PhysiologyValue& AMM::PhysiologyValue::operator=(PhysiologyValue &&x)
     return *this;
 }
 
-size_t AMM::PhysiologyValue::getMaxCdrSerializedSize(size_t current_alignment)
+size_t AMM::PhysiologyValue::getMaxCdrSerializedSize(
+        size_t current_alignment)
 {
     size_t initial_alignment = current_alignment;
+
 
     current_alignment += AMM::UUID::getMaxCdrSerializedSize(current_alignment);
     current_alignment += 8 + eprosima::fastcdr::Cdr::alignment(current_alignment, 8);
@@ -1829,10 +4396,13 @@ size_t AMM::PhysiologyValue::getMaxCdrSerializedSize(size_t current_alignment)
     return current_alignment - initial_alignment;
 }
 
-size_t AMM::PhysiologyValue::getCdrSerializedSize(const AMM::PhysiologyValue& data, size_t current_alignment)
+size_t AMM::PhysiologyValue::getCdrSerializedSize(
+        const AMM::PhysiologyValue& data,
+        size_t current_alignment)
 {
     (void)data;
     size_t initial_alignment = current_alignment;
+
 
     current_alignment += AMM::UUID::getCdrSerializedSize(data.educational_encounter(), current_alignment);
     current_alignment += 8 + eprosima::fastcdr::Cdr::alignment(current_alignment, 8);
@@ -1852,18 +4422,23 @@ size_t AMM::PhysiologyValue::getCdrSerializedSize(const AMM::PhysiologyValue& da
     return current_alignment - initial_alignment;
 }
 
-void AMM::PhysiologyValue::serialize(eprosima::fastcdr::Cdr &scdr) const
+void AMM::PhysiologyValue::serialize(
+        eprosima::fastcdr::Cdr& scdr) const
 {
+
     scdr << m_educational_encounter;
     scdr << m_simulation_time;
     scdr << m_timestamp;
     scdr << m_name;
     scdr << m_unit;
     scdr << m_value;
+
 }
 
-void AMM::PhysiologyValue::deserialize(eprosima::fastcdr::Cdr &dcdr)
+void AMM::PhysiologyValue::deserialize(
+        eprosima::fastcdr::Cdr& dcdr)
 {
+
     dcdr >> m_educational_encounter;
     dcdr >> m_simulation_time;
     dcdr >> m_timestamp;
@@ -1872,10 +4447,208 @@ void AMM::PhysiologyValue::deserialize(eprosima::fastcdr::Cdr &dcdr)
     dcdr >> m_value;
 }
 
-size_t AMM::PhysiologyValue::getKeyMaxCdrSerializedSize(size_t current_alignment)
+/*!
+ * @brief This function copies the value in member educational_encounter
+ * @param _educational_encounter New value to be copied in member educational_encounter
+ */
+void AMM::PhysiologyValue::educational_encounter(
+        const AMM::UUID& _educational_encounter)
 {
-	size_t current_align = current_alignment;
-            
+    m_educational_encounter = _educational_encounter;
+}
+
+/*!
+ * @brief This function moves the value in member educational_encounter
+ * @param _educational_encounter New value to be moved in member educational_encounter
+ */
+void AMM::PhysiologyValue::educational_encounter(
+        AMM::UUID&& _educational_encounter)
+{
+    m_educational_encounter = std::move(_educational_encounter);
+}
+
+/*!
+ * @brief This function returns a constant reference to member educational_encounter
+ * @return Constant reference to member educational_encounter
+ */
+const AMM::UUID& AMM::PhysiologyValue::educational_encounter() const
+{
+    return m_educational_encounter;
+}
+
+/*!
+ * @brief This function returns a reference to member educational_encounter
+ * @return Reference to member educational_encounter
+ */
+AMM::UUID& AMM::PhysiologyValue::educational_encounter()
+{
+    return m_educational_encounter;
+}
+/*!
+ * @brief This function sets a value in member simulation_time
+ * @param _simulation_time New value for member simulation_time
+ */
+void AMM::PhysiologyValue::simulation_time(
+        int64_t _simulation_time)
+{
+    m_simulation_time = _simulation_time;
+}
+
+/*!
+ * @brief This function returns the value of member simulation_time
+ * @return Value of member simulation_time
+ */
+int64_t AMM::PhysiologyValue::simulation_time() const
+{
+    return m_simulation_time;
+}
+
+/*!
+ * @brief This function returns a reference to member simulation_time
+ * @return Reference to member simulation_time
+ */
+int64_t& AMM::PhysiologyValue::simulation_time()
+{
+    return m_simulation_time;
+}
+
+/*!
+ * @brief This function sets a value in member timestamp
+ * @param _timestamp New value for member timestamp
+ */
+void AMM::PhysiologyValue::timestamp(
+        uint64_t _timestamp)
+{
+    m_timestamp = _timestamp;
+}
+
+/*!
+ * @brief This function returns the value of member timestamp
+ * @return Value of member timestamp
+ */
+uint64_t AMM::PhysiologyValue::timestamp() const
+{
+    return m_timestamp;
+}
+
+/*!
+ * @brief This function returns a reference to member timestamp
+ * @return Reference to member timestamp
+ */
+uint64_t& AMM::PhysiologyValue::timestamp()
+{
+    return m_timestamp;
+}
+
+/*!
+ * @brief This function copies the value in member name
+ * @param _name New value to be copied in member name
+ */
+void AMM::PhysiologyValue::name(
+        const std::string& _name)
+{
+    m_name = _name;
+}
+
+/*!
+ * @brief This function moves the value in member name
+ * @param _name New value to be moved in member name
+ */
+void AMM::PhysiologyValue::name(
+        std::string&& _name)
+{
+    m_name = std::move(_name);
+}
+
+/*!
+ * @brief This function returns a constant reference to member name
+ * @return Constant reference to member name
+ */
+const std::string& AMM::PhysiologyValue::name() const
+{
+    return m_name;
+}
+
+/*!
+ * @brief This function returns a reference to member name
+ * @return Reference to member name
+ */
+std::string& AMM::PhysiologyValue::name()
+{
+    return m_name;
+}
+/*!
+ * @brief This function copies the value in member unit
+ * @param _unit New value to be copied in member unit
+ */
+void AMM::PhysiologyValue::unit(
+        const std::string& _unit)
+{
+    m_unit = _unit;
+}
+
+/*!
+ * @brief This function moves the value in member unit
+ * @param _unit New value to be moved in member unit
+ */
+void AMM::PhysiologyValue::unit(
+        std::string&& _unit)
+{
+    m_unit = std::move(_unit);
+}
+
+/*!
+ * @brief This function returns a constant reference to member unit
+ * @return Constant reference to member unit
+ */
+const std::string& AMM::PhysiologyValue::unit() const
+{
+    return m_unit;
+}
+
+/*!
+ * @brief This function returns a reference to member unit
+ * @return Reference to member unit
+ */
+std::string& AMM::PhysiologyValue::unit()
+{
+    return m_unit;
+}
+/*!
+ * @brief This function sets a value in member value
+ * @param _value New value for member value
+ */
+void AMM::PhysiologyValue::value(
+        double _value)
+{
+    m_value = _value;
+}
+
+/*!
+ * @brief This function returns the value of member value
+ * @return Value of member value
+ */
+double AMM::PhysiologyValue::value() const
+{
+    return m_value;
+}
+
+/*!
+ * @brief This function returns a reference to member value
+ * @return Reference to member value
+ */
+double& AMM::PhysiologyValue::value()
+{
+    return m_value;
+}
+
+
+size_t AMM::PhysiologyValue::getKeyMaxCdrSerializedSize(
+        size_t current_alignment)
+{
+    size_t current_align = current_alignment;
+
+
 
 
 
@@ -1891,35 +4664,42 @@ bool AMM::PhysiologyValue::isKeyDefined()
     return false;
 }
 
-void AMM::PhysiologyValue::serializeKey(eprosima::fastcdr::Cdr &scdr) const
+void AMM::PhysiologyValue::serializeKey(
+        eprosima::fastcdr::Cdr& scdr) const
 {
-	(void) scdr;
-	 
-	 
-	 
-	 
-	 
-	 
+    (void) scdr;
+          
 }
+
 AMM::PhysiologyWaveform::PhysiologyWaveform()
 {
+    // m_educational_encounter com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@49c43f4e
 
+    // m_simulation_time com.eprosima.idl.parser.typecode.PrimitiveTypeCode@770c2e6b
     m_simulation_time = 0;
-
+    // m_timestamp com.eprosima.idl.parser.typecode.PrimitiveTypeCode@1a052a00
     m_timestamp = 0;
-
-
-
+    // m_name com.eprosima.idl.parser.typecode.StringTypeCode@4d826d77
+    m_name ="";
+    // m_unit com.eprosima.idl.parser.typecode.StringTypeCode@61009542
+    m_unit ="";
+    // m_value com.eprosima.idl.parser.typecode.PrimitiveTypeCode@77e9807f
     m_value = 0.0;
-
 
 }
 
 AMM::PhysiologyWaveform::~PhysiologyWaveform()
 {
+
+
+
+
+
+
 }
 
-AMM::PhysiologyWaveform::PhysiologyWaveform(const PhysiologyWaveform &x)
+AMM::PhysiologyWaveform::PhysiologyWaveform(
+        const PhysiologyWaveform& x)
 {
     m_educational_encounter = x.m_educational_encounter;
     m_simulation_time = x.m_simulation_time;
@@ -1929,7 +4709,8 @@ AMM::PhysiologyWaveform::PhysiologyWaveform(const PhysiologyWaveform &x)
     m_value = x.m_value;
 }
 
-AMM::PhysiologyWaveform::PhysiologyWaveform(PhysiologyWaveform &&x)
+AMM::PhysiologyWaveform::PhysiologyWaveform(
+        PhysiologyWaveform&& x)
 {
     m_educational_encounter = std::move(x.m_educational_encounter);
     m_simulation_time = x.m_simulation_time;
@@ -1939,8 +4720,10 @@ AMM::PhysiologyWaveform::PhysiologyWaveform(PhysiologyWaveform &&x)
     m_value = x.m_value;
 }
 
-AMM::PhysiologyWaveform& AMM::PhysiologyWaveform::operator=(const PhysiologyWaveform &x)
+AMM::PhysiologyWaveform& AMM::PhysiologyWaveform::operator =(
+        const PhysiologyWaveform& x)
 {
+
     m_educational_encounter = x.m_educational_encounter;
     m_simulation_time = x.m_simulation_time;
     m_timestamp = x.m_timestamp;
@@ -1951,8 +4734,10 @@ AMM::PhysiologyWaveform& AMM::PhysiologyWaveform::operator=(const PhysiologyWave
     return *this;
 }
 
-AMM::PhysiologyWaveform& AMM::PhysiologyWaveform::operator=(PhysiologyWaveform &&x)
+AMM::PhysiologyWaveform& AMM::PhysiologyWaveform::operator =(
+        PhysiologyWaveform&& x)
 {
+
     m_educational_encounter = std::move(x.m_educational_encounter);
     m_simulation_time = x.m_simulation_time;
     m_timestamp = x.m_timestamp;
@@ -1963,9 +4748,11 @@ AMM::PhysiologyWaveform& AMM::PhysiologyWaveform::operator=(PhysiologyWaveform &
     return *this;
 }
 
-size_t AMM::PhysiologyWaveform::getMaxCdrSerializedSize(size_t current_alignment)
+size_t AMM::PhysiologyWaveform::getMaxCdrSerializedSize(
+        size_t current_alignment)
 {
     size_t initial_alignment = current_alignment;
+
 
     current_alignment += AMM::UUID::getMaxCdrSerializedSize(current_alignment);
     current_alignment += 8 + eprosima::fastcdr::Cdr::alignment(current_alignment, 8);
@@ -1985,10 +4772,13 @@ size_t AMM::PhysiologyWaveform::getMaxCdrSerializedSize(size_t current_alignment
     return current_alignment - initial_alignment;
 }
 
-size_t AMM::PhysiologyWaveform::getCdrSerializedSize(const AMM::PhysiologyWaveform& data, size_t current_alignment)
+size_t AMM::PhysiologyWaveform::getCdrSerializedSize(
+        const AMM::PhysiologyWaveform& data,
+        size_t current_alignment)
 {
     (void)data;
     size_t initial_alignment = current_alignment;
+
 
     current_alignment += AMM::UUID::getCdrSerializedSize(data.educational_encounter(), current_alignment);
     current_alignment += 8 + eprosima::fastcdr::Cdr::alignment(current_alignment, 8);
@@ -2008,18 +4798,23 @@ size_t AMM::PhysiologyWaveform::getCdrSerializedSize(const AMM::PhysiologyWavefo
     return current_alignment - initial_alignment;
 }
 
-void AMM::PhysiologyWaveform::serialize(eprosima::fastcdr::Cdr &scdr) const
+void AMM::PhysiologyWaveform::serialize(
+        eprosima::fastcdr::Cdr& scdr) const
 {
+
     scdr << m_educational_encounter;
     scdr << m_simulation_time;
     scdr << m_timestamp;
     scdr << m_name;
     scdr << m_unit;
     scdr << m_value;
+
 }
 
-void AMM::PhysiologyWaveform::deserialize(eprosima::fastcdr::Cdr &dcdr)
+void AMM::PhysiologyWaveform::deserialize(
+        eprosima::fastcdr::Cdr& dcdr)
 {
+
     dcdr >> m_educational_encounter;
     dcdr >> m_simulation_time;
     dcdr >> m_timestamp;
@@ -2028,10 +4823,208 @@ void AMM::PhysiologyWaveform::deserialize(eprosima::fastcdr::Cdr &dcdr)
     dcdr >> m_value;
 }
 
-size_t AMM::PhysiologyWaveform::getKeyMaxCdrSerializedSize(size_t current_alignment)
+/*!
+ * @brief This function copies the value in member educational_encounter
+ * @param _educational_encounter New value to be copied in member educational_encounter
+ */
+void AMM::PhysiologyWaveform::educational_encounter(
+        const AMM::UUID& _educational_encounter)
 {
-	size_t current_align = current_alignment;
-            
+    m_educational_encounter = _educational_encounter;
+}
+
+/*!
+ * @brief This function moves the value in member educational_encounter
+ * @param _educational_encounter New value to be moved in member educational_encounter
+ */
+void AMM::PhysiologyWaveform::educational_encounter(
+        AMM::UUID&& _educational_encounter)
+{
+    m_educational_encounter = std::move(_educational_encounter);
+}
+
+/*!
+ * @brief This function returns a constant reference to member educational_encounter
+ * @return Constant reference to member educational_encounter
+ */
+const AMM::UUID& AMM::PhysiologyWaveform::educational_encounter() const
+{
+    return m_educational_encounter;
+}
+
+/*!
+ * @brief This function returns a reference to member educational_encounter
+ * @return Reference to member educational_encounter
+ */
+AMM::UUID& AMM::PhysiologyWaveform::educational_encounter()
+{
+    return m_educational_encounter;
+}
+/*!
+ * @brief This function sets a value in member simulation_time
+ * @param _simulation_time New value for member simulation_time
+ */
+void AMM::PhysiologyWaveform::simulation_time(
+        int64_t _simulation_time)
+{
+    m_simulation_time = _simulation_time;
+}
+
+/*!
+ * @brief This function returns the value of member simulation_time
+ * @return Value of member simulation_time
+ */
+int64_t AMM::PhysiologyWaveform::simulation_time() const
+{
+    return m_simulation_time;
+}
+
+/*!
+ * @brief This function returns a reference to member simulation_time
+ * @return Reference to member simulation_time
+ */
+int64_t& AMM::PhysiologyWaveform::simulation_time()
+{
+    return m_simulation_time;
+}
+
+/*!
+ * @brief This function sets a value in member timestamp
+ * @param _timestamp New value for member timestamp
+ */
+void AMM::PhysiologyWaveform::timestamp(
+        uint64_t _timestamp)
+{
+    m_timestamp = _timestamp;
+}
+
+/*!
+ * @brief This function returns the value of member timestamp
+ * @return Value of member timestamp
+ */
+uint64_t AMM::PhysiologyWaveform::timestamp() const
+{
+    return m_timestamp;
+}
+
+/*!
+ * @brief This function returns a reference to member timestamp
+ * @return Reference to member timestamp
+ */
+uint64_t& AMM::PhysiologyWaveform::timestamp()
+{
+    return m_timestamp;
+}
+
+/*!
+ * @brief This function copies the value in member name
+ * @param _name New value to be copied in member name
+ */
+void AMM::PhysiologyWaveform::name(
+        const std::string& _name)
+{
+    m_name = _name;
+}
+
+/*!
+ * @brief This function moves the value in member name
+ * @param _name New value to be moved in member name
+ */
+void AMM::PhysiologyWaveform::name(
+        std::string&& _name)
+{
+    m_name = std::move(_name);
+}
+
+/*!
+ * @brief This function returns a constant reference to member name
+ * @return Constant reference to member name
+ */
+const std::string& AMM::PhysiologyWaveform::name() const
+{
+    return m_name;
+}
+
+/*!
+ * @brief This function returns a reference to member name
+ * @return Reference to member name
+ */
+std::string& AMM::PhysiologyWaveform::name()
+{
+    return m_name;
+}
+/*!
+ * @brief This function copies the value in member unit
+ * @param _unit New value to be copied in member unit
+ */
+void AMM::PhysiologyWaveform::unit(
+        const std::string& _unit)
+{
+    m_unit = _unit;
+}
+
+/*!
+ * @brief This function moves the value in member unit
+ * @param _unit New value to be moved in member unit
+ */
+void AMM::PhysiologyWaveform::unit(
+        std::string&& _unit)
+{
+    m_unit = std::move(_unit);
+}
+
+/*!
+ * @brief This function returns a constant reference to member unit
+ * @return Constant reference to member unit
+ */
+const std::string& AMM::PhysiologyWaveform::unit() const
+{
+    return m_unit;
+}
+
+/*!
+ * @brief This function returns a reference to member unit
+ * @return Reference to member unit
+ */
+std::string& AMM::PhysiologyWaveform::unit()
+{
+    return m_unit;
+}
+/*!
+ * @brief This function sets a value in member value
+ * @param _value New value for member value
+ */
+void AMM::PhysiologyWaveform::value(
+        double _value)
+{
+    m_value = _value;
+}
+
+/*!
+ * @brief This function returns the value of member value
+ * @return Value of member value
+ */
+double AMM::PhysiologyWaveform::value() const
+{
+    return m_value;
+}
+
+/*!
+ * @brief This function returns a reference to member value
+ * @return Reference to member value
+ */
+double& AMM::PhysiologyWaveform::value()
+{
+    return m_value;
+}
+
+
+size_t AMM::PhysiologyWaveform::getKeyMaxCdrSerializedSize(
+        size_t current_alignment)
+{
+    size_t current_align = current_alignment;
+
+
 
 
 
@@ -2047,30 +5040,36 @@ bool AMM::PhysiologyWaveform::isKeyDefined()
     return false;
 }
 
-void AMM::PhysiologyWaveform::serializeKey(eprosima::fastcdr::Cdr &scdr) const
+void AMM::PhysiologyWaveform::serializeKey(
+        eprosima::fastcdr::Cdr& scdr) const
 {
-	(void) scdr;
-	 
-	 
-	 
-	 
-	 
-	 
+    (void) scdr;
+          
 }
+
 AMM::RenderModification::RenderModification()
 {
+    // m_id com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@49c43f4e
 
+    // m_event_id com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@49c43f4e
 
-
-
+    // m_type com.eprosima.idl.parser.typecode.StringTypeCode@448ff1a8
+    m_type ="";
+    // m_data com.eprosima.idl.parser.typecode.StringTypeCode@1a38c59b
+    m_data ="";
 
 }
 
 AMM::RenderModification::~RenderModification()
 {
+
+
+
+
 }
 
-AMM::RenderModification::RenderModification(const RenderModification &x)
+AMM::RenderModification::RenderModification(
+        const RenderModification& x)
 {
     m_id = x.m_id;
     m_event_id = x.m_event_id;
@@ -2078,7 +5077,8 @@ AMM::RenderModification::RenderModification(const RenderModification &x)
     m_data = x.m_data;
 }
 
-AMM::RenderModification::RenderModification(RenderModification &&x)
+AMM::RenderModification::RenderModification(
+        RenderModification&& x)
 {
     m_id = std::move(x.m_id);
     m_event_id = std::move(x.m_event_id);
@@ -2086,8 +5086,10 @@ AMM::RenderModification::RenderModification(RenderModification &&x)
     m_data = std::move(x.m_data);
 }
 
-AMM::RenderModification& AMM::RenderModification::operator=(const RenderModification &x)
+AMM::RenderModification& AMM::RenderModification::operator =(
+        const RenderModification& x)
 {
+
     m_id = x.m_id;
     m_event_id = x.m_event_id;
     m_type = x.m_type;
@@ -2096,8 +5098,10 @@ AMM::RenderModification& AMM::RenderModification::operator=(const RenderModifica
     return *this;
 }
 
-AMM::RenderModification& AMM::RenderModification::operator=(RenderModification &&x)
+AMM::RenderModification& AMM::RenderModification::operator =(
+        RenderModification&& x)
 {
+
     m_id = std::move(x.m_id);
     m_event_id = std::move(x.m_event_id);
     m_type = std::move(x.m_type);
@@ -2106,24 +5110,29 @@ AMM::RenderModification& AMM::RenderModification::operator=(RenderModification &
     return *this;
 }
 
-size_t AMM::RenderModification::getMaxCdrSerializedSize(size_t current_alignment)
+size_t AMM::RenderModification::getMaxCdrSerializedSize(
+        size_t current_alignment)
 {
     size_t initial_alignment = current_alignment;
 
+
     current_alignment += AMM::UUID::getMaxCdrSerializedSize(current_alignment);
     current_alignment += AMM::UUID::getMaxCdrSerializedSize(current_alignment);
     current_alignment += 4 + eprosima::fastcdr::Cdr::alignment(current_alignment, 4) + 255 + 1;
 
-    current_alignment += 4 + eprosima::fastcdr::Cdr::alignment(current_alignment, 4) + 255 + 1;
+    current_alignment += 4 + eprosima::fastcdr::Cdr::alignment(current_alignment, 4) + 4096 + 1;
 
 
     return current_alignment - initial_alignment;
 }
 
-size_t AMM::RenderModification::getCdrSerializedSize(const AMM::RenderModification& data, size_t current_alignment)
+size_t AMM::RenderModification::getCdrSerializedSize(
+        const AMM::RenderModification& data,
+        size_t current_alignment)
 {
     (void)data;
     size_t initial_alignment = current_alignment;
+
 
     current_alignment += AMM::UUID::getCdrSerializedSize(data.id(), current_alignment);
     current_alignment += AMM::UUID::getCdrSerializedSize(data.event_id(), current_alignment);
@@ -2135,26 +5144,182 @@ size_t AMM::RenderModification::getCdrSerializedSize(const AMM::RenderModificati
     return current_alignment - initial_alignment;
 }
 
-void AMM::RenderModification::serialize(eprosima::fastcdr::Cdr &scdr) const
+void AMM::RenderModification::serialize(
+        eprosima::fastcdr::Cdr& scdr) const
 {
+
     scdr << m_id;
     scdr << m_event_id;
     scdr << m_type;
     scdr << m_data;
+
 }
 
-void AMM::RenderModification::deserialize(eprosima::fastcdr::Cdr &dcdr)
+void AMM::RenderModification::deserialize(
+        eprosima::fastcdr::Cdr& dcdr)
 {
+
     dcdr >> m_id;
     dcdr >> m_event_id;
     dcdr >> m_type;
     dcdr >> m_data;
 }
 
-size_t AMM::RenderModification::getKeyMaxCdrSerializedSize(size_t current_alignment)
+/*!
+ * @brief This function copies the value in member id
+ * @param _id New value to be copied in member id
+ */
+void AMM::RenderModification::id(
+        const AMM::UUID& _id)
 {
-	size_t current_align = current_alignment;
-            
+    m_id = _id;
+}
+
+/*!
+ * @brief This function moves the value in member id
+ * @param _id New value to be moved in member id
+ */
+void AMM::RenderModification::id(
+        AMM::UUID&& _id)
+{
+    m_id = std::move(_id);
+}
+
+/*!
+ * @brief This function returns a constant reference to member id
+ * @return Constant reference to member id
+ */
+const AMM::UUID& AMM::RenderModification::id() const
+{
+    return m_id;
+}
+
+/*!
+ * @brief This function returns a reference to member id
+ * @return Reference to member id
+ */
+AMM::UUID& AMM::RenderModification::id()
+{
+    return m_id;
+}
+/*!
+ * @brief This function copies the value in member event_id
+ * @param _event_id New value to be copied in member event_id
+ */
+void AMM::RenderModification::event_id(
+        const AMM::UUID& _event_id)
+{
+    m_event_id = _event_id;
+}
+
+/*!
+ * @brief This function moves the value in member event_id
+ * @param _event_id New value to be moved in member event_id
+ */
+void AMM::RenderModification::event_id(
+        AMM::UUID&& _event_id)
+{
+    m_event_id = std::move(_event_id);
+}
+
+/*!
+ * @brief This function returns a constant reference to member event_id
+ * @return Constant reference to member event_id
+ */
+const AMM::UUID& AMM::RenderModification::event_id() const
+{
+    return m_event_id;
+}
+
+/*!
+ * @brief This function returns a reference to member event_id
+ * @return Reference to member event_id
+ */
+AMM::UUID& AMM::RenderModification::event_id()
+{
+    return m_event_id;
+}
+/*!
+ * @brief This function copies the value in member type
+ * @param _type New value to be copied in member type
+ */
+void AMM::RenderModification::type(
+        const std::string& _type)
+{
+    m_type = _type;
+}
+
+/*!
+ * @brief This function moves the value in member type
+ * @param _type New value to be moved in member type
+ */
+void AMM::RenderModification::type(
+        std::string&& _type)
+{
+    m_type = std::move(_type);
+}
+
+/*!
+ * @brief This function returns a constant reference to member type
+ * @return Constant reference to member type
+ */
+const std::string& AMM::RenderModification::type() const
+{
+    return m_type;
+}
+
+/*!
+ * @brief This function returns a reference to member type
+ * @return Reference to member type
+ */
+std::string& AMM::RenderModification::type()
+{
+    return m_type;
+}
+/*!
+ * @brief This function copies the value in member data
+ * @param _data New value to be copied in member data
+ */
+void AMM::RenderModification::data(
+        const std::string& _data)
+{
+    m_data = _data;
+}
+
+/*!
+ * @brief This function moves the value in member data
+ * @param _data New value to be moved in member data
+ */
+void AMM::RenderModification::data(
+        std::string&& _data)
+{
+    m_data = std::move(_data);
+}
+
+/*!
+ * @brief This function returns a constant reference to member data
+ * @return Constant reference to member data
+ */
+const std::string& AMM::RenderModification::data() const
+{
+    return m_data;
+}
+
+/*!
+ * @brief This function returns a reference to member data
+ * @return Reference to member data
+ */
+std::string& AMM::RenderModification::data()
+{
+    return m_data;
+}
+
+size_t AMM::RenderModification::getKeyMaxCdrSerializedSize(
+        size_t current_alignment)
+{
+    size_t current_align = current_alignment;
+
+
 
 
 
@@ -2168,45 +5333,52 @@ bool AMM::RenderModification::isKeyDefined()
     return false;
 }
 
-void AMM::RenderModification::serializeKey(eprosima::fastcdr::Cdr &scdr) const
+void AMM::RenderModification::serializeKey(
+        eprosima::fastcdr::Cdr& scdr) const
 {
-	(void) scdr;
-	 
-	 
-	 
-	 
+    (void) scdr;
+        
 }
+
 
 AMM::SimulationControl::SimulationControl()
 {
+    // m_timestamp com.eprosima.idl.parser.typecode.PrimitiveTypeCode@6328d34a
     m_timestamp = 0;
-
+    // m_type com.eprosima.idl.parser.typecode.EnumTypeCode@8b96fde
     m_type = AMM::RUN;
-
+    // m_educational_encounter com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@49c43f4e
 
 
 }
 
 AMM::SimulationControl::~SimulationControl()
 {
+
+
+
 }
 
-AMM::SimulationControl::SimulationControl(const SimulationControl &x)
+AMM::SimulationControl::SimulationControl(
+        const SimulationControl& x)
 {
     m_timestamp = x.m_timestamp;
     m_type = x.m_type;
     m_educational_encounter = x.m_educational_encounter;
 }
 
-AMM::SimulationControl::SimulationControl(SimulationControl &&x)
+AMM::SimulationControl::SimulationControl(
+        SimulationControl&& x)
 {
     m_timestamp = x.m_timestamp;
     m_type = x.m_type;
     m_educational_encounter = std::move(x.m_educational_encounter);
 }
 
-AMM::SimulationControl& AMM::SimulationControl::operator=(const SimulationControl &x)
+AMM::SimulationControl& AMM::SimulationControl::operator =(
+        const SimulationControl& x)
 {
+
     m_timestamp = x.m_timestamp;
     m_type = x.m_type;
     m_educational_encounter = x.m_educational_encounter;
@@ -2214,8 +5386,10 @@ AMM::SimulationControl& AMM::SimulationControl::operator=(const SimulationContro
     return *this;
 }
 
-AMM::SimulationControl& AMM::SimulationControl::operator=(SimulationControl &&x)
+AMM::SimulationControl& AMM::SimulationControl::operator =(
+        SimulationControl&& x)
 {
+
     m_timestamp = x.m_timestamp;
     m_type = x.m_type;
     m_educational_encounter = std::move(x.m_educational_encounter);
@@ -2223,9 +5397,11 @@ AMM::SimulationControl& AMM::SimulationControl::operator=(SimulationControl &&x)
     return *this;
 }
 
-size_t AMM::SimulationControl::getMaxCdrSerializedSize(size_t current_alignment)
+size_t AMM::SimulationControl::getMaxCdrSerializedSize(
+        size_t current_alignment)
 {
     size_t initial_alignment = current_alignment;
+
 
     current_alignment += 8 + eprosima::fastcdr::Cdr::alignment(current_alignment, 8);
 
@@ -2238,10 +5414,13 @@ size_t AMM::SimulationControl::getMaxCdrSerializedSize(size_t current_alignment)
     return current_alignment - initial_alignment;
 }
 
-size_t AMM::SimulationControl::getCdrSerializedSize(const AMM::SimulationControl& data, size_t current_alignment)
+size_t AMM::SimulationControl::getCdrSerializedSize(
+        const AMM::SimulationControl& data,
+        size_t current_alignment)
 {
     (void)data;
     size_t initial_alignment = current_alignment;
+
 
     current_alignment += 8 + eprosima::fastcdr::Cdr::alignment(current_alignment, 8);
 
@@ -2254,28 +5433,130 @@ size_t AMM::SimulationControl::getCdrSerializedSize(const AMM::SimulationControl
     return current_alignment - initial_alignment;
 }
 
-void AMM::SimulationControl::serialize(eprosima::fastcdr::Cdr &scdr) const
+void AMM::SimulationControl::serialize(
+        eprosima::fastcdr::Cdr& scdr) const
 {
+
     scdr << m_timestamp;
     scdr << (uint32_t)m_type;
     scdr << m_educational_encounter;
+
 }
 
-void AMM::SimulationControl::deserialize(eprosima::fastcdr::Cdr &dcdr)
+void AMM::SimulationControl::deserialize(
+        eprosima::fastcdr::Cdr& dcdr)
 {
+
     dcdr >> m_timestamp;
     {
         uint32_t enum_value = 0;
         dcdr >> enum_value;
         m_type = (AMM::ControlType)enum_value;
     }
+
     dcdr >> m_educational_encounter;
 }
 
-size_t AMM::SimulationControl::getKeyMaxCdrSerializedSize(size_t current_alignment)
+/*!
+ * @brief This function sets a value in member timestamp
+ * @param _timestamp New value for member timestamp
+ */
+void AMM::SimulationControl::timestamp(
+        uint64_t _timestamp)
 {
-	size_t current_align = current_alignment;
-            
+    m_timestamp = _timestamp;
+}
+
+/*!
+ * @brief This function returns the value of member timestamp
+ * @return Value of member timestamp
+ */
+uint64_t AMM::SimulationControl::timestamp() const
+{
+    return m_timestamp;
+}
+
+/*!
+ * @brief This function returns a reference to member timestamp
+ * @return Reference to member timestamp
+ */
+uint64_t& AMM::SimulationControl::timestamp()
+{
+    return m_timestamp;
+}
+
+/*!
+ * @brief This function sets a value in member type
+ * @param _type New value for member type
+ */
+void AMM::SimulationControl::type(
+        AMM::ControlType _type)
+{
+    m_type = _type;
+}
+
+/*!
+ * @brief This function returns the value of member type
+ * @return Value of member type
+ */
+AMM::ControlType AMM::SimulationControl::type() const
+{
+    return m_type;
+}
+
+/*!
+ * @brief This function returns a reference to member type
+ * @return Reference to member type
+ */
+AMM::ControlType& AMM::SimulationControl::type()
+{
+    return m_type;
+}
+
+/*!
+ * @brief This function copies the value in member educational_encounter
+ * @param _educational_encounter New value to be copied in member educational_encounter
+ */
+void AMM::SimulationControl::educational_encounter(
+        const AMM::UUID& _educational_encounter)
+{
+    m_educational_encounter = _educational_encounter;
+}
+
+/*!
+ * @brief This function moves the value in member educational_encounter
+ * @param _educational_encounter New value to be moved in member educational_encounter
+ */
+void AMM::SimulationControl::educational_encounter(
+        AMM::UUID&& _educational_encounter)
+{
+    m_educational_encounter = std::move(_educational_encounter);
+}
+
+/*!
+ * @brief This function returns a constant reference to member educational_encounter
+ * @return Constant reference to member educational_encounter
+ */
+const AMM::UUID& AMM::SimulationControl::educational_encounter() const
+{
+    return m_educational_encounter;
+}
+
+/*!
+ * @brief This function returns a reference to member educational_encounter
+ * @return Reference to member educational_encounter
+ */
+AMM::UUID& AMM::SimulationControl::educational_encounter()
+{
+    return m_educational_encounter;
+}
+
+size_t AMM::SimulationControl::getKeyMaxCdrSerializedSize(
+        size_t current_alignment)
+{
+    size_t current_align = current_alignment;
+
+
 
 
 
@@ -2288,33 +5569,46 @@ bool AMM::SimulationControl::isKeyDefined()
     return false;
 }
 
-void AMM::SimulationControl::serializeKey(eprosima::fastcdr::Cdr &scdr) const
+void AMM::SimulationControl::serializeKey(
+        eprosima::fastcdr::Cdr& scdr) const
 {
-	(void) scdr;
-	 
-	 
-	 
+    (void) scdr;
+       
 }
+
 
 AMM::Status::Status()
 {
+    // m_module_id com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@49c43f4e
 
+    // m_module_name com.eprosima.idl.parser.typecode.StringTypeCode@667a738
+    m_module_name ="";
+    // m_educational_encounter com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@49c43f4e
 
-
-
+    // m_capability com.eprosima.idl.parser.typecode.StringTypeCode@36f0f1be
+    m_capability ="";
+    // m_timestamp com.eprosima.idl.parser.typecode.PrimitiveTypeCode@157632c9
     m_timestamp = 0;
-
+    // m_value com.eprosima.idl.parser.typecode.EnumTypeCode@6ee12bac
     m_value = AMM::OPERATIONAL;
-
-
+    // m_message com.eprosima.idl.parser.typecode.StringTypeCode@55040f2f
+    m_message ="";
 
 }
 
 AMM::Status::~Status()
 {
+
+
+
+
+
+
+
 }
 
-AMM::Status::Status(const Status &x)
+AMM::Status::Status(
+        const Status& x)
 {
     m_module_id = x.m_module_id;
     m_module_name = x.m_module_name;
@@ -2325,7 +5619,8 @@ AMM::Status::Status(const Status &x)
     m_message = x.m_message;
 }
 
-AMM::Status::Status(Status &&x)
+AMM::Status::Status(
+        Status&& x)
 {
     m_module_id = std::move(x.m_module_id);
     m_module_name = std::move(x.m_module_name);
@@ -2336,8 +5631,10 @@ AMM::Status::Status(Status &&x)
     m_message = std::move(x.m_message);
 }
 
-AMM::Status& AMM::Status::operator=(const Status &x)
+AMM::Status& AMM::Status::operator =(
+        const Status& x)
 {
+
     m_module_id = x.m_module_id;
     m_module_name = x.m_module_name;
     m_educational_encounter = x.m_educational_encounter;
@@ -2349,8 +5646,10 @@ AMM::Status& AMM::Status::operator=(const Status &x)
     return *this;
 }
 
-AMM::Status& AMM::Status::operator=(Status &&x)
+AMM::Status& AMM::Status::operator =(
+        Status&& x)
 {
+
     m_module_id = std::move(x.m_module_id);
     m_module_name = std::move(x.m_module_name);
     m_educational_encounter = std::move(x.m_educational_encounter);
@@ -2362,9 +5661,11 @@ AMM::Status& AMM::Status::operator=(Status &&x)
     return *this;
 }
 
-size_t AMM::Status::getMaxCdrSerializedSize(size_t current_alignment)
+size_t AMM::Status::getMaxCdrSerializedSize(
+        size_t current_alignment)
 {
     size_t initial_alignment = current_alignment;
+
 
     current_alignment += AMM::UUID::getMaxCdrSerializedSize(current_alignment);
     current_alignment += 4 + eprosima::fastcdr::Cdr::alignment(current_alignment, 4) + 255 + 1;
@@ -2384,10 +5685,13 @@ size_t AMM::Status::getMaxCdrSerializedSize(size_t current_alignment)
     return current_alignment - initial_alignment;
 }
 
-size_t AMM::Status::getCdrSerializedSize(const AMM::Status& data, size_t current_alignment)
+size_t AMM::Status::getCdrSerializedSize(
+        const AMM::Status& data,
+        size_t current_alignment)
 {
     (void)data;
     size_t initial_alignment = current_alignment;
+
 
     current_alignment += AMM::UUID::getCdrSerializedSize(data.module_id(), current_alignment);
     current_alignment += 4 + eprosima::fastcdr::Cdr::alignment(current_alignment, 4) + data.module_name().size() + 1;
@@ -2407,8 +5711,10 @@ size_t AMM::Status::getCdrSerializedSize(const AMM::Status& data, size_t current
     return current_alignment - initial_alignment;
 }
 
-void AMM::Status::serialize(eprosima::fastcdr::Cdr &scdr) const
+void AMM::Status::serialize(
+        eprosima::fastcdr::Cdr& scdr) const
 {
+
     scdr << m_module_id;
     scdr << m_module_name;
     scdr << m_educational_encounter;
@@ -2416,10 +5722,13 @@ void AMM::Status::serialize(eprosima::fastcdr::Cdr &scdr) const
     scdr << m_timestamp;
     scdr << (uint32_t)m_value;
     scdr << m_message;
+
 }
 
-void AMM::Status::deserialize(eprosima::fastcdr::Cdr &dcdr)
+void AMM::Status::deserialize(
+        eprosima::fastcdr::Cdr& dcdr)
 {
+
     dcdr >> m_module_id;
     dcdr >> m_module_name;
     dcdr >> m_educational_encounter;
@@ -2430,13 +5739,258 @@ void AMM::Status::deserialize(eprosima::fastcdr::Cdr &dcdr)
         dcdr >> enum_value;
         m_value = (AMM::StatusValue)enum_value;
     }
+
     dcdr >> m_message;
 }
 
-size_t AMM::Status::getKeyMaxCdrSerializedSize(size_t current_alignment)
+/*!
+ * @brief This function copies the value in member module_id
+ * @param _module_id New value to be copied in member module_id
+ */
+void AMM::Status::module_id(
+        const AMM::UUID& _module_id)
 {
-	size_t current_align = current_alignment;
-            
+    m_module_id = _module_id;
+}
+
+/*!
+ * @brief This function moves the value in member module_id
+ * @param _module_id New value to be moved in member module_id
+ */
+void AMM::Status::module_id(
+        AMM::UUID&& _module_id)
+{
+    m_module_id = std::move(_module_id);
+}
+
+/*!
+ * @brief This function returns a constant reference to member module_id
+ * @return Constant reference to member module_id
+ */
+const AMM::UUID& AMM::Status::module_id() const
+{
+    return m_module_id;
+}
+
+/*!
+ * @brief This function returns a reference to member module_id
+ * @return Reference to member module_id
+ */
+AMM::UUID& AMM::Status::module_id()
+{
+    return m_module_id;
+}
+/*!
+ * @brief This function copies the value in member module_name
+ * @param _module_name New value to be copied in member module_name
+ */
+void AMM::Status::module_name(
+        const std::string& _module_name)
+{
+    m_module_name = _module_name;
+}
+
+/*!
+ * @brief This function moves the value in member module_name
+ * @param _module_name New value to be moved in member module_name
+ */
+void AMM::Status::module_name(
+        std::string&& _module_name)
+{
+    m_module_name = std::move(_module_name);
+}
+
+/*!
+ * @brief This function returns a constant reference to member module_name
+ * @return Constant reference to member module_name
+ */
+const std::string& AMM::Status::module_name() const
+{
+    return m_module_name;
+}
+
+/*!
+ * @brief This function returns a reference to member module_name
+ * @return Reference to member module_name
+ */
+std::string& AMM::Status::module_name()
+{
+    return m_module_name;
+}
+/*!
+ * @brief This function copies the value in member educational_encounter
+ * @param _educational_encounter New value to be copied in member educational_encounter
+ */
+void AMM::Status::educational_encounter(
+        const AMM::UUID& _educational_encounter)
+{
+    m_educational_encounter = _educational_encounter;
+}
+
+/*!
+ * @brief This function moves the value in member educational_encounter
+ * @param _educational_encounter New value to be moved in member educational_encounter
+ */
+void AMM::Status::educational_encounter(
+        AMM::UUID&& _educational_encounter)
+{
+    m_educational_encounter = std::move(_educational_encounter);
+}
+
+/*!
+ * @brief This function returns a constant reference to member educational_encounter
+ * @return Constant reference to member educational_encounter
+ */
+const AMM::UUID& AMM::Status::educational_encounter() const
+{
+    return m_educational_encounter;
+}
+
+/*!
+ * @brief This function returns a reference to member educational_encounter
+ * @return Reference to member educational_encounter
+ */
+AMM::UUID& AMM::Status::educational_encounter()
+{
+    return m_educational_encounter;
+}
+/*!
+ * @brief This function copies the value in member capability
+ * @param _capability New value to be copied in member capability
+ */
+void AMM::Status::capability(
+        const std::string& _capability)
+{
+    m_capability = _capability;
+}
+
+/*!
+ * @brief This function moves the value in member capability
+ * @param _capability New value to be moved in member capability
+ */
+void AMM::Status::capability(
+        std::string&& _capability)
+{
+    m_capability = std::move(_capability);
+}
+
+/*!
+ * @brief This function returns a constant reference to member capability
+ * @return Constant reference to member capability
+ */
+const std::string& AMM::Status::capability() const
+{
+    return m_capability;
+}
+
+/*!
+ * @brief This function returns a reference to member capability
+ * @return Reference to member capability
+ */
+std::string& AMM::Status::capability()
+{
+    return m_capability;
+}
+/*!
+ * @brief This function sets a value in member timestamp
+ * @param _timestamp New value for member timestamp
+ */
+void AMM::Status::timestamp(
+        uint64_t _timestamp)
+{
+    m_timestamp = _timestamp;
+}
+
+/*!
+ * @brief This function returns the value of member timestamp
+ * @return Value of member timestamp
+ */
+uint64_t AMM::Status::timestamp() const
+{
+    return m_timestamp;
+}
+
+/*!
+ * @brief This function returns a reference to member timestamp
+ * @return Reference to member timestamp
+ */
+uint64_t& AMM::Status::timestamp()
+{
+    return m_timestamp;
+}
+
+/*!
+ * @brief This function sets a value in member value
+ * @param _value New value for member value
+ */
+void AMM::Status::value(
+        AMM::StatusValue _value)
+{
+    m_value = _value;
+}
+
+/*!
+ * @brief This function returns the value of member value
+ * @return Value of member value
+ */
+AMM::StatusValue AMM::Status::value() const
+{
+    return m_value;
+}
+
+/*!
+ * @brief This function returns a reference to member value
+ * @return Reference to member value
+ */
+AMM::StatusValue& AMM::Status::value()
+{
+    return m_value;
+}
+
+/*!
+ * @brief This function copies the value in member message
+ * @param _message New value to be copied in member message
+ */
+void AMM::Status::message(
+        const std::string& _message)
+{
+    m_message = _message;
+}
+
+/*!
+ * @brief This function moves the value in member message
+ * @param _message New value to be moved in member message
+ */
+void AMM::Status::message(
+        std::string&& _message)
+{
+    m_message = std::move(_message);
+}
+
+/*!
+ * @brief This function returns a constant reference to member message
+ * @return Constant reference to member message
+ */
+const std::string& AMM::Status::message() const
+{
+    return m_message;
+}
+
+/*!
+ * @brief This function returns a reference to member message
+ * @return Reference to member message
+ */
+std::string& AMM::Status::message()
+{
+    return m_message;
+}
+
+size_t AMM::Status::getKeyMaxCdrSerializedSize(
+        size_t current_alignment)
+{
+    size_t current_align = current_alignment;
+
+
 
 
 
@@ -2453,14 +6007,10 @@ bool AMM::Status::isKeyDefined()
     return false;
 }
 
-void AMM::Status::serializeKey(eprosima::fastcdr::Cdr &scdr) const
+void AMM::Status::serializeKey(
+        eprosima::fastcdr::Cdr& scdr) const
 {
-	(void) scdr;
-	 
-	 
-	 
-	 
-	 
-	 
-	 
+    (void) scdr;
+           
 }
+
