@@ -3,14 +3,14 @@
 #############################
 
 
-set(AMM_STANDARD_CODE AMM/AMM_Standard.cxx AMM/AMM_Standard.h AMM/AMM_StandardPubSubTypes.cxx AMM/AMM_StandardPubSubTypes.h)
-set(AMM_EXTENDED_CODE AMM/AMM_Extended.cxx AMM/AMM_Extended.h AMM/AMM_ExtendedPubSubTypes.cxx AMM/AMM_ExtendedPubSubTypes.h)
+set(AMM_STANDARD_CODE amm/AMM_Standard.cxx amm/AMM_Standard.h amm/AMM_StandardPubSubTypes.cxx amm/AMM_StandardPubSubTypes.h)
+set(AMM_EXTENDED_CODE amm/AMM_Extended.cxx amm/AMM_Extended.h amm/AMM_ExtendedPubSubTypes.cxx amm/AMM_ExtendedPubSubTypes.h)
 set(DATAMODEL_SOURCES ${AMM_STANDARD_CODE} ${AMM_EXTENDED_CODE})
 
 set(DDS_MANAGER dds_manager)
-set(DDS_MANAGER_SOURCES AMM/DDSManager.h AMM/DDS_Listeners.cpp AMM/ListenerInterface.h)
-set(DDS_TYPE_SOURCES AMM/TopicNames.h AMM/AmmDataType.h)
-set(UTILITY_SOURCES AMM/Utility.cpp AMM/Utility.h)
+set(DDS_MANAGER_SOURCES amm/DDSManager.h amm/DDS_Listeners.cpp amm/ListenerInterface.h)
+set(DDS_TYPE_SOURCES amm/TopicNames.h amm/AmmDataType.h)
+set(UTILITY_SOURCES amm/Utility.cpp amm/Utility.h)
 
 
 function(my_export_target _target _include_dir)
@@ -33,7 +33,7 @@ endfunction(my_export_target)
 if (MSVC)
     add_library("amm_std" STATIC ${DATAMODEL_SOURCES} ${DDS_TYPE_SOURCES} ${DDS_MANAGER_SOURCES} ${UTILITY_SOURCES})
     set_target_properties("amm_std" PROPERTIES PUBLIC_HEADER
-            "amm_std.h;AMM/AmmDataType.h;AMM/DDSManager.h;AMM/DDS_Listeners.h;AMM/ListenerInterface.h;AMM/TopicNames.h;AMM/AMM_Standard.h;AMM/AMM_StandardPubSubTypes.h;AMM/AMM_Extended.h;AMM/AMM_ExtendedPubSubTypes.h;AMM/Utility.h")
+            "amm_std.h;amm/AmmDataType.h;amm/DDSManager.h;amm/DDS_Listeners.h;amm/ListenerInterface.h;amm/TopicNames.h;amm/AMM_Standard.h;amm/AMM_StandardPubSubTypes.h;amm/AMM_Extended.h;amm/AMM_ExtendedPubSubTypes.h;amm/Utility.h;amm/BaseLogger.cpp;amm/BaseLogger.h")
     install(TARGETS amm_std
        EXPORT ${PROJECT_NAME}
        LIBRARY DESTINATION "lib"
@@ -41,7 +41,7 @@ if (MSVC)
 else ()
     add_library("amm_std" SHARED ${DATAMODEL_SOURCES} ${DDS_TYPE_SOURCES} ${DDS_MANAGER_SOURCES} ${UTILITY_SOURCES})
     set_target_properties("amm_std" PROPERTIES PUBLIC_HEADER
-            "amm_std.h;AMM/AmmDataType.h;AMM/DDSManager.h;AMM/DDS_Listeners.h;AMM/ListenerInterface.h;AMM/TopicNames.h;AMM/AMM_Standard.h;AMM/AMM_StandardPubSubTypes.h;AMM/AMM_Extended.h;AMM/AMM_ExtendedPubSubTypes.h;AMM/Utility.h")
+            "amm_std.h;amm/AmmDataType.h;amm/DDSManager.h;amm/DDS_Listeners.h;amm/ListenerInterface.h;amm/TopicNames.h;amm/AMM_Standard.h;amm/AMM_StandardPubSubTypes.h;amm/AMM_Extended.h;amm/AMM_ExtendedPubSubTypes.h;amm/Utility.h;amm/BaseLogger.cpp;amm/BaseLogger.h")
     install(TARGETS amm_std
             EXPORT ${PROJECT_NAME}
             LIBRARY DESTINATION "lib"

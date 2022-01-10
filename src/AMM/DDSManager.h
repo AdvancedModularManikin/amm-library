@@ -8,10 +8,10 @@
 
 #include "AMM/BaseLogger.h"
 
-#include "AMM/AmmDataType.h"
-#include "AMM/DDS_Listeners.h"
-#include "AMM/AMM_StandardPubSubTypes.h"
-#include "AMM/AMM_Standard.h"
+#include "AmmDataType.h"
+#include "DDS_Listeners.h"
+#include "AMM_StandardPubSubTypes.h"
+#include "AMM_Standard.h"
 
 
 // Naming Key:

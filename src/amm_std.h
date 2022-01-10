@@ -1,7 +1,7 @@
 #pragma once
 
-#include "AMM/BaseLogger.h"
+#include "amm/BaseLogger.h"
 
-#include "AMM/DDSManager.h"
+#include "amm/DDSManager.h"
 
-#include "AMM/Utility.h"
+#include "amm/Utility.h"
