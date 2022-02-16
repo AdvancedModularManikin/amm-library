@@ -10,7 +10,7 @@
 #include <fastrtps/subscriber/Subscriber.h>
 #include <fastrtps/subscriber/SampleInfo.h>
 
-#include "AMM/DDS_Listeners.h"
+#include "amm/DDS_Listeners.h"
 
 namespace AMM {
 

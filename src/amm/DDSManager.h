@@ -6,7 +6,7 @@
 #include <boost/uuid/uuid_generators.hpp>
 #include <boost/uuid/uuid_io.hpp>
 
-#include "AMM/BaseLogger.h"
+#include "amm/BaseLogger.h"
 
 #include "AmmDataType.h"
 #include "DDS_Listeners.h"
