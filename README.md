@@ -4,7 +4,7 @@ This is the AMM 1.0 standard library, intended to be used in the development of 
 
 _Software dependencies_:
 - [CMake](https://cmake.org/download/) 3.5.1 or higher.
-- [FastRTPS](https://github.com/eProsima/Fast-RTPS) with FastCDR.
+- [Fast-DDS](https://github.com/eProsima/Fast-DDS) 2.01 or higher with FastCDR.
 - Boost libraries 1.6.x or higher (headers only)
 
 Once dependencies have been satisfied, to build and install:
