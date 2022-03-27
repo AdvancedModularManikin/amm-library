@@ -66,6 +66,7 @@ install(DIRECTORY "plog" # source directory
 
 # Create the cmake file
 my_export_target(amm_std "${HEADER_DIR}")
+install(FILES "${CMAKE_CURRENT_BINARY_DIR}/amm_stdConfig.cmake" DESTINATION "lib/cmake/amm")
 
 target_link_libraries(
         amm_std
