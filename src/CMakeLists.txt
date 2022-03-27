@@ -1,7 +1,17 @@
 #############################
 # CMake Standard Library root/src
 #############################
+macro(install_with_directory)
+    set(optionsArgs "")
+    set(oneValueArgs "DESTINATION")
+    set(multiValueArgs "FILES")
+    cmake_parse_arguments(CAS "${optionsArgs}" "${oneValueArgs}" "${multiValueArgs}" ${ARGN} )
 
+    foreach(FILE ${CAS_FILES})
+        get_filename_component(DIR ${FILE} DIRECTORY)
+        INSTALL(FILES ${FILE} DESTINATION ${CAS_DESTINATION}/${DIR})
+    endforeach()
+endmacro(install_with_directory)
 
 set(AMM_STANDARD_CODE amm/AMM_Standard.cxx amm/AMM_Standard.h amm/AMM_StandardPubSubTypes.cxx amm/AMM_StandardPubSubTypes.h)
 set(AMM_EXTENDED_CODE amm/AMM_Extended.cxx amm/AMM_Extended.h amm/AMM_ExtendedPubSubTypes.cxx amm/AMM_ExtendedPubSubTypes.h)
@@ -11,7 +21,6 @@ set(DDS_MANAGER dds_manager)
 set(DDS_MANAGER_SOURCES amm/DDSManager.h amm/DDS_Listeners.cpp amm/ListenerInterface.h)
 set(DDS_TYPE_SOURCES amm/TopicNames.h amm/AmmDataType.h)
 set(UTILITY_SOURCES amm/Utility.cpp amm/Utility.h)
-
 
 function(my_export_target _target _include_dir)
    file(
@@ -47,6 +56,15 @@ else ()
             LIBRARY DESTINATION "lib"
             PUBLIC_HEADER DESTINATION "include/amm")
 endif ()
+
+# Install plog
+install(DIRECTORY "plog" # source directory
+        DESTINATION "include" # target directory
+        FILES_MATCHING # install only matched files
+        PATTERN "*.h" # select header files
+        )
+
+# Create the cmake file
 my_export_target(amm_std "${HEADER_DIR}")
 
 target_link_libraries(
