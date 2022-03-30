@@ -20,8 +20,8 @@
  */
 
 
-#ifndef _AMM_AMM_STANDARD_PUBSUBTYPES_H_
-#define _AMM_AMM_STANDARD_PUBSUBTYPES_H_
+#ifndef _FAST_DDS_GENERATED_AMM_AMM_STANDARD_PUBSUBTYPES_H_
+#define _FAST_DDS_GENERATED_AMM_AMM_STANDARD_PUBSUBTYPES_H_
 
 #include <fastdds/dds/topic/TopicDataType.hpp>
 #include <fastrtps/utils/md5.h>
@@ -29,7 +29,8 @@
 #include "AMM_Standard.h"
 
 #if !defined(GEN_API_VER) || (GEN_API_VER != 1)
-#error Generated AMM_Standard is not compatible with current installed Fast DDS. Please, regenerate it with fastddsgen.
+#error \
+    Generated AMM_Standard is not compatible with current installed Fast DDS. Please, regenerate it with fastddsgen.
 #endif  // GEN_API_VER
 
 namespace AMM
@@ -1130,4 +1131,4 @@ namespace AMM
     };
 }
 
-#endif // _AMM_AMM_STANDARD_PUBSUBTYPES_H_
+#endif // _FAST_DDS_GENERATED_AMM_AMM_STANDARD_PUBSUBTYPES_H_

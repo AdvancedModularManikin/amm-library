@@ -36,9 +36,9 @@ using namespace eprosima::fastcdr::exception;
 
 AMM::FMA_Location::FMA_Location()
 {
-    // m_FMAID com.eprosima.idl.parser.typecode.PrimitiveTypeCode@43738a82
+    // m_FMAID com.eprosima.idl.parser.typecode.PrimitiveTypeCode@7403c468
     m_FMAID = 0;
-    // m_name com.eprosima.idl.parser.typecode.StringTypeCode@75881071
+    // m_name com.eprosima.idl.parser.typecode.StringTypeCode@1fc2b765
     m_name ="";
 
 }
@@ -81,6 +81,19 @@ AMM::FMA_Location& AMM::FMA_Location::operator =(
     m_name = std::move(x.m_name);
 
     return *this;
+}
+
+bool AMM::FMA_Location::operator ==(
+        const FMA_Location& x) const
+{
+
+    return (m_FMAID == x.m_FMAID && m_name == x.m_name);
+}
+
+bool AMM::FMA_Location::operator !=(
+        const FMA_Location& x) const
+{
+    return !(*this == x);
 }
 
 size_t AMM::FMA_Location::getMaxCdrSerializedSize(
@@ -224,7 +237,7 @@ void AMM::FMA_Location::serializeKey(
 
 AMM::UUID::UUID()
 {
-    // m_id com.eprosima.idl.parser.typecode.StringTypeCode@a74868d
+    // m_id com.eprosima.idl.parser.typecode.StringTypeCode@396e2f39
     m_id ="";
 
 }
@@ -261,6 +274,19 @@ AMM::UUID& AMM::UUID::operator =(
     m_id = std::move(x.m_id);
 
     return *this;
+}
+
+bool AMM::UUID::operator ==(
+        const UUID& x) const
+{
+
+    return (m_id == x.m_id);
+}
+
+bool AMM::UUID::operator !=(
+        const UUID& x) const
+{
+    return !(*this == x);
 }
 
 size_t AMM::UUID::getMaxCdrSerializedSize(
@@ -365,13 +391,13 @@ void AMM::UUID::serializeKey(
 
 AMM::Assessment::Assessment()
 {
-    // m_id com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@49c43f4e
+    // m_id com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@799d4f69
 
-    // m_event_id com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@49c43f4e
+    // m_event_id com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@799d4f69
 
-    // m_value com.eprosima.idl.parser.typecode.EnumTypeCode@290dbf45
+    // m_value com.eprosima.idl.parser.typecode.EnumTypeCode@49c43f4e
     m_value = AMM::OMISSION_ERROR;
-    // m_comment com.eprosima.idl.parser.typecode.StringTypeCode@12028586
+    // m_comment com.eprosima.idl.parser.typecode.StringTypeCode@290dbf45
     m_comment ="";
 
 }
@@ -424,6 +450,19 @@ AMM::Assessment& AMM::Assessment::operator =(
     m_comment = std::move(x.m_comment);
 
     return *this;
+}
+
+bool AMM::Assessment::operator ==(
+        const Assessment& x) const
+{
+
+    return (m_id == x.m_id && m_event_id == x.m_event_id && m_value == x.m_value && m_comment == x.m_comment);
+}
+
+bool AMM::Assessment::operator !=(
+        const Assessment& x) const
+{
+    return !(*this == x);
 }
 
 size_t AMM::Assessment::getMaxCdrSerializedSize(
@@ -657,21 +696,21 @@ void AMM::Assessment::serializeKey(
 
 AMM::EventFragment::EventFragment()
 {
-    // m_id com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@49c43f4e
+    // m_id com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@799d4f69
 
-    // m_timestamp com.eprosima.idl.parser.typecode.PrimitiveTypeCode@3444d69d
+    // m_timestamp com.eprosima.idl.parser.typecode.PrimitiveTypeCode@4ba2ca36
     m_timestamp = 0;
-    // m_educational_encounter com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@49c43f4e
+    // m_educational_encounter com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@799d4f69
 
-    // m_location com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@1372ed45
+    // m_location com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@3444d69d
 
-    // m_agent_type com.eprosima.idl.parser.typecode.EnumTypeCode@6a79c292
+    // m_agent_type com.eprosima.idl.parser.typecode.EnumTypeCode@1372ed45
     m_agent_type = AMM::LEARNER;
-    // m_agent_id com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@49c43f4e
+    // m_agent_id com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@799d4f69
 
-    // m_type com.eprosima.idl.parser.typecode.StringTypeCode@21a947fe
+    // m_type com.eprosima.idl.parser.typecode.StringTypeCode@25359ed8
     m_type ="";
-    // m_data com.eprosima.idl.parser.typecode.StringTypeCode@5606c0b
+    // m_data com.eprosima.idl.parser.typecode.StringTypeCode@21a947fe
     m_data ="";
 
 }
@@ -744,6 +783,19 @@ AMM::EventFragment& AMM::EventFragment::operator =(
     m_data = std::move(x.m_data);
 
     return *this;
+}
+
+bool AMM::EventFragment::operator ==(
+        const EventFragment& x) const
+{
+
+    return (m_id == x.m_id && m_timestamp == x.m_timestamp && m_educational_encounter == x.m_educational_encounter && m_location == x.m_location && m_agent_type == x.m_agent_type && m_agent_id == x.m_agent_id && m_type == x.m_type && m_data == x.m_data);
+}
+
+bool AMM::EventFragment::operator !=(
+        const EventFragment& x) const
+{
+    return !(*this == x);
 }
 
 size_t AMM::EventFragment::getMaxCdrSerializedSize(
@@ -1141,21 +1193,21 @@ void AMM::EventFragment::serializeKey(
 
 AMM::EventRecord::EventRecord()
 {
-    // m_id com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@49c43f4e
+    // m_id com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@799d4f69
 
-    // m_timestamp com.eprosima.idl.parser.typecode.PrimitiveTypeCode@6166e06f
+    // m_timestamp com.eprosima.idl.parser.typecode.PrimitiveTypeCode@49e202ad
     m_timestamp = 0;
-    // m_educational_encounter com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@49c43f4e
+    // m_educational_encounter com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@799d4f69
 
-    // m_location com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@1372ed45
+    // m_location com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@3444d69d
 
-    // m_agent_type com.eprosima.idl.parser.typecode.EnumTypeCode@6a79c292
+    // m_agent_type com.eprosima.idl.parser.typecode.EnumTypeCode@1372ed45
     m_agent_type = AMM::LEARNER;
-    // m_agent_id com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@49c43f4e
+    // m_agent_id com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@799d4f69
 
-    // m_type com.eprosima.idl.parser.typecode.StringTypeCode@641147d0
+    // m_type com.eprosima.idl.parser.typecode.StringTypeCode@6e38921c
     m_type ="";
-    // m_data com.eprosima.idl.parser.typecode.StringTypeCode@6e38921c
+    // m_data com.eprosima.idl.parser.typecode.StringTypeCode@64d7f7e0
     m_data ="";
 
 }
@@ -1228,6 +1280,19 @@ AMM::EventRecord& AMM::EventRecord::operator =(
     m_data = std::move(x.m_data);
 
     return *this;
+}
+
+bool AMM::EventRecord::operator ==(
+        const EventRecord& x) const
+{
+
+    return (m_id == x.m_id && m_timestamp == x.m_timestamp && m_educational_encounter == x.m_educational_encounter && m_location == x.m_location && m_agent_type == x.m_agent_type && m_agent_id == x.m_agent_id && m_type == x.m_type && m_data == x.m_data);
+}
+
+bool AMM::EventRecord::operator !=(
+        const EventRecord& x) const
+{
+    return !(*this == x);
 }
 
 size_t AMM::EventRecord::getMaxCdrSerializedSize(
@@ -1626,17 +1691,17 @@ void AMM::EventRecord::serializeKey(
 
 AMM::FragmentAmendmentRequest::FragmentAmendmentRequest()
 {
-    // m_id com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@49c43f4e
+    // m_id com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@799d4f69
 
-    // m_fragment_id com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@49c43f4e
+    // m_fragment_id com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@799d4f69
 
-    // m_status com.eprosima.idl.parser.typecode.EnumTypeCode@473b46c3
+    // m_status com.eprosima.idl.parser.typecode.EnumTypeCode@15d9bc04
     m_status = AMM::REQUESTING;
-    // m_location com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@1372ed45
+    // m_location com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@3444d69d
 
-    // m_agent_type com.eprosima.idl.parser.typecode.EnumTypeCode@6a79c292
+    // m_agent_type com.eprosima.idl.parser.typecode.EnumTypeCode@1372ed45
     m_agent_type = AMM::LEARNER;
-    // m_agent_id com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@49c43f4e
+    // m_agent_id com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@799d4f69
 
 
 }
@@ -1699,6 +1764,19 @@ AMM::FragmentAmendmentRequest& AMM::FragmentAmendmentRequest::operator =(
     m_agent_id = std::move(x.m_agent_id);
 
     return *this;
+}
+
+bool AMM::FragmentAmendmentRequest::operator ==(
+        const FragmentAmendmentRequest& x) const
+{
+
+    return (m_id == x.m_id && m_fragment_id == x.m_fragment_id && m_status == x.m_status && m_location == x.m_location && m_agent_type == x.m_agent_type && m_agent_id == x.m_agent_id);
+}
+
+bool AMM::FragmentAmendmentRequest::operator !=(
+        const FragmentAmendmentRequest& x) const
+{
+    return !(*this == x);
 }
 
 size_t AMM::FragmentAmendmentRequest::getMaxCdrSerializedSize(
@@ -2014,13 +2092,13 @@ void AMM::FragmentAmendmentRequest::serializeKey(
 
 AMM::Log::Log()
 {
-    // m_timestamp com.eprosima.idl.parser.typecode.PrimitiveTypeCode@77be656f
+    // m_timestamp com.eprosima.idl.parser.typecode.PrimitiveTypeCode@797badd3
     m_timestamp = 0;
-    // m_module_id com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@49c43f4e
+    // m_module_id com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@799d4f69
 
-    // m_level com.eprosima.idl.parser.typecode.EnumTypeCode@62bd765
+    // m_level com.eprosima.idl.parser.typecode.EnumTypeCode@221af3c0
     m_level = AMM::L_FATAL;
-    // m_message com.eprosima.idl.parser.typecode.StringTypeCode@23a5fd2
+    // m_message com.eprosima.idl.parser.typecode.StringTypeCode@62bd765
     m_message ="";
 
 }
@@ -2073,6 +2151,19 @@ AMM::Log& AMM::Log::operator =(
     m_message = std::move(x.m_message);
 
     return *this;
+}
+
+bool AMM::Log::operator ==(
+        const Log& x) const
+{
+
+    return (m_timestamp == x.m_timestamp && m_module_id == x.m_module_id && m_level == x.m_level && m_message == x.m_message);
+}
+
+bool AMM::Log::operator !=(
+        const Log& x) const
+{
+    return !(*this == x);
 }
 
 size_t AMM::Log::getMaxCdrSerializedSize(
@@ -2300,15 +2391,15 @@ void AMM::Log::serializeKey(
 
 AMM::ModuleConfiguration::ModuleConfiguration()
 {
-    // m_name com.eprosima.idl.parser.typecode.StringTypeCode@70b0b186
+    // m_name com.eprosima.idl.parser.typecode.StringTypeCode@7bc1a03d
     m_name ="";
-    // m_module_id com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@49c43f4e
+    // m_module_id com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@799d4f69
 
-    // m_educational_encounter com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@49c43f4e
+    // m_educational_encounter com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@799d4f69
 
-    // m_timestamp com.eprosima.idl.parser.typecode.PrimitiveTypeCode@5d20e46
+    // m_timestamp com.eprosima.idl.parser.typecode.PrimitiveTypeCode@7364985f
     m_timestamp = 0;
-    // m_capabilities_configuration com.eprosima.idl.parser.typecode.StringTypeCode@709ba3fb
+    // m_capabilities_configuration com.eprosima.idl.parser.typecode.StringTypeCode@5d20e46
     m_capabilities_configuration ="";
 
 }
@@ -2366,6 +2457,19 @@ AMM::ModuleConfiguration& AMM::ModuleConfiguration::operator =(
     m_capabilities_configuration = std::move(x.m_capabilities_configuration);
 
     return *this;
+}
+
+bool AMM::ModuleConfiguration::operator ==(
+        const ModuleConfiguration& x) const
+{
+
+    return (m_name == x.m_name && m_module_id == x.m_module_id && m_educational_encounter == x.m_educational_encounter && m_timestamp == x.m_timestamp && m_capabilities_configuration == x.m_capabilities_configuration);
+}
+
+bool AMM::ModuleConfiguration::operator !=(
+        const ModuleConfiguration& x) const
+{
+    return !(*this == x);
 }
 
 size_t AMM::ModuleConfiguration::getMaxCdrSerializedSize(
@@ -2637,21 +2741,21 @@ void AMM::ModuleConfiguration::serializeKey(
 
 AMM::OmittedEvent::OmittedEvent()
 {
-    // m_id com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@49c43f4e
+    // m_id com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@799d4f69
 
-    // m_timestamp com.eprosima.idl.parser.typecode.PrimitiveTypeCode@58c1c010
+    // m_timestamp com.eprosima.idl.parser.typecode.PrimitiveTypeCode@525b461a
     m_timestamp = 0;
-    // m_educational_encounter com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@49c43f4e
+    // m_educational_encounter com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@799d4f69
 
-    // m_location com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@1372ed45
+    // m_location com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@3444d69d
 
-    // m_agent_type com.eprosima.idl.parser.typecode.EnumTypeCode@6a79c292
+    // m_agent_type com.eprosima.idl.parser.typecode.EnumTypeCode@1372ed45
     m_agent_type = AMM::LEARNER;
-    // m_agent_id com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@49c43f4e
+    // m_agent_id com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@799d4f69
 
-    // m_type com.eprosima.idl.parser.typecode.StringTypeCode@b7f23d9
+    // m_type com.eprosima.idl.parser.typecode.StringTypeCode@58c1c010
     m_type ="";
-    // m_data com.eprosima.idl.parser.typecode.StringTypeCode@61d47554
+    // m_data com.eprosima.idl.parser.typecode.StringTypeCode@b7f23d9
     m_data ="";
 
 }
@@ -2724,6 +2828,19 @@ AMM::OmittedEvent& AMM::OmittedEvent::operator =(
     m_data = std::move(x.m_data);
 
     return *this;
+}
+
+bool AMM::OmittedEvent::operator ==(
+        const OmittedEvent& x) const
+{
+
+    return (m_id == x.m_id && m_timestamp == x.m_timestamp && m_educational_encounter == x.m_educational_encounter && m_location == x.m_location && m_agent_type == x.m_agent_type && m_agent_id == x.m_agent_id && m_type == x.m_type && m_data == x.m_data);
+}
+
+bool AMM::OmittedEvent::operator !=(
+        const OmittedEvent& x) const
+{
+    return !(*this == x);
 }
 
 size_t AMM::OmittedEvent::getMaxCdrSerializedSize(
@@ -3121,11 +3238,11 @@ void AMM::OmittedEvent::serializeKey(
 
 AMM::Semantic_Version::Semantic_Version()
 {
-    // m_major com.eprosima.idl.parser.typecode.PrimitiveTypeCode@3f200884
+    // m_major com.eprosima.idl.parser.typecode.PrimitiveTypeCode@69b794e2
     m_major = 0;
-    // m_minor com.eprosima.idl.parser.typecode.PrimitiveTypeCode@4d339552
+    // m_minor com.eprosima.idl.parser.typecode.PrimitiveTypeCode@3f200884
     m_minor = 0;
-    // m_patch com.eprosima.idl.parser.typecode.PrimitiveTypeCode@f0f2775
+    // m_patch com.eprosima.idl.parser.typecode.PrimitiveTypeCode@4d339552
     m_patch = 0;
 
 }
@@ -3173,6 +3290,19 @@ AMM::Semantic_Version& AMM::Semantic_Version::operator =(
     m_patch = x.m_patch;
 
     return *this;
+}
+
+bool AMM::Semantic_Version::operator ==(
+        const Semantic_Version& x) const
+{
+
+    return (m_major == x.m_major && m_minor == x.m_minor && m_patch == x.m_patch);
+}
+
+bool AMM::Semantic_Version::operator !=(
+        const Semantic_Version& x) const
+{
+    return !(*this == x);
 }
 
 size_t AMM::Semantic_Version::getMaxCdrSerializedSize(
@@ -3346,27 +3476,27 @@ void AMM::Semantic_Version::serializeKey(
 
 AMM::OperationalDescription::OperationalDescription()
 {
-    // m_name com.eprosima.idl.parser.typecode.StringTypeCode@77e4c80f
+    // m_name com.eprosima.idl.parser.typecode.StringTypeCode@351d0846
     m_name ="";
-    // m_description com.eprosima.idl.parser.typecode.StringTypeCode@35fc6dc4
+    // m_description com.eprosima.idl.parser.typecode.StringTypeCode@77e4c80f
     m_description ="";
-    // m_manufacturer com.eprosima.idl.parser.typecode.StringTypeCode@7fe8ea47
+    // m_manufacturer com.eprosima.idl.parser.typecode.StringTypeCode@35fc6dc4
     m_manufacturer ="";
-    // m_model com.eprosima.idl.parser.typecode.StringTypeCode@226a82c4
+    // m_model com.eprosima.idl.parser.typecode.StringTypeCode@7fe8ea47
     m_model ="";
-    // m_serial_number com.eprosima.idl.parser.typecode.StringTypeCode@64d2d351
+    // m_serial_number com.eprosima.idl.parser.typecode.StringTypeCode@6b53e23f
     m_serial_number ="";
-    // m_module_id com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@49c43f4e
+    // m_module_id com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@799d4f69
 
-    // m_module_version com.eprosima.idl.parser.typecode.StringTypeCode@1b68b9a4
+    // m_module_version com.eprosima.idl.parser.typecode.StringTypeCode@64d2d351
     m_module_version ="";
-    // m_configuration_version com.eprosima.idl.parser.typecode.StringTypeCode@4f9a3314
+    // m_configuration_version com.eprosima.idl.parser.typecode.StringTypeCode@1b68b9a4
     m_configuration_version ="";
-    // m_AMM_version com.eprosima.idl.parser.typecode.StringTypeCode@3b2c72c2
+    // m_AMM_version com.eprosima.idl.parser.typecode.StringTypeCode@4f9a3314
     m_AMM_version ="";
-    // m_ip_address com.eprosima.idl.parser.typecode.ArrayTypeCode@491666ad
+    // m_ip_address com.eprosima.idl.parser.typecode.ArrayTypeCode@3b2c72c2
     memset(&m_ip_address, 0, (4) * 1);
-    // m_capabilities_schema com.eprosima.idl.parser.typecode.StringTypeCode@176d53b2
+    // m_capabilities_schema com.eprosima.idl.parser.typecode.StringTypeCode@491666ad
     m_capabilities_schema ="";
 
 }
@@ -3454,6 +3584,19 @@ AMM::OperationalDescription& AMM::OperationalDescription::operator =(
     m_capabilities_schema = std::move(x.m_capabilities_schema);
 
     return *this;
+}
+
+bool AMM::OperationalDescription::operator ==(
+        const OperationalDescription& x) const
+{
+
+    return (m_name == x.m_name && m_description == x.m_description && m_manufacturer == x.m_manufacturer && m_model == x.m_model && m_serial_number == x.m_serial_number && m_module_id == x.m_module_id && m_module_version == x.m_module_version && m_configuration_version == x.m_configuration_version && m_AMM_version == x.m_AMM_version && m_ip_address == x.m_ip_address && m_capabilities_schema == x.m_capabilities_schema);
+}
+
+bool AMM::OperationalDescription::operator !=(
+        const OperationalDescription& x) const
+{
+    return !(*this == x);
 }
 
 size_t AMM::OperationalDescription::getMaxCdrSerializedSize(
@@ -4004,13 +4147,13 @@ void AMM::OperationalDescription::serializeKey(
 
 AMM::PhysiologyModification::PhysiologyModification()
 {
-    // m_id com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@49c43f4e
+    // m_id com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@799d4f69
 
-    // m_event_id com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@49c43f4e
+    // m_event_id com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@799d4f69
 
-    // m_type com.eprosima.idl.parser.typecode.StringTypeCode@18a70f16
+    // m_type com.eprosima.idl.parser.typecode.StringTypeCode@51b7e5df
     m_type ="";
-    // m_data com.eprosima.idl.parser.typecode.StringTypeCode@62e136d3
+    // m_data com.eprosima.idl.parser.typecode.StringTypeCode@18a70f16
     m_data ="";
 
 }
@@ -4063,6 +4206,19 @@ AMM::PhysiologyModification& AMM::PhysiologyModification::operator =(
     m_data = std::move(x.m_data);
 
     return *this;
+}
+
+bool AMM::PhysiologyModification::operator ==(
+        const PhysiologyModification& x) const
+{
+
+    return (m_id == x.m_id && m_event_id == x.m_event_id && m_type == x.m_type && m_data == x.m_data);
+}
+
+bool AMM::PhysiologyModification::operator !=(
+        const PhysiologyModification& x) const
+{
+    return !(*this == x);
 }
 
 size_t AMM::PhysiologyModification::getMaxCdrSerializedSize(
@@ -4297,17 +4453,17 @@ void AMM::PhysiologyModification::serializeKey(
 
 AMM::PhysiologyValue::PhysiologyValue()
 {
-    // m_educational_encounter com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@49c43f4e
+    // m_educational_encounter com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@799d4f69
 
-    // m_simulation_time com.eprosima.idl.parser.typecode.PrimitiveTypeCode@4206a205
+    // m_simulation_time com.eprosima.idl.parser.typecode.PrimitiveTypeCode@6279cee3
     m_simulation_time = 0;
-    // m_timestamp com.eprosima.idl.parser.typecode.PrimitiveTypeCode@29ba4338
+    // m_timestamp com.eprosima.idl.parser.typecode.PrimitiveTypeCode@4206a205
     m_timestamp = 0;
-    // m_name com.eprosima.idl.parser.typecode.StringTypeCode@57175e74
+    // m_name com.eprosima.idl.parser.typecode.StringTypeCode@29ba4338
     m_name ="";
-    // m_unit com.eprosima.idl.parser.typecode.StringTypeCode@7bb58ca3
+    // m_unit com.eprosima.idl.parser.typecode.StringTypeCode@57175e74
     m_unit ="";
-    // m_value com.eprosima.idl.parser.typecode.PrimitiveTypeCode@c540f5a
+    // m_value com.eprosima.idl.parser.typecode.PrimitiveTypeCode@7bb58ca3
     m_value = 0.0;
 
 }
@@ -4370,6 +4526,19 @@ AMM::PhysiologyValue& AMM::PhysiologyValue::operator =(
     m_value = x.m_value;
 
     return *this;
+}
+
+bool AMM::PhysiologyValue::operator ==(
+        const PhysiologyValue& x) const
+{
+
+    return (m_educational_encounter == x.m_educational_encounter && m_simulation_time == x.m_simulation_time && m_timestamp == x.m_timestamp && m_name == x.m_name && m_unit == x.m_unit && m_value == x.m_value);
+}
+
+bool AMM::PhysiologyValue::operator !=(
+        const PhysiologyValue& x) const
+{
+    return !(*this == x);
 }
 
 size_t AMM::PhysiologyValue::getMaxCdrSerializedSize(
@@ -4673,17 +4842,17 @@ void AMM::PhysiologyValue::serializeKey(
 
 AMM::PhysiologyWaveform::PhysiologyWaveform()
 {
-    // m_educational_encounter com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@49c43f4e
+    // m_educational_encounter com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@799d4f69
 
-    // m_simulation_time com.eprosima.idl.parser.typecode.PrimitiveTypeCode@770c2e6b
+    // m_simulation_time com.eprosima.idl.parser.typecode.PrimitiveTypeCode@c540f5a
     m_simulation_time = 0;
-    // m_timestamp com.eprosima.idl.parser.typecode.PrimitiveTypeCode@1a052a00
+    // m_timestamp com.eprosima.idl.parser.typecode.PrimitiveTypeCode@770c2e6b
     m_timestamp = 0;
-    // m_name com.eprosima.idl.parser.typecode.StringTypeCode@4d826d77
+    // m_name com.eprosima.idl.parser.typecode.StringTypeCode@1a052a00
     m_name ="";
-    // m_unit com.eprosima.idl.parser.typecode.StringTypeCode@61009542
+    // m_unit com.eprosima.idl.parser.typecode.StringTypeCode@4d826d77
     m_unit ="";
-    // m_value com.eprosima.idl.parser.typecode.PrimitiveTypeCode@77e9807f
+    // m_value com.eprosima.idl.parser.typecode.PrimitiveTypeCode@61009542
     m_value = 0.0;
 
 }
@@ -4746,6 +4915,19 @@ AMM::PhysiologyWaveform& AMM::PhysiologyWaveform::operator =(
     m_value = x.m_value;
 
     return *this;
+}
+
+bool AMM::PhysiologyWaveform::operator ==(
+        const PhysiologyWaveform& x) const
+{
+
+    return (m_educational_encounter == x.m_educational_encounter && m_simulation_time == x.m_simulation_time && m_timestamp == x.m_timestamp && m_name == x.m_name && m_unit == x.m_unit && m_value == x.m_value);
+}
+
+bool AMM::PhysiologyWaveform::operator !=(
+        const PhysiologyWaveform& x) const
+{
+    return !(*this == x);
 }
 
 size_t AMM::PhysiologyWaveform::getMaxCdrSerializedSize(
@@ -5049,13 +5231,13 @@ void AMM::PhysiologyWaveform::serializeKey(
 
 AMM::RenderModification::RenderModification()
 {
-    // m_id com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@49c43f4e
+    // m_id com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@799d4f69
 
-    // m_event_id com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@49c43f4e
+    // m_event_id com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@799d4f69
 
-    // m_type com.eprosima.idl.parser.typecode.StringTypeCode@448ff1a8
+    // m_type com.eprosima.idl.parser.typecode.StringTypeCode@77e9807f
     m_type ="";
-    // m_data com.eprosima.idl.parser.typecode.StringTypeCode@1a38c59b
+    // m_data com.eprosima.idl.parser.typecode.StringTypeCode@448ff1a8
     m_data ="";
 
 }
@@ -5108,6 +5290,19 @@ AMM::RenderModification& AMM::RenderModification::operator =(
     m_data = std::move(x.m_data);
 
     return *this;
+}
+
+bool AMM::RenderModification::operator ==(
+        const RenderModification& x) const
+{
+
+    return (m_id == x.m_id && m_event_id == x.m_event_id && m_type == x.m_type && m_data == x.m_data);
+}
+
+bool AMM::RenderModification::operator !=(
+        const RenderModification& x) const
+{
+    return !(*this == x);
 }
 
 size_t AMM::RenderModification::getMaxCdrSerializedSize(
@@ -5343,11 +5538,11 @@ void AMM::RenderModification::serializeKey(
 
 AMM::SimulationControl::SimulationControl()
 {
-    // m_timestamp com.eprosima.idl.parser.typecode.PrimitiveTypeCode@6328d34a
+    // m_timestamp com.eprosima.idl.parser.typecode.PrimitiveTypeCode@2357d90a
     m_timestamp = 0;
-    // m_type com.eprosima.idl.parser.typecode.EnumTypeCode@8b96fde
+    // m_type com.eprosima.idl.parser.typecode.EnumTypeCode@15bb6bea
     m_type = AMM::RUN;
-    // m_educational_encounter com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@49c43f4e
+    // m_educational_encounter com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@799d4f69
 
 
 }
@@ -5395,6 +5590,19 @@ AMM::SimulationControl& AMM::SimulationControl::operator =(
     m_educational_encounter = std::move(x.m_educational_encounter);
 
     return *this;
+}
+
+bool AMM::SimulationControl::operator ==(
+        const SimulationControl& x) const
+{
+
+    return (m_timestamp == x.m_timestamp && m_type == x.m_type && m_educational_encounter == x.m_educational_encounter);
+}
+
+bool AMM::SimulationControl::operator !=(
+        const SimulationControl& x) const
+{
+    return !(*this == x);
 }
 
 size_t AMM::SimulationControl::getMaxCdrSerializedSize(
@@ -5579,19 +5787,19 @@ void AMM::SimulationControl::serializeKey(
 
 AMM::Status::Status()
 {
-    // m_module_id com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@49c43f4e
+    // m_module_id com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@799d4f69
 
-    // m_module_name com.eprosima.idl.parser.typecode.StringTypeCode@667a738
+    // m_module_name com.eprosima.idl.parser.typecode.StringTypeCode@57d5872c
     m_module_name ="";
-    // m_educational_encounter com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@49c43f4e
+    // m_educational_encounter com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@799d4f69
 
-    // m_capability com.eprosima.idl.parser.typecode.StringTypeCode@36f0f1be
+    // m_capability com.eprosima.idl.parser.typecode.StringTypeCode@667a738
     m_capability ="";
-    // m_timestamp com.eprosima.idl.parser.typecode.PrimitiveTypeCode@157632c9
+    // m_timestamp com.eprosima.idl.parser.typecode.PrimitiveTypeCode@36f0f1be
     m_timestamp = 0;
-    // m_value com.eprosima.idl.parser.typecode.EnumTypeCode@6ee12bac
+    // m_value com.eprosima.idl.parser.typecode.EnumTypeCode@157632c9
     m_value = AMM::OPERATIONAL;
-    // m_message com.eprosima.idl.parser.typecode.StringTypeCode@55040f2f
+    // m_message com.eprosima.idl.parser.typecode.StringTypeCode@6ee12bac
     m_message ="";
 
 }
@@ -5659,6 +5867,19 @@ AMM::Status& AMM::Status::operator =(
     m_message = std::move(x.m_message);
 
     return *this;
+}
+
+bool AMM::Status::operator ==(
+        const Status& x) const
+{
+
+    return (m_module_id == x.m_module_id && m_module_name == x.m_module_name && m_educational_encounter == x.m_educational_encounter && m_capability == x.m_capability && m_timestamp == x.m_timestamp && m_value == x.m_value && m_message == x.m_message);
+}
+
+bool AMM::Status::operator !=(
+        const Status& x) const
+{
+    return !(*this == x);
 }
 
 size_t AMM::Status::getMaxCdrSerializedSize(

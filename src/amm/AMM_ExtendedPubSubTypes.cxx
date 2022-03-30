@@ -83,21 +83,21 @@ namespace AMM {
             SerializedPayload_t* payload,
             void* data)
     {
-        //Convert DATA to pointer of your type
-        Tick* p_type = static_cast<Tick*>(data);
-
-        // Object that manages the raw buffer.
-        eprosima::fastcdr::FastBuffer fastbuffer(reinterpret_cast<char*>(payload->data), payload->length);
-
-        // Object that deserializes the data.
-        eprosima::fastcdr::Cdr deser(fastbuffer, eprosima::fastcdr::Cdr::DEFAULT_ENDIAN, eprosima::fastcdr::Cdr::DDS_CDR);
-
-        // Deserialize encapsulation.
-        deser.read_encapsulation();
-        payload->encapsulation = deser.endianness() == eprosima::fastcdr::Cdr::BIG_ENDIANNESS ? CDR_BE : CDR_LE;
-
         try
         {
+            //Convert DATA to pointer of your type
+            Tick* p_type = static_cast<Tick*>(data);
+
+            // Object that manages the raw buffer.
+            eprosima::fastcdr::FastBuffer fastbuffer(reinterpret_cast<char*>(payload->data), payload->length);
+
+            // Object that deserializes the data.
+            eprosima::fastcdr::Cdr deser(fastbuffer, eprosima::fastcdr::Cdr::DEFAULT_ENDIAN, eprosima::fastcdr::Cdr::DDS_CDR);
+
+            // Deserialize encapsulation.
+            deser.read_encapsulation();
+            payload->encapsulation = deser.endianness() == eprosima::fastcdr::Cdr::BIG_ENDIANNESS ? CDR_BE : CDR_LE;
+
             // Deserialize the object.
             p_type->deserialize(deser);
         }
@@ -223,21 +223,21 @@ namespace AMM {
             SerializedPayload_t* payload,
             void* data)
     {
-        //Convert DATA to pointer of your type
-        InstrumentData* p_type = static_cast<InstrumentData*>(data);
-
-        // Object that manages the raw buffer.
-        eprosima::fastcdr::FastBuffer fastbuffer(reinterpret_cast<char*>(payload->data), payload->length);
-
-        // Object that deserializes the data.
-        eprosima::fastcdr::Cdr deser(fastbuffer, eprosima::fastcdr::Cdr::DEFAULT_ENDIAN, eprosima::fastcdr::Cdr::DDS_CDR);
-
-        // Deserialize encapsulation.
-        deser.read_encapsulation();
-        payload->encapsulation = deser.endianness() == eprosima::fastcdr::Cdr::BIG_ENDIANNESS ? CDR_BE : CDR_LE;
-
         try
         {
+            //Convert DATA to pointer of your type
+            InstrumentData* p_type = static_cast<InstrumentData*>(data);
+
+            // Object that manages the raw buffer.
+            eprosima::fastcdr::FastBuffer fastbuffer(reinterpret_cast<char*>(payload->data), payload->length);
+
+            // Object that deserializes the data.
+            eprosima::fastcdr::Cdr deser(fastbuffer, eprosima::fastcdr::Cdr::DEFAULT_ENDIAN, eprosima::fastcdr::Cdr::DDS_CDR);
+
+            // Deserialize encapsulation.
+            deser.read_encapsulation();
+            payload->encapsulation = deser.endianness() == eprosima::fastcdr::Cdr::BIG_ENDIANNESS ? CDR_BE : CDR_LE;
+
             // Deserialize the object.
             p_type->deserialize(deser);
         }
@@ -363,21 +363,21 @@ namespace AMM {
             SerializedPayload_t* payload,
             void* data)
     {
-        //Convert DATA to pointer of your type
-        Command* p_type = static_cast<Command*>(data);
-
-        // Object that manages the raw buffer.
-        eprosima::fastcdr::FastBuffer fastbuffer(reinterpret_cast<char*>(payload->data), payload->length);
-
-        // Object that deserializes the data.
-        eprosima::fastcdr::Cdr deser(fastbuffer, eprosima::fastcdr::Cdr::DEFAULT_ENDIAN, eprosima::fastcdr::Cdr::DDS_CDR);
-
-        // Deserialize encapsulation.
-        deser.read_encapsulation();
-        payload->encapsulation = deser.endianness() == eprosima::fastcdr::Cdr::BIG_ENDIANNESS ? CDR_BE : CDR_LE;
-
         try
         {
+            //Convert DATA to pointer of your type
+            Command* p_type = static_cast<Command*>(data);
+
+            // Object that manages the raw buffer.
+            eprosima::fastcdr::FastBuffer fastbuffer(reinterpret_cast<char*>(payload->data), payload->length);
+
+            // Object that deserializes the data.
+            eprosima::fastcdr::Cdr deser(fastbuffer, eprosima::fastcdr::Cdr::DEFAULT_ENDIAN, eprosima::fastcdr::Cdr::DDS_CDR);
+
+            // Deserialize encapsulation.
+            deser.read_encapsulation();
+            payload->encapsulation = deser.endianness() == eprosima::fastcdr::Cdr::BIG_ENDIANNESS ? CDR_BE : CDR_LE;
+
             // Deserialize the object.
             p_type->deserialize(deser);
         }
