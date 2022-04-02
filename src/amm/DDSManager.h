@@ -279,6 +279,8 @@ namespace AMM {
         /// Name of this module.
         std::string m_moduleName;
 
+        std::string defaultProfile = "amm_participant";
+
         /// Default domain ID for AMM Modules.
         const int DOMAIN_ID = 15;
 
@@ -297,7 +299,7 @@ namespace AMM {
     public:
         /// Default constructor taking in a module name defined by the user.
         /// @param moduleName String name of this module.
-        DDSManager(std::string configFile);
+        DDSManager(std::string configFile, std::string profileName = std::string());
 
         /// Default deconstructor.
         ~DDSManager() {};
@@ -2003,16 +2005,16 @@ namespace AMM {
     }; // class DDSManager <U>
 
     template<class U>
-    inline DDSManager<U>::DDSManager(std::string configFile) {
+    inline DDSManager<U>::DDSManager(std::string configFile, std::string profileName) {
+        if (profileName.empty()) {
+            profileName = defaultProfile;
+        }
 
-       /*eprosima::fastrtps::ParticipantAttributes pa;
-   pa.rtps.builtin.domainId = (uint32_t) DOMAIN_ID;
-   pa.rtps.setName(moduleName.c_str());*/
        try {
           if (!eprosima::fastrtps::Domain::loadXMLProfilesFile(configFile)) {
              std::cout << "Unable to load XML file to create FastRTPS domain participant." << std::endl;
           }
-          m_participant = eprosima::fastrtps::Domain::createParticipant("amm_participant");
+          m_participant = eprosima::fastrtps::Domain::createParticipant(profileName);
        } catch (std::exception &e) {
           std::cerr << e.what() << std::endl;
        }
@@ -4837,6 +4839,8 @@ namespace AMM {
         /// Name of this module.
         std::string m_moduleName;
 
+        std::string defaultProfile = "amm_participant";
+
         /// Default domain ID for AMM Modules.
         const int DOMAIN_ID = 15;
 
@@ -4855,7 +4859,7 @@ namespace AMM {
     public:
         /// Default constructor taking in a module name defined by the user.
         /// @param moduleName String name of this module.
-        DDSManager(std::string configFile);
+        DDSManager(std::string configFile, std::string profileName = std::string());
 
         /// Default deconstructor.
         ~DDSManager() {};
@@ -6548,16 +6552,16 @@ namespace AMM {
     }; // class DDSManager <>
 
 
-    inline DDSManager<void>::DDSManager(std::string configFile) {
+    inline DDSManager<void>::DDSManager(std::string configFile, std::string profileName) {
+        if (profileName.empty()) {
+            profileName = defaultProfile;
+        }
 
-       /*eprosima::fastrtps::ParticipantAttributes pa;
-   pa.rtps.builtin.domainId = (uint32_t) DOMAIN_ID;
-   pa.rtps.setName(moduleName.c_str());*/
-       try {
-          if (!eprosima::fastrtps::Domain::loadXMLProfilesFile(configFile)) {
-             std::cout << "Unable to load XML file to create FastRTPS domain participant." << std::endl;
-          }
-          m_participant = eprosima::fastrtps::Domain::createParticipant("amm_participant");
+        try {
+            if (!eprosima::fastrtps::Domain::loadXMLProfilesFile(configFile)) {
+                std::cout << "Unable to load XML file to create FastRTPS domain participant." << std::endl;
+            }
+            m_participant = eprosima::fastrtps::Domain::createParticipant(profileName);
        } catch (std::exception &e) {
           std::cerr << e.what() << std::endl;
        }
