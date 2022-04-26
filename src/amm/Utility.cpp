@@ -157,7 +157,7 @@ namespace AMM {
    std::string Utility::EEventAgentTypeStr (int value) {
       switch (value) {
          case 0:
-            return "Leaner";
+            return "Learner";
          case 1:
             return "Instructor";
          case 2:

@@ -5,6 +5,10 @@
 cmake_minimum_required (VERSION 3.5.1)
 
 project ("AMM_Standard_Library")
+set(VERSION_TYPE "beta" CACHE STRING "version type" FORCE)
+set(PROJECT_VERSION_MAJOR, 1)
+set(PROJECT_VERSION_MINOR, 1)
+set(PROJECT_VERSION_PATCH@, 3)
 
 include(CMakePrintHelpers)
 
