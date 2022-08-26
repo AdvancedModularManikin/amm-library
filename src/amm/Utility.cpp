@@ -144,7 +144,7 @@ namespace AMM {
          case 0:
             return "Omission Error";
          case 1:
-            return "Comission Error";
+            return "Commission Error";
          case 2:
             return "Execution Error";
          case 3:
