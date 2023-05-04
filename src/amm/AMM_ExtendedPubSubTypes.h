@@ -47,7 +47,7 @@ namespace AMM
 
         eProsima_user_DllExport TickPubSubType();
 
-        eProsima_user_DllExport virtual ~TickPubSubType();
+        eProsima_user_DllExport virtual ~TickPubSubType() override;
 
         eProsima_user_DllExport virtual bool serialize(
                 void* data,
@@ -111,7 +111,7 @@ namespace AMM
 
         eProsima_user_DllExport InstrumentDataPubSubType();
 
-        eProsima_user_DllExport virtual ~InstrumentDataPubSubType();
+        eProsima_user_DllExport virtual ~InstrumentDataPubSubType() override;
 
         eProsima_user_DllExport virtual bool serialize(
                 void* data,
@@ -175,7 +175,7 @@ namespace AMM
 
         eProsima_user_DllExport CommandPubSubType();
 
-        eProsima_user_DllExport virtual ~CommandPubSubType();
+        eProsima_user_DllExport virtual ~CommandPubSubType() override;
 
         eProsima_user_DllExport virtual bool serialize(
                 void* data,

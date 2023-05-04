@@ -34,11 +34,18 @@ using namespace eprosima::fastcdr::exception;
 
 #include <utility>
 
+#define AMM_Tick_max_cdr_typesize 12ULL;
+#define AMM_InstrumentData_max_cdr_typesize 4361ULL;
+#define AMM_Command_max_cdr_typesize 260ULL;
+#define AMM_Tick_max_key_cdr_typesize 0ULL;
+#define AMM_InstrumentData_max_key_cdr_typesize 0ULL;
+#define AMM_Command_max_key_cdr_typesize 0ULL;
+
 AMM::Tick::Tick()
 {
-    // m_frame com.eprosima.idl.parser.typecode.PrimitiveTypeCode@32eebfca
+    // long long m_frame
     m_frame = 0;
-    // m_time com.eprosima.idl.parser.typecode.PrimitiveTypeCode@543c6f6d
+    // float m_time
     m_time = 0.0;
 
 }
@@ -57,7 +64,7 @@ AMM::Tick::Tick(
 }
 
 AMM::Tick::Tick(
-        Tick&& x)
+        Tick&& x) noexcept 
 {
     m_frame = x.m_frame;
     m_time = x.m_time;
@@ -74,7 +81,7 @@ AMM::Tick& AMM::Tick::operator =(
 }
 
 AMM::Tick& AMM::Tick::operator =(
-        Tick&& x)
+        Tick&& x) noexcept
 {
 
     m_frame = x.m_frame;
@@ -99,17 +106,8 @@ bool AMM::Tick::operator !=(
 size_t AMM::Tick::getMaxCdrSerializedSize(
         size_t current_alignment)
 {
-    size_t initial_alignment = current_alignment;
-
-
-    current_alignment += 8 + eprosima::fastcdr::Cdr::alignment(current_alignment, 8);
-
-
-    current_alignment += 4 + eprosima::fastcdr::Cdr::alignment(current_alignment, 4);
-
-
-
-    return current_alignment - initial_alignment;
+    static_cast<void>(current_alignment);
+    return AMM_Tick_max_cdr_typesize;
 }
 
 size_t AMM::Tick::getCdrSerializedSize(
@@ -204,16 +202,12 @@ float& AMM::Tick::time()
 }
 
 
+
 size_t AMM::Tick::getKeyMaxCdrSerializedSize(
         size_t current_alignment)
 {
-    size_t current_align = current_alignment;
-
-
-
-
-
-    return current_align;
+    static_cast<void>(current_alignment);
+    return AMM_Tick_max_key_cdr_typesize;
 }
 
 bool AMM::Tick::isKeyDefined()
@@ -225,14 +219,13 @@ void AMM::Tick::serializeKey(
         eprosima::fastcdr::Cdr& scdr) const
 {
     (void) scdr;
-      
 }
 
 AMM::InstrumentData::InstrumentData()
 {
-    // m_instrument com.eprosima.idl.parser.typecode.StringTypeCode@64485a47
+    // string m_instrument
     m_instrument ="";
-    // m_payload com.eprosima.idl.parser.typecode.StringTypeCode@25bbf683
+    // string m_payload
     m_payload ="";
 
 }
@@ -251,7 +244,7 @@ AMM::InstrumentData::InstrumentData(
 }
 
 AMM::InstrumentData::InstrumentData(
-        InstrumentData&& x)
+        InstrumentData&& x) noexcept 
 {
     m_instrument = std::move(x.m_instrument);
     m_payload = std::move(x.m_payload);
@@ -268,7 +261,7 @@ AMM::InstrumentData& AMM::InstrumentData::operator =(
 }
 
 AMM::InstrumentData& AMM::InstrumentData::operator =(
-        InstrumentData&& x)
+        InstrumentData&& x) noexcept
 {
 
     m_instrument = std::move(x.m_instrument);
@@ -293,15 +286,8 @@ bool AMM::InstrumentData::operator !=(
 size_t AMM::InstrumentData::getMaxCdrSerializedSize(
         size_t current_alignment)
 {
-    size_t initial_alignment = current_alignment;
-
-
-    current_alignment += 4 + eprosima::fastcdr::Cdr::alignment(current_alignment, 4) + 255 + 1;
-
-    current_alignment += 4 + eprosima::fastcdr::Cdr::alignment(current_alignment, 4) + 4096 + 1;
-
-
-    return current_alignment - initial_alignment;
+    static_cast<void>(current_alignment);
+    return AMM_InstrumentData_max_cdr_typesize;
 }
 
 size_t AMM::InstrumentData::getCdrSerializedSize(
@@ -324,8 +310,8 @@ void AMM::InstrumentData::serialize(
         eprosima::fastcdr::Cdr& scdr) const
 {
 
-    scdr << m_instrument;
-    scdr << m_payload;
+    scdr << m_instrument.c_str();
+    scdr << m_payload.c_str();
 
 }
 
@@ -334,7 +320,11 @@ void AMM::InstrumentData::deserialize(
 {
 
     dcdr >> m_instrument;
-    dcdr >> m_payload;
+    {
+        std::string aux;
+        dcdr >> aux;
+        m_payload = aux.c_str();
+    }
 }
 
 /*!
@@ -379,7 +369,7 @@ std::string& AMM::InstrumentData::instrument()
  * @param _payload New value to be copied in member payload
  */
 void AMM::InstrumentData::payload(
-        const std::string& _payload)
+        const eprosima::fastrtps::fixed_string<4096>& _payload)
 {
     m_payload = _payload;
 }
@@ -389,7 +379,7 @@ void AMM::InstrumentData::payload(
  * @param _payload New value to be moved in member payload
  */
 void AMM::InstrumentData::payload(
-        std::string&& _payload)
+        eprosima::fastrtps::fixed_string<4096>&& _payload)
 {
     m_payload = std::move(_payload);
 }
@@ -398,7 +388,7 @@ void AMM::InstrumentData::payload(
  * @brief This function returns a constant reference to member payload
  * @return Constant reference to member payload
  */
-const std::string& AMM::InstrumentData::payload() const
+const eprosima::fastrtps::fixed_string<4096>& AMM::InstrumentData::payload() const
 {
     return m_payload;
 }
@@ -407,21 +397,17 @@ const std::string& AMM::InstrumentData::payload() const
  * @brief This function returns a reference to member payload
  * @return Reference to member payload
  */
-std::string& AMM::InstrumentData::payload()
+eprosima::fastrtps::fixed_string<4096>& AMM::InstrumentData::payload()
 {
     return m_payload;
 }
 
+
 size_t AMM::InstrumentData::getKeyMaxCdrSerializedSize(
         size_t current_alignment)
 {
-    size_t current_align = current_alignment;
-
-
-
-
-
-    return current_align;
+    static_cast<void>(current_alignment);
+    return AMM_InstrumentData_max_key_cdr_typesize;
 }
 
 bool AMM::InstrumentData::isKeyDefined()
@@ -433,12 +419,11 @@ void AMM::InstrumentData::serializeKey(
         eprosima::fastcdr::Cdr& scdr) const
 {
     (void) scdr;
-      
 }
 
 AMM::Command::Command()
 {
-    // m_message com.eprosima.idl.parser.typecode.StringTypeCode@401e7803
+    // string m_message
     m_message ="";
 
 }
@@ -454,7 +439,7 @@ AMM::Command::Command(
 }
 
 AMM::Command::Command(
-        Command&& x)
+        Command&& x) noexcept 
 {
     m_message = std::move(x.m_message);
 }
@@ -469,7 +454,7 @@ AMM::Command& AMM::Command::operator =(
 }
 
 AMM::Command& AMM::Command::operator =(
-        Command&& x)
+        Command&& x) noexcept
 {
 
     m_message = std::move(x.m_message);
@@ -493,12 +478,8 @@ bool AMM::Command::operator !=(
 size_t AMM::Command::getMaxCdrSerializedSize(
         size_t current_alignment)
 {
-    size_t initial_alignment = current_alignment;
-
-
-    current_alignment += 4 + eprosima::fastcdr::Cdr::alignment(current_alignment, 4) + 255 + 1;
-
-    return current_alignment - initial_alignment;
+    static_cast<void>(current_alignment);
+    return AMM_Command_max_cdr_typesize;
 }
 
 size_t AMM::Command::getCdrSerializedSize(
@@ -518,7 +499,7 @@ void AMM::Command::serialize(
         eprosima::fastcdr::Cdr& scdr) const
 {
 
-    scdr << m_message;
+    scdr << m_message.c_str();
 
 }
 
@@ -526,8 +507,7 @@ void AMM::Command::deserialize(
         eprosima::fastcdr::Cdr& dcdr)
 {
 
-    dcdr >> m_message;
-}
+    dcdr >> m_message;}
 
 /*!
  * @brief This function copies the value in member message
@@ -567,14 +547,12 @@ std::string& AMM::Command::message()
     return m_message;
 }
 
+
 size_t AMM::Command::getKeyMaxCdrSerializedSize(
         size_t current_alignment)
 {
-    size_t current_align = current_alignment;
-
-
-
-    return current_align;
+    static_cast<void>(current_alignment);
+    return AMM_Command_max_key_cdr_typesize;
 }
 
 bool AMM::Command::isKeyDefined()
@@ -586,6 +564,5 @@ void AMM::Command::serializeKey(
         eprosima::fastcdr::Cdr& scdr) const
 {
     (void) scdr;
-     
 }
 
