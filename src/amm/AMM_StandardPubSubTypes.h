@@ -47,7 +47,7 @@ namespace AMM
 
         eProsima_user_DllExport FMA_LocationPubSubType();
 
-        eProsima_user_DllExport virtual ~FMA_LocationPubSubType();
+        eProsima_user_DllExport virtual ~FMA_LocationPubSubType() override;
 
         eProsima_user_DllExport virtual bool serialize(
                 void* data,
@@ -111,7 +111,7 @@ namespace AMM
 
         eProsima_user_DllExport UUIDPubSubType();
 
-        eProsima_user_DllExport virtual ~UUIDPubSubType();
+        eProsima_user_DllExport virtual ~UUIDPubSubType() override;
 
         eProsima_user_DllExport virtual bool serialize(
                 void* data,
@@ -176,7 +176,7 @@ namespace AMM
 
         eProsima_user_DllExport AssessmentPubSubType();
 
-        eProsima_user_DllExport virtual ~AssessmentPubSubType();
+        eProsima_user_DllExport virtual ~AssessmentPubSubType() override;
 
         eProsima_user_DllExport virtual bool serialize(
                 void* data,
@@ -241,7 +241,7 @@ namespace AMM
 
         eProsima_user_DllExport EventFragmentPubSubType();
 
-        eProsima_user_DllExport virtual ~EventFragmentPubSubType();
+        eProsima_user_DllExport virtual ~EventFragmentPubSubType() override;
 
         eProsima_user_DllExport virtual bool serialize(
                 void* data,
@@ -305,7 +305,7 @@ namespace AMM
 
         eProsima_user_DllExport EventRecordPubSubType();
 
-        eProsima_user_DllExport virtual ~EventRecordPubSubType();
+        eProsima_user_DllExport virtual ~EventRecordPubSubType() override;
 
         eProsima_user_DllExport virtual bool serialize(
                 void* data,
@@ -370,7 +370,7 @@ namespace AMM
 
         eProsima_user_DllExport FragmentAmendmentRequestPubSubType();
 
-        eProsima_user_DllExport virtual ~FragmentAmendmentRequestPubSubType();
+        eProsima_user_DllExport virtual ~FragmentAmendmentRequestPubSubType() override;
 
         eProsima_user_DllExport virtual bool serialize(
                 void* data,
@@ -435,7 +435,7 @@ namespace AMM
 
         eProsima_user_DllExport LogPubSubType();
 
-        eProsima_user_DllExport virtual ~LogPubSubType();
+        eProsima_user_DllExport virtual ~LogPubSubType() override;
 
         eProsima_user_DllExport virtual bool serialize(
                 void* data,
@@ -499,7 +499,7 @@ namespace AMM
 
         eProsima_user_DllExport ModuleConfigurationPubSubType();
 
-        eProsima_user_DllExport virtual ~ModuleConfigurationPubSubType();
+        eProsima_user_DllExport virtual ~ModuleConfigurationPubSubType() override;
 
         eProsima_user_DllExport virtual bool serialize(
                 void* data,
@@ -563,7 +563,7 @@ namespace AMM
 
         eProsima_user_DllExport OmittedEventPubSubType();
 
-        eProsima_user_DllExport virtual ~OmittedEventPubSubType();
+        eProsima_user_DllExport virtual ~OmittedEventPubSubType() override;
 
         eProsima_user_DllExport virtual bool serialize(
                 void* data,
@@ -627,7 +627,7 @@ namespace AMM
 
         eProsima_user_DllExport Semantic_VersionPubSubType();
 
-        eProsima_user_DllExport virtual ~Semantic_VersionPubSubType();
+        eProsima_user_DllExport virtual ~Semantic_VersionPubSubType() override;
 
         eProsima_user_DllExport virtual bool serialize(
                 void* data,
@@ -691,7 +691,7 @@ namespace AMM
 
         eProsima_user_DllExport OperationalDescriptionPubSubType();
 
-        eProsima_user_DllExport virtual ~OperationalDescriptionPubSubType();
+        eProsima_user_DllExport virtual ~OperationalDescriptionPubSubType() override;
 
         eProsima_user_DllExport virtual bool serialize(
                 void* data,
@@ -755,7 +755,7 @@ namespace AMM
 
         eProsima_user_DllExport PhysiologyModificationPubSubType();
 
-        eProsima_user_DllExport virtual ~PhysiologyModificationPubSubType();
+        eProsima_user_DllExport virtual ~PhysiologyModificationPubSubType() override;
 
         eProsima_user_DllExport virtual bool serialize(
                 void* data,
@@ -819,7 +819,7 @@ namespace AMM
 
         eProsima_user_DllExport PhysiologyValuePubSubType();
 
-        eProsima_user_DllExport virtual ~PhysiologyValuePubSubType();
+        eProsima_user_DllExport virtual ~PhysiologyValuePubSubType() override;
 
         eProsima_user_DllExport virtual bool serialize(
                 void* data,
@@ -883,7 +883,7 @@ namespace AMM
 
         eProsima_user_DllExport PhysiologyWaveformPubSubType();
 
-        eProsima_user_DllExport virtual ~PhysiologyWaveformPubSubType();
+        eProsima_user_DllExport virtual ~PhysiologyWaveformPubSubType() override;
 
         eProsima_user_DllExport virtual bool serialize(
                 void* data,
@@ -947,7 +947,7 @@ namespace AMM
 
         eProsima_user_DllExport RenderModificationPubSubType();
 
-        eProsima_user_DllExport virtual ~RenderModificationPubSubType();
+        eProsima_user_DllExport virtual ~RenderModificationPubSubType() override;
 
         eProsima_user_DllExport virtual bool serialize(
                 void* data,
@@ -1012,7 +1012,7 @@ namespace AMM
 
         eProsima_user_DllExport SimulationControlPubSubType();
 
-        eProsima_user_DllExport virtual ~SimulationControlPubSubType();
+        eProsima_user_DllExport virtual ~SimulationControlPubSubType() override;
 
         eProsima_user_DllExport virtual bool serialize(
                 void* data,
@@ -1077,7 +1077,7 @@ namespace AMM
 
         eProsima_user_DllExport StatusPubSubType();
 
-        eProsima_user_DllExport virtual ~StatusPubSubType();
+        eProsima_user_DllExport virtual ~StatusPubSubType() override;
 
         eProsima_user_DllExport virtual bool serialize(
                 void* data,

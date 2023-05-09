@@ -34,11 +34,58 @@ using namespace eprosima::fastcdr::exception;
 
 #include <utility>
 
+#define AMM_EventRecord_max_cdr_typesize 5421ULL;
+#define AMM_FragmentAmendmentRequest_max_cdr_typesize 1052ULL;
+#define AMM_RenderModification_max_cdr_typesize 4881ULL;
+#define AMM_Semantic_Version_max_cdr_typesize 6ULL;
+
+
+#define AMM_Assessment_max_cdr_typesize 784ULL;
+#define AMM_ModuleConfiguration_max_cdr_typesize 12797ULL;
+#define AMM_Status_max_cdr_typesize 1312ULL;
+
+
+#define AMM_UUID_max_cdr_typesize 260ULL;
+#define AMM_PhysiologyValue_max_cdr_typesize 808ULL;
+
+#define AMM_PhysiologyModification_max_cdr_typesize 4881ULL;
+#define AMM_PhysiologyWaveform_max_cdr_typesize 808ULL;
+#define AMM_OperationalDescription_max_cdr_typesize 14353ULL;
+#define AMM_OmittedEvent_max_cdr_typesize 5421ULL;
+#define AMM_FMA_Location_max_cdr_typesize 264ULL;
+#define AMM_EventFragment_max_cdr_typesize 5421ULL;
+#define AMM_SimulationControl_max_cdr_typesize 272ULL;
+
+#define AMM_Log_max_cdr_typesize 532ULL;
+#define AMM_EventRecord_max_key_cdr_typesize 0ULL;
+#define AMM_FragmentAmendmentRequest_max_key_cdr_typesize 0ULL;
+#define AMM_RenderModification_max_key_cdr_typesize 0ULL;
+#define AMM_Semantic_Version_max_key_cdr_typesize 0ULL;
+
+
+#define AMM_Assessment_max_key_cdr_typesize 0ULL;
+#define AMM_ModuleConfiguration_max_key_cdr_typesize 0ULL;
+#define AMM_Status_max_key_cdr_typesize 0ULL;
+
+
+#define AMM_UUID_max_key_cdr_typesize 0ULL;
+#define AMM_PhysiologyValue_max_key_cdr_typesize 0ULL;
+
+#define AMM_PhysiologyModification_max_key_cdr_typesize 0ULL;
+#define AMM_PhysiologyWaveform_max_key_cdr_typesize 0ULL;
+#define AMM_OperationalDescription_max_key_cdr_typesize 0ULL;
+#define AMM_OmittedEvent_max_key_cdr_typesize 0ULL;
+#define AMM_FMA_Location_max_key_cdr_typesize 0ULL;
+#define AMM_EventFragment_max_key_cdr_typesize 0ULL;
+#define AMM_SimulationControl_max_key_cdr_typesize 0ULL;
+
+#define AMM_Log_max_key_cdr_typesize 0ULL;
+
 AMM::FMA_Location::FMA_Location()
 {
-    // m_FMAID com.eprosima.idl.parser.typecode.PrimitiveTypeCode@7403c468
+    // long m_FMAID
     m_FMAID = 0;
-    // m_name com.eprosima.idl.parser.typecode.StringTypeCode@1fc2b765
+    // string m_name
     m_name ="";
 
 }
@@ -57,7 +104,7 @@ AMM::FMA_Location::FMA_Location(
 }
 
 AMM::FMA_Location::FMA_Location(
-        FMA_Location&& x)
+        FMA_Location&& x) noexcept 
 {
     m_FMAID = x.m_FMAID;
     m_name = std::move(x.m_name);
@@ -74,7 +121,7 @@ AMM::FMA_Location& AMM::FMA_Location::operator =(
 }
 
 AMM::FMA_Location& AMM::FMA_Location::operator =(
-        FMA_Location&& x)
+        FMA_Location&& x) noexcept
 {
 
     m_FMAID = x.m_FMAID;
@@ -99,16 +146,8 @@ bool AMM::FMA_Location::operator !=(
 size_t AMM::FMA_Location::getMaxCdrSerializedSize(
         size_t current_alignment)
 {
-    size_t initial_alignment = current_alignment;
-
-
-    current_alignment += 4 + eprosima::fastcdr::Cdr::alignment(current_alignment, 4);
-
-
-    current_alignment += 4 + eprosima::fastcdr::Cdr::alignment(current_alignment, 4) + 255 + 1;
-
-
-    return current_alignment - initial_alignment;
+    static_cast<void>(current_alignment);
+    return AMM_FMA_Location_max_cdr_typesize;
 }
 
 size_t AMM::FMA_Location::getCdrSerializedSize(
@@ -133,7 +172,7 @@ void AMM::FMA_Location::serialize(
 {
 
     scdr << m_FMAID;
-    scdr << m_name;
+    scdr << m_name.c_str();
 
 }
 
@@ -211,16 +250,12 @@ std::string& AMM::FMA_Location::name()
     return m_name;
 }
 
+
 size_t AMM::FMA_Location::getKeyMaxCdrSerializedSize(
         size_t current_alignment)
 {
-    size_t current_align = current_alignment;
-
-
-
-
-
-    return current_align;
+    static_cast<void>(current_alignment);
+    return AMM_FMA_Location_max_key_cdr_typesize;
 }
 
 bool AMM::FMA_Location::isKeyDefined()
@@ -232,12 +267,11 @@ void AMM::FMA_Location::serializeKey(
         eprosima::fastcdr::Cdr& scdr) const
 {
     (void) scdr;
-      
 }
 
 AMM::UUID::UUID()
 {
-    // m_id com.eprosima.idl.parser.typecode.StringTypeCode@396e2f39
+    // string m_id
     m_id ="";
 
 }
@@ -253,7 +287,7 @@ AMM::UUID::UUID(
 }
 
 AMM::UUID::UUID(
-        UUID&& x)
+        UUID&& x) noexcept 
 {
     m_id = std::move(x.m_id);
 }
@@ -268,7 +302,7 @@ AMM::UUID& AMM::UUID::operator =(
 }
 
 AMM::UUID& AMM::UUID::operator =(
-        UUID&& x)
+        UUID&& x) noexcept
 {
 
     m_id = std::move(x.m_id);
@@ -292,12 +326,8 @@ bool AMM::UUID::operator !=(
 size_t AMM::UUID::getMaxCdrSerializedSize(
         size_t current_alignment)
 {
-    size_t initial_alignment = current_alignment;
-
-
-    current_alignment += 4 + eprosima::fastcdr::Cdr::alignment(current_alignment, 4) + 255 + 1;
-
-    return current_alignment - initial_alignment;
+    static_cast<void>(current_alignment);
+    return AMM_UUID_max_cdr_typesize;
 }
 
 size_t AMM::UUID::getCdrSerializedSize(
@@ -317,7 +347,7 @@ void AMM::UUID::serialize(
         eprosima::fastcdr::Cdr& scdr) const
 {
 
-    scdr << m_id;
+    scdr << m_id.c_str();
 
 }
 
@@ -325,8 +355,7 @@ void AMM::UUID::deserialize(
         eprosima::fastcdr::Cdr& dcdr)
 {
 
-    dcdr >> m_id;
-}
+    dcdr >> m_id;}
 
 /*!
  * @brief This function copies the value in member id
@@ -366,14 +395,12 @@ std::string& AMM::UUID::id()
     return m_id;
 }
 
+
 size_t AMM::UUID::getKeyMaxCdrSerializedSize(
         size_t current_alignment)
 {
-    size_t current_align = current_alignment;
-
-
-
-    return current_align;
+    static_cast<void>(current_alignment);
+    return AMM_UUID_max_key_cdr_typesize;
 }
 
 bool AMM::UUID::isKeyDefined()
@@ -385,19 +412,18 @@ void AMM::UUID::serializeKey(
         eprosima::fastcdr::Cdr& scdr) const
 {
     (void) scdr;
-     
 }
 
 
 AMM::Assessment::Assessment()
 {
-    // m_id com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@799d4f69
+    // AMM::UUID m_id
 
-    // m_event_id com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@799d4f69
+    // AMM::UUID m_event_id
 
-    // m_value com.eprosima.idl.parser.typecode.EnumTypeCode@49c43f4e
+    // AMM::AssessmentValue m_value
     m_value = AMM::OMISSION_ERROR;
-    // m_comment com.eprosima.idl.parser.typecode.StringTypeCode@290dbf45
+    // string m_comment
     m_comment ="";
 
 }
@@ -420,7 +446,7 @@ AMM::Assessment::Assessment(
 }
 
 AMM::Assessment::Assessment(
-        Assessment&& x)
+        Assessment&& x) noexcept 
 {
     m_id = std::move(x.m_id);
     m_event_id = std::move(x.m_event_id);
@@ -441,7 +467,7 @@ AMM::Assessment& AMM::Assessment::operator =(
 }
 
 AMM::Assessment& AMM::Assessment::operator =(
-        Assessment&& x)
+        Assessment&& x) noexcept
 {
 
     m_id = std::move(x.m_id);
@@ -468,18 +494,8 @@ bool AMM::Assessment::operator !=(
 size_t AMM::Assessment::getMaxCdrSerializedSize(
         size_t current_alignment)
 {
-    size_t initial_alignment = current_alignment;
-
-
-    current_alignment += AMM::UUID::getMaxCdrSerializedSize(current_alignment);
-    current_alignment += AMM::UUID::getMaxCdrSerializedSize(current_alignment);
-    current_alignment += 4 + eprosima::fastcdr::Cdr::alignment(current_alignment, 4);
-
-
-    current_alignment += 4 + eprosima::fastcdr::Cdr::alignment(current_alignment, 4) + 255 + 1;
-
-
-    return current_alignment - initial_alignment;
+    static_cast<void>(current_alignment);
+    return AMM_Assessment_max_cdr_typesize;
 }
 
 size_t AMM::Assessment::getCdrSerializedSize(
@@ -508,7 +524,7 @@ void AMM::Assessment::serialize(
     scdr << m_id;
     scdr << m_event_id;
     scdr << (uint32_t)m_value;
-    scdr << m_comment;
+    scdr << m_comment.c_str();
 
 }
 
@@ -667,18 +683,12 @@ std::string& AMM::Assessment::comment()
     return m_comment;
 }
 
+
 size_t AMM::Assessment::getKeyMaxCdrSerializedSize(
         size_t current_alignment)
 {
-    size_t current_align = current_alignment;
-
-
-
-
-
-
-
-    return current_align;
+    static_cast<void>(current_alignment);
+    return AMM_Assessment_max_key_cdr_typesize;
 }
 
 bool AMM::Assessment::isKeyDefined()
@@ -690,27 +700,26 @@ void AMM::Assessment::serializeKey(
         eprosima::fastcdr::Cdr& scdr) const
 {
     (void) scdr;
-        
 }
 
 
 AMM::EventFragment::EventFragment()
 {
-    // m_id com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@799d4f69
+    // AMM::UUID m_id
 
-    // m_timestamp com.eprosima.idl.parser.typecode.PrimitiveTypeCode@4ba2ca36
+    // unsigned long long m_timestamp
     m_timestamp = 0;
-    // m_educational_encounter com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@799d4f69
+    // AMM::UUID m_educational_encounter
 
-    // m_location com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@3444d69d
+    // AMM::FMA_Location m_location
 
-    // m_agent_type com.eprosima.idl.parser.typecode.EnumTypeCode@1372ed45
+    // AMM::EventAgentType m_agent_type
     m_agent_type = AMM::LEARNER;
-    // m_agent_id com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@799d4f69
+    // AMM::UUID m_agent_id
 
-    // m_type com.eprosima.idl.parser.typecode.StringTypeCode@25359ed8
+    // string m_type
     m_type ="";
-    // m_data com.eprosima.idl.parser.typecode.StringTypeCode@21a947fe
+    // string m_data
     m_data ="";
 
 }
@@ -741,7 +750,7 @@ AMM::EventFragment::EventFragment(
 }
 
 AMM::EventFragment::EventFragment(
-        EventFragment&& x)
+        EventFragment&& x) noexcept 
 {
     m_id = std::move(x.m_id);
     m_timestamp = x.m_timestamp;
@@ -770,7 +779,7 @@ AMM::EventFragment& AMM::EventFragment::operator =(
 }
 
 AMM::EventFragment& AMM::EventFragment::operator =(
-        EventFragment&& x)
+        EventFragment&& x) noexcept
 {
 
     m_id = std::move(x.m_id);
@@ -801,25 +810,8 @@ bool AMM::EventFragment::operator !=(
 size_t AMM::EventFragment::getMaxCdrSerializedSize(
         size_t current_alignment)
 {
-    size_t initial_alignment = current_alignment;
-
-
-    current_alignment += AMM::UUID::getMaxCdrSerializedSize(current_alignment);
-    current_alignment += 8 + eprosima::fastcdr::Cdr::alignment(current_alignment, 8);
-
-
-    current_alignment += AMM::UUID::getMaxCdrSerializedSize(current_alignment);
-    current_alignment += AMM::FMA_Location::getMaxCdrSerializedSize(current_alignment);
-    current_alignment += 4 + eprosima::fastcdr::Cdr::alignment(current_alignment, 4);
-
-
-    current_alignment += AMM::UUID::getMaxCdrSerializedSize(current_alignment);
-    current_alignment += 4 + eprosima::fastcdr::Cdr::alignment(current_alignment, 4) + 255 + 1;
-
-    current_alignment += 4 + eprosima::fastcdr::Cdr::alignment(current_alignment, 4) + 4096 + 1;
-
-
-    return current_alignment - initial_alignment;
+    static_cast<void>(current_alignment);
+    return AMM_EventFragment_max_cdr_typesize;
 }
 
 size_t AMM::EventFragment::getCdrSerializedSize(
@@ -858,8 +850,8 @@ void AMM::EventFragment::serialize(
     scdr << m_location;
     scdr << (uint32_t)m_agent_type;
     scdr << m_agent_id;
-    scdr << m_type;
-    scdr << m_data;
+    scdr << m_type.c_str();
+    scdr << m_data.c_str();
 
 }
 
@@ -879,7 +871,11 @@ void AMM::EventFragment::deserialize(
 
     dcdr >> m_agent_id;
     dcdr >> m_type;
-    dcdr >> m_data;
+    {
+        std::string aux;
+        dcdr >> aux;
+        m_data = aux.c_str();
+    }
 }
 
 /*!
@@ -1128,7 +1124,7 @@ std::string& AMM::EventFragment::type()
  * @param _data New value to be copied in member data
  */
 void AMM::EventFragment::data(
-        const std::string& _data)
+        const eprosima::fastrtps::fixed_string<4096>& _data)
 {
     m_data = _data;
 }
@@ -1138,7 +1134,7 @@ void AMM::EventFragment::data(
  * @param _data New value to be moved in member data
  */
 void AMM::EventFragment::data(
-        std::string&& _data)
+        eprosima::fastrtps::fixed_string<4096>&& _data)
 {
     m_data = std::move(_data);
 }
@@ -1147,7 +1143,7 @@ void AMM::EventFragment::data(
  * @brief This function returns a constant reference to member data
  * @return Constant reference to member data
  */
-const std::string& AMM::EventFragment::data() const
+const eprosima::fastrtps::fixed_string<4096>& AMM::EventFragment::data() const
 {
     return m_data;
 }
@@ -1156,27 +1152,17 @@ const std::string& AMM::EventFragment::data() const
  * @brief This function returns a reference to member data
  * @return Reference to member data
  */
-std::string& AMM::EventFragment::data()
+eprosima::fastrtps::fixed_string<4096>& AMM::EventFragment::data()
 {
     return m_data;
 }
 
+
 size_t AMM::EventFragment::getKeyMaxCdrSerializedSize(
         size_t current_alignment)
 {
-    size_t current_align = current_alignment;
-
-
-
-
-
-
-
-
-
-
-
-    return current_align;
+    static_cast<void>(current_alignment);
+    return AMM_EventFragment_max_key_cdr_typesize;
 }
 
 bool AMM::EventFragment::isKeyDefined()
@@ -1188,26 +1174,25 @@ void AMM::EventFragment::serializeKey(
         eprosima::fastcdr::Cdr& scdr) const
 {
     (void) scdr;
-            
 }
 
 AMM::EventRecord::EventRecord()
 {
-    // m_id com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@799d4f69
+    // AMM::UUID m_id
 
-    // m_timestamp com.eprosima.idl.parser.typecode.PrimitiveTypeCode@49e202ad
+    // unsigned long long m_timestamp
     m_timestamp = 0;
-    // m_educational_encounter com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@799d4f69
+    // AMM::UUID m_educational_encounter
 
-    // m_location com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@3444d69d
+    // AMM::FMA_Location m_location
 
-    // m_agent_type com.eprosima.idl.parser.typecode.EnumTypeCode@1372ed45
+    // AMM::EventAgentType m_agent_type
     m_agent_type = AMM::LEARNER;
-    // m_agent_id com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@799d4f69
+    // AMM::UUID m_agent_id
 
-    // m_type com.eprosima.idl.parser.typecode.StringTypeCode@6e38921c
+    // string m_type
     m_type ="";
-    // m_data com.eprosima.idl.parser.typecode.StringTypeCode@64d7f7e0
+    // string m_data
     m_data ="";
 
 }
@@ -1238,7 +1223,7 @@ AMM::EventRecord::EventRecord(
 }
 
 AMM::EventRecord::EventRecord(
-        EventRecord&& x)
+        EventRecord&& x) noexcept 
 {
     m_id = std::move(x.m_id);
     m_timestamp = x.m_timestamp;
@@ -1267,7 +1252,7 @@ AMM::EventRecord& AMM::EventRecord::operator =(
 }
 
 AMM::EventRecord& AMM::EventRecord::operator =(
-        EventRecord&& x)
+        EventRecord&& x) noexcept
 {
 
     m_id = std::move(x.m_id);
@@ -1298,25 +1283,8 @@ bool AMM::EventRecord::operator !=(
 size_t AMM::EventRecord::getMaxCdrSerializedSize(
         size_t current_alignment)
 {
-    size_t initial_alignment = current_alignment;
-
-
-    current_alignment += AMM::UUID::getMaxCdrSerializedSize(current_alignment);
-    current_alignment += 8 + eprosima::fastcdr::Cdr::alignment(current_alignment, 8);
-
-
-    current_alignment += AMM::UUID::getMaxCdrSerializedSize(current_alignment);
-    current_alignment += AMM::FMA_Location::getMaxCdrSerializedSize(current_alignment);
-    current_alignment += 4 + eprosima::fastcdr::Cdr::alignment(current_alignment, 4);
-
-
-    current_alignment += AMM::UUID::getMaxCdrSerializedSize(current_alignment);
-    current_alignment += 4 + eprosima::fastcdr::Cdr::alignment(current_alignment, 4) + 255 + 1;
-
-    current_alignment += 4 + eprosima::fastcdr::Cdr::alignment(current_alignment, 4) + 4096 + 1;
-
-
-    return current_alignment - initial_alignment;
+    static_cast<void>(current_alignment);
+    return AMM_EventRecord_max_cdr_typesize;
 }
 
 size_t AMM::EventRecord::getCdrSerializedSize(
@@ -1355,8 +1323,8 @@ void AMM::EventRecord::serialize(
     scdr << m_location;
     scdr << (uint32_t)m_agent_type;
     scdr << m_agent_id;
-    scdr << m_type;
-    scdr << m_data;
+    scdr << m_type.c_str();
+    scdr << m_data.c_str();
 
 }
 
@@ -1376,7 +1344,11 @@ void AMM::EventRecord::deserialize(
 
     dcdr >> m_agent_id;
     dcdr >> m_type;
-    dcdr >> m_data;
+    {
+        std::string aux;
+        dcdr >> aux;
+        m_data = aux.c_str();
+    }
 }
 
 /*!
@@ -1625,7 +1597,7 @@ std::string& AMM::EventRecord::type()
  * @param _data New value to be copied in member data
  */
 void AMM::EventRecord::data(
-        const std::string& _data)
+        const eprosima::fastrtps::fixed_string<4096>& _data)
 {
     m_data = _data;
 }
@@ -1635,7 +1607,7 @@ void AMM::EventRecord::data(
  * @param _data New value to be moved in member data
  */
 void AMM::EventRecord::data(
-        std::string&& _data)
+        eprosima::fastrtps::fixed_string<4096>&& _data)
 {
     m_data = std::move(_data);
 }
@@ -1644,7 +1616,7 @@ void AMM::EventRecord::data(
  * @brief This function returns a constant reference to member data
  * @return Constant reference to member data
  */
-const std::string& AMM::EventRecord::data() const
+const eprosima::fastrtps::fixed_string<4096>& AMM::EventRecord::data() const
 {
     return m_data;
 }
@@ -1653,27 +1625,17 @@ const std::string& AMM::EventRecord::data() const
  * @brief This function returns a reference to member data
  * @return Reference to member data
  */
-std::string& AMM::EventRecord::data()
+eprosima::fastrtps::fixed_string<4096>& AMM::EventRecord::data()
 {
     return m_data;
 }
 
+
 size_t AMM::EventRecord::getKeyMaxCdrSerializedSize(
         size_t current_alignment)
 {
-    size_t current_align = current_alignment;
-
-
-
-
-
-
-
-
-
-
-
-    return current_align;
+    static_cast<void>(current_alignment);
+    return AMM_EventRecord_max_key_cdr_typesize;
 }
 
 bool AMM::EventRecord::isKeyDefined()
@@ -1685,23 +1647,22 @@ void AMM::EventRecord::serializeKey(
         eprosima::fastcdr::Cdr& scdr) const
 {
     (void) scdr;
-            
 }
 
 
 AMM::FragmentAmendmentRequest::FragmentAmendmentRequest()
 {
-    // m_id com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@799d4f69
+    // AMM::UUID m_id
 
-    // m_fragment_id com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@799d4f69
+    // AMM::UUID m_fragment_id
 
-    // m_status com.eprosima.idl.parser.typecode.EnumTypeCode@15d9bc04
+    // AMM::FAR_Status m_status
     m_status = AMM::REQUESTING;
-    // m_location com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@3444d69d
+    // AMM::FMA_Location m_location
 
-    // m_agent_type com.eprosima.idl.parser.typecode.EnumTypeCode@1372ed45
+    // AMM::EventAgentType m_agent_type
     m_agent_type = AMM::LEARNER;
-    // m_agent_id com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@799d4f69
+    // AMM::UUID m_agent_id
 
 
 }
@@ -1728,7 +1689,7 @@ AMM::FragmentAmendmentRequest::FragmentAmendmentRequest(
 }
 
 AMM::FragmentAmendmentRequest::FragmentAmendmentRequest(
-        FragmentAmendmentRequest&& x)
+        FragmentAmendmentRequest&& x) noexcept 
 {
     m_id = std::move(x.m_id);
     m_fragment_id = std::move(x.m_fragment_id);
@@ -1753,7 +1714,7 @@ AMM::FragmentAmendmentRequest& AMM::FragmentAmendmentRequest::operator =(
 }
 
 AMM::FragmentAmendmentRequest& AMM::FragmentAmendmentRequest::operator =(
-        FragmentAmendmentRequest&& x)
+        FragmentAmendmentRequest&& x) noexcept
 {
 
     m_id = std::move(x.m_id);
@@ -1782,21 +1743,8 @@ bool AMM::FragmentAmendmentRequest::operator !=(
 size_t AMM::FragmentAmendmentRequest::getMaxCdrSerializedSize(
         size_t current_alignment)
 {
-    size_t initial_alignment = current_alignment;
-
-
-    current_alignment += AMM::UUID::getMaxCdrSerializedSize(current_alignment);
-    current_alignment += AMM::UUID::getMaxCdrSerializedSize(current_alignment);
-    current_alignment += 4 + eprosima::fastcdr::Cdr::alignment(current_alignment, 4);
-
-
-    current_alignment += AMM::FMA_Location::getMaxCdrSerializedSize(current_alignment);
-    current_alignment += 4 + eprosima::fastcdr::Cdr::alignment(current_alignment, 4);
-
-
-    current_alignment += AMM::UUID::getMaxCdrSerializedSize(current_alignment);
-
-    return current_alignment - initial_alignment;
+    static_cast<void>(current_alignment);
+    return AMM_FragmentAmendmentRequest_max_cdr_typesize;
 }
 
 size_t AMM::FragmentAmendmentRequest::getCdrSerializedSize(
@@ -2061,20 +2009,12 @@ AMM::UUID& AMM::FragmentAmendmentRequest::agent_id()
     return m_agent_id;
 }
 
+
 size_t AMM::FragmentAmendmentRequest::getKeyMaxCdrSerializedSize(
         size_t current_alignment)
 {
-    size_t current_align = current_alignment;
-
-
-
-
-
-
-
-
-
-    return current_align;
+    static_cast<void>(current_alignment);
+    return AMM_FragmentAmendmentRequest_max_key_cdr_typesize;
 }
 
 bool AMM::FragmentAmendmentRequest::isKeyDefined()
@@ -2086,19 +2026,18 @@ void AMM::FragmentAmendmentRequest::serializeKey(
         eprosima::fastcdr::Cdr& scdr) const
 {
     (void) scdr;
-          
 }
 
 
 AMM::Log::Log()
 {
-    // m_timestamp com.eprosima.idl.parser.typecode.PrimitiveTypeCode@797badd3
+    // unsigned long long m_timestamp
     m_timestamp = 0;
-    // m_module_id com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@799d4f69
+    // AMM::UUID m_module_id
 
-    // m_level com.eprosima.idl.parser.typecode.EnumTypeCode@221af3c0
+    // AMM::LogLevel m_level
     m_level = AMM::L_FATAL;
-    // m_message com.eprosima.idl.parser.typecode.StringTypeCode@62bd765
+    // string m_message
     m_message ="";
 
 }
@@ -2121,7 +2060,7 @@ AMM::Log::Log(
 }
 
 AMM::Log::Log(
-        Log&& x)
+        Log&& x) noexcept 
 {
     m_timestamp = x.m_timestamp;
     m_module_id = std::move(x.m_module_id);
@@ -2142,7 +2081,7 @@ AMM::Log& AMM::Log::operator =(
 }
 
 AMM::Log& AMM::Log::operator =(
-        Log&& x)
+        Log&& x) noexcept
 {
 
     m_timestamp = x.m_timestamp;
@@ -2169,20 +2108,8 @@ bool AMM::Log::operator !=(
 size_t AMM::Log::getMaxCdrSerializedSize(
         size_t current_alignment)
 {
-    size_t initial_alignment = current_alignment;
-
-
-    current_alignment += 8 + eprosima::fastcdr::Cdr::alignment(current_alignment, 8);
-
-
-    current_alignment += AMM::UUID::getMaxCdrSerializedSize(current_alignment);
-    current_alignment += 4 + eprosima::fastcdr::Cdr::alignment(current_alignment, 4);
-
-
-    current_alignment += 4 + eprosima::fastcdr::Cdr::alignment(current_alignment, 4) + 255 + 1;
-
-
-    return current_alignment - initial_alignment;
+    static_cast<void>(current_alignment);
+    return AMM_Log_max_cdr_typesize;
 }
 
 size_t AMM::Log::getCdrSerializedSize(
@@ -2213,7 +2140,7 @@ void AMM::Log::serialize(
     scdr << m_timestamp;
     scdr << m_module_id;
     scdr << (uint32_t)m_level;
-    scdr << m_message;
+    scdr << m_message.c_str();
 
 }
 
@@ -2363,18 +2290,12 @@ std::string& AMM::Log::message()
     return m_message;
 }
 
+
 size_t AMM::Log::getKeyMaxCdrSerializedSize(
         size_t current_alignment)
 {
-    size_t current_align = current_alignment;
-
-
-
-
-
-
-
-    return current_align;
+    static_cast<void>(current_alignment);
+    return AMM_Log_max_key_cdr_typesize;
 }
 
 bool AMM::Log::isKeyDefined()
@@ -2386,20 +2307,19 @@ void AMM::Log::serializeKey(
         eprosima::fastcdr::Cdr& scdr) const
 {
     (void) scdr;
-        
 }
 
 AMM::ModuleConfiguration::ModuleConfiguration()
 {
-    // m_name com.eprosima.idl.parser.typecode.StringTypeCode@7bc1a03d
+    // string m_name
     m_name ="";
-    // m_module_id com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@799d4f69
+    // AMM::UUID m_module_id
 
-    // m_educational_encounter com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@799d4f69
+    // AMM::UUID m_educational_encounter
 
-    // m_timestamp com.eprosima.idl.parser.typecode.PrimitiveTypeCode@7364985f
+    // unsigned long long m_timestamp
     m_timestamp = 0;
-    // m_capabilities_configuration com.eprosima.idl.parser.typecode.StringTypeCode@5d20e46
+    // string m_capabilities_configuration
     m_capabilities_configuration ="";
 
 }
@@ -2424,7 +2344,7 @@ AMM::ModuleConfiguration::ModuleConfiguration(
 }
 
 AMM::ModuleConfiguration::ModuleConfiguration(
-        ModuleConfiguration&& x)
+        ModuleConfiguration&& x) noexcept 
 {
     m_name = std::move(x.m_name);
     m_module_id = std::move(x.m_module_id);
@@ -2447,7 +2367,7 @@ AMM::ModuleConfiguration& AMM::ModuleConfiguration::operator =(
 }
 
 AMM::ModuleConfiguration& AMM::ModuleConfiguration::operator =(
-        ModuleConfiguration&& x)
+        ModuleConfiguration&& x) noexcept
 {
 
     m_name = std::move(x.m_name);
@@ -2475,20 +2395,8 @@ bool AMM::ModuleConfiguration::operator !=(
 size_t AMM::ModuleConfiguration::getMaxCdrSerializedSize(
         size_t current_alignment)
 {
-    size_t initial_alignment = current_alignment;
-
-
-    current_alignment += 4 + eprosima::fastcdr::Cdr::alignment(current_alignment, 4) + 255 + 1;
-
-    current_alignment += AMM::UUID::getMaxCdrSerializedSize(current_alignment);
-    current_alignment += AMM::UUID::getMaxCdrSerializedSize(current_alignment);
-    current_alignment += 8 + eprosima::fastcdr::Cdr::alignment(current_alignment, 8);
-
-
-    current_alignment += 4 + eprosima::fastcdr::Cdr::alignment(current_alignment, 4) + 12000 + 1;
-
-
-    return current_alignment - initial_alignment;
+    static_cast<void>(current_alignment);
+    return AMM_ModuleConfiguration_max_cdr_typesize;
 }
 
 size_t AMM::ModuleConfiguration::getCdrSerializedSize(
@@ -2516,11 +2424,11 @@ void AMM::ModuleConfiguration::serialize(
         eprosima::fastcdr::Cdr& scdr) const
 {
 
-    scdr << m_name;
+    scdr << m_name.c_str();
     scdr << m_module_id;
     scdr << m_educational_encounter;
     scdr << m_timestamp;
-    scdr << m_capabilities_configuration;
+    scdr << m_capabilities_configuration.c_str();
 
 }
 
@@ -2532,7 +2440,11 @@ void AMM::ModuleConfiguration::deserialize(
     dcdr >> m_module_id;
     dcdr >> m_educational_encounter;
     dcdr >> m_timestamp;
-    dcdr >> m_capabilities_configuration;
+    {
+        std::string aux;
+        dcdr >> aux;
+        m_capabilities_configuration = aux.c_str();
+    }
 }
 
 /*!
@@ -2679,7 +2591,7 @@ uint64_t& AMM::ModuleConfiguration::timestamp()
  * @param _capabilities_configuration New value to be copied in member capabilities_configuration
  */
 void AMM::ModuleConfiguration::capabilities_configuration(
-        const std::string& _capabilities_configuration)
+        const eprosima::fastrtps::fixed_string<12000>& _capabilities_configuration)
 {
     m_capabilities_configuration = _capabilities_configuration;
 }
@@ -2689,7 +2601,7 @@ void AMM::ModuleConfiguration::capabilities_configuration(
  * @param _capabilities_configuration New value to be moved in member capabilities_configuration
  */
 void AMM::ModuleConfiguration::capabilities_configuration(
-        std::string&& _capabilities_configuration)
+        eprosima::fastrtps::fixed_string<12000>&& _capabilities_configuration)
 {
     m_capabilities_configuration = std::move(_capabilities_configuration);
 }
@@ -2698,7 +2610,7 @@ void AMM::ModuleConfiguration::capabilities_configuration(
  * @brief This function returns a constant reference to member capabilities_configuration
  * @return Constant reference to member capabilities_configuration
  */
-const std::string& AMM::ModuleConfiguration::capabilities_configuration() const
+const eprosima::fastrtps::fixed_string<12000>& AMM::ModuleConfiguration::capabilities_configuration() const
 {
     return m_capabilities_configuration;
 }
@@ -2707,24 +2619,17 @@ const std::string& AMM::ModuleConfiguration::capabilities_configuration() const
  * @brief This function returns a reference to member capabilities_configuration
  * @return Reference to member capabilities_configuration
  */
-std::string& AMM::ModuleConfiguration::capabilities_configuration()
+eprosima::fastrtps::fixed_string<12000>& AMM::ModuleConfiguration::capabilities_configuration()
 {
     return m_capabilities_configuration;
 }
 
+
 size_t AMM::ModuleConfiguration::getKeyMaxCdrSerializedSize(
         size_t current_alignment)
 {
-    size_t current_align = current_alignment;
-
-
-
-
-
-
-
-
-    return current_align;
+    static_cast<void>(current_alignment);
+    return AMM_ModuleConfiguration_max_key_cdr_typesize;
 }
 
 bool AMM::ModuleConfiguration::isKeyDefined()
@@ -2736,26 +2641,25 @@ void AMM::ModuleConfiguration::serializeKey(
         eprosima::fastcdr::Cdr& scdr) const
 {
     (void) scdr;
-         
 }
 
 AMM::OmittedEvent::OmittedEvent()
 {
-    // m_id com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@799d4f69
+    // AMM::UUID m_id
 
-    // m_timestamp com.eprosima.idl.parser.typecode.PrimitiveTypeCode@525b461a
+    // unsigned long long m_timestamp
     m_timestamp = 0;
-    // m_educational_encounter com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@799d4f69
+    // AMM::UUID m_educational_encounter
 
-    // m_location com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@3444d69d
+    // AMM::FMA_Location m_location
 
-    // m_agent_type com.eprosima.idl.parser.typecode.EnumTypeCode@1372ed45
+    // AMM::EventAgentType m_agent_type
     m_agent_type = AMM::LEARNER;
-    // m_agent_id com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@799d4f69
+    // AMM::UUID m_agent_id
 
-    // m_type com.eprosima.idl.parser.typecode.StringTypeCode@58c1c010
+    // string m_type
     m_type ="";
-    // m_data com.eprosima.idl.parser.typecode.StringTypeCode@b7f23d9
+    // string m_data
     m_data ="";
 
 }
@@ -2786,7 +2690,7 @@ AMM::OmittedEvent::OmittedEvent(
 }
 
 AMM::OmittedEvent::OmittedEvent(
-        OmittedEvent&& x)
+        OmittedEvent&& x) noexcept 
 {
     m_id = std::move(x.m_id);
     m_timestamp = x.m_timestamp;
@@ -2815,7 +2719,7 @@ AMM::OmittedEvent& AMM::OmittedEvent::operator =(
 }
 
 AMM::OmittedEvent& AMM::OmittedEvent::operator =(
-        OmittedEvent&& x)
+        OmittedEvent&& x) noexcept
 {
 
     m_id = std::move(x.m_id);
@@ -2846,25 +2750,8 @@ bool AMM::OmittedEvent::operator !=(
 size_t AMM::OmittedEvent::getMaxCdrSerializedSize(
         size_t current_alignment)
 {
-    size_t initial_alignment = current_alignment;
-
-
-    current_alignment += AMM::UUID::getMaxCdrSerializedSize(current_alignment);
-    current_alignment += 8 + eprosima::fastcdr::Cdr::alignment(current_alignment, 8);
-
-
-    current_alignment += AMM::UUID::getMaxCdrSerializedSize(current_alignment);
-    current_alignment += AMM::FMA_Location::getMaxCdrSerializedSize(current_alignment);
-    current_alignment += 4 + eprosima::fastcdr::Cdr::alignment(current_alignment, 4);
-
-
-    current_alignment += AMM::UUID::getMaxCdrSerializedSize(current_alignment);
-    current_alignment += 4 + eprosima::fastcdr::Cdr::alignment(current_alignment, 4) + 255 + 1;
-
-    current_alignment += 4 + eprosima::fastcdr::Cdr::alignment(current_alignment, 4) + 4096 + 1;
-
-
-    return current_alignment - initial_alignment;
+    static_cast<void>(current_alignment);
+    return AMM_OmittedEvent_max_cdr_typesize;
 }
 
 size_t AMM::OmittedEvent::getCdrSerializedSize(
@@ -2903,8 +2790,8 @@ void AMM::OmittedEvent::serialize(
     scdr << m_location;
     scdr << (uint32_t)m_agent_type;
     scdr << m_agent_id;
-    scdr << m_type;
-    scdr << m_data;
+    scdr << m_type.c_str();
+    scdr << m_data.c_str();
 
 }
 
@@ -2924,7 +2811,11 @@ void AMM::OmittedEvent::deserialize(
 
     dcdr >> m_agent_id;
     dcdr >> m_type;
-    dcdr >> m_data;
+    {
+        std::string aux;
+        dcdr >> aux;
+        m_data = aux.c_str();
+    }
 }
 
 /*!
@@ -3173,7 +3064,7 @@ std::string& AMM::OmittedEvent::type()
  * @param _data New value to be copied in member data
  */
 void AMM::OmittedEvent::data(
-        const std::string& _data)
+        const eprosima::fastrtps::fixed_string<4096>& _data)
 {
     m_data = _data;
 }
@@ -3183,7 +3074,7 @@ void AMM::OmittedEvent::data(
  * @param _data New value to be moved in member data
  */
 void AMM::OmittedEvent::data(
-        std::string&& _data)
+        eprosima::fastrtps::fixed_string<4096>&& _data)
 {
     m_data = std::move(_data);
 }
@@ -3192,7 +3083,7 @@ void AMM::OmittedEvent::data(
  * @brief This function returns a constant reference to member data
  * @return Constant reference to member data
  */
-const std::string& AMM::OmittedEvent::data() const
+const eprosima::fastrtps::fixed_string<4096>& AMM::OmittedEvent::data() const
 {
     return m_data;
 }
@@ -3201,27 +3092,17 @@ const std::string& AMM::OmittedEvent::data() const
  * @brief This function returns a reference to member data
  * @return Reference to member data
  */
-std::string& AMM::OmittedEvent::data()
+eprosima::fastrtps::fixed_string<4096>& AMM::OmittedEvent::data()
 {
     return m_data;
 }
 
+
 size_t AMM::OmittedEvent::getKeyMaxCdrSerializedSize(
         size_t current_alignment)
 {
-    size_t current_align = current_alignment;
-
-
-
-
-
-
-
-
-
-
-
-    return current_align;
+    static_cast<void>(current_alignment);
+    return AMM_OmittedEvent_max_key_cdr_typesize;
 }
 
 bool AMM::OmittedEvent::isKeyDefined()
@@ -3233,16 +3114,15 @@ void AMM::OmittedEvent::serializeKey(
         eprosima::fastcdr::Cdr& scdr) const
 {
     (void) scdr;
-            
 }
 
 AMM::Semantic_Version::Semantic_Version()
 {
-    // m_major com.eprosima.idl.parser.typecode.PrimitiveTypeCode@69b794e2
+    // unsigned short m_major
     m_major = 0;
-    // m_minor com.eprosima.idl.parser.typecode.PrimitiveTypeCode@3f200884
+    // unsigned short m_minor
     m_minor = 0;
-    // m_patch com.eprosima.idl.parser.typecode.PrimitiveTypeCode@4d339552
+    // unsigned short m_patch
     m_patch = 0;
 
 }
@@ -3263,7 +3143,7 @@ AMM::Semantic_Version::Semantic_Version(
 }
 
 AMM::Semantic_Version::Semantic_Version(
-        Semantic_Version&& x)
+        Semantic_Version&& x) noexcept 
 {
     m_major = x.m_major;
     m_minor = x.m_minor;
@@ -3282,7 +3162,7 @@ AMM::Semantic_Version& AMM::Semantic_Version::operator =(
 }
 
 AMM::Semantic_Version& AMM::Semantic_Version::operator =(
-        Semantic_Version&& x)
+        Semantic_Version&& x) noexcept
 {
 
     m_major = x.m_major;
@@ -3308,20 +3188,8 @@ bool AMM::Semantic_Version::operator !=(
 size_t AMM::Semantic_Version::getMaxCdrSerializedSize(
         size_t current_alignment)
 {
-    size_t initial_alignment = current_alignment;
-
-
-    current_alignment += 2 + eprosima::fastcdr::Cdr::alignment(current_alignment, 2);
-
-
-    current_alignment += 2 + eprosima::fastcdr::Cdr::alignment(current_alignment, 2);
-
-
-    current_alignment += 2 + eprosima::fastcdr::Cdr::alignment(current_alignment, 2);
-
-
-
-    return current_alignment - initial_alignment;
+    static_cast<void>(current_alignment);
+    return AMM_Semantic_Version_max_cdr_typesize;
 }
 
 size_t AMM::Semantic_Version::getCdrSerializedSize(
@@ -3449,17 +3317,12 @@ uint16_t& AMM::Semantic_Version::patch()
 }
 
 
+
 size_t AMM::Semantic_Version::getKeyMaxCdrSerializedSize(
         size_t current_alignment)
 {
-    size_t current_align = current_alignment;
-
-
-
-
-
-
-    return current_align;
+    static_cast<void>(current_alignment);
+    return AMM_Semantic_Version_max_key_cdr_typesize;
 }
 
 bool AMM::Semantic_Version::isKeyDefined()
@@ -3471,32 +3334,31 @@ void AMM::Semantic_Version::serializeKey(
         eprosima::fastcdr::Cdr& scdr) const
 {
     (void) scdr;
-       
 }
 
 AMM::OperationalDescription::OperationalDescription()
 {
-    // m_name com.eprosima.idl.parser.typecode.StringTypeCode@351d0846
+    // string m_name
     m_name ="";
-    // m_description com.eprosima.idl.parser.typecode.StringTypeCode@77e4c80f
+    // string m_description
     m_description ="";
-    // m_manufacturer com.eprosima.idl.parser.typecode.StringTypeCode@35fc6dc4
+    // string m_manufacturer
     m_manufacturer ="";
-    // m_model com.eprosima.idl.parser.typecode.StringTypeCode@7fe8ea47
+    // string m_model
     m_model ="";
-    // m_serial_number com.eprosima.idl.parser.typecode.StringTypeCode@6b53e23f
+    // string m_serial_number
     m_serial_number ="";
-    // m_module_id com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@799d4f69
+    // AMM::UUID m_module_id
 
-    // m_module_version com.eprosima.idl.parser.typecode.StringTypeCode@64d2d351
+    // string m_module_version
     m_module_version ="";
-    // m_configuration_version com.eprosima.idl.parser.typecode.StringTypeCode@1b68b9a4
+    // string m_configuration_version
     m_configuration_version ="";
-    // m_AMM_version com.eprosima.idl.parser.typecode.StringTypeCode@4f9a3314
+    // string m_AMM_version
     m_AMM_version ="";
-    // m_ip_address com.eprosima.idl.parser.typecode.ArrayTypeCode@3b2c72c2
+    // octet m_ip_address
     memset(&m_ip_address, 0, (4) * 1);
-    // m_capabilities_schema com.eprosima.idl.parser.typecode.StringTypeCode@491666ad
+    // string m_capabilities_schema
     m_capabilities_schema ="";
 
 }
@@ -3533,7 +3395,7 @@ AMM::OperationalDescription::OperationalDescription(
 }
 
 AMM::OperationalDescription::OperationalDescription(
-        OperationalDescription&& x)
+        OperationalDescription&& x) noexcept 
 {
     m_name = std::move(x.m_name);
     m_description = std::move(x.m_description);
@@ -3568,7 +3430,7 @@ AMM::OperationalDescription& AMM::OperationalDescription::operator =(
 }
 
 AMM::OperationalDescription& AMM::OperationalDescription::operator =(
-        OperationalDescription&& x)
+        OperationalDescription&& x) noexcept
 {
 
     m_name = std::move(x.m_name);
@@ -3602,33 +3464,8 @@ bool AMM::OperationalDescription::operator !=(
 size_t AMM::OperationalDescription::getMaxCdrSerializedSize(
         size_t current_alignment)
 {
-    size_t initial_alignment = current_alignment;
-
-
-    current_alignment += 4 + eprosima::fastcdr::Cdr::alignment(current_alignment, 4) + 255 + 1;
-
-    current_alignment += 4 + eprosima::fastcdr::Cdr::alignment(current_alignment, 4) + 255 + 1;
-
-    current_alignment += 4 + eprosima::fastcdr::Cdr::alignment(current_alignment, 4) + 255 + 1;
-
-    current_alignment += 4 + eprosima::fastcdr::Cdr::alignment(current_alignment, 4) + 255 + 1;
-
-    current_alignment += 4 + eprosima::fastcdr::Cdr::alignment(current_alignment, 4) + 255 + 1;
-
-    current_alignment += AMM::UUID::getMaxCdrSerializedSize(current_alignment);
-    current_alignment += 4 + eprosima::fastcdr::Cdr::alignment(current_alignment, 4) + 255 + 1;
-
-    current_alignment += 4 + eprosima::fastcdr::Cdr::alignment(current_alignment, 4) + 255 + 1;
-
-    current_alignment += 4 + eprosima::fastcdr::Cdr::alignment(current_alignment, 4) + 255 + 1;
-
-    current_alignment += ((4) * 1) + eprosima::fastcdr::Cdr::alignment(current_alignment, 1);
-
-
-    current_alignment += 4 + eprosima::fastcdr::Cdr::alignment(current_alignment, 4) + 12000 + 1;
-
-
-    return current_alignment - initial_alignment;
+    static_cast<void>(current_alignment);
+    return AMM_OperationalDescription_max_cdr_typesize;
 }
 
 size_t AMM::OperationalDescription::getCdrSerializedSize(
@@ -3671,18 +3508,18 @@ void AMM::OperationalDescription::serialize(
         eprosima::fastcdr::Cdr& scdr) const
 {
 
-    scdr << m_name;
-    scdr << m_description;
-    scdr << m_manufacturer;
-    scdr << m_model;
-    scdr << m_serial_number;
+    scdr << m_name.c_str();
+    scdr << m_description.c_str();
+    scdr << m_manufacturer.c_str();
+    scdr << m_model.c_str();
+    scdr << m_serial_number.c_str();
     scdr << m_module_id;
-    scdr << m_module_version;
-    scdr << m_configuration_version;
-    scdr << m_AMM_version;
+    scdr << m_module_version.c_str();
+    scdr << m_configuration_version.c_str();
+    scdr << m_AMM_version.c_str();
     scdr << m_ip_address;
 
-    scdr << m_capabilities_schema;
+    scdr << m_capabilities_schema.c_str();
 
 }
 
@@ -3701,7 +3538,11 @@ void AMM::OperationalDescription::deserialize(
     dcdr >> m_AMM_version;
     dcdr >> m_ip_address;
 
-    dcdr >> m_capabilities_schema;
+    {
+        std::string aux;
+        dcdr >> aux;
+        m_capabilities_schema = aux.c_str();
+    }
 }
 
 /*!
@@ -4079,7 +3920,7 @@ std::array<uint8_t, 4>& AMM::OperationalDescription::ip_address()
  * @param _capabilities_schema New value to be copied in member capabilities_schema
  */
 void AMM::OperationalDescription::capabilities_schema(
-        const std::string& _capabilities_schema)
+        const eprosima::fastrtps::fixed_string<12000>& _capabilities_schema)
 {
     m_capabilities_schema = _capabilities_schema;
 }
@@ -4089,7 +3930,7 @@ void AMM::OperationalDescription::capabilities_schema(
  * @param _capabilities_schema New value to be moved in member capabilities_schema
  */
 void AMM::OperationalDescription::capabilities_schema(
-        std::string&& _capabilities_schema)
+        eprosima::fastrtps::fixed_string<12000>&& _capabilities_schema)
 {
     m_capabilities_schema = std::move(_capabilities_schema);
 }
@@ -4098,7 +3939,7 @@ void AMM::OperationalDescription::capabilities_schema(
  * @brief This function returns a constant reference to member capabilities_schema
  * @return Constant reference to member capabilities_schema
  */
-const std::string& AMM::OperationalDescription::capabilities_schema() const
+const eprosima::fastrtps::fixed_string<12000>& AMM::OperationalDescription::capabilities_schema() const
 {
     return m_capabilities_schema;
 }
@@ -4107,30 +3948,17 @@ const std::string& AMM::OperationalDescription::capabilities_schema() const
  * @brief This function returns a reference to member capabilities_schema
  * @return Reference to member capabilities_schema
  */
-std::string& AMM::OperationalDescription::capabilities_schema()
+eprosima::fastrtps::fixed_string<12000>& AMM::OperationalDescription::capabilities_schema()
 {
     return m_capabilities_schema;
 }
 
+
 size_t AMM::OperationalDescription::getKeyMaxCdrSerializedSize(
         size_t current_alignment)
 {
-    size_t current_align = current_alignment;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    return current_align;
+    static_cast<void>(current_alignment);
+    return AMM_OperationalDescription_max_key_cdr_typesize;
 }
 
 bool AMM::OperationalDescription::isKeyDefined()
@@ -4142,18 +3970,17 @@ void AMM::OperationalDescription::serializeKey(
         eprosima::fastcdr::Cdr& scdr) const
 {
     (void) scdr;
-               
 }
 
 AMM::PhysiologyModification::PhysiologyModification()
 {
-    // m_id com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@799d4f69
+    // AMM::UUID m_id
 
-    // m_event_id com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@799d4f69
+    // AMM::UUID m_event_id
 
-    // m_type com.eprosima.idl.parser.typecode.StringTypeCode@51b7e5df
+    // string m_type
     m_type ="";
-    // m_data com.eprosima.idl.parser.typecode.StringTypeCode@18a70f16
+    // string m_data
     m_data ="";
 
 }
@@ -4176,7 +4003,7 @@ AMM::PhysiologyModification::PhysiologyModification(
 }
 
 AMM::PhysiologyModification::PhysiologyModification(
-        PhysiologyModification&& x)
+        PhysiologyModification&& x) noexcept 
 {
     m_id = std::move(x.m_id);
     m_event_id = std::move(x.m_event_id);
@@ -4197,7 +4024,7 @@ AMM::PhysiologyModification& AMM::PhysiologyModification::operator =(
 }
 
 AMM::PhysiologyModification& AMM::PhysiologyModification::operator =(
-        PhysiologyModification&& x)
+        PhysiologyModification&& x) noexcept
 {
 
     m_id = std::move(x.m_id);
@@ -4224,17 +4051,8 @@ bool AMM::PhysiologyModification::operator !=(
 size_t AMM::PhysiologyModification::getMaxCdrSerializedSize(
         size_t current_alignment)
 {
-    size_t initial_alignment = current_alignment;
-
-
-    current_alignment += AMM::UUID::getMaxCdrSerializedSize(current_alignment);
-    current_alignment += AMM::UUID::getMaxCdrSerializedSize(current_alignment);
-    current_alignment += 4 + eprosima::fastcdr::Cdr::alignment(current_alignment, 4) + 255 + 1;
-
-    current_alignment += 4 + eprosima::fastcdr::Cdr::alignment(current_alignment, 4) + 4096 + 1;
-
-
-    return current_alignment - initial_alignment;
+    static_cast<void>(current_alignment);
+    return AMM_PhysiologyModification_max_cdr_typesize;
 }
 
 size_t AMM::PhysiologyModification::getCdrSerializedSize(
@@ -4261,8 +4079,8 @@ void AMM::PhysiologyModification::serialize(
 
     scdr << m_id;
     scdr << m_event_id;
-    scdr << m_type;
-    scdr << m_data;
+    scdr << m_type.c_str();
+    scdr << m_data.c_str();
 
 }
 
@@ -4273,7 +4091,11 @@ void AMM::PhysiologyModification::deserialize(
     dcdr >> m_id;
     dcdr >> m_event_id;
     dcdr >> m_type;
-    dcdr >> m_data;
+    {
+        std::string aux;
+        dcdr >> aux;
+        m_data = aux.c_str();
+    }
 }
 
 /*!
@@ -4392,7 +4214,7 @@ std::string& AMM::PhysiologyModification::type()
  * @param _data New value to be copied in member data
  */
 void AMM::PhysiologyModification::data(
-        const std::string& _data)
+        const eprosima::fastrtps::fixed_string<4096>& _data)
 {
     m_data = _data;
 }
@@ -4402,7 +4224,7 @@ void AMM::PhysiologyModification::data(
  * @param _data New value to be moved in member data
  */
 void AMM::PhysiologyModification::data(
-        std::string&& _data)
+        eprosima::fastrtps::fixed_string<4096>&& _data)
 {
     m_data = std::move(_data);
 }
@@ -4411,7 +4233,7 @@ void AMM::PhysiologyModification::data(
  * @brief This function returns a constant reference to member data
  * @return Constant reference to member data
  */
-const std::string& AMM::PhysiologyModification::data() const
+const eprosima::fastrtps::fixed_string<4096>& AMM::PhysiologyModification::data() const
 {
     return m_data;
 }
@@ -4420,23 +4242,17 @@ const std::string& AMM::PhysiologyModification::data() const
  * @brief This function returns a reference to member data
  * @return Reference to member data
  */
-std::string& AMM::PhysiologyModification::data()
+eprosima::fastrtps::fixed_string<4096>& AMM::PhysiologyModification::data()
 {
     return m_data;
 }
 
+
 size_t AMM::PhysiologyModification::getKeyMaxCdrSerializedSize(
         size_t current_alignment)
 {
-    size_t current_align = current_alignment;
-
-
-
-
-
-
-
-    return current_align;
+    static_cast<void>(current_alignment);
+    return AMM_PhysiologyModification_max_key_cdr_typesize;
 }
 
 bool AMM::PhysiologyModification::isKeyDefined()
@@ -4448,22 +4264,21 @@ void AMM::PhysiologyModification::serializeKey(
         eprosima::fastcdr::Cdr& scdr) const
 {
     (void) scdr;
-        
 }
 
 AMM::PhysiologyValue::PhysiologyValue()
 {
-    // m_educational_encounter com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@799d4f69
+    // AMM::UUID m_educational_encounter
 
-    // m_simulation_time com.eprosima.idl.parser.typecode.PrimitiveTypeCode@6279cee3
+    // long long m_simulation_time
     m_simulation_time = 0;
-    // m_timestamp com.eprosima.idl.parser.typecode.PrimitiveTypeCode@4206a205
+    // unsigned long long m_timestamp
     m_timestamp = 0;
-    // m_name com.eprosima.idl.parser.typecode.StringTypeCode@29ba4338
+    // string m_name
     m_name ="";
-    // m_unit com.eprosima.idl.parser.typecode.StringTypeCode@57175e74
+    // string m_unit
     m_unit ="";
-    // m_value com.eprosima.idl.parser.typecode.PrimitiveTypeCode@7bb58ca3
+    // double m_value
     m_value = 0.0;
 
 }
@@ -4490,7 +4305,7 @@ AMM::PhysiologyValue::PhysiologyValue(
 }
 
 AMM::PhysiologyValue::PhysiologyValue(
-        PhysiologyValue&& x)
+        PhysiologyValue&& x) noexcept 
 {
     m_educational_encounter = std::move(x.m_educational_encounter);
     m_simulation_time = x.m_simulation_time;
@@ -4515,7 +4330,7 @@ AMM::PhysiologyValue& AMM::PhysiologyValue::operator =(
 }
 
 AMM::PhysiologyValue& AMM::PhysiologyValue::operator =(
-        PhysiologyValue&& x)
+        PhysiologyValue&& x) noexcept
 {
 
     m_educational_encounter = std::move(x.m_educational_encounter);
@@ -4544,25 +4359,8 @@ bool AMM::PhysiologyValue::operator !=(
 size_t AMM::PhysiologyValue::getMaxCdrSerializedSize(
         size_t current_alignment)
 {
-    size_t initial_alignment = current_alignment;
-
-
-    current_alignment += AMM::UUID::getMaxCdrSerializedSize(current_alignment);
-    current_alignment += 8 + eprosima::fastcdr::Cdr::alignment(current_alignment, 8);
-
-
-    current_alignment += 8 + eprosima::fastcdr::Cdr::alignment(current_alignment, 8);
-
-
-    current_alignment += 4 + eprosima::fastcdr::Cdr::alignment(current_alignment, 4) + 255 + 1;
-
-    current_alignment += 4 + eprosima::fastcdr::Cdr::alignment(current_alignment, 4) + 255 + 1;
-
-    current_alignment += 8 + eprosima::fastcdr::Cdr::alignment(current_alignment, 8);
-
-
-
-    return current_alignment - initial_alignment;
+    static_cast<void>(current_alignment);
+    return AMM_PhysiologyValue_max_cdr_typesize;
 }
 
 size_t AMM::PhysiologyValue::getCdrSerializedSize(
@@ -4598,8 +4396,8 @@ void AMM::PhysiologyValue::serialize(
     scdr << m_educational_encounter;
     scdr << m_simulation_time;
     scdr << m_timestamp;
-    scdr << m_name;
-    scdr << m_unit;
+    scdr << m_name.c_str();
+    scdr << m_unit.c_str();
     scdr << m_value;
 
 }
@@ -4812,20 +4610,12 @@ double& AMM::PhysiologyValue::value()
 }
 
 
+
 size_t AMM::PhysiologyValue::getKeyMaxCdrSerializedSize(
         size_t current_alignment)
 {
-    size_t current_align = current_alignment;
-
-
-
-
-
-
-
-
-
-    return current_align;
+    static_cast<void>(current_alignment);
+    return AMM_PhysiologyValue_max_key_cdr_typesize;
 }
 
 bool AMM::PhysiologyValue::isKeyDefined()
@@ -4837,22 +4627,21 @@ void AMM::PhysiologyValue::serializeKey(
         eprosima::fastcdr::Cdr& scdr) const
 {
     (void) scdr;
-          
 }
 
 AMM::PhysiologyWaveform::PhysiologyWaveform()
 {
-    // m_educational_encounter com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@799d4f69
+    // AMM::UUID m_educational_encounter
 
-    // m_simulation_time com.eprosima.idl.parser.typecode.PrimitiveTypeCode@c540f5a
+    // long long m_simulation_time
     m_simulation_time = 0;
-    // m_timestamp com.eprosima.idl.parser.typecode.PrimitiveTypeCode@770c2e6b
+    // unsigned long long m_timestamp
     m_timestamp = 0;
-    // m_name com.eprosima.idl.parser.typecode.StringTypeCode@1a052a00
+    // string m_name
     m_name ="";
-    // m_unit com.eprosima.idl.parser.typecode.StringTypeCode@4d826d77
+    // string m_unit
     m_unit ="";
-    // m_value com.eprosima.idl.parser.typecode.PrimitiveTypeCode@61009542
+    // double m_value
     m_value = 0.0;
 
 }
@@ -4879,7 +4668,7 @@ AMM::PhysiologyWaveform::PhysiologyWaveform(
 }
 
 AMM::PhysiologyWaveform::PhysiologyWaveform(
-        PhysiologyWaveform&& x)
+        PhysiologyWaveform&& x) noexcept 
 {
     m_educational_encounter = std::move(x.m_educational_encounter);
     m_simulation_time = x.m_simulation_time;
@@ -4904,7 +4693,7 @@ AMM::PhysiologyWaveform& AMM::PhysiologyWaveform::operator =(
 }
 
 AMM::PhysiologyWaveform& AMM::PhysiologyWaveform::operator =(
-        PhysiologyWaveform&& x)
+        PhysiologyWaveform&& x) noexcept
 {
 
     m_educational_encounter = std::move(x.m_educational_encounter);
@@ -4933,25 +4722,8 @@ bool AMM::PhysiologyWaveform::operator !=(
 size_t AMM::PhysiologyWaveform::getMaxCdrSerializedSize(
         size_t current_alignment)
 {
-    size_t initial_alignment = current_alignment;
-
-
-    current_alignment += AMM::UUID::getMaxCdrSerializedSize(current_alignment);
-    current_alignment += 8 + eprosima::fastcdr::Cdr::alignment(current_alignment, 8);
-
-
-    current_alignment += 8 + eprosima::fastcdr::Cdr::alignment(current_alignment, 8);
-
-
-    current_alignment += 4 + eprosima::fastcdr::Cdr::alignment(current_alignment, 4) + 255 + 1;
-
-    current_alignment += 4 + eprosima::fastcdr::Cdr::alignment(current_alignment, 4) + 255 + 1;
-
-    current_alignment += 8 + eprosima::fastcdr::Cdr::alignment(current_alignment, 8);
-
-
-
-    return current_alignment - initial_alignment;
+    static_cast<void>(current_alignment);
+    return AMM_PhysiologyWaveform_max_cdr_typesize;
 }
 
 size_t AMM::PhysiologyWaveform::getCdrSerializedSize(
@@ -4987,8 +4759,8 @@ void AMM::PhysiologyWaveform::serialize(
     scdr << m_educational_encounter;
     scdr << m_simulation_time;
     scdr << m_timestamp;
-    scdr << m_name;
-    scdr << m_unit;
+    scdr << m_name.c_str();
+    scdr << m_unit.c_str();
     scdr << m_value;
 
 }
@@ -5201,20 +4973,12 @@ double& AMM::PhysiologyWaveform::value()
 }
 
 
+
 size_t AMM::PhysiologyWaveform::getKeyMaxCdrSerializedSize(
         size_t current_alignment)
 {
-    size_t current_align = current_alignment;
-
-
-
-
-
-
-
-
-
-    return current_align;
+    static_cast<void>(current_alignment);
+    return AMM_PhysiologyWaveform_max_key_cdr_typesize;
 }
 
 bool AMM::PhysiologyWaveform::isKeyDefined()
@@ -5226,18 +4990,17 @@ void AMM::PhysiologyWaveform::serializeKey(
         eprosima::fastcdr::Cdr& scdr) const
 {
     (void) scdr;
-          
 }
 
 AMM::RenderModification::RenderModification()
 {
-    // m_id com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@799d4f69
+    // AMM::UUID m_id
 
-    // m_event_id com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@799d4f69
+    // AMM::UUID m_event_id
 
-    // m_type com.eprosima.idl.parser.typecode.StringTypeCode@77e9807f
+    // string m_type
     m_type ="";
-    // m_data com.eprosima.idl.parser.typecode.StringTypeCode@448ff1a8
+    // string m_data
     m_data ="";
 
 }
@@ -5260,7 +5023,7 @@ AMM::RenderModification::RenderModification(
 }
 
 AMM::RenderModification::RenderModification(
-        RenderModification&& x)
+        RenderModification&& x) noexcept 
 {
     m_id = std::move(x.m_id);
     m_event_id = std::move(x.m_event_id);
@@ -5281,7 +5044,7 @@ AMM::RenderModification& AMM::RenderModification::operator =(
 }
 
 AMM::RenderModification& AMM::RenderModification::operator =(
-        RenderModification&& x)
+        RenderModification&& x) noexcept
 {
 
     m_id = std::move(x.m_id);
@@ -5308,17 +5071,8 @@ bool AMM::RenderModification::operator !=(
 size_t AMM::RenderModification::getMaxCdrSerializedSize(
         size_t current_alignment)
 {
-    size_t initial_alignment = current_alignment;
-
-
-    current_alignment += AMM::UUID::getMaxCdrSerializedSize(current_alignment);
-    current_alignment += AMM::UUID::getMaxCdrSerializedSize(current_alignment);
-    current_alignment += 4 + eprosima::fastcdr::Cdr::alignment(current_alignment, 4) + 255 + 1;
-
-    current_alignment += 4 + eprosima::fastcdr::Cdr::alignment(current_alignment, 4) + 4096 + 1;
-
-
-    return current_alignment - initial_alignment;
+    static_cast<void>(current_alignment);
+    return AMM_RenderModification_max_cdr_typesize;
 }
 
 size_t AMM::RenderModification::getCdrSerializedSize(
@@ -5345,8 +5099,8 @@ void AMM::RenderModification::serialize(
 
     scdr << m_id;
     scdr << m_event_id;
-    scdr << m_type;
-    scdr << m_data;
+    scdr << m_type.c_str();
+    scdr << m_data.c_str();
 
 }
 
@@ -5357,7 +5111,11 @@ void AMM::RenderModification::deserialize(
     dcdr >> m_id;
     dcdr >> m_event_id;
     dcdr >> m_type;
-    dcdr >> m_data;
+    {
+        std::string aux;
+        dcdr >> aux;
+        m_data = aux.c_str();
+    }
 }
 
 /*!
@@ -5476,7 +5234,7 @@ std::string& AMM::RenderModification::type()
  * @param _data New value to be copied in member data
  */
 void AMM::RenderModification::data(
-        const std::string& _data)
+        const eprosima::fastrtps::fixed_string<4096>& _data)
 {
     m_data = _data;
 }
@@ -5486,7 +5244,7 @@ void AMM::RenderModification::data(
  * @param _data New value to be moved in member data
  */
 void AMM::RenderModification::data(
-        std::string&& _data)
+        eprosima::fastrtps::fixed_string<4096>&& _data)
 {
     m_data = std::move(_data);
 }
@@ -5495,7 +5253,7 @@ void AMM::RenderModification::data(
  * @brief This function returns a constant reference to member data
  * @return Constant reference to member data
  */
-const std::string& AMM::RenderModification::data() const
+const eprosima::fastrtps::fixed_string<4096>& AMM::RenderModification::data() const
 {
     return m_data;
 }
@@ -5504,23 +5262,17 @@ const std::string& AMM::RenderModification::data() const
  * @brief This function returns a reference to member data
  * @return Reference to member data
  */
-std::string& AMM::RenderModification::data()
+eprosima::fastrtps::fixed_string<4096>& AMM::RenderModification::data()
 {
     return m_data;
 }
 
+
 size_t AMM::RenderModification::getKeyMaxCdrSerializedSize(
         size_t current_alignment)
 {
-    size_t current_align = current_alignment;
-
-
-
-
-
-
-
-    return current_align;
+    static_cast<void>(current_alignment);
+    return AMM_RenderModification_max_key_cdr_typesize;
 }
 
 bool AMM::RenderModification::isKeyDefined()
@@ -5532,17 +5284,16 @@ void AMM::RenderModification::serializeKey(
         eprosima::fastcdr::Cdr& scdr) const
 {
     (void) scdr;
-        
 }
 
 
 AMM::SimulationControl::SimulationControl()
 {
-    // m_timestamp com.eprosima.idl.parser.typecode.PrimitiveTypeCode@2357d90a
+    // unsigned long long m_timestamp
     m_timestamp = 0;
-    // m_type com.eprosima.idl.parser.typecode.EnumTypeCode@15bb6bea
+    // AMM::ControlType m_type
     m_type = AMM::RUN;
-    // m_educational_encounter com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@799d4f69
+    // AMM::UUID m_educational_encounter
 
 
 }
@@ -5563,7 +5314,7 @@ AMM::SimulationControl::SimulationControl(
 }
 
 AMM::SimulationControl::SimulationControl(
-        SimulationControl&& x)
+        SimulationControl&& x) noexcept 
 {
     m_timestamp = x.m_timestamp;
     m_type = x.m_type;
@@ -5582,7 +5333,7 @@ AMM::SimulationControl& AMM::SimulationControl::operator =(
 }
 
 AMM::SimulationControl& AMM::SimulationControl::operator =(
-        SimulationControl&& x)
+        SimulationControl&& x) noexcept
 {
 
     m_timestamp = x.m_timestamp;
@@ -5608,18 +5359,8 @@ bool AMM::SimulationControl::operator !=(
 size_t AMM::SimulationControl::getMaxCdrSerializedSize(
         size_t current_alignment)
 {
-    size_t initial_alignment = current_alignment;
-
-
-    current_alignment += 8 + eprosima::fastcdr::Cdr::alignment(current_alignment, 8);
-
-
-    current_alignment += 4 + eprosima::fastcdr::Cdr::alignment(current_alignment, 4);
-
-
-    current_alignment += AMM::UUID::getMaxCdrSerializedSize(current_alignment);
-
-    return current_alignment - initial_alignment;
+    static_cast<void>(current_alignment);
+    return AMM_SimulationControl_max_cdr_typesize;
 }
 
 size_t AMM::SimulationControl::getCdrSerializedSize(
@@ -5759,17 +5500,12 @@ AMM::UUID& AMM::SimulationControl::educational_encounter()
     return m_educational_encounter;
 }
 
+
 size_t AMM::SimulationControl::getKeyMaxCdrSerializedSize(
         size_t current_alignment)
 {
-    size_t current_align = current_alignment;
-
-
-
-
-
-
-    return current_align;
+    static_cast<void>(current_alignment);
+    return AMM_SimulationControl_max_key_cdr_typesize;
 }
 
 bool AMM::SimulationControl::isKeyDefined()
@@ -5781,25 +5517,24 @@ void AMM::SimulationControl::serializeKey(
         eprosima::fastcdr::Cdr& scdr) const
 {
     (void) scdr;
-       
 }
 
 
 AMM::Status::Status()
 {
-    // m_module_id com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@799d4f69
+    // AMM::UUID m_module_id
 
-    // m_module_name com.eprosima.idl.parser.typecode.StringTypeCode@57d5872c
+    // string m_module_name
     m_module_name ="";
-    // m_educational_encounter com.eprosima.fastdds.idl.parser.typecode.StructTypeCode@799d4f69
+    // AMM::UUID m_educational_encounter
 
-    // m_capability com.eprosima.idl.parser.typecode.StringTypeCode@667a738
+    // string m_capability
     m_capability ="";
-    // m_timestamp com.eprosima.idl.parser.typecode.PrimitiveTypeCode@36f0f1be
+    // unsigned long long m_timestamp
     m_timestamp = 0;
-    // m_value com.eprosima.idl.parser.typecode.EnumTypeCode@157632c9
+    // AMM::StatusValue m_value
     m_value = AMM::OPERATIONAL;
-    // m_message com.eprosima.idl.parser.typecode.StringTypeCode@6ee12bac
+    // string m_message
     m_message ="";
 
 }
@@ -5828,7 +5563,7 @@ AMM::Status::Status(
 }
 
 AMM::Status::Status(
-        Status&& x)
+        Status&& x) noexcept 
 {
     m_module_id = std::move(x.m_module_id);
     m_module_name = std::move(x.m_module_name);
@@ -5855,7 +5590,7 @@ AMM::Status& AMM::Status::operator =(
 }
 
 AMM::Status& AMM::Status::operator =(
-        Status&& x)
+        Status&& x) noexcept
 {
 
     m_module_id = std::move(x.m_module_id);
@@ -5885,25 +5620,8 @@ bool AMM::Status::operator !=(
 size_t AMM::Status::getMaxCdrSerializedSize(
         size_t current_alignment)
 {
-    size_t initial_alignment = current_alignment;
-
-
-    current_alignment += AMM::UUID::getMaxCdrSerializedSize(current_alignment);
-    current_alignment += 4 + eprosima::fastcdr::Cdr::alignment(current_alignment, 4) + 255 + 1;
-
-    current_alignment += AMM::UUID::getMaxCdrSerializedSize(current_alignment);
-    current_alignment += 4 + eprosima::fastcdr::Cdr::alignment(current_alignment, 4) + 255 + 1;
-
-    current_alignment += 8 + eprosima::fastcdr::Cdr::alignment(current_alignment, 8);
-
-
-    current_alignment += 4 + eprosima::fastcdr::Cdr::alignment(current_alignment, 4);
-
-
-    current_alignment += 4 + eprosima::fastcdr::Cdr::alignment(current_alignment, 4) + 255 + 1;
-
-
-    return current_alignment - initial_alignment;
+    static_cast<void>(current_alignment);
+    return AMM_Status_max_cdr_typesize;
 }
 
 size_t AMM::Status::getCdrSerializedSize(
@@ -5937,12 +5655,12 @@ void AMM::Status::serialize(
 {
 
     scdr << m_module_id;
-    scdr << m_module_name;
+    scdr << m_module_name.c_str();
     scdr << m_educational_encounter;
-    scdr << m_capability;
+    scdr << m_capability.c_str();
     scdr << m_timestamp;
     scdr << (uint32_t)m_value;
-    scdr << m_message;
+    scdr << m_message.c_str();
 
 }
 
@@ -6206,21 +5924,12 @@ std::string& AMM::Status::message()
     return m_message;
 }
 
+
 size_t AMM::Status::getKeyMaxCdrSerializedSize(
         size_t current_alignment)
 {
-    size_t current_align = current_alignment;
-
-
-
-
-
-
-
-
-
-
-    return current_align;
+    static_cast<void>(current_alignment);
+    return AMM_Status_max_key_cdr_typesize;
 }
 
 bool AMM::Status::isKeyDefined()
@@ -6232,6 +5941,5 @@ void AMM::Status::serializeKey(
         eprosima::fastcdr::Cdr& scdr) const
 {
     (void) scdr;
-           
 }
 

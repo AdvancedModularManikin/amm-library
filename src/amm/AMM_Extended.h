@@ -23,6 +23,8 @@
 #define _FAST_DDS_GENERATED_AMM_AMM_EXTENDED_H_
 
 
+#include <fastrtps/utils/fixed_size_string.hpp>
+
 #include <stdint.h>
 #include <array>
 #include <string>
@@ -92,7 +94,7 @@ namespace AMM {
          * @param x Reference to the object AMM::Tick that will be copied.
          */
         eProsima_user_DllExport Tick(
-                Tick&& x);
+                Tick&& x) noexcept;
 
         /*!
          * @brief Copy assignment.
@@ -106,7 +108,7 @@ namespace AMM {
          * @param x Reference to the object AMM::Tick that will be copied.
          */
         eProsima_user_DllExport Tick& operator =(
-                Tick&& x);
+                Tick&& x) noexcept;
 
         /*!
          * @brief Comparison operator.
@@ -162,11 +164,11 @@ namespace AMM {
 
 
         /*!
-         * @brief This function returns the maximum serialized size of an object
-         * depending on the buffer alignment.
-         * @param current_alignment Buffer alignment.
-         * @return Maximum serialized size.
-         */
+        * @brief This function returns the maximum serialized size of an object
+        * depending on the buffer alignment.
+        * @param current_alignment Buffer alignment.
+        * @return Maximum serialized size.
+        */
         eProsima_user_DllExport static size_t getMaxCdrSerializedSize(
                 size_t current_alignment = 0);
 
@@ -222,6 +224,7 @@ namespace AMM {
 
         int64_t m_frame;
         float m_time;
+
     };
     /*!
      * @brief This class represents the structure InstrumentData defined by the user in the IDL file.
@@ -253,7 +256,7 @@ namespace AMM {
          * @param x Reference to the object AMM::InstrumentData that will be copied.
          */
         eProsima_user_DllExport InstrumentData(
-                InstrumentData&& x);
+                InstrumentData&& x) noexcept;
 
         /*!
          * @brief Copy assignment.
@@ -267,7 +270,7 @@ namespace AMM {
          * @param x Reference to the object AMM::InstrumentData that will be copied.
          */
         eProsima_user_DllExport InstrumentData& operator =(
-                InstrumentData&& x);
+                InstrumentData&& x) noexcept;
 
         /*!
          * @brief Comparison operator.
@@ -313,33 +316,33 @@ namespace AMM {
          * @param _payload New value to be copied in member payload
          */
         eProsima_user_DllExport void payload(
-                const std::string& _payload);
+                const eprosima::fastrtps::fixed_string<4096>& _payload);
 
         /*!
          * @brief This function moves the value in member payload
          * @param _payload New value to be moved in member payload
          */
         eProsima_user_DllExport void payload(
-                std::string&& _payload);
+                eprosima::fastrtps::fixed_string<4096>&& _payload);
 
         /*!
          * @brief This function returns a constant reference to member payload
          * @return Constant reference to member payload
          */
-        eProsima_user_DllExport const std::string& payload() const;
+        eProsima_user_DllExport const eprosima::fastrtps::fixed_string<4096>& payload() const;
 
         /*!
          * @brief This function returns a reference to member payload
          * @return Reference to member payload
          */
-        eProsima_user_DllExport std::string& payload();
+        eProsima_user_DllExport eprosima::fastrtps::fixed_string<4096>& payload();
 
         /*!
-         * @brief This function returns the maximum serialized size of an object
-         * depending on the buffer alignment.
-         * @param current_alignment Buffer alignment.
-         * @return Maximum serialized size.
-         */
+        * @brief This function returns the maximum serialized size of an object
+        * depending on the buffer alignment.
+        * @param current_alignment Buffer alignment.
+        * @return Maximum serialized size.
+        */
         eProsima_user_DllExport static size_t getMaxCdrSerializedSize(
                 size_t current_alignment = 0);
 
@@ -394,7 +397,8 @@ namespace AMM {
     private:
 
         std::string m_instrument;
-        std::string m_payload;
+        eprosima::fastrtps::fixed_string<4096> m_payload;
+
     };
     /*!
      * @brief This class represents the structure Command defined by the user in the IDL file.
@@ -426,7 +430,7 @@ namespace AMM {
          * @param x Reference to the object AMM::Command that will be copied.
          */
         eProsima_user_DllExport Command(
-                Command&& x);
+                Command&& x) noexcept;
 
         /*!
          * @brief Copy assignment.
@@ -440,7 +444,7 @@ namespace AMM {
          * @param x Reference to the object AMM::Command that will be copied.
          */
         eProsima_user_DllExport Command& operator =(
-                Command&& x);
+                Command&& x) noexcept;
 
         /*!
          * @brief Comparison operator.
@@ -483,11 +487,11 @@ namespace AMM {
         eProsima_user_DllExport std::string& message();
 
         /*!
-         * @brief This function returns the maximum serialized size of an object
-         * depending on the buffer alignment.
-         * @param current_alignment Buffer alignment.
-         * @return Maximum serialized size.
-         */
+        * @brief This function returns the maximum serialized size of an object
+        * depending on the buffer alignment.
+        * @param current_alignment Buffer alignment.
+        * @return Maximum serialized size.
+        */
         eProsima_user_DllExport static size_t getMaxCdrSerializedSize(
                 size_t current_alignment = 0);
 
@@ -542,6 +546,7 @@ namespace AMM {
     private:
 
         std::string m_message;
+
     };
 } // namespace AMM
 
