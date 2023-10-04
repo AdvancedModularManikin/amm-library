@@ -3,7 +3,6 @@
 
 #include <string>
 
-#include <fastrtps/TopicDataType.h>
 #include <fastrtps/Domain.h>
 #include <fastrtps/participant/Participant.h>
 #include <fastrtps/publisher/Publisher.h>
@@ -248,7 +247,7 @@ namespace AMM {
         }
 
         eprosima::fastrtps::Domain::registerType(
-                p, (eprosima::fastrtps::TopicDataType *) m_type
+                p, (eprosima::fastdds::dds::TopicDataType *) m_type
         );
 
     }
@@ -274,7 +273,7 @@ namespace AMM {
         bool isRegistered = false;
 
         isRegistered = eprosima::fastrtps::Domain::registerType(
-                p, (eprosima::fastrtps::TopicDataType *) m_type
+                p, (eprosima::fastdds::dds::TopicDataType *) m_type
         );
 
         if (isRegistered) {
@@ -306,7 +305,7 @@ namespace AMM {
         bool isRegistered = false;
 
         isRegistered = eprosima::fastrtps::Domain::registerType(
-                p, (eprosima::fastrtps::TopicDataType *) m_type
+                p, (eprosima::fastdds::dds::TopicDataType *) m_type
         );
 
         if (isRegistered) {
@@ -322,7 +321,7 @@ namespace AMM {
 
         // Output for getRegisteredType.
         // Not used for any significance other than to satisfy function requirements.
-        eprosima::fastrtps::TopicDataType *type;
+        eprosima::fastdds::dds::TopicDataType *type;
 
         return eprosima::fastrtps::Domain::getRegisteredType(
                 m_participant,
@@ -880,7 +879,7 @@ namespace AMM {
         }
 
         eprosima::fastrtps::Domain::registerType(
-                p, (eprosima::fastrtps::TopicDataType *) m_type
+                p, (eprosima::fastdds::dds::TopicDataType *) m_type
         );
 
     }
@@ -906,7 +905,7 @@ namespace AMM {
         bool isRegistered = false;
 
         isRegistered = eprosima::fastrtps::Domain::registerType(
-                p, (eprosima::fastrtps::TopicDataType *) m_type
+                p, (eprosima::fastdds::dds::TopicDataType *) m_type
         );
 
         if (isRegistered) {
@@ -938,7 +937,7 @@ namespace AMM {
         bool isRegistered = false;
 
         isRegistered = eprosima::fastrtps::Domain::registerType(
-                p, (eprosima::fastrtps::TopicDataType *) m_type
+                p, (eprosima::fastdds::dds::TopicDataType *) m_type
         );
 
         if (isRegistered) {
@@ -954,7 +953,7 @@ namespace AMM {
 
         // Output for getRegisteredType.
         // Not used for any significance other than to satisfy function requirements.
-        eprosima::fastrtps::TopicDataType *type;
+        eprosima::fastdds::dds::TopicDataType *type;
 
         return eprosima::fastrtps::Domain::getRegisteredType(
                 m_participant,
