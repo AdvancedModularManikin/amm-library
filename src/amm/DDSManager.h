@@ -10,8 +10,11 @@
 
 #include "AmmDataType.h"
 #include "DDS_Listeners.h"
+
+#include "AMM_StandardCdrAux.hpp"
 #include "AMM_StandardPubSubTypes.h"
 #include "AMM_Standard.h"
+
 
 
 // Naming Key:
