@@ -88,13 +88,19 @@ namespace fastcdr {
 class Cdr;
 class CdrSizeCalculator;
 
+
+
 eProsima_user_DllExport void serialize_key(
         eprosima::fastcdr::Cdr& scdr,
         const AMM::FMA_Location& data);
 
+
+
 eProsima_user_DllExport void serialize_key(
         eprosima::fastcdr::Cdr& scdr,
         const AMM::UUID& data);
+
+
 
 
 eProsima_user_DllExport void serialize_key(
@@ -102,13 +108,19 @@ eProsima_user_DllExport void serialize_key(
         const AMM::Assessment& data);
 
 
+
+
 eProsima_user_DllExport void serialize_key(
         eprosima::fastcdr::Cdr& scdr,
         const AMM::EventFragment& data);
 
+
+
 eProsima_user_DllExport void serialize_key(
         eprosima::fastcdr::Cdr& scdr,
         const AMM::EventRecord& data);
+
+
 
 
 eProsima_user_DllExport void serialize_key(
@@ -116,46 +128,68 @@ eProsima_user_DllExport void serialize_key(
         const AMM::FragmentAmendmentRequest& data);
 
 
+
+
 eProsima_user_DllExport void serialize_key(
         eprosima::fastcdr::Cdr& scdr,
         const AMM::Log& data);
+
+
 
 eProsima_user_DllExport void serialize_key(
         eprosima::fastcdr::Cdr& scdr,
         const AMM::ModuleConfiguration& data);
 
+
+
 eProsima_user_DllExport void serialize_key(
         eprosima::fastcdr::Cdr& scdr,
         const AMM::OmittedEvent& data);
+
+
 
 eProsima_user_DllExport void serialize_key(
         eprosima::fastcdr::Cdr& scdr,
         const AMM::Semantic_Version& data);
 
+
+
 eProsima_user_DllExport void serialize_key(
         eprosima::fastcdr::Cdr& scdr,
         const AMM::OperationalDescription& data);
+
+
 
 eProsima_user_DllExport void serialize_key(
         eprosima::fastcdr::Cdr& scdr,
         const AMM::PhysiologyModification& data);
 
+
+
 eProsima_user_DllExport void serialize_key(
         eprosima::fastcdr::Cdr& scdr,
         const AMM::PhysiologyValue& data);
 
+
+
 eProsima_user_DllExport void serialize_key(
         eprosima::fastcdr::Cdr& scdr,
         const AMM::PhysiologyWaveform& data);
+
+
 
 eProsima_user_DllExport void serialize_key(
         eprosima::fastcdr::Cdr& scdr,
         const AMM::RenderModification& data);
 
 
+
+
 eProsima_user_DllExport void serialize_key(
         eprosima::fastcdr::Cdr& scdr,
         const AMM::SimulationControl& data);
+
+
 
 
 eProsima_user_DllExport void serialize_key(

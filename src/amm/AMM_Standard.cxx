@@ -27,6 +27,7 @@ char dummy;
 #endif  // _WIN32
 
 #include "AMM_Standard.h"
+
 #include <fastcdr/Cdr.h>
 
 
@@ -36,57 +37,58 @@ using namespace eprosima::fastcdr::exception;
 #include <utility>
 
 
-AMM::FMA_Location::FMA_Location()
-{
+namespace AMM {
 
+
+
+FMA_Location::FMA_Location()
+{
 }
 
-AMM::FMA_Location::~FMA_Location()
+FMA_Location::~FMA_Location()
 {
 }
 
-AMM::FMA_Location::FMA_Location(
+FMA_Location::FMA_Location(
         const FMA_Location& x)
 {
     m_FMAID = x.m_FMAID;
     m_name = x.m_name;
 }
 
-AMM::FMA_Location::FMA_Location(
+FMA_Location::FMA_Location(
         FMA_Location&& x) noexcept
 {
     m_FMAID = x.m_FMAID;
     m_name = std::move(x.m_name);
 }
 
-AMM::FMA_Location& AMM::FMA_Location::operator =(
+FMA_Location& FMA_Location::operator =(
         const FMA_Location& x)
 {
 
     m_FMAID = x.m_FMAID;
     m_name = x.m_name;
-
     return *this;
 }
 
-AMM::FMA_Location& AMM::FMA_Location::operator =(
+FMA_Location& FMA_Location::operator =(
         FMA_Location&& x) noexcept
 {
 
     m_FMAID = x.m_FMAID;
     m_name = std::move(x.m_name);
-
     return *this;
 }
 
-bool AMM::FMA_Location::operator ==(
+bool FMA_Location::operator ==(
         const FMA_Location& x) const
 {
     return (m_FMAID == x.m_FMAID &&
            m_name == x.m_name);
 }
 
-bool AMM::FMA_Location::operator !=(
+bool FMA_Location::operator !=(
         const FMA_Location& x) const
 {
     return !(*this == x);
@@ -96,7 +98,7 @@ bool AMM::FMA_Location::operator !=(
  * @brief This function sets a value in member FMAID
  * @param _FMAID New value for member FMAID
  */
-void AMM::FMA_Location::FMAID(
+void FMA_Location::FMAID(
         int32_t _FMAID)
 {
     m_FMAID = _FMAID;
@@ -106,7 +108,7 @@ void AMM::FMA_Location::FMAID(
  * @brief This function returns the value of member FMAID
  * @return Value of member FMAID
  */
-int32_t AMM::FMA_Location::FMAID() const
+int32_t FMA_Location::FMAID() const
 {
     return m_FMAID;
 }
@@ -115,7 +117,7 @@ int32_t AMM::FMA_Location::FMAID() const
  * @brief This function returns a reference to member FMAID
  * @return Reference to member FMAID
  */
-int32_t& AMM::FMA_Location::FMAID()
+int32_t& FMA_Location::FMAID()
 {
     return m_FMAID;
 }
@@ -125,7 +127,7 @@ int32_t& AMM::FMA_Location::FMAID()
  * @brief This function copies the value in member name
  * @param _name New value to be copied in member name
  */
-void AMM::FMA_Location::name(
+void FMA_Location::name(
         const std::string& _name)
 {
     m_name = _name;
@@ -135,7 +137,7 @@ void AMM::FMA_Location::name(
  * @brief This function moves the value in member name
  * @param _name New value to be moved in member name
  */
-void AMM::FMA_Location::name(
+void FMA_Location::name(
         std::string&& _name)
 {
     m_name = std::move(_name);
@@ -145,7 +147,7 @@ void AMM::FMA_Location::name(
  * @brief This function returns a constant reference to member name
  * @return Constant reference to member name
  */
-const std::string& AMM::FMA_Location::name() const
+const std::string& FMA_Location::name() const
 {
     return m_name;
 }
@@ -154,58 +156,57 @@ const std::string& AMM::FMA_Location::name() const
  * @brief This function returns a reference to member name
  * @return Reference to member name
  */
-std::string& AMM::FMA_Location::name()
+std::string& FMA_Location::name()
 {
     return m_name;
 }
 
 
-AMM::UUID::UUID()
-{
 
-}
 
-AMM::UUID::~UUID()
+UUID::UUID()
 {
 }
 
-AMM::UUID::UUID(
+UUID::~UUID()
+{
+}
+
+UUID::UUID(
         const UUID& x)
 {
     m_id = x.m_id;
 }
 
-AMM::UUID::UUID(
+UUID::UUID(
         UUID&& x) noexcept
 {
     m_id = std::move(x.m_id);
 }
 
-AMM::UUID& AMM::UUID::operator =(
+UUID& UUID::operator =(
         const UUID& x)
 {
 
     m_id = x.m_id;
-
     return *this;
 }
 
-AMM::UUID& AMM::UUID::operator =(
+UUID& UUID::operator =(
         UUID&& x) noexcept
 {
 
     m_id = std::move(x.m_id);
-
     return *this;
 }
 
-bool AMM::UUID::operator ==(
+bool UUID::operator ==(
         const UUID& x) const
 {
     return (m_id == x.m_id);
 }
 
-bool AMM::UUID::operator !=(
+bool UUID::operator !=(
         const UUID& x) const
 {
     return !(*this == x);
@@ -215,7 +216,7 @@ bool AMM::UUID::operator !=(
  * @brief This function copies the value in member id
  * @param _id New value to be copied in member id
  */
-void AMM::UUID::id(
+void UUID::id(
         const std::string& _id)
 {
     m_id = _id;
@@ -225,7 +226,7 @@ void AMM::UUID::id(
  * @brief This function moves the value in member id
  * @param _id New value to be moved in member id
  */
-void AMM::UUID::id(
+void UUID::id(
         std::string&& _id)
 {
     m_id = std::move(_id);
@@ -235,7 +236,7 @@ void AMM::UUID::id(
  * @brief This function returns a constant reference to member id
  * @return Constant reference to member id
  */
-const std::string& AMM::UUID::id() const
+const std::string& UUID::id() const
 {
     return m_id;
 }
@@ -244,23 +245,24 @@ const std::string& AMM::UUID::id() const
  * @brief This function returns a reference to member id
  * @return Reference to member id
  */
-std::string& AMM::UUID::id()
+std::string& UUID::id()
 {
     return m_id;
 }
 
 
 
-AMM::Assessment::Assessment()
-{
 
-}
 
-AMM::Assessment::~Assessment()
+Assessment::Assessment()
 {
 }
 
-AMM::Assessment::Assessment(
+Assessment::~Assessment()
+{
+}
+
+Assessment::Assessment(
         const Assessment& x)
 {
     m_id = x.m_id;
@@ -269,7 +271,7 @@ AMM::Assessment::Assessment(
     m_comment = x.m_comment;
 }
 
-AMM::Assessment::Assessment(
+Assessment::Assessment(
         Assessment&& x) noexcept
 {
     m_id = std::move(x.m_id);
@@ -278,7 +280,7 @@ AMM::Assessment::Assessment(
     m_comment = std::move(x.m_comment);
 }
 
-AMM::Assessment& AMM::Assessment::operator =(
+Assessment& Assessment::operator =(
         const Assessment& x)
 {
 
@@ -286,11 +288,10 @@ AMM::Assessment& AMM::Assessment::operator =(
     m_event_id = x.m_event_id;
     m_value = x.m_value;
     m_comment = x.m_comment;
-
     return *this;
 }
 
-AMM::Assessment& AMM::Assessment::operator =(
+Assessment& Assessment::operator =(
         Assessment&& x) noexcept
 {
 
@@ -298,11 +299,10 @@ AMM::Assessment& AMM::Assessment::operator =(
     m_event_id = std::move(x.m_event_id);
     m_value = x.m_value;
     m_comment = std::move(x.m_comment);
-
     return *this;
 }
 
-bool AMM::Assessment::operator ==(
+bool Assessment::operator ==(
         const Assessment& x) const
 {
     return (m_id == x.m_id &&
@@ -311,7 +311,7 @@ bool AMM::Assessment::operator ==(
            m_comment == x.m_comment);
 }
 
-bool AMM::Assessment::operator !=(
+bool Assessment::operator !=(
         const Assessment& x) const
 {
     return !(*this == x);
@@ -321,7 +321,7 @@ bool AMM::Assessment::operator !=(
  * @brief This function copies the value in member id
  * @param _id New value to be copied in member id
  */
-void AMM::Assessment::id(
+void Assessment::id(
         const AMM::UUID& _id)
 {
     m_id = _id;
@@ -331,7 +331,7 @@ void AMM::Assessment::id(
  * @brief This function moves the value in member id
  * @param _id New value to be moved in member id
  */
-void AMM::Assessment::id(
+void Assessment::id(
         AMM::UUID&& _id)
 {
     m_id = std::move(_id);
@@ -341,7 +341,7 @@ void AMM::Assessment::id(
  * @brief This function returns a constant reference to member id
  * @return Constant reference to member id
  */
-const AMM::UUID& AMM::Assessment::id() const
+const AMM::UUID& Assessment::id() const
 {
     return m_id;
 }
@@ -350,7 +350,7 @@ const AMM::UUID& AMM::Assessment::id() const
  * @brief This function returns a reference to member id
  * @return Reference to member id
  */
-AMM::UUID& AMM::Assessment::id()
+AMM::UUID& Assessment::id()
 {
     return m_id;
 }
@@ -360,7 +360,7 @@ AMM::UUID& AMM::Assessment::id()
  * @brief This function copies the value in member event_id
  * @param _event_id New value to be copied in member event_id
  */
-void AMM::Assessment::event_id(
+void Assessment::event_id(
         const AMM::UUID& _event_id)
 {
     m_event_id = _event_id;
@@ -370,7 +370,7 @@ void AMM::Assessment::event_id(
  * @brief This function moves the value in member event_id
  * @param _event_id New value to be moved in member event_id
  */
-void AMM::Assessment::event_id(
+void Assessment::event_id(
         AMM::UUID&& _event_id)
 {
     m_event_id = std::move(_event_id);
@@ -380,7 +380,7 @@ void AMM::Assessment::event_id(
  * @brief This function returns a constant reference to member event_id
  * @return Constant reference to member event_id
  */
-const AMM::UUID& AMM::Assessment::event_id() const
+const AMM::UUID& Assessment::event_id() const
 {
     return m_event_id;
 }
@@ -389,7 +389,7 @@ const AMM::UUID& AMM::Assessment::event_id() const
  * @brief This function returns a reference to member event_id
  * @return Reference to member event_id
  */
-AMM::UUID& AMM::Assessment::event_id()
+AMM::UUID& Assessment::event_id()
 {
     return m_event_id;
 }
@@ -399,7 +399,7 @@ AMM::UUID& AMM::Assessment::event_id()
  * @brief This function sets a value in member value
  * @param _value New value for member value
  */
-void AMM::Assessment::value(
+void Assessment::value(
         AMM::AssessmentValue _value)
 {
     m_value = _value;
@@ -409,7 +409,7 @@ void AMM::Assessment::value(
  * @brief This function returns the value of member value
  * @return Value of member value
  */
-AMM::AssessmentValue AMM::Assessment::value() const
+AMM::AssessmentValue Assessment::value() const
 {
     return m_value;
 }
@@ -418,7 +418,7 @@ AMM::AssessmentValue AMM::Assessment::value() const
  * @brief This function returns a reference to member value
  * @return Reference to member value
  */
-AMM::AssessmentValue& AMM::Assessment::value()
+AMM::AssessmentValue& Assessment::value()
 {
     return m_value;
 }
@@ -428,7 +428,7 @@ AMM::AssessmentValue& AMM::Assessment::value()
  * @brief This function copies the value in member comment
  * @param _comment New value to be copied in member comment
  */
-void AMM::Assessment::comment(
+void Assessment::comment(
         const std::string& _comment)
 {
     m_comment = _comment;
@@ -438,7 +438,7 @@ void AMM::Assessment::comment(
  * @brief This function moves the value in member comment
  * @param _comment New value to be moved in member comment
  */
-void AMM::Assessment::comment(
+void Assessment::comment(
         std::string&& _comment)
 {
     m_comment = std::move(_comment);
@@ -448,7 +448,7 @@ void AMM::Assessment::comment(
  * @brief This function returns a constant reference to member comment
  * @return Constant reference to member comment
  */
-const std::string& AMM::Assessment::comment() const
+const std::string& Assessment::comment() const
 {
     return m_comment;
 }
@@ -457,23 +457,24 @@ const std::string& AMM::Assessment::comment() const
  * @brief This function returns a reference to member comment
  * @return Reference to member comment
  */
-std::string& AMM::Assessment::comment()
+std::string& Assessment::comment()
 {
     return m_comment;
 }
 
 
 
-AMM::EventFragment::EventFragment()
-{
 
-}
 
-AMM::EventFragment::~EventFragment()
+EventFragment::EventFragment()
 {
 }
 
-AMM::EventFragment::EventFragment(
+EventFragment::~EventFragment()
+{
+}
+
+EventFragment::EventFragment(
         const EventFragment& x)
 {
     m_id = x.m_id;
@@ -486,7 +487,7 @@ AMM::EventFragment::EventFragment(
     m_data = x.m_data;
 }
 
-AMM::EventFragment::EventFragment(
+EventFragment::EventFragment(
         EventFragment&& x) noexcept
 {
     m_id = std::move(x.m_id);
@@ -499,7 +500,7 @@ AMM::EventFragment::EventFragment(
     m_data = std::move(x.m_data);
 }
 
-AMM::EventFragment& AMM::EventFragment::operator =(
+EventFragment& EventFragment::operator =(
         const EventFragment& x)
 {
 
@@ -511,11 +512,10 @@ AMM::EventFragment& AMM::EventFragment::operator =(
     m_agent_id = x.m_agent_id;
     m_type = x.m_type;
     m_data = x.m_data;
-
     return *this;
 }
 
-AMM::EventFragment& AMM::EventFragment::operator =(
+EventFragment& EventFragment::operator =(
         EventFragment&& x) noexcept
 {
 
@@ -527,11 +527,10 @@ AMM::EventFragment& AMM::EventFragment::operator =(
     m_agent_id = std::move(x.m_agent_id);
     m_type = std::move(x.m_type);
     m_data = std::move(x.m_data);
-
     return *this;
 }
 
-bool AMM::EventFragment::operator ==(
+bool EventFragment::operator ==(
         const EventFragment& x) const
 {
     return (m_id == x.m_id &&
@@ -544,7 +543,7 @@ bool AMM::EventFragment::operator ==(
            m_data == x.m_data);
 }
 
-bool AMM::EventFragment::operator !=(
+bool EventFragment::operator !=(
         const EventFragment& x) const
 {
     return !(*this == x);
@@ -554,7 +553,7 @@ bool AMM::EventFragment::operator !=(
  * @brief This function copies the value in member id
  * @param _id New value to be copied in member id
  */
-void AMM::EventFragment::id(
+void EventFragment::id(
         const AMM::UUID& _id)
 {
     m_id = _id;
@@ -564,7 +563,7 @@ void AMM::EventFragment::id(
  * @brief This function moves the value in member id
  * @param _id New value to be moved in member id
  */
-void AMM::EventFragment::id(
+void EventFragment::id(
         AMM::UUID&& _id)
 {
     m_id = std::move(_id);
@@ -574,7 +573,7 @@ void AMM::EventFragment::id(
  * @brief This function returns a constant reference to member id
  * @return Constant reference to member id
  */
-const AMM::UUID& AMM::EventFragment::id() const
+const AMM::UUID& EventFragment::id() const
 {
     return m_id;
 }
@@ -583,7 +582,7 @@ const AMM::UUID& AMM::EventFragment::id() const
  * @brief This function returns a reference to member id
  * @return Reference to member id
  */
-AMM::UUID& AMM::EventFragment::id()
+AMM::UUID& EventFragment::id()
 {
     return m_id;
 }
@@ -593,7 +592,7 @@ AMM::UUID& AMM::EventFragment::id()
  * @brief This function sets a value in member timestamp
  * @param _timestamp New value for member timestamp
  */
-void AMM::EventFragment::timestamp(
+void EventFragment::timestamp(
         uint64_t _timestamp)
 {
     m_timestamp = _timestamp;
@@ -603,7 +602,7 @@ void AMM::EventFragment::timestamp(
  * @brief This function returns the value of member timestamp
  * @return Value of member timestamp
  */
-uint64_t AMM::EventFragment::timestamp() const
+uint64_t EventFragment::timestamp() const
 {
     return m_timestamp;
 }
@@ -612,7 +611,7 @@ uint64_t AMM::EventFragment::timestamp() const
  * @brief This function returns a reference to member timestamp
  * @return Reference to member timestamp
  */
-uint64_t& AMM::EventFragment::timestamp()
+uint64_t& EventFragment::timestamp()
 {
     return m_timestamp;
 }
@@ -622,7 +621,7 @@ uint64_t& AMM::EventFragment::timestamp()
  * @brief This function copies the value in member educational_encounter
  * @param _educational_encounter New value to be copied in member educational_encounter
  */
-void AMM::EventFragment::educational_encounter(
+void EventFragment::educational_encounter(
         const AMM::UUID& _educational_encounter)
 {
     m_educational_encounter = _educational_encounter;
@@ -632,7 +631,7 @@ void AMM::EventFragment::educational_encounter(
  * @brief This function moves the value in member educational_encounter
  * @param _educational_encounter New value to be moved in member educational_encounter
  */
-void AMM::EventFragment::educational_encounter(
+void EventFragment::educational_encounter(
         AMM::UUID&& _educational_encounter)
 {
     m_educational_encounter = std::move(_educational_encounter);
@@ -642,7 +641,7 @@ void AMM::EventFragment::educational_encounter(
  * @brief This function returns a constant reference to member educational_encounter
  * @return Constant reference to member educational_encounter
  */
-const AMM::UUID& AMM::EventFragment::educational_encounter() const
+const AMM::UUID& EventFragment::educational_encounter() const
 {
     return m_educational_encounter;
 }
@@ -651,7 +650,7 @@ const AMM::UUID& AMM::EventFragment::educational_encounter() const
  * @brief This function returns a reference to member educational_encounter
  * @return Reference to member educational_encounter
  */
-AMM::UUID& AMM::EventFragment::educational_encounter()
+AMM::UUID& EventFragment::educational_encounter()
 {
     return m_educational_encounter;
 }
@@ -661,7 +660,7 @@ AMM::UUID& AMM::EventFragment::educational_encounter()
  * @brief This function copies the value in member location
  * @param _location New value to be copied in member location
  */
-void AMM::EventFragment::location(
+void EventFragment::location(
         const AMM::FMA_Location& _location)
 {
     m_location = _location;
@@ -671,7 +670,7 @@ void AMM::EventFragment::location(
  * @brief This function moves the value in member location
  * @param _location New value to be moved in member location
  */
-void AMM::EventFragment::location(
+void EventFragment::location(
         AMM::FMA_Location&& _location)
 {
     m_location = std::move(_location);
@@ -681,7 +680,7 @@ void AMM::EventFragment::location(
  * @brief This function returns a constant reference to member location
  * @return Constant reference to member location
  */
-const AMM::FMA_Location& AMM::EventFragment::location() const
+const AMM::FMA_Location& EventFragment::location() const
 {
     return m_location;
 }
@@ -690,7 +689,7 @@ const AMM::FMA_Location& AMM::EventFragment::location() const
  * @brief This function returns a reference to member location
  * @return Reference to member location
  */
-AMM::FMA_Location& AMM::EventFragment::location()
+AMM::FMA_Location& EventFragment::location()
 {
     return m_location;
 }
@@ -700,7 +699,7 @@ AMM::FMA_Location& AMM::EventFragment::location()
  * @brief This function sets a value in member agent_type
  * @param _agent_type New value for member agent_type
  */
-void AMM::EventFragment::agent_type(
+void EventFragment::agent_type(
         AMM::EventAgentType _agent_type)
 {
     m_agent_type = _agent_type;
@@ -710,7 +709,7 @@ void AMM::EventFragment::agent_type(
  * @brief This function returns the value of member agent_type
  * @return Value of member agent_type
  */
-AMM::EventAgentType AMM::EventFragment::agent_type() const
+AMM::EventAgentType EventFragment::agent_type() const
 {
     return m_agent_type;
 }
@@ -719,7 +718,7 @@ AMM::EventAgentType AMM::EventFragment::agent_type() const
  * @brief This function returns a reference to member agent_type
  * @return Reference to member agent_type
  */
-AMM::EventAgentType& AMM::EventFragment::agent_type()
+AMM::EventAgentType& EventFragment::agent_type()
 {
     return m_agent_type;
 }
@@ -729,7 +728,7 @@ AMM::EventAgentType& AMM::EventFragment::agent_type()
  * @brief This function copies the value in member agent_id
  * @param _agent_id New value to be copied in member agent_id
  */
-void AMM::EventFragment::agent_id(
+void EventFragment::agent_id(
         const AMM::UUID& _agent_id)
 {
     m_agent_id = _agent_id;
@@ -739,7 +738,7 @@ void AMM::EventFragment::agent_id(
  * @brief This function moves the value in member agent_id
  * @param _agent_id New value to be moved in member agent_id
  */
-void AMM::EventFragment::agent_id(
+void EventFragment::agent_id(
         AMM::UUID&& _agent_id)
 {
     m_agent_id = std::move(_agent_id);
@@ -749,7 +748,7 @@ void AMM::EventFragment::agent_id(
  * @brief This function returns a constant reference to member agent_id
  * @return Constant reference to member agent_id
  */
-const AMM::UUID& AMM::EventFragment::agent_id() const
+const AMM::UUID& EventFragment::agent_id() const
 {
     return m_agent_id;
 }
@@ -758,7 +757,7 @@ const AMM::UUID& AMM::EventFragment::agent_id() const
  * @brief This function returns a reference to member agent_id
  * @return Reference to member agent_id
  */
-AMM::UUID& AMM::EventFragment::agent_id()
+AMM::UUID& EventFragment::agent_id()
 {
     return m_agent_id;
 }
@@ -768,7 +767,7 @@ AMM::UUID& AMM::EventFragment::agent_id()
  * @brief This function copies the value in member type
  * @param _type New value to be copied in member type
  */
-void AMM::EventFragment::type(
+void EventFragment::type(
         const std::string& _type)
 {
     m_type = _type;
@@ -778,7 +777,7 @@ void AMM::EventFragment::type(
  * @brief This function moves the value in member type
  * @param _type New value to be moved in member type
  */
-void AMM::EventFragment::type(
+void EventFragment::type(
         std::string&& _type)
 {
     m_type = std::move(_type);
@@ -788,7 +787,7 @@ void AMM::EventFragment::type(
  * @brief This function returns a constant reference to member type
  * @return Constant reference to member type
  */
-const std::string& AMM::EventFragment::type() const
+const std::string& EventFragment::type() const
 {
     return m_type;
 }
@@ -797,7 +796,7 @@ const std::string& AMM::EventFragment::type() const
  * @brief This function returns a reference to member type
  * @return Reference to member type
  */
-std::string& AMM::EventFragment::type()
+std::string& EventFragment::type()
 {
     return m_type;
 }
@@ -807,7 +806,7 @@ std::string& AMM::EventFragment::type()
  * @brief This function copies the value in member data
  * @param _data New value to be copied in member data
  */
-void AMM::EventFragment::data(
+void EventFragment::data(
         const eprosima::fastcdr::fixed_string<4096>& _data)
 {
     m_data = _data;
@@ -817,7 +816,7 @@ void AMM::EventFragment::data(
  * @brief This function moves the value in member data
  * @param _data New value to be moved in member data
  */
-void AMM::EventFragment::data(
+void EventFragment::data(
         eprosima::fastcdr::fixed_string<4096>&& _data)
 {
     m_data = std::move(_data);
@@ -827,7 +826,7 @@ void AMM::EventFragment::data(
  * @brief This function returns a constant reference to member data
  * @return Constant reference to member data
  */
-const eprosima::fastcdr::fixed_string<4096>& AMM::EventFragment::data() const
+const eprosima::fastcdr::fixed_string<4096>& EventFragment::data() const
 {
     return m_data;
 }
@@ -836,22 +835,23 @@ const eprosima::fastcdr::fixed_string<4096>& AMM::EventFragment::data() const
  * @brief This function returns a reference to member data
  * @return Reference to member data
  */
-eprosima::fastcdr::fixed_string<4096>& AMM::EventFragment::data()
+eprosima::fastcdr::fixed_string<4096>& EventFragment::data()
 {
     return m_data;
 }
 
 
-AMM::EventRecord::EventRecord()
-{
 
-}
 
-AMM::EventRecord::~EventRecord()
+EventRecord::EventRecord()
 {
 }
 
-AMM::EventRecord::EventRecord(
+EventRecord::~EventRecord()
+{
+}
+
+EventRecord::EventRecord(
         const EventRecord& x)
 {
     m_id = x.m_id;
@@ -864,7 +864,7 @@ AMM::EventRecord::EventRecord(
     m_data = x.m_data;
 }
 
-AMM::EventRecord::EventRecord(
+EventRecord::EventRecord(
         EventRecord&& x) noexcept
 {
     m_id = std::move(x.m_id);
@@ -877,7 +877,7 @@ AMM::EventRecord::EventRecord(
     m_data = std::move(x.m_data);
 }
 
-AMM::EventRecord& AMM::EventRecord::operator =(
+EventRecord& EventRecord::operator =(
         const EventRecord& x)
 {
 
@@ -889,11 +889,10 @@ AMM::EventRecord& AMM::EventRecord::operator =(
     m_agent_id = x.m_agent_id;
     m_type = x.m_type;
     m_data = x.m_data;
-
     return *this;
 }
 
-AMM::EventRecord& AMM::EventRecord::operator =(
+EventRecord& EventRecord::operator =(
         EventRecord&& x) noexcept
 {
 
@@ -905,11 +904,10 @@ AMM::EventRecord& AMM::EventRecord::operator =(
     m_agent_id = std::move(x.m_agent_id);
     m_type = std::move(x.m_type);
     m_data = std::move(x.m_data);
-
     return *this;
 }
 
-bool AMM::EventRecord::operator ==(
+bool EventRecord::operator ==(
         const EventRecord& x) const
 {
     return (m_id == x.m_id &&
@@ -922,7 +920,7 @@ bool AMM::EventRecord::operator ==(
            m_data == x.m_data);
 }
 
-bool AMM::EventRecord::operator !=(
+bool EventRecord::operator !=(
         const EventRecord& x) const
 {
     return !(*this == x);
@@ -932,7 +930,7 @@ bool AMM::EventRecord::operator !=(
  * @brief This function copies the value in member id
  * @param _id New value to be copied in member id
  */
-void AMM::EventRecord::id(
+void EventRecord::id(
         const AMM::UUID& _id)
 {
     m_id = _id;
@@ -942,7 +940,7 @@ void AMM::EventRecord::id(
  * @brief This function moves the value in member id
  * @param _id New value to be moved in member id
  */
-void AMM::EventRecord::id(
+void EventRecord::id(
         AMM::UUID&& _id)
 {
     m_id = std::move(_id);
@@ -952,7 +950,7 @@ void AMM::EventRecord::id(
  * @brief This function returns a constant reference to member id
  * @return Constant reference to member id
  */
-const AMM::UUID& AMM::EventRecord::id() const
+const AMM::UUID& EventRecord::id() const
 {
     return m_id;
 }
@@ -961,7 +959,7 @@ const AMM::UUID& AMM::EventRecord::id() const
  * @brief This function returns a reference to member id
  * @return Reference to member id
  */
-AMM::UUID& AMM::EventRecord::id()
+AMM::UUID& EventRecord::id()
 {
     return m_id;
 }
@@ -971,7 +969,7 @@ AMM::UUID& AMM::EventRecord::id()
  * @brief This function sets a value in member timestamp
  * @param _timestamp New value for member timestamp
  */
-void AMM::EventRecord::timestamp(
+void EventRecord::timestamp(
         uint64_t _timestamp)
 {
     m_timestamp = _timestamp;
@@ -981,7 +979,7 @@ void AMM::EventRecord::timestamp(
  * @brief This function returns the value of member timestamp
  * @return Value of member timestamp
  */
-uint64_t AMM::EventRecord::timestamp() const
+uint64_t EventRecord::timestamp() const
 {
     return m_timestamp;
 }
@@ -990,7 +988,7 @@ uint64_t AMM::EventRecord::timestamp() const
  * @brief This function returns a reference to member timestamp
  * @return Reference to member timestamp
  */
-uint64_t& AMM::EventRecord::timestamp()
+uint64_t& EventRecord::timestamp()
 {
     return m_timestamp;
 }
@@ -1000,7 +998,7 @@ uint64_t& AMM::EventRecord::timestamp()
  * @brief This function copies the value in member educational_encounter
  * @param _educational_encounter New value to be copied in member educational_encounter
  */
-void AMM::EventRecord::educational_encounter(
+void EventRecord::educational_encounter(
         const AMM::UUID& _educational_encounter)
 {
     m_educational_encounter = _educational_encounter;
@@ -1010,7 +1008,7 @@ void AMM::EventRecord::educational_encounter(
  * @brief This function moves the value in member educational_encounter
  * @param _educational_encounter New value to be moved in member educational_encounter
  */
-void AMM::EventRecord::educational_encounter(
+void EventRecord::educational_encounter(
         AMM::UUID&& _educational_encounter)
 {
     m_educational_encounter = std::move(_educational_encounter);
@@ -1020,7 +1018,7 @@ void AMM::EventRecord::educational_encounter(
  * @brief This function returns a constant reference to member educational_encounter
  * @return Constant reference to member educational_encounter
  */
-const AMM::UUID& AMM::EventRecord::educational_encounter() const
+const AMM::UUID& EventRecord::educational_encounter() const
 {
     return m_educational_encounter;
 }
@@ -1029,7 +1027,7 @@ const AMM::UUID& AMM::EventRecord::educational_encounter() const
  * @brief This function returns a reference to member educational_encounter
  * @return Reference to member educational_encounter
  */
-AMM::UUID& AMM::EventRecord::educational_encounter()
+AMM::UUID& EventRecord::educational_encounter()
 {
     return m_educational_encounter;
 }
@@ -1039,7 +1037,7 @@ AMM::UUID& AMM::EventRecord::educational_encounter()
  * @brief This function copies the value in member location
  * @param _location New value to be copied in member location
  */
-void AMM::EventRecord::location(
+void EventRecord::location(
         const AMM::FMA_Location& _location)
 {
     m_location = _location;
@@ -1049,7 +1047,7 @@ void AMM::EventRecord::location(
  * @brief This function moves the value in member location
  * @param _location New value to be moved in member location
  */
-void AMM::EventRecord::location(
+void EventRecord::location(
         AMM::FMA_Location&& _location)
 {
     m_location = std::move(_location);
@@ -1059,7 +1057,7 @@ void AMM::EventRecord::location(
  * @brief This function returns a constant reference to member location
  * @return Constant reference to member location
  */
-const AMM::FMA_Location& AMM::EventRecord::location() const
+const AMM::FMA_Location& EventRecord::location() const
 {
     return m_location;
 }
@@ -1068,7 +1066,7 @@ const AMM::FMA_Location& AMM::EventRecord::location() const
  * @brief This function returns a reference to member location
  * @return Reference to member location
  */
-AMM::FMA_Location& AMM::EventRecord::location()
+AMM::FMA_Location& EventRecord::location()
 {
     return m_location;
 }
@@ -1078,7 +1076,7 @@ AMM::FMA_Location& AMM::EventRecord::location()
  * @brief This function sets a value in member agent_type
  * @param _agent_type New value for member agent_type
  */
-void AMM::EventRecord::agent_type(
+void EventRecord::agent_type(
         AMM::EventAgentType _agent_type)
 {
     m_agent_type = _agent_type;
@@ -1088,7 +1086,7 @@ void AMM::EventRecord::agent_type(
  * @brief This function returns the value of member agent_type
  * @return Value of member agent_type
  */
-AMM::EventAgentType AMM::EventRecord::agent_type() const
+AMM::EventAgentType EventRecord::agent_type() const
 {
     return m_agent_type;
 }
@@ -1097,7 +1095,7 @@ AMM::EventAgentType AMM::EventRecord::agent_type() const
  * @brief This function returns a reference to member agent_type
  * @return Reference to member agent_type
  */
-AMM::EventAgentType& AMM::EventRecord::agent_type()
+AMM::EventAgentType& EventRecord::agent_type()
 {
     return m_agent_type;
 }
@@ -1107,7 +1105,7 @@ AMM::EventAgentType& AMM::EventRecord::agent_type()
  * @brief This function copies the value in member agent_id
  * @param _agent_id New value to be copied in member agent_id
  */
-void AMM::EventRecord::agent_id(
+void EventRecord::agent_id(
         const AMM::UUID& _agent_id)
 {
     m_agent_id = _agent_id;
@@ -1117,7 +1115,7 @@ void AMM::EventRecord::agent_id(
  * @brief This function moves the value in member agent_id
  * @param _agent_id New value to be moved in member agent_id
  */
-void AMM::EventRecord::agent_id(
+void EventRecord::agent_id(
         AMM::UUID&& _agent_id)
 {
     m_agent_id = std::move(_agent_id);
@@ -1127,7 +1125,7 @@ void AMM::EventRecord::agent_id(
  * @brief This function returns a constant reference to member agent_id
  * @return Constant reference to member agent_id
  */
-const AMM::UUID& AMM::EventRecord::agent_id() const
+const AMM::UUID& EventRecord::agent_id() const
 {
     return m_agent_id;
 }
@@ -1136,7 +1134,7 @@ const AMM::UUID& AMM::EventRecord::agent_id() const
  * @brief This function returns a reference to member agent_id
  * @return Reference to member agent_id
  */
-AMM::UUID& AMM::EventRecord::agent_id()
+AMM::UUID& EventRecord::agent_id()
 {
     return m_agent_id;
 }
@@ -1146,7 +1144,7 @@ AMM::UUID& AMM::EventRecord::agent_id()
  * @brief This function copies the value in member type
  * @param _type New value to be copied in member type
  */
-void AMM::EventRecord::type(
+void EventRecord::type(
         const std::string& _type)
 {
     m_type = _type;
@@ -1156,7 +1154,7 @@ void AMM::EventRecord::type(
  * @brief This function moves the value in member type
  * @param _type New value to be moved in member type
  */
-void AMM::EventRecord::type(
+void EventRecord::type(
         std::string&& _type)
 {
     m_type = std::move(_type);
@@ -1166,7 +1164,7 @@ void AMM::EventRecord::type(
  * @brief This function returns a constant reference to member type
  * @return Constant reference to member type
  */
-const std::string& AMM::EventRecord::type() const
+const std::string& EventRecord::type() const
 {
     return m_type;
 }
@@ -1175,7 +1173,7 @@ const std::string& AMM::EventRecord::type() const
  * @brief This function returns a reference to member type
  * @return Reference to member type
  */
-std::string& AMM::EventRecord::type()
+std::string& EventRecord::type()
 {
     return m_type;
 }
@@ -1185,7 +1183,7 @@ std::string& AMM::EventRecord::type()
  * @brief This function copies the value in member data
  * @param _data New value to be copied in member data
  */
-void AMM::EventRecord::data(
+void EventRecord::data(
         const eprosima::fastcdr::fixed_string<4096>& _data)
 {
     m_data = _data;
@@ -1195,7 +1193,7 @@ void AMM::EventRecord::data(
  * @brief This function moves the value in member data
  * @param _data New value to be moved in member data
  */
-void AMM::EventRecord::data(
+void EventRecord::data(
         eprosima::fastcdr::fixed_string<4096>&& _data)
 {
     m_data = std::move(_data);
@@ -1205,7 +1203,7 @@ void AMM::EventRecord::data(
  * @brief This function returns a constant reference to member data
  * @return Constant reference to member data
  */
-const eprosima::fastcdr::fixed_string<4096>& AMM::EventRecord::data() const
+const eprosima::fastcdr::fixed_string<4096>& EventRecord::data() const
 {
     return m_data;
 }
@@ -1214,23 +1212,24 @@ const eprosima::fastcdr::fixed_string<4096>& AMM::EventRecord::data() const
  * @brief This function returns a reference to member data
  * @return Reference to member data
  */
-eprosima::fastcdr::fixed_string<4096>& AMM::EventRecord::data()
+eprosima::fastcdr::fixed_string<4096>& EventRecord::data()
 {
     return m_data;
 }
 
 
 
-AMM::FragmentAmendmentRequest::FragmentAmendmentRequest()
-{
 
-}
 
-AMM::FragmentAmendmentRequest::~FragmentAmendmentRequest()
+FragmentAmendmentRequest::FragmentAmendmentRequest()
 {
 }
 
-AMM::FragmentAmendmentRequest::FragmentAmendmentRequest(
+FragmentAmendmentRequest::~FragmentAmendmentRequest()
+{
+}
+
+FragmentAmendmentRequest::FragmentAmendmentRequest(
         const FragmentAmendmentRequest& x)
 {
     m_id = x.m_id;
@@ -1241,7 +1240,7 @@ AMM::FragmentAmendmentRequest::FragmentAmendmentRequest(
     m_agent_id = x.m_agent_id;
 }
 
-AMM::FragmentAmendmentRequest::FragmentAmendmentRequest(
+FragmentAmendmentRequest::FragmentAmendmentRequest(
         FragmentAmendmentRequest&& x) noexcept
 {
     m_id = std::move(x.m_id);
@@ -1252,7 +1251,7 @@ AMM::FragmentAmendmentRequest::FragmentAmendmentRequest(
     m_agent_id = std::move(x.m_agent_id);
 }
 
-AMM::FragmentAmendmentRequest& AMM::FragmentAmendmentRequest::operator =(
+FragmentAmendmentRequest& FragmentAmendmentRequest::operator =(
         const FragmentAmendmentRequest& x)
 {
 
@@ -1262,11 +1261,10 @@ AMM::FragmentAmendmentRequest& AMM::FragmentAmendmentRequest::operator =(
     m_location = x.m_location;
     m_agent_type = x.m_agent_type;
     m_agent_id = x.m_agent_id;
-
     return *this;
 }
 
-AMM::FragmentAmendmentRequest& AMM::FragmentAmendmentRequest::operator =(
+FragmentAmendmentRequest& FragmentAmendmentRequest::operator =(
         FragmentAmendmentRequest&& x) noexcept
 {
 
@@ -1276,11 +1274,10 @@ AMM::FragmentAmendmentRequest& AMM::FragmentAmendmentRequest::operator =(
     m_location = std::move(x.m_location);
     m_agent_type = x.m_agent_type;
     m_agent_id = std::move(x.m_agent_id);
-
     return *this;
 }
 
-bool AMM::FragmentAmendmentRequest::operator ==(
+bool FragmentAmendmentRequest::operator ==(
         const FragmentAmendmentRequest& x) const
 {
     return (m_id == x.m_id &&
@@ -1291,7 +1288,7 @@ bool AMM::FragmentAmendmentRequest::operator ==(
            m_agent_id == x.m_agent_id);
 }
 
-bool AMM::FragmentAmendmentRequest::operator !=(
+bool FragmentAmendmentRequest::operator !=(
         const FragmentAmendmentRequest& x) const
 {
     return !(*this == x);
@@ -1301,7 +1298,7 @@ bool AMM::FragmentAmendmentRequest::operator !=(
  * @brief This function copies the value in member id
  * @param _id New value to be copied in member id
  */
-void AMM::FragmentAmendmentRequest::id(
+void FragmentAmendmentRequest::id(
         const AMM::UUID& _id)
 {
     m_id = _id;
@@ -1311,7 +1308,7 @@ void AMM::FragmentAmendmentRequest::id(
  * @brief This function moves the value in member id
  * @param _id New value to be moved in member id
  */
-void AMM::FragmentAmendmentRequest::id(
+void FragmentAmendmentRequest::id(
         AMM::UUID&& _id)
 {
     m_id = std::move(_id);
@@ -1321,7 +1318,7 @@ void AMM::FragmentAmendmentRequest::id(
  * @brief This function returns a constant reference to member id
  * @return Constant reference to member id
  */
-const AMM::UUID& AMM::FragmentAmendmentRequest::id() const
+const AMM::UUID& FragmentAmendmentRequest::id() const
 {
     return m_id;
 }
@@ -1330,7 +1327,7 @@ const AMM::UUID& AMM::FragmentAmendmentRequest::id() const
  * @brief This function returns a reference to member id
  * @return Reference to member id
  */
-AMM::UUID& AMM::FragmentAmendmentRequest::id()
+AMM::UUID& FragmentAmendmentRequest::id()
 {
     return m_id;
 }
@@ -1340,7 +1337,7 @@ AMM::UUID& AMM::FragmentAmendmentRequest::id()
  * @brief This function copies the value in member fragment_id
  * @param _fragment_id New value to be copied in member fragment_id
  */
-void AMM::FragmentAmendmentRequest::fragment_id(
+void FragmentAmendmentRequest::fragment_id(
         const AMM::UUID& _fragment_id)
 {
     m_fragment_id = _fragment_id;
@@ -1350,7 +1347,7 @@ void AMM::FragmentAmendmentRequest::fragment_id(
  * @brief This function moves the value in member fragment_id
  * @param _fragment_id New value to be moved in member fragment_id
  */
-void AMM::FragmentAmendmentRequest::fragment_id(
+void FragmentAmendmentRequest::fragment_id(
         AMM::UUID&& _fragment_id)
 {
     m_fragment_id = std::move(_fragment_id);
@@ -1360,7 +1357,7 @@ void AMM::FragmentAmendmentRequest::fragment_id(
  * @brief This function returns a constant reference to member fragment_id
  * @return Constant reference to member fragment_id
  */
-const AMM::UUID& AMM::FragmentAmendmentRequest::fragment_id() const
+const AMM::UUID& FragmentAmendmentRequest::fragment_id() const
 {
     return m_fragment_id;
 }
@@ -1369,7 +1366,7 @@ const AMM::UUID& AMM::FragmentAmendmentRequest::fragment_id() const
  * @brief This function returns a reference to member fragment_id
  * @return Reference to member fragment_id
  */
-AMM::UUID& AMM::FragmentAmendmentRequest::fragment_id()
+AMM::UUID& FragmentAmendmentRequest::fragment_id()
 {
     return m_fragment_id;
 }
@@ -1379,7 +1376,7 @@ AMM::UUID& AMM::FragmentAmendmentRequest::fragment_id()
  * @brief This function sets a value in member status
  * @param _status New value for member status
  */
-void AMM::FragmentAmendmentRequest::status(
+void FragmentAmendmentRequest::status(
         AMM::FAR_Status _status)
 {
     m_status = _status;
@@ -1389,7 +1386,7 @@ void AMM::FragmentAmendmentRequest::status(
  * @brief This function returns the value of member status
  * @return Value of member status
  */
-AMM::FAR_Status AMM::FragmentAmendmentRequest::status() const
+AMM::FAR_Status FragmentAmendmentRequest::status() const
 {
     return m_status;
 }
@@ -1398,7 +1395,7 @@ AMM::FAR_Status AMM::FragmentAmendmentRequest::status() const
  * @brief This function returns a reference to member status
  * @return Reference to member status
  */
-AMM::FAR_Status& AMM::FragmentAmendmentRequest::status()
+AMM::FAR_Status& FragmentAmendmentRequest::status()
 {
     return m_status;
 }
@@ -1408,7 +1405,7 @@ AMM::FAR_Status& AMM::FragmentAmendmentRequest::status()
  * @brief This function copies the value in member location
  * @param _location New value to be copied in member location
  */
-void AMM::FragmentAmendmentRequest::location(
+void FragmentAmendmentRequest::location(
         const AMM::FMA_Location& _location)
 {
     m_location = _location;
@@ -1418,7 +1415,7 @@ void AMM::FragmentAmendmentRequest::location(
  * @brief This function moves the value in member location
  * @param _location New value to be moved in member location
  */
-void AMM::FragmentAmendmentRequest::location(
+void FragmentAmendmentRequest::location(
         AMM::FMA_Location&& _location)
 {
     m_location = std::move(_location);
@@ -1428,7 +1425,7 @@ void AMM::FragmentAmendmentRequest::location(
  * @brief This function returns a constant reference to member location
  * @return Constant reference to member location
  */
-const AMM::FMA_Location& AMM::FragmentAmendmentRequest::location() const
+const AMM::FMA_Location& FragmentAmendmentRequest::location() const
 {
     return m_location;
 }
@@ -1437,7 +1434,7 @@ const AMM::FMA_Location& AMM::FragmentAmendmentRequest::location() const
  * @brief This function returns a reference to member location
  * @return Reference to member location
  */
-AMM::FMA_Location& AMM::FragmentAmendmentRequest::location()
+AMM::FMA_Location& FragmentAmendmentRequest::location()
 {
     return m_location;
 }
@@ -1447,7 +1444,7 @@ AMM::FMA_Location& AMM::FragmentAmendmentRequest::location()
  * @brief This function sets a value in member agent_type
  * @param _agent_type New value for member agent_type
  */
-void AMM::FragmentAmendmentRequest::agent_type(
+void FragmentAmendmentRequest::agent_type(
         AMM::EventAgentType _agent_type)
 {
     m_agent_type = _agent_type;
@@ -1457,7 +1454,7 @@ void AMM::FragmentAmendmentRequest::agent_type(
  * @brief This function returns the value of member agent_type
  * @return Value of member agent_type
  */
-AMM::EventAgentType AMM::FragmentAmendmentRequest::agent_type() const
+AMM::EventAgentType FragmentAmendmentRequest::agent_type() const
 {
     return m_agent_type;
 }
@@ -1466,7 +1463,7 @@ AMM::EventAgentType AMM::FragmentAmendmentRequest::agent_type() const
  * @brief This function returns a reference to member agent_type
  * @return Reference to member agent_type
  */
-AMM::EventAgentType& AMM::FragmentAmendmentRequest::agent_type()
+AMM::EventAgentType& FragmentAmendmentRequest::agent_type()
 {
     return m_agent_type;
 }
@@ -1476,7 +1473,7 @@ AMM::EventAgentType& AMM::FragmentAmendmentRequest::agent_type()
  * @brief This function copies the value in member agent_id
  * @param _agent_id New value to be copied in member agent_id
  */
-void AMM::FragmentAmendmentRequest::agent_id(
+void FragmentAmendmentRequest::agent_id(
         const AMM::UUID& _agent_id)
 {
     m_agent_id = _agent_id;
@@ -1486,7 +1483,7 @@ void AMM::FragmentAmendmentRequest::agent_id(
  * @brief This function moves the value in member agent_id
  * @param _agent_id New value to be moved in member agent_id
  */
-void AMM::FragmentAmendmentRequest::agent_id(
+void FragmentAmendmentRequest::agent_id(
         AMM::UUID&& _agent_id)
 {
     m_agent_id = std::move(_agent_id);
@@ -1496,7 +1493,7 @@ void AMM::FragmentAmendmentRequest::agent_id(
  * @brief This function returns a constant reference to member agent_id
  * @return Constant reference to member agent_id
  */
-const AMM::UUID& AMM::FragmentAmendmentRequest::agent_id() const
+const AMM::UUID& FragmentAmendmentRequest::agent_id() const
 {
     return m_agent_id;
 }
@@ -1505,23 +1502,24 @@ const AMM::UUID& AMM::FragmentAmendmentRequest::agent_id() const
  * @brief This function returns a reference to member agent_id
  * @return Reference to member agent_id
  */
-AMM::UUID& AMM::FragmentAmendmentRequest::agent_id()
+AMM::UUID& FragmentAmendmentRequest::agent_id()
 {
     return m_agent_id;
 }
 
 
 
-AMM::Log::Log()
-{
 
-}
 
-AMM::Log::~Log()
+Log::Log()
 {
 }
 
-AMM::Log::Log(
+Log::~Log()
+{
+}
+
+Log::Log(
         const Log& x)
 {
     m_timestamp = x.m_timestamp;
@@ -1530,7 +1528,7 @@ AMM::Log::Log(
     m_message = x.m_message;
 }
 
-AMM::Log::Log(
+Log::Log(
         Log&& x) noexcept
 {
     m_timestamp = x.m_timestamp;
@@ -1539,7 +1537,7 @@ AMM::Log::Log(
     m_message = std::move(x.m_message);
 }
 
-AMM::Log& AMM::Log::operator =(
+Log& Log::operator =(
         const Log& x)
 {
 
@@ -1547,11 +1545,10 @@ AMM::Log& AMM::Log::operator =(
     m_module_id = x.m_module_id;
     m_level = x.m_level;
     m_message = x.m_message;
-
     return *this;
 }
 
-AMM::Log& AMM::Log::operator =(
+Log& Log::operator =(
         Log&& x) noexcept
 {
 
@@ -1559,11 +1556,10 @@ AMM::Log& AMM::Log::operator =(
     m_module_id = std::move(x.m_module_id);
     m_level = x.m_level;
     m_message = std::move(x.m_message);
-
     return *this;
 }
 
-bool AMM::Log::operator ==(
+bool Log::operator ==(
         const Log& x) const
 {
     return (m_timestamp == x.m_timestamp &&
@@ -1572,7 +1568,7 @@ bool AMM::Log::operator ==(
            m_message == x.m_message);
 }
 
-bool AMM::Log::operator !=(
+bool Log::operator !=(
         const Log& x) const
 {
     return !(*this == x);
@@ -1582,7 +1578,7 @@ bool AMM::Log::operator !=(
  * @brief This function sets a value in member timestamp
  * @param _timestamp New value for member timestamp
  */
-void AMM::Log::timestamp(
+void Log::timestamp(
         uint64_t _timestamp)
 {
     m_timestamp = _timestamp;
@@ -1592,7 +1588,7 @@ void AMM::Log::timestamp(
  * @brief This function returns the value of member timestamp
  * @return Value of member timestamp
  */
-uint64_t AMM::Log::timestamp() const
+uint64_t Log::timestamp() const
 {
     return m_timestamp;
 }
@@ -1601,7 +1597,7 @@ uint64_t AMM::Log::timestamp() const
  * @brief This function returns a reference to member timestamp
  * @return Reference to member timestamp
  */
-uint64_t& AMM::Log::timestamp()
+uint64_t& Log::timestamp()
 {
     return m_timestamp;
 }
@@ -1611,7 +1607,7 @@ uint64_t& AMM::Log::timestamp()
  * @brief This function copies the value in member module_id
  * @param _module_id New value to be copied in member module_id
  */
-void AMM::Log::module_id(
+void Log::module_id(
         const AMM::UUID& _module_id)
 {
     m_module_id = _module_id;
@@ -1621,7 +1617,7 @@ void AMM::Log::module_id(
  * @brief This function moves the value in member module_id
  * @param _module_id New value to be moved in member module_id
  */
-void AMM::Log::module_id(
+void Log::module_id(
         AMM::UUID&& _module_id)
 {
     m_module_id = std::move(_module_id);
@@ -1631,7 +1627,7 @@ void AMM::Log::module_id(
  * @brief This function returns a constant reference to member module_id
  * @return Constant reference to member module_id
  */
-const AMM::UUID& AMM::Log::module_id() const
+const AMM::UUID& Log::module_id() const
 {
     return m_module_id;
 }
@@ -1640,7 +1636,7 @@ const AMM::UUID& AMM::Log::module_id() const
  * @brief This function returns a reference to member module_id
  * @return Reference to member module_id
  */
-AMM::UUID& AMM::Log::module_id()
+AMM::UUID& Log::module_id()
 {
     return m_module_id;
 }
@@ -1650,7 +1646,7 @@ AMM::UUID& AMM::Log::module_id()
  * @brief This function sets a value in member level
  * @param _level New value for member level
  */
-void AMM::Log::level(
+void Log::level(
         AMM::LogLevel _level)
 {
     m_level = _level;
@@ -1660,7 +1656,7 @@ void AMM::Log::level(
  * @brief This function returns the value of member level
  * @return Value of member level
  */
-AMM::LogLevel AMM::Log::level() const
+AMM::LogLevel Log::level() const
 {
     return m_level;
 }
@@ -1669,7 +1665,7 @@ AMM::LogLevel AMM::Log::level() const
  * @brief This function returns a reference to member level
  * @return Reference to member level
  */
-AMM::LogLevel& AMM::Log::level()
+AMM::LogLevel& Log::level()
 {
     return m_level;
 }
@@ -1679,7 +1675,7 @@ AMM::LogLevel& AMM::Log::level()
  * @brief This function copies the value in member message
  * @param _message New value to be copied in member message
  */
-void AMM::Log::message(
+void Log::message(
         const std::string& _message)
 {
     m_message = _message;
@@ -1689,7 +1685,7 @@ void AMM::Log::message(
  * @brief This function moves the value in member message
  * @param _message New value to be moved in member message
  */
-void AMM::Log::message(
+void Log::message(
         std::string&& _message)
 {
     m_message = std::move(_message);
@@ -1699,7 +1695,7 @@ void AMM::Log::message(
  * @brief This function returns a constant reference to member message
  * @return Constant reference to member message
  */
-const std::string& AMM::Log::message() const
+const std::string& Log::message() const
 {
     return m_message;
 }
@@ -1708,22 +1704,23 @@ const std::string& AMM::Log::message() const
  * @brief This function returns a reference to member message
  * @return Reference to member message
  */
-std::string& AMM::Log::message()
+std::string& Log::message()
 {
     return m_message;
 }
 
 
-AMM::ModuleConfiguration::ModuleConfiguration()
-{
 
-}
 
-AMM::ModuleConfiguration::~ModuleConfiguration()
+ModuleConfiguration::ModuleConfiguration()
 {
 }
 
-AMM::ModuleConfiguration::ModuleConfiguration(
+ModuleConfiguration::~ModuleConfiguration()
+{
+}
+
+ModuleConfiguration::ModuleConfiguration(
         const ModuleConfiguration& x)
 {
     m_name = x.m_name;
@@ -1733,7 +1730,7 @@ AMM::ModuleConfiguration::ModuleConfiguration(
     m_capabilities_configuration = x.m_capabilities_configuration;
 }
 
-AMM::ModuleConfiguration::ModuleConfiguration(
+ModuleConfiguration::ModuleConfiguration(
         ModuleConfiguration&& x) noexcept
 {
     m_name = std::move(x.m_name);
@@ -1743,7 +1740,7 @@ AMM::ModuleConfiguration::ModuleConfiguration(
     m_capabilities_configuration = std::move(x.m_capabilities_configuration);
 }
 
-AMM::ModuleConfiguration& AMM::ModuleConfiguration::operator =(
+ModuleConfiguration& ModuleConfiguration::operator =(
         const ModuleConfiguration& x)
 {
 
@@ -1752,11 +1749,10 @@ AMM::ModuleConfiguration& AMM::ModuleConfiguration::operator =(
     m_educational_encounter = x.m_educational_encounter;
     m_timestamp = x.m_timestamp;
     m_capabilities_configuration = x.m_capabilities_configuration;
-
     return *this;
 }
 
-AMM::ModuleConfiguration& AMM::ModuleConfiguration::operator =(
+ModuleConfiguration& ModuleConfiguration::operator =(
         ModuleConfiguration&& x) noexcept
 {
 
@@ -1765,11 +1761,10 @@ AMM::ModuleConfiguration& AMM::ModuleConfiguration::operator =(
     m_educational_encounter = std::move(x.m_educational_encounter);
     m_timestamp = x.m_timestamp;
     m_capabilities_configuration = std::move(x.m_capabilities_configuration);
-
     return *this;
 }
 
-bool AMM::ModuleConfiguration::operator ==(
+bool ModuleConfiguration::operator ==(
         const ModuleConfiguration& x) const
 {
     return (m_name == x.m_name &&
@@ -1779,7 +1774,7 @@ bool AMM::ModuleConfiguration::operator ==(
            m_capabilities_configuration == x.m_capabilities_configuration);
 }
 
-bool AMM::ModuleConfiguration::operator !=(
+bool ModuleConfiguration::operator !=(
         const ModuleConfiguration& x) const
 {
     return !(*this == x);
@@ -1789,7 +1784,7 @@ bool AMM::ModuleConfiguration::operator !=(
  * @brief This function copies the value in member name
  * @param _name New value to be copied in member name
  */
-void AMM::ModuleConfiguration::name(
+void ModuleConfiguration::name(
         const std::string& _name)
 {
     m_name = _name;
@@ -1799,7 +1794,7 @@ void AMM::ModuleConfiguration::name(
  * @brief This function moves the value in member name
  * @param _name New value to be moved in member name
  */
-void AMM::ModuleConfiguration::name(
+void ModuleConfiguration::name(
         std::string&& _name)
 {
     m_name = std::move(_name);
@@ -1809,7 +1804,7 @@ void AMM::ModuleConfiguration::name(
  * @brief This function returns a constant reference to member name
  * @return Constant reference to member name
  */
-const std::string& AMM::ModuleConfiguration::name() const
+const std::string& ModuleConfiguration::name() const
 {
     return m_name;
 }
@@ -1818,7 +1813,7 @@ const std::string& AMM::ModuleConfiguration::name() const
  * @brief This function returns a reference to member name
  * @return Reference to member name
  */
-std::string& AMM::ModuleConfiguration::name()
+std::string& ModuleConfiguration::name()
 {
     return m_name;
 }
@@ -1828,7 +1823,7 @@ std::string& AMM::ModuleConfiguration::name()
  * @brief This function copies the value in member module_id
  * @param _module_id New value to be copied in member module_id
  */
-void AMM::ModuleConfiguration::module_id(
+void ModuleConfiguration::module_id(
         const AMM::UUID& _module_id)
 {
     m_module_id = _module_id;
@@ -1838,7 +1833,7 @@ void AMM::ModuleConfiguration::module_id(
  * @brief This function moves the value in member module_id
  * @param _module_id New value to be moved in member module_id
  */
-void AMM::ModuleConfiguration::module_id(
+void ModuleConfiguration::module_id(
         AMM::UUID&& _module_id)
 {
     m_module_id = std::move(_module_id);
@@ -1848,7 +1843,7 @@ void AMM::ModuleConfiguration::module_id(
  * @brief This function returns a constant reference to member module_id
  * @return Constant reference to member module_id
  */
-const AMM::UUID& AMM::ModuleConfiguration::module_id() const
+const AMM::UUID& ModuleConfiguration::module_id() const
 {
     return m_module_id;
 }
@@ -1857,7 +1852,7 @@ const AMM::UUID& AMM::ModuleConfiguration::module_id() const
  * @brief This function returns a reference to member module_id
  * @return Reference to member module_id
  */
-AMM::UUID& AMM::ModuleConfiguration::module_id()
+AMM::UUID& ModuleConfiguration::module_id()
 {
     return m_module_id;
 }
@@ -1867,7 +1862,7 @@ AMM::UUID& AMM::ModuleConfiguration::module_id()
  * @brief This function copies the value in member educational_encounter
  * @param _educational_encounter New value to be copied in member educational_encounter
  */
-void AMM::ModuleConfiguration::educational_encounter(
+void ModuleConfiguration::educational_encounter(
         const AMM::UUID& _educational_encounter)
 {
     m_educational_encounter = _educational_encounter;
@@ -1877,7 +1872,7 @@ void AMM::ModuleConfiguration::educational_encounter(
  * @brief This function moves the value in member educational_encounter
  * @param _educational_encounter New value to be moved in member educational_encounter
  */
-void AMM::ModuleConfiguration::educational_encounter(
+void ModuleConfiguration::educational_encounter(
         AMM::UUID&& _educational_encounter)
 {
     m_educational_encounter = std::move(_educational_encounter);
@@ -1887,7 +1882,7 @@ void AMM::ModuleConfiguration::educational_encounter(
  * @brief This function returns a constant reference to member educational_encounter
  * @return Constant reference to member educational_encounter
  */
-const AMM::UUID& AMM::ModuleConfiguration::educational_encounter() const
+const AMM::UUID& ModuleConfiguration::educational_encounter() const
 {
     return m_educational_encounter;
 }
@@ -1896,7 +1891,7 @@ const AMM::UUID& AMM::ModuleConfiguration::educational_encounter() const
  * @brief This function returns a reference to member educational_encounter
  * @return Reference to member educational_encounter
  */
-AMM::UUID& AMM::ModuleConfiguration::educational_encounter()
+AMM::UUID& ModuleConfiguration::educational_encounter()
 {
     return m_educational_encounter;
 }
@@ -1906,7 +1901,7 @@ AMM::UUID& AMM::ModuleConfiguration::educational_encounter()
  * @brief This function sets a value in member timestamp
  * @param _timestamp New value for member timestamp
  */
-void AMM::ModuleConfiguration::timestamp(
+void ModuleConfiguration::timestamp(
         uint64_t _timestamp)
 {
     m_timestamp = _timestamp;
@@ -1916,7 +1911,7 @@ void AMM::ModuleConfiguration::timestamp(
  * @brief This function returns the value of member timestamp
  * @return Value of member timestamp
  */
-uint64_t AMM::ModuleConfiguration::timestamp() const
+uint64_t ModuleConfiguration::timestamp() const
 {
     return m_timestamp;
 }
@@ -1925,7 +1920,7 @@ uint64_t AMM::ModuleConfiguration::timestamp() const
  * @brief This function returns a reference to member timestamp
  * @return Reference to member timestamp
  */
-uint64_t& AMM::ModuleConfiguration::timestamp()
+uint64_t& ModuleConfiguration::timestamp()
 {
     return m_timestamp;
 }
@@ -1935,7 +1930,7 @@ uint64_t& AMM::ModuleConfiguration::timestamp()
  * @brief This function copies the value in member capabilities_configuration
  * @param _capabilities_configuration New value to be copied in member capabilities_configuration
  */
-void AMM::ModuleConfiguration::capabilities_configuration(
+void ModuleConfiguration::capabilities_configuration(
         const eprosima::fastcdr::fixed_string<12000>& _capabilities_configuration)
 {
     m_capabilities_configuration = _capabilities_configuration;
@@ -1945,7 +1940,7 @@ void AMM::ModuleConfiguration::capabilities_configuration(
  * @brief This function moves the value in member capabilities_configuration
  * @param _capabilities_configuration New value to be moved in member capabilities_configuration
  */
-void AMM::ModuleConfiguration::capabilities_configuration(
+void ModuleConfiguration::capabilities_configuration(
         eprosima::fastcdr::fixed_string<12000>&& _capabilities_configuration)
 {
     m_capabilities_configuration = std::move(_capabilities_configuration);
@@ -1955,7 +1950,7 @@ void AMM::ModuleConfiguration::capabilities_configuration(
  * @brief This function returns a constant reference to member capabilities_configuration
  * @return Constant reference to member capabilities_configuration
  */
-const eprosima::fastcdr::fixed_string<12000>& AMM::ModuleConfiguration::capabilities_configuration() const
+const eprosima::fastcdr::fixed_string<12000>& ModuleConfiguration::capabilities_configuration() const
 {
     return m_capabilities_configuration;
 }
@@ -1964,22 +1959,23 @@ const eprosima::fastcdr::fixed_string<12000>& AMM::ModuleConfiguration::capabili
  * @brief This function returns a reference to member capabilities_configuration
  * @return Reference to member capabilities_configuration
  */
-eprosima::fastcdr::fixed_string<12000>& AMM::ModuleConfiguration::capabilities_configuration()
+eprosima::fastcdr::fixed_string<12000>& ModuleConfiguration::capabilities_configuration()
 {
     return m_capabilities_configuration;
 }
 
 
-AMM::OmittedEvent::OmittedEvent()
-{
 
-}
 
-AMM::OmittedEvent::~OmittedEvent()
+OmittedEvent::OmittedEvent()
 {
 }
 
-AMM::OmittedEvent::OmittedEvent(
+OmittedEvent::~OmittedEvent()
+{
+}
+
+OmittedEvent::OmittedEvent(
         const OmittedEvent& x)
 {
     m_id = x.m_id;
@@ -1992,7 +1988,7 @@ AMM::OmittedEvent::OmittedEvent(
     m_data = x.m_data;
 }
 
-AMM::OmittedEvent::OmittedEvent(
+OmittedEvent::OmittedEvent(
         OmittedEvent&& x) noexcept
 {
     m_id = std::move(x.m_id);
@@ -2005,7 +2001,7 @@ AMM::OmittedEvent::OmittedEvent(
     m_data = std::move(x.m_data);
 }
 
-AMM::OmittedEvent& AMM::OmittedEvent::operator =(
+OmittedEvent& OmittedEvent::operator =(
         const OmittedEvent& x)
 {
 
@@ -2017,11 +2013,10 @@ AMM::OmittedEvent& AMM::OmittedEvent::operator =(
     m_agent_id = x.m_agent_id;
     m_type = x.m_type;
     m_data = x.m_data;
-
     return *this;
 }
 
-AMM::OmittedEvent& AMM::OmittedEvent::operator =(
+OmittedEvent& OmittedEvent::operator =(
         OmittedEvent&& x) noexcept
 {
 
@@ -2033,11 +2028,10 @@ AMM::OmittedEvent& AMM::OmittedEvent::operator =(
     m_agent_id = std::move(x.m_agent_id);
     m_type = std::move(x.m_type);
     m_data = std::move(x.m_data);
-
     return *this;
 }
 
-bool AMM::OmittedEvent::operator ==(
+bool OmittedEvent::operator ==(
         const OmittedEvent& x) const
 {
     return (m_id == x.m_id &&
@@ -2050,7 +2044,7 @@ bool AMM::OmittedEvent::operator ==(
            m_data == x.m_data);
 }
 
-bool AMM::OmittedEvent::operator !=(
+bool OmittedEvent::operator !=(
         const OmittedEvent& x) const
 {
     return !(*this == x);
@@ -2060,7 +2054,7 @@ bool AMM::OmittedEvent::operator !=(
  * @brief This function copies the value in member id
  * @param _id New value to be copied in member id
  */
-void AMM::OmittedEvent::id(
+void OmittedEvent::id(
         const AMM::UUID& _id)
 {
     m_id = _id;
@@ -2070,7 +2064,7 @@ void AMM::OmittedEvent::id(
  * @brief This function moves the value in member id
  * @param _id New value to be moved in member id
  */
-void AMM::OmittedEvent::id(
+void OmittedEvent::id(
         AMM::UUID&& _id)
 {
     m_id = std::move(_id);
@@ -2080,7 +2074,7 @@ void AMM::OmittedEvent::id(
  * @brief This function returns a constant reference to member id
  * @return Constant reference to member id
  */
-const AMM::UUID& AMM::OmittedEvent::id() const
+const AMM::UUID& OmittedEvent::id() const
 {
     return m_id;
 }
@@ -2089,7 +2083,7 @@ const AMM::UUID& AMM::OmittedEvent::id() const
  * @brief This function returns a reference to member id
  * @return Reference to member id
  */
-AMM::UUID& AMM::OmittedEvent::id()
+AMM::UUID& OmittedEvent::id()
 {
     return m_id;
 }
@@ -2099,7 +2093,7 @@ AMM::UUID& AMM::OmittedEvent::id()
  * @brief This function sets a value in member timestamp
  * @param _timestamp New value for member timestamp
  */
-void AMM::OmittedEvent::timestamp(
+void OmittedEvent::timestamp(
         uint64_t _timestamp)
 {
     m_timestamp = _timestamp;
@@ -2109,7 +2103,7 @@ void AMM::OmittedEvent::timestamp(
  * @brief This function returns the value of member timestamp
  * @return Value of member timestamp
  */
-uint64_t AMM::OmittedEvent::timestamp() const
+uint64_t OmittedEvent::timestamp() const
 {
     return m_timestamp;
 }
@@ -2118,7 +2112,7 @@ uint64_t AMM::OmittedEvent::timestamp() const
  * @brief This function returns a reference to member timestamp
  * @return Reference to member timestamp
  */
-uint64_t& AMM::OmittedEvent::timestamp()
+uint64_t& OmittedEvent::timestamp()
 {
     return m_timestamp;
 }
@@ -2128,7 +2122,7 @@ uint64_t& AMM::OmittedEvent::timestamp()
  * @brief This function copies the value in member educational_encounter
  * @param _educational_encounter New value to be copied in member educational_encounter
  */
-void AMM::OmittedEvent::educational_encounter(
+void OmittedEvent::educational_encounter(
         const AMM::UUID& _educational_encounter)
 {
     m_educational_encounter = _educational_encounter;
@@ -2138,7 +2132,7 @@ void AMM::OmittedEvent::educational_encounter(
  * @brief This function moves the value in member educational_encounter
  * @param _educational_encounter New value to be moved in member educational_encounter
  */
-void AMM::OmittedEvent::educational_encounter(
+void OmittedEvent::educational_encounter(
         AMM::UUID&& _educational_encounter)
 {
     m_educational_encounter = std::move(_educational_encounter);
@@ -2148,7 +2142,7 @@ void AMM::OmittedEvent::educational_encounter(
  * @brief This function returns a constant reference to member educational_encounter
  * @return Constant reference to member educational_encounter
  */
-const AMM::UUID& AMM::OmittedEvent::educational_encounter() const
+const AMM::UUID& OmittedEvent::educational_encounter() const
 {
     return m_educational_encounter;
 }
@@ -2157,7 +2151,7 @@ const AMM::UUID& AMM::OmittedEvent::educational_encounter() const
  * @brief This function returns a reference to member educational_encounter
  * @return Reference to member educational_encounter
  */
-AMM::UUID& AMM::OmittedEvent::educational_encounter()
+AMM::UUID& OmittedEvent::educational_encounter()
 {
     return m_educational_encounter;
 }
@@ -2167,7 +2161,7 @@ AMM::UUID& AMM::OmittedEvent::educational_encounter()
  * @brief This function copies the value in member location
  * @param _location New value to be copied in member location
  */
-void AMM::OmittedEvent::location(
+void OmittedEvent::location(
         const AMM::FMA_Location& _location)
 {
     m_location = _location;
@@ -2177,7 +2171,7 @@ void AMM::OmittedEvent::location(
  * @brief This function moves the value in member location
  * @param _location New value to be moved in member location
  */
-void AMM::OmittedEvent::location(
+void OmittedEvent::location(
         AMM::FMA_Location&& _location)
 {
     m_location = std::move(_location);
@@ -2187,7 +2181,7 @@ void AMM::OmittedEvent::location(
  * @brief This function returns a constant reference to member location
  * @return Constant reference to member location
  */
-const AMM::FMA_Location& AMM::OmittedEvent::location() const
+const AMM::FMA_Location& OmittedEvent::location() const
 {
     return m_location;
 }
@@ -2196,7 +2190,7 @@ const AMM::FMA_Location& AMM::OmittedEvent::location() const
  * @brief This function returns a reference to member location
  * @return Reference to member location
  */
-AMM::FMA_Location& AMM::OmittedEvent::location()
+AMM::FMA_Location& OmittedEvent::location()
 {
     return m_location;
 }
@@ -2206,7 +2200,7 @@ AMM::FMA_Location& AMM::OmittedEvent::location()
  * @brief This function sets a value in member agent_type
  * @param _agent_type New value for member agent_type
  */
-void AMM::OmittedEvent::agent_type(
+void OmittedEvent::agent_type(
         AMM::EventAgentType _agent_type)
 {
     m_agent_type = _agent_type;
@@ -2216,7 +2210,7 @@ void AMM::OmittedEvent::agent_type(
  * @brief This function returns the value of member agent_type
  * @return Value of member agent_type
  */
-AMM::EventAgentType AMM::OmittedEvent::agent_type() const
+AMM::EventAgentType OmittedEvent::agent_type() const
 {
     return m_agent_type;
 }
@@ -2225,7 +2219,7 @@ AMM::EventAgentType AMM::OmittedEvent::agent_type() const
  * @brief This function returns a reference to member agent_type
  * @return Reference to member agent_type
  */
-AMM::EventAgentType& AMM::OmittedEvent::agent_type()
+AMM::EventAgentType& OmittedEvent::agent_type()
 {
     return m_agent_type;
 }
@@ -2235,7 +2229,7 @@ AMM::EventAgentType& AMM::OmittedEvent::agent_type()
  * @brief This function copies the value in member agent_id
  * @param _agent_id New value to be copied in member agent_id
  */
-void AMM::OmittedEvent::agent_id(
+void OmittedEvent::agent_id(
         const AMM::UUID& _agent_id)
 {
     m_agent_id = _agent_id;
@@ -2245,7 +2239,7 @@ void AMM::OmittedEvent::agent_id(
  * @brief This function moves the value in member agent_id
  * @param _agent_id New value to be moved in member agent_id
  */
-void AMM::OmittedEvent::agent_id(
+void OmittedEvent::agent_id(
         AMM::UUID&& _agent_id)
 {
     m_agent_id = std::move(_agent_id);
@@ -2255,7 +2249,7 @@ void AMM::OmittedEvent::agent_id(
  * @brief This function returns a constant reference to member agent_id
  * @return Constant reference to member agent_id
  */
-const AMM::UUID& AMM::OmittedEvent::agent_id() const
+const AMM::UUID& OmittedEvent::agent_id() const
 {
     return m_agent_id;
 }
@@ -2264,7 +2258,7 @@ const AMM::UUID& AMM::OmittedEvent::agent_id() const
  * @brief This function returns a reference to member agent_id
  * @return Reference to member agent_id
  */
-AMM::UUID& AMM::OmittedEvent::agent_id()
+AMM::UUID& OmittedEvent::agent_id()
 {
     return m_agent_id;
 }
@@ -2274,7 +2268,7 @@ AMM::UUID& AMM::OmittedEvent::agent_id()
  * @brief This function copies the value in member type
  * @param _type New value to be copied in member type
  */
-void AMM::OmittedEvent::type(
+void OmittedEvent::type(
         const std::string& _type)
 {
     m_type = _type;
@@ -2284,7 +2278,7 @@ void AMM::OmittedEvent::type(
  * @brief This function moves the value in member type
  * @param _type New value to be moved in member type
  */
-void AMM::OmittedEvent::type(
+void OmittedEvent::type(
         std::string&& _type)
 {
     m_type = std::move(_type);
@@ -2294,7 +2288,7 @@ void AMM::OmittedEvent::type(
  * @brief This function returns a constant reference to member type
  * @return Constant reference to member type
  */
-const std::string& AMM::OmittedEvent::type() const
+const std::string& OmittedEvent::type() const
 {
     return m_type;
 }
@@ -2303,7 +2297,7 @@ const std::string& AMM::OmittedEvent::type() const
  * @brief This function returns a reference to member type
  * @return Reference to member type
  */
-std::string& AMM::OmittedEvent::type()
+std::string& OmittedEvent::type()
 {
     return m_type;
 }
@@ -2313,7 +2307,7 @@ std::string& AMM::OmittedEvent::type()
  * @brief This function copies the value in member data
  * @param _data New value to be copied in member data
  */
-void AMM::OmittedEvent::data(
+void OmittedEvent::data(
         const eprosima::fastcdr::fixed_string<4096>& _data)
 {
     m_data = _data;
@@ -2323,7 +2317,7 @@ void AMM::OmittedEvent::data(
  * @brief This function moves the value in member data
  * @param _data New value to be moved in member data
  */
-void AMM::OmittedEvent::data(
+void OmittedEvent::data(
         eprosima::fastcdr::fixed_string<4096>&& _data)
 {
     m_data = std::move(_data);
@@ -2333,7 +2327,7 @@ void AMM::OmittedEvent::data(
  * @brief This function returns a constant reference to member data
  * @return Constant reference to member data
  */
-const eprosima::fastcdr::fixed_string<4096>& AMM::OmittedEvent::data() const
+const eprosima::fastcdr::fixed_string<4096>& OmittedEvent::data() const
 {
     return m_data;
 }
@@ -2342,22 +2336,23 @@ const eprosima::fastcdr::fixed_string<4096>& AMM::OmittedEvent::data() const
  * @brief This function returns a reference to member data
  * @return Reference to member data
  */
-eprosima::fastcdr::fixed_string<4096>& AMM::OmittedEvent::data()
+eprosima::fastcdr::fixed_string<4096>& OmittedEvent::data()
 {
     return m_data;
 }
 
 
-AMM::Semantic_Version::Semantic_Version()
-{
 
-}
 
-AMM::Semantic_Version::~Semantic_Version()
+Semantic_Version::Semantic_Version()
 {
 }
 
-AMM::Semantic_Version::Semantic_Version(
+Semantic_Version::~Semantic_Version()
+{
+}
+
+Semantic_Version::Semantic_Version(
         const Semantic_Version& x)
 {
     m_major = x.m_major;
@@ -2365,7 +2360,7 @@ AMM::Semantic_Version::Semantic_Version(
     m_patch = x.m_patch;
 }
 
-AMM::Semantic_Version::Semantic_Version(
+Semantic_Version::Semantic_Version(
         Semantic_Version&& x) noexcept
 {
     m_major = x.m_major;
@@ -2373,29 +2368,27 @@ AMM::Semantic_Version::Semantic_Version(
     m_patch = x.m_patch;
 }
 
-AMM::Semantic_Version& AMM::Semantic_Version::operator =(
+Semantic_Version& Semantic_Version::operator =(
         const Semantic_Version& x)
 {
 
     m_major = x.m_major;
     m_minor = x.m_minor;
     m_patch = x.m_patch;
-
     return *this;
 }
 
-AMM::Semantic_Version& AMM::Semantic_Version::operator =(
+Semantic_Version& Semantic_Version::operator =(
         Semantic_Version&& x) noexcept
 {
 
     m_major = x.m_major;
     m_minor = x.m_minor;
     m_patch = x.m_patch;
-
     return *this;
 }
 
-bool AMM::Semantic_Version::operator ==(
+bool Semantic_Version::operator ==(
         const Semantic_Version& x) const
 {
     return (m_major == x.m_major &&
@@ -2403,7 +2396,7 @@ bool AMM::Semantic_Version::operator ==(
            m_patch == x.m_patch);
 }
 
-bool AMM::Semantic_Version::operator !=(
+bool Semantic_Version::operator !=(
         const Semantic_Version& x) const
 {
     return !(*this == x);
@@ -2413,7 +2406,7 @@ bool AMM::Semantic_Version::operator !=(
  * @brief This function sets a value in member major
  * @param _major New value for member major
  */
-void AMM::Semantic_Version::major(
+void Semantic_Version::major(
         uint16_t _major)
 {
     m_major = _major;
@@ -2423,7 +2416,7 @@ void AMM::Semantic_Version::major(
  * @brief This function returns the value of member major
  * @return Value of member major
  */
-uint16_t AMM::Semantic_Version::major() const
+uint16_t Semantic_Version::major() const
 {
     return m_major;
 }
@@ -2432,7 +2425,7 @@ uint16_t AMM::Semantic_Version::major() const
  * @brief This function returns a reference to member major
  * @return Reference to member major
  */
-uint16_t& AMM::Semantic_Version::major()
+uint16_t& Semantic_Version::major()
 {
     return m_major;
 }
@@ -2442,7 +2435,7 @@ uint16_t& AMM::Semantic_Version::major()
  * @brief This function sets a value in member minor
  * @param _minor New value for member minor
  */
-void AMM::Semantic_Version::minor(
+void Semantic_Version::minor(
         uint16_t _minor)
 {
     m_minor = _minor;
@@ -2452,7 +2445,7 @@ void AMM::Semantic_Version::minor(
  * @brief This function returns the value of member minor
  * @return Value of member minor
  */
-uint16_t AMM::Semantic_Version::minor() const
+uint16_t Semantic_Version::minor() const
 {
     return m_minor;
 }
@@ -2461,7 +2454,7 @@ uint16_t AMM::Semantic_Version::minor() const
  * @brief This function returns a reference to member minor
  * @return Reference to member minor
  */
-uint16_t& AMM::Semantic_Version::minor()
+uint16_t& Semantic_Version::minor()
 {
     return m_minor;
 }
@@ -2471,7 +2464,7 @@ uint16_t& AMM::Semantic_Version::minor()
  * @brief This function sets a value in member patch
  * @param _patch New value for member patch
  */
-void AMM::Semantic_Version::patch(
+void Semantic_Version::patch(
         uint16_t _patch)
 {
     m_patch = _patch;
@@ -2481,7 +2474,7 @@ void AMM::Semantic_Version::patch(
  * @brief This function returns the value of member patch
  * @return Value of member patch
  */
-uint16_t AMM::Semantic_Version::patch() const
+uint16_t Semantic_Version::patch() const
 {
     return m_patch;
 }
@@ -2490,22 +2483,23 @@ uint16_t AMM::Semantic_Version::patch() const
  * @brief This function returns a reference to member patch
  * @return Reference to member patch
  */
-uint16_t& AMM::Semantic_Version::patch()
+uint16_t& Semantic_Version::patch()
 {
     return m_patch;
 }
 
 
-AMM::OperationalDescription::OperationalDescription()
-{
 
-}
 
-AMM::OperationalDescription::~OperationalDescription()
+OperationalDescription::OperationalDescription()
 {
 }
 
-AMM::OperationalDescription::OperationalDescription(
+OperationalDescription::~OperationalDescription()
+{
+}
+
+OperationalDescription::OperationalDescription(
         const OperationalDescription& x)
 {
     m_name = x.m_name;
@@ -2521,7 +2515,7 @@ AMM::OperationalDescription::OperationalDescription(
     m_capabilities_schema = x.m_capabilities_schema;
 }
 
-AMM::OperationalDescription::OperationalDescription(
+OperationalDescription::OperationalDescription(
         OperationalDescription&& x) noexcept
 {
     m_name = std::move(x.m_name);
@@ -2537,7 +2531,7 @@ AMM::OperationalDescription::OperationalDescription(
     m_capabilities_schema = std::move(x.m_capabilities_schema);
 }
 
-AMM::OperationalDescription& AMM::OperationalDescription::operator =(
+OperationalDescription& OperationalDescription::operator =(
         const OperationalDescription& x)
 {
 
@@ -2552,11 +2546,10 @@ AMM::OperationalDescription& AMM::OperationalDescription::operator =(
     m_AMM_version = x.m_AMM_version;
     m_ip_address = x.m_ip_address;
     m_capabilities_schema = x.m_capabilities_schema;
-
     return *this;
 }
 
-AMM::OperationalDescription& AMM::OperationalDescription::operator =(
+OperationalDescription& OperationalDescription::operator =(
         OperationalDescription&& x) noexcept
 {
 
@@ -2571,11 +2564,10 @@ AMM::OperationalDescription& AMM::OperationalDescription::operator =(
     m_AMM_version = std::move(x.m_AMM_version);
     m_ip_address = std::move(x.m_ip_address);
     m_capabilities_schema = std::move(x.m_capabilities_schema);
-
     return *this;
 }
 
-bool AMM::OperationalDescription::operator ==(
+bool OperationalDescription::operator ==(
         const OperationalDescription& x) const
 {
     return (m_name == x.m_name &&
@@ -2591,7 +2583,7 @@ bool AMM::OperationalDescription::operator ==(
            m_capabilities_schema == x.m_capabilities_schema);
 }
 
-bool AMM::OperationalDescription::operator !=(
+bool OperationalDescription::operator !=(
         const OperationalDescription& x) const
 {
     return !(*this == x);
@@ -2601,7 +2593,7 @@ bool AMM::OperationalDescription::operator !=(
  * @brief This function copies the value in member name
  * @param _name New value to be copied in member name
  */
-void AMM::OperationalDescription::name(
+void OperationalDescription::name(
         const std::string& _name)
 {
     m_name = _name;
@@ -2611,7 +2603,7 @@ void AMM::OperationalDescription::name(
  * @brief This function moves the value in member name
  * @param _name New value to be moved in member name
  */
-void AMM::OperationalDescription::name(
+void OperationalDescription::name(
         std::string&& _name)
 {
     m_name = std::move(_name);
@@ -2621,7 +2613,7 @@ void AMM::OperationalDescription::name(
  * @brief This function returns a constant reference to member name
  * @return Constant reference to member name
  */
-const std::string& AMM::OperationalDescription::name() const
+const std::string& OperationalDescription::name() const
 {
     return m_name;
 }
@@ -2630,7 +2622,7 @@ const std::string& AMM::OperationalDescription::name() const
  * @brief This function returns a reference to member name
  * @return Reference to member name
  */
-std::string& AMM::OperationalDescription::name()
+std::string& OperationalDescription::name()
 {
     return m_name;
 }
@@ -2640,7 +2632,7 @@ std::string& AMM::OperationalDescription::name()
  * @brief This function copies the value in member description
  * @param _description New value to be copied in member description
  */
-void AMM::OperationalDescription::description(
+void OperationalDescription::description(
         const std::string& _description)
 {
     m_description = _description;
@@ -2650,7 +2642,7 @@ void AMM::OperationalDescription::description(
  * @brief This function moves the value in member description
  * @param _description New value to be moved in member description
  */
-void AMM::OperationalDescription::description(
+void OperationalDescription::description(
         std::string&& _description)
 {
     m_description = std::move(_description);
@@ -2660,7 +2652,7 @@ void AMM::OperationalDescription::description(
  * @brief This function returns a constant reference to member description
  * @return Constant reference to member description
  */
-const std::string& AMM::OperationalDescription::description() const
+const std::string& OperationalDescription::description() const
 {
     return m_description;
 }
@@ -2669,7 +2661,7 @@ const std::string& AMM::OperationalDescription::description() const
  * @brief This function returns a reference to member description
  * @return Reference to member description
  */
-std::string& AMM::OperationalDescription::description()
+std::string& OperationalDescription::description()
 {
     return m_description;
 }
@@ -2679,7 +2671,7 @@ std::string& AMM::OperationalDescription::description()
  * @brief This function copies the value in member manufacturer
  * @param _manufacturer New value to be copied in member manufacturer
  */
-void AMM::OperationalDescription::manufacturer(
+void OperationalDescription::manufacturer(
         const std::string& _manufacturer)
 {
     m_manufacturer = _manufacturer;
@@ -2689,7 +2681,7 @@ void AMM::OperationalDescription::manufacturer(
  * @brief This function moves the value in member manufacturer
  * @param _manufacturer New value to be moved in member manufacturer
  */
-void AMM::OperationalDescription::manufacturer(
+void OperationalDescription::manufacturer(
         std::string&& _manufacturer)
 {
     m_manufacturer = std::move(_manufacturer);
@@ -2699,7 +2691,7 @@ void AMM::OperationalDescription::manufacturer(
  * @brief This function returns a constant reference to member manufacturer
  * @return Constant reference to member manufacturer
  */
-const std::string& AMM::OperationalDescription::manufacturer() const
+const std::string& OperationalDescription::manufacturer() const
 {
     return m_manufacturer;
 }
@@ -2708,7 +2700,7 @@ const std::string& AMM::OperationalDescription::manufacturer() const
  * @brief This function returns a reference to member manufacturer
  * @return Reference to member manufacturer
  */
-std::string& AMM::OperationalDescription::manufacturer()
+std::string& OperationalDescription::manufacturer()
 {
     return m_manufacturer;
 }
@@ -2718,7 +2710,7 @@ std::string& AMM::OperationalDescription::manufacturer()
  * @brief This function copies the value in member model
  * @param _model New value to be copied in member model
  */
-void AMM::OperationalDescription::model(
+void OperationalDescription::model(
         const std::string& _model)
 {
     m_model = _model;
@@ -2728,7 +2720,7 @@ void AMM::OperationalDescription::model(
  * @brief This function moves the value in member model
  * @param _model New value to be moved in member model
  */
-void AMM::OperationalDescription::model(
+void OperationalDescription::model(
         std::string&& _model)
 {
     m_model = std::move(_model);
@@ -2738,7 +2730,7 @@ void AMM::OperationalDescription::model(
  * @brief This function returns a constant reference to member model
  * @return Constant reference to member model
  */
-const std::string& AMM::OperationalDescription::model() const
+const std::string& OperationalDescription::model() const
 {
     return m_model;
 }
@@ -2747,7 +2739,7 @@ const std::string& AMM::OperationalDescription::model() const
  * @brief This function returns a reference to member model
  * @return Reference to member model
  */
-std::string& AMM::OperationalDescription::model()
+std::string& OperationalDescription::model()
 {
     return m_model;
 }
@@ -2757,7 +2749,7 @@ std::string& AMM::OperationalDescription::model()
  * @brief This function copies the value in member serial_number
  * @param _serial_number New value to be copied in member serial_number
  */
-void AMM::OperationalDescription::serial_number(
+void OperationalDescription::serial_number(
         const std::string& _serial_number)
 {
     m_serial_number = _serial_number;
@@ -2767,7 +2759,7 @@ void AMM::OperationalDescription::serial_number(
  * @brief This function moves the value in member serial_number
  * @param _serial_number New value to be moved in member serial_number
  */
-void AMM::OperationalDescription::serial_number(
+void OperationalDescription::serial_number(
         std::string&& _serial_number)
 {
     m_serial_number = std::move(_serial_number);
@@ -2777,7 +2769,7 @@ void AMM::OperationalDescription::serial_number(
  * @brief This function returns a constant reference to member serial_number
  * @return Constant reference to member serial_number
  */
-const std::string& AMM::OperationalDescription::serial_number() const
+const std::string& OperationalDescription::serial_number() const
 {
     return m_serial_number;
 }
@@ -2786,7 +2778,7 @@ const std::string& AMM::OperationalDescription::serial_number() const
  * @brief This function returns a reference to member serial_number
  * @return Reference to member serial_number
  */
-std::string& AMM::OperationalDescription::serial_number()
+std::string& OperationalDescription::serial_number()
 {
     return m_serial_number;
 }
@@ -2796,7 +2788,7 @@ std::string& AMM::OperationalDescription::serial_number()
  * @brief This function copies the value in member module_id
  * @param _module_id New value to be copied in member module_id
  */
-void AMM::OperationalDescription::module_id(
+void OperationalDescription::module_id(
         const AMM::UUID& _module_id)
 {
     m_module_id = _module_id;
@@ -2806,7 +2798,7 @@ void AMM::OperationalDescription::module_id(
  * @brief This function moves the value in member module_id
  * @param _module_id New value to be moved in member module_id
  */
-void AMM::OperationalDescription::module_id(
+void OperationalDescription::module_id(
         AMM::UUID&& _module_id)
 {
     m_module_id = std::move(_module_id);
@@ -2816,7 +2808,7 @@ void AMM::OperationalDescription::module_id(
  * @brief This function returns a constant reference to member module_id
  * @return Constant reference to member module_id
  */
-const AMM::UUID& AMM::OperationalDescription::module_id() const
+const AMM::UUID& OperationalDescription::module_id() const
 {
     return m_module_id;
 }
@@ -2825,7 +2817,7 @@ const AMM::UUID& AMM::OperationalDescription::module_id() const
  * @brief This function returns a reference to member module_id
  * @return Reference to member module_id
  */
-AMM::UUID& AMM::OperationalDescription::module_id()
+AMM::UUID& OperationalDescription::module_id()
 {
     return m_module_id;
 }
@@ -2835,7 +2827,7 @@ AMM::UUID& AMM::OperationalDescription::module_id()
  * @brief This function copies the value in member module_version
  * @param _module_version New value to be copied in member module_version
  */
-void AMM::OperationalDescription::module_version(
+void OperationalDescription::module_version(
         const std::string& _module_version)
 {
     m_module_version = _module_version;
@@ -2845,7 +2837,7 @@ void AMM::OperationalDescription::module_version(
  * @brief This function moves the value in member module_version
  * @param _module_version New value to be moved in member module_version
  */
-void AMM::OperationalDescription::module_version(
+void OperationalDescription::module_version(
         std::string&& _module_version)
 {
     m_module_version = std::move(_module_version);
@@ -2855,7 +2847,7 @@ void AMM::OperationalDescription::module_version(
  * @brief This function returns a constant reference to member module_version
  * @return Constant reference to member module_version
  */
-const std::string& AMM::OperationalDescription::module_version() const
+const std::string& OperationalDescription::module_version() const
 {
     return m_module_version;
 }
@@ -2864,7 +2856,7 @@ const std::string& AMM::OperationalDescription::module_version() const
  * @brief This function returns a reference to member module_version
  * @return Reference to member module_version
  */
-std::string& AMM::OperationalDescription::module_version()
+std::string& OperationalDescription::module_version()
 {
     return m_module_version;
 }
@@ -2874,7 +2866,7 @@ std::string& AMM::OperationalDescription::module_version()
  * @brief This function copies the value in member configuration_version
  * @param _configuration_version New value to be copied in member configuration_version
  */
-void AMM::OperationalDescription::configuration_version(
+void OperationalDescription::configuration_version(
         const std::string& _configuration_version)
 {
     m_configuration_version = _configuration_version;
@@ -2884,7 +2876,7 @@ void AMM::OperationalDescription::configuration_version(
  * @brief This function moves the value in member configuration_version
  * @param _configuration_version New value to be moved in member configuration_version
  */
-void AMM::OperationalDescription::configuration_version(
+void OperationalDescription::configuration_version(
         std::string&& _configuration_version)
 {
     m_configuration_version = std::move(_configuration_version);
@@ -2894,7 +2886,7 @@ void AMM::OperationalDescription::configuration_version(
  * @brief This function returns a constant reference to member configuration_version
  * @return Constant reference to member configuration_version
  */
-const std::string& AMM::OperationalDescription::configuration_version() const
+const std::string& OperationalDescription::configuration_version() const
 {
     return m_configuration_version;
 }
@@ -2903,7 +2895,7 @@ const std::string& AMM::OperationalDescription::configuration_version() const
  * @brief This function returns a reference to member configuration_version
  * @return Reference to member configuration_version
  */
-std::string& AMM::OperationalDescription::configuration_version()
+std::string& OperationalDescription::configuration_version()
 {
     return m_configuration_version;
 }
@@ -2913,7 +2905,7 @@ std::string& AMM::OperationalDescription::configuration_version()
  * @brief This function copies the value in member AMM_version
  * @param _AMM_version New value to be copied in member AMM_version
  */
-void AMM::OperationalDescription::AMM_version(
+void OperationalDescription::AMM_version(
         const std::string& _AMM_version)
 {
     m_AMM_version = _AMM_version;
@@ -2923,7 +2915,7 @@ void AMM::OperationalDescription::AMM_version(
  * @brief This function moves the value in member AMM_version
  * @param _AMM_version New value to be moved in member AMM_version
  */
-void AMM::OperationalDescription::AMM_version(
+void OperationalDescription::AMM_version(
         std::string&& _AMM_version)
 {
     m_AMM_version = std::move(_AMM_version);
@@ -2933,7 +2925,7 @@ void AMM::OperationalDescription::AMM_version(
  * @brief This function returns a constant reference to member AMM_version
  * @return Constant reference to member AMM_version
  */
-const std::string& AMM::OperationalDescription::AMM_version() const
+const std::string& OperationalDescription::AMM_version() const
 {
     return m_AMM_version;
 }
@@ -2942,7 +2934,7 @@ const std::string& AMM::OperationalDescription::AMM_version() const
  * @brief This function returns a reference to member AMM_version
  * @return Reference to member AMM_version
  */
-std::string& AMM::OperationalDescription::AMM_version()
+std::string& OperationalDescription::AMM_version()
 {
     return m_AMM_version;
 }
@@ -2952,7 +2944,7 @@ std::string& AMM::OperationalDescription::AMM_version()
  * @brief This function copies the value in member ip_address
  * @param _ip_address New value to be copied in member ip_address
  */
-void AMM::OperationalDescription::ip_address(
+void OperationalDescription::ip_address(
         const std::array<uint8_t, 4>& _ip_address)
 {
     m_ip_address = _ip_address;
@@ -2962,7 +2954,7 @@ void AMM::OperationalDescription::ip_address(
  * @brief This function moves the value in member ip_address
  * @param _ip_address New value to be moved in member ip_address
  */
-void AMM::OperationalDescription::ip_address(
+void OperationalDescription::ip_address(
         std::array<uint8_t, 4>&& _ip_address)
 {
     m_ip_address = std::move(_ip_address);
@@ -2972,7 +2964,7 @@ void AMM::OperationalDescription::ip_address(
  * @brief This function returns a constant reference to member ip_address
  * @return Constant reference to member ip_address
  */
-const std::array<uint8_t, 4>& AMM::OperationalDescription::ip_address() const
+const std::array<uint8_t, 4>& OperationalDescription::ip_address() const
 {
     return m_ip_address;
 }
@@ -2981,7 +2973,7 @@ const std::array<uint8_t, 4>& AMM::OperationalDescription::ip_address() const
  * @brief This function returns a reference to member ip_address
  * @return Reference to member ip_address
  */
-std::array<uint8_t, 4>& AMM::OperationalDescription::ip_address()
+std::array<uint8_t, 4>& OperationalDescription::ip_address()
 {
     return m_ip_address;
 }
@@ -2991,7 +2983,7 @@ std::array<uint8_t, 4>& AMM::OperationalDescription::ip_address()
  * @brief This function copies the value in member capabilities_schema
  * @param _capabilities_schema New value to be copied in member capabilities_schema
  */
-void AMM::OperationalDescription::capabilities_schema(
+void OperationalDescription::capabilities_schema(
         const eprosima::fastcdr::fixed_string<12000>& _capabilities_schema)
 {
     m_capabilities_schema = _capabilities_schema;
@@ -3001,7 +2993,7 @@ void AMM::OperationalDescription::capabilities_schema(
  * @brief This function moves the value in member capabilities_schema
  * @param _capabilities_schema New value to be moved in member capabilities_schema
  */
-void AMM::OperationalDescription::capabilities_schema(
+void OperationalDescription::capabilities_schema(
         eprosima::fastcdr::fixed_string<12000>&& _capabilities_schema)
 {
     m_capabilities_schema = std::move(_capabilities_schema);
@@ -3011,7 +3003,7 @@ void AMM::OperationalDescription::capabilities_schema(
  * @brief This function returns a constant reference to member capabilities_schema
  * @return Constant reference to member capabilities_schema
  */
-const eprosima::fastcdr::fixed_string<12000>& AMM::OperationalDescription::capabilities_schema() const
+const eprosima::fastcdr::fixed_string<12000>& OperationalDescription::capabilities_schema() const
 {
     return m_capabilities_schema;
 }
@@ -3020,22 +3012,23 @@ const eprosima::fastcdr::fixed_string<12000>& AMM::OperationalDescription::capab
  * @brief This function returns a reference to member capabilities_schema
  * @return Reference to member capabilities_schema
  */
-eprosima::fastcdr::fixed_string<12000>& AMM::OperationalDescription::capabilities_schema()
+eprosima::fastcdr::fixed_string<12000>& OperationalDescription::capabilities_schema()
 {
     return m_capabilities_schema;
 }
 
 
-AMM::PhysiologyModification::PhysiologyModification()
-{
 
-}
 
-AMM::PhysiologyModification::~PhysiologyModification()
+PhysiologyModification::PhysiologyModification()
 {
 }
 
-AMM::PhysiologyModification::PhysiologyModification(
+PhysiologyModification::~PhysiologyModification()
+{
+}
+
+PhysiologyModification::PhysiologyModification(
         const PhysiologyModification& x)
 {
     m_id = x.m_id;
@@ -3044,7 +3037,7 @@ AMM::PhysiologyModification::PhysiologyModification(
     m_data = x.m_data;
 }
 
-AMM::PhysiologyModification::PhysiologyModification(
+PhysiologyModification::PhysiologyModification(
         PhysiologyModification&& x) noexcept
 {
     m_id = std::move(x.m_id);
@@ -3053,7 +3046,7 @@ AMM::PhysiologyModification::PhysiologyModification(
     m_data = std::move(x.m_data);
 }
 
-AMM::PhysiologyModification& AMM::PhysiologyModification::operator =(
+PhysiologyModification& PhysiologyModification::operator =(
         const PhysiologyModification& x)
 {
 
@@ -3061,11 +3054,10 @@ AMM::PhysiologyModification& AMM::PhysiologyModification::operator =(
     m_event_id = x.m_event_id;
     m_type = x.m_type;
     m_data = x.m_data;
-
     return *this;
 }
 
-AMM::PhysiologyModification& AMM::PhysiologyModification::operator =(
+PhysiologyModification& PhysiologyModification::operator =(
         PhysiologyModification&& x) noexcept
 {
 
@@ -3073,11 +3065,10 @@ AMM::PhysiologyModification& AMM::PhysiologyModification::operator =(
     m_event_id = std::move(x.m_event_id);
     m_type = std::move(x.m_type);
     m_data = std::move(x.m_data);
-
     return *this;
 }
 
-bool AMM::PhysiologyModification::operator ==(
+bool PhysiologyModification::operator ==(
         const PhysiologyModification& x) const
 {
     return (m_id == x.m_id &&
@@ -3086,7 +3077,7 @@ bool AMM::PhysiologyModification::operator ==(
            m_data == x.m_data);
 }
 
-bool AMM::PhysiologyModification::operator !=(
+bool PhysiologyModification::operator !=(
         const PhysiologyModification& x) const
 {
     return !(*this == x);
@@ -3096,7 +3087,7 @@ bool AMM::PhysiologyModification::operator !=(
  * @brief This function copies the value in member id
  * @param _id New value to be copied in member id
  */
-void AMM::PhysiologyModification::id(
+void PhysiologyModification::id(
         const AMM::UUID& _id)
 {
     m_id = _id;
@@ -3106,7 +3097,7 @@ void AMM::PhysiologyModification::id(
  * @brief This function moves the value in member id
  * @param _id New value to be moved in member id
  */
-void AMM::PhysiologyModification::id(
+void PhysiologyModification::id(
         AMM::UUID&& _id)
 {
     m_id = std::move(_id);
@@ -3116,7 +3107,7 @@ void AMM::PhysiologyModification::id(
  * @brief This function returns a constant reference to member id
  * @return Constant reference to member id
  */
-const AMM::UUID& AMM::PhysiologyModification::id() const
+const AMM::UUID& PhysiologyModification::id() const
 {
     return m_id;
 }
@@ -3125,7 +3116,7 @@ const AMM::UUID& AMM::PhysiologyModification::id() const
  * @brief This function returns a reference to member id
  * @return Reference to member id
  */
-AMM::UUID& AMM::PhysiologyModification::id()
+AMM::UUID& PhysiologyModification::id()
 {
     return m_id;
 }
@@ -3135,7 +3126,7 @@ AMM::UUID& AMM::PhysiologyModification::id()
  * @brief This function copies the value in member event_id
  * @param _event_id New value to be copied in member event_id
  */
-void AMM::PhysiologyModification::event_id(
+void PhysiologyModification::event_id(
         const AMM::UUID& _event_id)
 {
     m_event_id = _event_id;
@@ -3145,7 +3136,7 @@ void AMM::PhysiologyModification::event_id(
  * @brief This function moves the value in member event_id
  * @param _event_id New value to be moved in member event_id
  */
-void AMM::PhysiologyModification::event_id(
+void PhysiologyModification::event_id(
         AMM::UUID&& _event_id)
 {
     m_event_id = std::move(_event_id);
@@ -3155,7 +3146,7 @@ void AMM::PhysiologyModification::event_id(
  * @brief This function returns a constant reference to member event_id
  * @return Constant reference to member event_id
  */
-const AMM::UUID& AMM::PhysiologyModification::event_id() const
+const AMM::UUID& PhysiologyModification::event_id() const
 {
     return m_event_id;
 }
@@ -3164,7 +3155,7 @@ const AMM::UUID& AMM::PhysiologyModification::event_id() const
  * @brief This function returns a reference to member event_id
  * @return Reference to member event_id
  */
-AMM::UUID& AMM::PhysiologyModification::event_id()
+AMM::UUID& PhysiologyModification::event_id()
 {
     return m_event_id;
 }
@@ -3174,7 +3165,7 @@ AMM::UUID& AMM::PhysiologyModification::event_id()
  * @brief This function copies the value in member type
  * @param _type New value to be copied in member type
  */
-void AMM::PhysiologyModification::type(
+void PhysiologyModification::type(
         const std::string& _type)
 {
     m_type = _type;
@@ -3184,7 +3175,7 @@ void AMM::PhysiologyModification::type(
  * @brief This function moves the value in member type
  * @param _type New value to be moved in member type
  */
-void AMM::PhysiologyModification::type(
+void PhysiologyModification::type(
         std::string&& _type)
 {
     m_type = std::move(_type);
@@ -3194,7 +3185,7 @@ void AMM::PhysiologyModification::type(
  * @brief This function returns a constant reference to member type
  * @return Constant reference to member type
  */
-const std::string& AMM::PhysiologyModification::type() const
+const std::string& PhysiologyModification::type() const
 {
     return m_type;
 }
@@ -3203,7 +3194,7 @@ const std::string& AMM::PhysiologyModification::type() const
  * @brief This function returns a reference to member type
  * @return Reference to member type
  */
-std::string& AMM::PhysiologyModification::type()
+std::string& PhysiologyModification::type()
 {
     return m_type;
 }
@@ -3213,7 +3204,7 @@ std::string& AMM::PhysiologyModification::type()
  * @brief This function copies the value in member data
  * @param _data New value to be copied in member data
  */
-void AMM::PhysiologyModification::data(
+void PhysiologyModification::data(
         const eprosima::fastcdr::fixed_string<4096>& _data)
 {
     m_data = _data;
@@ -3223,7 +3214,7 @@ void AMM::PhysiologyModification::data(
  * @brief This function moves the value in member data
  * @param _data New value to be moved in member data
  */
-void AMM::PhysiologyModification::data(
+void PhysiologyModification::data(
         eprosima::fastcdr::fixed_string<4096>&& _data)
 {
     m_data = std::move(_data);
@@ -3233,7 +3224,7 @@ void AMM::PhysiologyModification::data(
  * @brief This function returns a constant reference to member data
  * @return Constant reference to member data
  */
-const eprosima::fastcdr::fixed_string<4096>& AMM::PhysiologyModification::data() const
+const eprosima::fastcdr::fixed_string<4096>& PhysiologyModification::data() const
 {
     return m_data;
 }
@@ -3242,22 +3233,23 @@ const eprosima::fastcdr::fixed_string<4096>& AMM::PhysiologyModification::data()
  * @brief This function returns a reference to member data
  * @return Reference to member data
  */
-eprosima::fastcdr::fixed_string<4096>& AMM::PhysiologyModification::data()
+eprosima::fastcdr::fixed_string<4096>& PhysiologyModification::data()
 {
     return m_data;
 }
 
 
-AMM::PhysiologyValue::PhysiologyValue()
-{
 
-}
 
-AMM::PhysiologyValue::~PhysiologyValue()
+PhysiologyValue::PhysiologyValue()
 {
 }
 
-AMM::PhysiologyValue::PhysiologyValue(
+PhysiologyValue::~PhysiologyValue()
+{
+}
+
+PhysiologyValue::PhysiologyValue(
         const PhysiologyValue& x)
 {
     m_educational_encounter = x.m_educational_encounter;
@@ -3268,7 +3260,7 @@ AMM::PhysiologyValue::PhysiologyValue(
     m_value = x.m_value;
 }
 
-AMM::PhysiologyValue::PhysiologyValue(
+PhysiologyValue::PhysiologyValue(
         PhysiologyValue&& x) noexcept
 {
     m_educational_encounter = std::move(x.m_educational_encounter);
@@ -3279,7 +3271,7 @@ AMM::PhysiologyValue::PhysiologyValue(
     m_value = x.m_value;
 }
 
-AMM::PhysiologyValue& AMM::PhysiologyValue::operator =(
+PhysiologyValue& PhysiologyValue::operator =(
         const PhysiologyValue& x)
 {
 
@@ -3289,11 +3281,10 @@ AMM::PhysiologyValue& AMM::PhysiologyValue::operator =(
     m_name = x.m_name;
     m_unit = x.m_unit;
     m_value = x.m_value;
-
     return *this;
 }
 
-AMM::PhysiologyValue& AMM::PhysiologyValue::operator =(
+PhysiologyValue& PhysiologyValue::operator =(
         PhysiologyValue&& x) noexcept
 {
 
@@ -3303,11 +3294,10 @@ AMM::PhysiologyValue& AMM::PhysiologyValue::operator =(
     m_name = std::move(x.m_name);
     m_unit = std::move(x.m_unit);
     m_value = x.m_value;
-
     return *this;
 }
 
-bool AMM::PhysiologyValue::operator ==(
+bool PhysiologyValue::operator ==(
         const PhysiologyValue& x) const
 {
     return (m_educational_encounter == x.m_educational_encounter &&
@@ -3318,7 +3308,7 @@ bool AMM::PhysiologyValue::operator ==(
            m_value == x.m_value);
 }
 
-bool AMM::PhysiologyValue::operator !=(
+bool PhysiologyValue::operator !=(
         const PhysiologyValue& x) const
 {
     return !(*this == x);
@@ -3328,7 +3318,7 @@ bool AMM::PhysiologyValue::operator !=(
  * @brief This function copies the value in member educational_encounter
  * @param _educational_encounter New value to be copied in member educational_encounter
  */
-void AMM::PhysiologyValue::educational_encounter(
+void PhysiologyValue::educational_encounter(
         const AMM::UUID& _educational_encounter)
 {
     m_educational_encounter = _educational_encounter;
@@ -3338,7 +3328,7 @@ void AMM::PhysiologyValue::educational_encounter(
  * @brief This function moves the value in member educational_encounter
  * @param _educational_encounter New value to be moved in member educational_encounter
  */
-void AMM::PhysiologyValue::educational_encounter(
+void PhysiologyValue::educational_encounter(
         AMM::UUID&& _educational_encounter)
 {
     m_educational_encounter = std::move(_educational_encounter);
@@ -3348,7 +3338,7 @@ void AMM::PhysiologyValue::educational_encounter(
  * @brief This function returns a constant reference to member educational_encounter
  * @return Constant reference to member educational_encounter
  */
-const AMM::UUID& AMM::PhysiologyValue::educational_encounter() const
+const AMM::UUID& PhysiologyValue::educational_encounter() const
 {
     return m_educational_encounter;
 }
@@ -3357,7 +3347,7 @@ const AMM::UUID& AMM::PhysiologyValue::educational_encounter() const
  * @brief This function returns a reference to member educational_encounter
  * @return Reference to member educational_encounter
  */
-AMM::UUID& AMM::PhysiologyValue::educational_encounter()
+AMM::UUID& PhysiologyValue::educational_encounter()
 {
     return m_educational_encounter;
 }
@@ -3367,7 +3357,7 @@ AMM::UUID& AMM::PhysiologyValue::educational_encounter()
  * @brief This function sets a value in member simulation_time
  * @param _simulation_time New value for member simulation_time
  */
-void AMM::PhysiologyValue::simulation_time(
+void PhysiologyValue::simulation_time(
         int64_t _simulation_time)
 {
     m_simulation_time = _simulation_time;
@@ -3377,7 +3367,7 @@ void AMM::PhysiologyValue::simulation_time(
  * @brief This function returns the value of member simulation_time
  * @return Value of member simulation_time
  */
-int64_t AMM::PhysiologyValue::simulation_time() const
+int64_t PhysiologyValue::simulation_time() const
 {
     return m_simulation_time;
 }
@@ -3386,7 +3376,7 @@ int64_t AMM::PhysiologyValue::simulation_time() const
  * @brief This function returns a reference to member simulation_time
  * @return Reference to member simulation_time
  */
-int64_t& AMM::PhysiologyValue::simulation_time()
+int64_t& PhysiologyValue::simulation_time()
 {
     return m_simulation_time;
 }
@@ -3396,7 +3386,7 @@ int64_t& AMM::PhysiologyValue::simulation_time()
  * @brief This function sets a value in member timestamp
  * @param _timestamp New value for member timestamp
  */
-void AMM::PhysiologyValue::timestamp(
+void PhysiologyValue::timestamp(
         uint64_t _timestamp)
 {
     m_timestamp = _timestamp;
@@ -3406,7 +3396,7 @@ void AMM::PhysiologyValue::timestamp(
  * @brief This function returns the value of member timestamp
  * @return Value of member timestamp
  */
-uint64_t AMM::PhysiologyValue::timestamp() const
+uint64_t PhysiologyValue::timestamp() const
 {
     return m_timestamp;
 }
@@ -3415,7 +3405,7 @@ uint64_t AMM::PhysiologyValue::timestamp() const
  * @brief This function returns a reference to member timestamp
  * @return Reference to member timestamp
  */
-uint64_t& AMM::PhysiologyValue::timestamp()
+uint64_t& PhysiologyValue::timestamp()
 {
     return m_timestamp;
 }
@@ -3425,7 +3415,7 @@ uint64_t& AMM::PhysiologyValue::timestamp()
  * @brief This function copies the value in member name
  * @param _name New value to be copied in member name
  */
-void AMM::PhysiologyValue::name(
+void PhysiologyValue::name(
         const std::string& _name)
 {
     m_name = _name;
@@ -3435,7 +3425,7 @@ void AMM::PhysiologyValue::name(
  * @brief This function moves the value in member name
  * @param _name New value to be moved in member name
  */
-void AMM::PhysiologyValue::name(
+void PhysiologyValue::name(
         std::string&& _name)
 {
     m_name = std::move(_name);
@@ -3445,7 +3435,7 @@ void AMM::PhysiologyValue::name(
  * @brief This function returns a constant reference to member name
  * @return Constant reference to member name
  */
-const std::string& AMM::PhysiologyValue::name() const
+const std::string& PhysiologyValue::name() const
 {
     return m_name;
 }
@@ -3454,7 +3444,7 @@ const std::string& AMM::PhysiologyValue::name() const
  * @brief This function returns a reference to member name
  * @return Reference to member name
  */
-std::string& AMM::PhysiologyValue::name()
+std::string& PhysiologyValue::name()
 {
     return m_name;
 }
@@ -3464,7 +3454,7 @@ std::string& AMM::PhysiologyValue::name()
  * @brief This function copies the value in member unit
  * @param _unit New value to be copied in member unit
  */
-void AMM::PhysiologyValue::unit(
+void PhysiologyValue::unit(
         const std::string& _unit)
 {
     m_unit = _unit;
@@ -3474,7 +3464,7 @@ void AMM::PhysiologyValue::unit(
  * @brief This function moves the value in member unit
  * @param _unit New value to be moved in member unit
  */
-void AMM::PhysiologyValue::unit(
+void PhysiologyValue::unit(
         std::string&& _unit)
 {
     m_unit = std::move(_unit);
@@ -3484,7 +3474,7 @@ void AMM::PhysiologyValue::unit(
  * @brief This function returns a constant reference to member unit
  * @return Constant reference to member unit
  */
-const std::string& AMM::PhysiologyValue::unit() const
+const std::string& PhysiologyValue::unit() const
 {
     return m_unit;
 }
@@ -3493,7 +3483,7 @@ const std::string& AMM::PhysiologyValue::unit() const
  * @brief This function returns a reference to member unit
  * @return Reference to member unit
  */
-std::string& AMM::PhysiologyValue::unit()
+std::string& PhysiologyValue::unit()
 {
     return m_unit;
 }
@@ -3503,7 +3493,7 @@ std::string& AMM::PhysiologyValue::unit()
  * @brief This function sets a value in member value
  * @param _value New value for member value
  */
-void AMM::PhysiologyValue::value(
+void PhysiologyValue::value(
         double _value)
 {
     m_value = _value;
@@ -3513,7 +3503,7 @@ void AMM::PhysiologyValue::value(
  * @brief This function returns the value of member value
  * @return Value of member value
  */
-double AMM::PhysiologyValue::value() const
+double PhysiologyValue::value() const
 {
     return m_value;
 }
@@ -3522,22 +3512,23 @@ double AMM::PhysiologyValue::value() const
  * @brief This function returns a reference to member value
  * @return Reference to member value
  */
-double& AMM::PhysiologyValue::value()
+double& PhysiologyValue::value()
 {
     return m_value;
 }
 
 
-AMM::PhysiologyWaveform::PhysiologyWaveform()
-{
 
-}
 
-AMM::PhysiologyWaveform::~PhysiologyWaveform()
+PhysiologyWaveform::PhysiologyWaveform()
 {
 }
 
-AMM::PhysiologyWaveform::PhysiologyWaveform(
+PhysiologyWaveform::~PhysiologyWaveform()
+{
+}
+
+PhysiologyWaveform::PhysiologyWaveform(
         const PhysiologyWaveform& x)
 {
     m_educational_encounter = x.m_educational_encounter;
@@ -3548,7 +3539,7 @@ AMM::PhysiologyWaveform::PhysiologyWaveform(
     m_value = x.m_value;
 }
 
-AMM::PhysiologyWaveform::PhysiologyWaveform(
+PhysiologyWaveform::PhysiologyWaveform(
         PhysiologyWaveform&& x) noexcept
 {
     m_educational_encounter = std::move(x.m_educational_encounter);
@@ -3559,7 +3550,7 @@ AMM::PhysiologyWaveform::PhysiologyWaveform(
     m_value = x.m_value;
 }
 
-AMM::PhysiologyWaveform& AMM::PhysiologyWaveform::operator =(
+PhysiologyWaveform& PhysiologyWaveform::operator =(
         const PhysiologyWaveform& x)
 {
 
@@ -3569,11 +3560,10 @@ AMM::PhysiologyWaveform& AMM::PhysiologyWaveform::operator =(
     m_name = x.m_name;
     m_unit = x.m_unit;
     m_value = x.m_value;
-
     return *this;
 }
 
-AMM::PhysiologyWaveform& AMM::PhysiologyWaveform::operator =(
+PhysiologyWaveform& PhysiologyWaveform::operator =(
         PhysiologyWaveform&& x) noexcept
 {
 
@@ -3583,11 +3573,10 @@ AMM::PhysiologyWaveform& AMM::PhysiologyWaveform::operator =(
     m_name = std::move(x.m_name);
     m_unit = std::move(x.m_unit);
     m_value = x.m_value;
-
     return *this;
 }
 
-bool AMM::PhysiologyWaveform::operator ==(
+bool PhysiologyWaveform::operator ==(
         const PhysiologyWaveform& x) const
 {
     return (m_educational_encounter == x.m_educational_encounter &&
@@ -3598,7 +3587,7 @@ bool AMM::PhysiologyWaveform::operator ==(
            m_value == x.m_value);
 }
 
-bool AMM::PhysiologyWaveform::operator !=(
+bool PhysiologyWaveform::operator !=(
         const PhysiologyWaveform& x) const
 {
     return !(*this == x);
@@ -3608,7 +3597,7 @@ bool AMM::PhysiologyWaveform::operator !=(
  * @brief This function copies the value in member educational_encounter
  * @param _educational_encounter New value to be copied in member educational_encounter
  */
-void AMM::PhysiologyWaveform::educational_encounter(
+void PhysiologyWaveform::educational_encounter(
         const AMM::UUID& _educational_encounter)
 {
     m_educational_encounter = _educational_encounter;
@@ -3618,7 +3607,7 @@ void AMM::PhysiologyWaveform::educational_encounter(
  * @brief This function moves the value in member educational_encounter
  * @param _educational_encounter New value to be moved in member educational_encounter
  */
-void AMM::PhysiologyWaveform::educational_encounter(
+void PhysiologyWaveform::educational_encounter(
         AMM::UUID&& _educational_encounter)
 {
     m_educational_encounter = std::move(_educational_encounter);
@@ -3628,7 +3617,7 @@ void AMM::PhysiologyWaveform::educational_encounter(
  * @brief This function returns a constant reference to member educational_encounter
  * @return Constant reference to member educational_encounter
  */
-const AMM::UUID& AMM::PhysiologyWaveform::educational_encounter() const
+const AMM::UUID& PhysiologyWaveform::educational_encounter() const
 {
     return m_educational_encounter;
 }
@@ -3637,7 +3626,7 @@ const AMM::UUID& AMM::PhysiologyWaveform::educational_encounter() const
  * @brief This function returns a reference to member educational_encounter
  * @return Reference to member educational_encounter
  */
-AMM::UUID& AMM::PhysiologyWaveform::educational_encounter()
+AMM::UUID& PhysiologyWaveform::educational_encounter()
 {
     return m_educational_encounter;
 }
@@ -3647,7 +3636,7 @@ AMM::UUID& AMM::PhysiologyWaveform::educational_encounter()
  * @brief This function sets a value in member simulation_time
  * @param _simulation_time New value for member simulation_time
  */
-void AMM::PhysiologyWaveform::simulation_time(
+void PhysiologyWaveform::simulation_time(
         int64_t _simulation_time)
 {
     m_simulation_time = _simulation_time;
@@ -3657,7 +3646,7 @@ void AMM::PhysiologyWaveform::simulation_time(
  * @brief This function returns the value of member simulation_time
  * @return Value of member simulation_time
  */
-int64_t AMM::PhysiologyWaveform::simulation_time() const
+int64_t PhysiologyWaveform::simulation_time() const
 {
     return m_simulation_time;
 }
@@ -3666,7 +3655,7 @@ int64_t AMM::PhysiologyWaveform::simulation_time() const
  * @brief This function returns a reference to member simulation_time
  * @return Reference to member simulation_time
  */
-int64_t& AMM::PhysiologyWaveform::simulation_time()
+int64_t& PhysiologyWaveform::simulation_time()
 {
     return m_simulation_time;
 }
@@ -3676,7 +3665,7 @@ int64_t& AMM::PhysiologyWaveform::simulation_time()
  * @brief This function sets a value in member timestamp
  * @param _timestamp New value for member timestamp
  */
-void AMM::PhysiologyWaveform::timestamp(
+void PhysiologyWaveform::timestamp(
         uint64_t _timestamp)
 {
     m_timestamp = _timestamp;
@@ -3686,7 +3675,7 @@ void AMM::PhysiologyWaveform::timestamp(
  * @brief This function returns the value of member timestamp
  * @return Value of member timestamp
  */
-uint64_t AMM::PhysiologyWaveform::timestamp() const
+uint64_t PhysiologyWaveform::timestamp() const
 {
     return m_timestamp;
 }
@@ -3695,7 +3684,7 @@ uint64_t AMM::PhysiologyWaveform::timestamp() const
  * @brief This function returns a reference to member timestamp
  * @return Reference to member timestamp
  */
-uint64_t& AMM::PhysiologyWaveform::timestamp()
+uint64_t& PhysiologyWaveform::timestamp()
 {
     return m_timestamp;
 }
@@ -3705,7 +3694,7 @@ uint64_t& AMM::PhysiologyWaveform::timestamp()
  * @brief This function copies the value in member name
  * @param _name New value to be copied in member name
  */
-void AMM::PhysiologyWaveform::name(
+void PhysiologyWaveform::name(
         const std::string& _name)
 {
     m_name = _name;
@@ -3715,7 +3704,7 @@ void AMM::PhysiologyWaveform::name(
  * @brief This function moves the value in member name
  * @param _name New value to be moved in member name
  */
-void AMM::PhysiologyWaveform::name(
+void PhysiologyWaveform::name(
         std::string&& _name)
 {
     m_name = std::move(_name);
@@ -3725,7 +3714,7 @@ void AMM::PhysiologyWaveform::name(
  * @brief This function returns a constant reference to member name
  * @return Constant reference to member name
  */
-const std::string& AMM::PhysiologyWaveform::name() const
+const std::string& PhysiologyWaveform::name() const
 {
     return m_name;
 }
@@ -3734,7 +3723,7 @@ const std::string& AMM::PhysiologyWaveform::name() const
  * @brief This function returns a reference to member name
  * @return Reference to member name
  */
-std::string& AMM::PhysiologyWaveform::name()
+std::string& PhysiologyWaveform::name()
 {
     return m_name;
 }
@@ -3744,7 +3733,7 @@ std::string& AMM::PhysiologyWaveform::name()
  * @brief This function copies the value in member unit
  * @param _unit New value to be copied in member unit
  */
-void AMM::PhysiologyWaveform::unit(
+void PhysiologyWaveform::unit(
         const std::string& _unit)
 {
     m_unit = _unit;
@@ -3754,7 +3743,7 @@ void AMM::PhysiologyWaveform::unit(
  * @brief This function moves the value in member unit
  * @param _unit New value to be moved in member unit
  */
-void AMM::PhysiologyWaveform::unit(
+void PhysiologyWaveform::unit(
         std::string&& _unit)
 {
     m_unit = std::move(_unit);
@@ -3764,7 +3753,7 @@ void AMM::PhysiologyWaveform::unit(
  * @brief This function returns a constant reference to member unit
  * @return Constant reference to member unit
  */
-const std::string& AMM::PhysiologyWaveform::unit() const
+const std::string& PhysiologyWaveform::unit() const
 {
     return m_unit;
 }
@@ -3773,7 +3762,7 @@ const std::string& AMM::PhysiologyWaveform::unit() const
  * @brief This function returns a reference to member unit
  * @return Reference to member unit
  */
-std::string& AMM::PhysiologyWaveform::unit()
+std::string& PhysiologyWaveform::unit()
 {
     return m_unit;
 }
@@ -3783,7 +3772,7 @@ std::string& AMM::PhysiologyWaveform::unit()
  * @brief This function sets a value in member value
  * @param _value New value for member value
  */
-void AMM::PhysiologyWaveform::value(
+void PhysiologyWaveform::value(
         double _value)
 {
     m_value = _value;
@@ -3793,7 +3782,7 @@ void AMM::PhysiologyWaveform::value(
  * @brief This function returns the value of member value
  * @return Value of member value
  */
-double AMM::PhysiologyWaveform::value() const
+double PhysiologyWaveform::value() const
 {
     return m_value;
 }
@@ -3802,22 +3791,23 @@ double AMM::PhysiologyWaveform::value() const
  * @brief This function returns a reference to member value
  * @return Reference to member value
  */
-double& AMM::PhysiologyWaveform::value()
+double& PhysiologyWaveform::value()
 {
     return m_value;
 }
 
 
-AMM::RenderModification::RenderModification()
-{
 
-}
 
-AMM::RenderModification::~RenderModification()
+RenderModification::RenderModification()
 {
 }
 
-AMM::RenderModification::RenderModification(
+RenderModification::~RenderModification()
+{
+}
+
+RenderModification::RenderModification(
         const RenderModification& x)
 {
     m_id = x.m_id;
@@ -3826,7 +3816,7 @@ AMM::RenderModification::RenderModification(
     m_data = x.m_data;
 }
 
-AMM::RenderModification::RenderModification(
+RenderModification::RenderModification(
         RenderModification&& x) noexcept
 {
     m_id = std::move(x.m_id);
@@ -3835,7 +3825,7 @@ AMM::RenderModification::RenderModification(
     m_data = std::move(x.m_data);
 }
 
-AMM::RenderModification& AMM::RenderModification::operator =(
+RenderModification& RenderModification::operator =(
         const RenderModification& x)
 {
 
@@ -3843,11 +3833,10 @@ AMM::RenderModification& AMM::RenderModification::operator =(
     m_event_id = x.m_event_id;
     m_type = x.m_type;
     m_data = x.m_data;
-
     return *this;
 }
 
-AMM::RenderModification& AMM::RenderModification::operator =(
+RenderModification& RenderModification::operator =(
         RenderModification&& x) noexcept
 {
 
@@ -3855,11 +3844,10 @@ AMM::RenderModification& AMM::RenderModification::operator =(
     m_event_id = std::move(x.m_event_id);
     m_type = std::move(x.m_type);
     m_data = std::move(x.m_data);
-
     return *this;
 }
 
-bool AMM::RenderModification::operator ==(
+bool RenderModification::operator ==(
         const RenderModification& x) const
 {
     return (m_id == x.m_id &&
@@ -3868,7 +3856,7 @@ bool AMM::RenderModification::operator ==(
            m_data == x.m_data);
 }
 
-bool AMM::RenderModification::operator !=(
+bool RenderModification::operator !=(
         const RenderModification& x) const
 {
     return !(*this == x);
@@ -3878,7 +3866,7 @@ bool AMM::RenderModification::operator !=(
  * @brief This function copies the value in member id
  * @param _id New value to be copied in member id
  */
-void AMM::RenderModification::id(
+void RenderModification::id(
         const AMM::UUID& _id)
 {
     m_id = _id;
@@ -3888,7 +3876,7 @@ void AMM::RenderModification::id(
  * @brief This function moves the value in member id
  * @param _id New value to be moved in member id
  */
-void AMM::RenderModification::id(
+void RenderModification::id(
         AMM::UUID&& _id)
 {
     m_id = std::move(_id);
@@ -3898,7 +3886,7 @@ void AMM::RenderModification::id(
  * @brief This function returns a constant reference to member id
  * @return Constant reference to member id
  */
-const AMM::UUID& AMM::RenderModification::id() const
+const AMM::UUID& RenderModification::id() const
 {
     return m_id;
 }
@@ -3907,7 +3895,7 @@ const AMM::UUID& AMM::RenderModification::id() const
  * @brief This function returns a reference to member id
  * @return Reference to member id
  */
-AMM::UUID& AMM::RenderModification::id()
+AMM::UUID& RenderModification::id()
 {
     return m_id;
 }
@@ -3917,7 +3905,7 @@ AMM::UUID& AMM::RenderModification::id()
  * @brief This function copies the value in member event_id
  * @param _event_id New value to be copied in member event_id
  */
-void AMM::RenderModification::event_id(
+void RenderModification::event_id(
         const AMM::UUID& _event_id)
 {
     m_event_id = _event_id;
@@ -3927,7 +3915,7 @@ void AMM::RenderModification::event_id(
  * @brief This function moves the value in member event_id
  * @param _event_id New value to be moved in member event_id
  */
-void AMM::RenderModification::event_id(
+void RenderModification::event_id(
         AMM::UUID&& _event_id)
 {
     m_event_id = std::move(_event_id);
@@ -3937,7 +3925,7 @@ void AMM::RenderModification::event_id(
  * @brief This function returns a constant reference to member event_id
  * @return Constant reference to member event_id
  */
-const AMM::UUID& AMM::RenderModification::event_id() const
+const AMM::UUID& RenderModification::event_id() const
 {
     return m_event_id;
 }
@@ -3946,7 +3934,7 @@ const AMM::UUID& AMM::RenderModification::event_id() const
  * @brief This function returns a reference to member event_id
  * @return Reference to member event_id
  */
-AMM::UUID& AMM::RenderModification::event_id()
+AMM::UUID& RenderModification::event_id()
 {
     return m_event_id;
 }
@@ -3956,7 +3944,7 @@ AMM::UUID& AMM::RenderModification::event_id()
  * @brief This function copies the value in member type
  * @param _type New value to be copied in member type
  */
-void AMM::RenderModification::type(
+void RenderModification::type(
         const std::string& _type)
 {
     m_type = _type;
@@ -3966,7 +3954,7 @@ void AMM::RenderModification::type(
  * @brief This function moves the value in member type
  * @param _type New value to be moved in member type
  */
-void AMM::RenderModification::type(
+void RenderModification::type(
         std::string&& _type)
 {
     m_type = std::move(_type);
@@ -3976,7 +3964,7 @@ void AMM::RenderModification::type(
  * @brief This function returns a constant reference to member type
  * @return Constant reference to member type
  */
-const std::string& AMM::RenderModification::type() const
+const std::string& RenderModification::type() const
 {
     return m_type;
 }
@@ -3985,7 +3973,7 @@ const std::string& AMM::RenderModification::type() const
  * @brief This function returns a reference to member type
  * @return Reference to member type
  */
-std::string& AMM::RenderModification::type()
+std::string& RenderModification::type()
 {
     return m_type;
 }
@@ -3995,7 +3983,7 @@ std::string& AMM::RenderModification::type()
  * @brief This function copies the value in member data
  * @param _data New value to be copied in member data
  */
-void AMM::RenderModification::data(
+void RenderModification::data(
         const eprosima::fastcdr::fixed_string<4096>& _data)
 {
     m_data = _data;
@@ -4005,7 +3993,7 @@ void AMM::RenderModification::data(
  * @brief This function moves the value in member data
  * @param _data New value to be moved in member data
  */
-void AMM::RenderModification::data(
+void RenderModification::data(
         eprosima::fastcdr::fixed_string<4096>&& _data)
 {
     m_data = std::move(_data);
@@ -4015,7 +4003,7 @@ void AMM::RenderModification::data(
  * @brief This function returns a constant reference to member data
  * @return Constant reference to member data
  */
-const eprosima::fastcdr::fixed_string<4096>& AMM::RenderModification::data() const
+const eprosima::fastcdr::fixed_string<4096>& RenderModification::data() const
 {
     return m_data;
 }
@@ -4024,23 +4012,24 @@ const eprosima::fastcdr::fixed_string<4096>& AMM::RenderModification::data() con
  * @brief This function returns a reference to member data
  * @return Reference to member data
  */
-eprosima::fastcdr::fixed_string<4096>& AMM::RenderModification::data()
+eprosima::fastcdr::fixed_string<4096>& RenderModification::data()
 {
     return m_data;
 }
 
 
 
-AMM::SimulationControl::SimulationControl()
-{
 
-}
 
-AMM::SimulationControl::~SimulationControl()
+SimulationControl::SimulationControl()
 {
 }
 
-AMM::SimulationControl::SimulationControl(
+SimulationControl::~SimulationControl()
+{
+}
+
+SimulationControl::SimulationControl(
         const SimulationControl& x)
 {
     m_timestamp = x.m_timestamp;
@@ -4048,7 +4037,7 @@ AMM::SimulationControl::SimulationControl(
     m_educational_encounter = x.m_educational_encounter;
 }
 
-AMM::SimulationControl::SimulationControl(
+SimulationControl::SimulationControl(
         SimulationControl&& x) noexcept
 {
     m_timestamp = x.m_timestamp;
@@ -4056,29 +4045,27 @@ AMM::SimulationControl::SimulationControl(
     m_educational_encounter = std::move(x.m_educational_encounter);
 }
 
-AMM::SimulationControl& AMM::SimulationControl::operator =(
+SimulationControl& SimulationControl::operator =(
         const SimulationControl& x)
 {
 
     m_timestamp = x.m_timestamp;
     m_type = x.m_type;
     m_educational_encounter = x.m_educational_encounter;
-
     return *this;
 }
 
-AMM::SimulationControl& AMM::SimulationControl::operator =(
+SimulationControl& SimulationControl::operator =(
         SimulationControl&& x) noexcept
 {
 
     m_timestamp = x.m_timestamp;
     m_type = x.m_type;
     m_educational_encounter = std::move(x.m_educational_encounter);
-
     return *this;
 }
 
-bool AMM::SimulationControl::operator ==(
+bool SimulationControl::operator ==(
         const SimulationControl& x) const
 {
     return (m_timestamp == x.m_timestamp &&
@@ -4086,7 +4073,7 @@ bool AMM::SimulationControl::operator ==(
            m_educational_encounter == x.m_educational_encounter);
 }
 
-bool AMM::SimulationControl::operator !=(
+bool SimulationControl::operator !=(
         const SimulationControl& x) const
 {
     return !(*this == x);
@@ -4096,7 +4083,7 @@ bool AMM::SimulationControl::operator !=(
  * @brief This function sets a value in member timestamp
  * @param _timestamp New value for member timestamp
  */
-void AMM::SimulationControl::timestamp(
+void SimulationControl::timestamp(
         uint64_t _timestamp)
 {
     m_timestamp = _timestamp;
@@ -4106,7 +4093,7 @@ void AMM::SimulationControl::timestamp(
  * @brief This function returns the value of member timestamp
  * @return Value of member timestamp
  */
-uint64_t AMM::SimulationControl::timestamp() const
+uint64_t SimulationControl::timestamp() const
 {
     return m_timestamp;
 }
@@ -4115,7 +4102,7 @@ uint64_t AMM::SimulationControl::timestamp() const
  * @brief This function returns a reference to member timestamp
  * @return Reference to member timestamp
  */
-uint64_t& AMM::SimulationControl::timestamp()
+uint64_t& SimulationControl::timestamp()
 {
     return m_timestamp;
 }
@@ -4125,7 +4112,7 @@ uint64_t& AMM::SimulationControl::timestamp()
  * @brief This function sets a value in member type
  * @param _type New value for member type
  */
-void AMM::SimulationControl::type(
+void SimulationControl::type(
         AMM::ControlType _type)
 {
     m_type = _type;
@@ -4135,7 +4122,7 @@ void AMM::SimulationControl::type(
  * @brief This function returns the value of member type
  * @return Value of member type
  */
-AMM::ControlType AMM::SimulationControl::type() const
+AMM::ControlType SimulationControl::type() const
 {
     return m_type;
 }
@@ -4144,7 +4131,7 @@ AMM::ControlType AMM::SimulationControl::type() const
  * @brief This function returns a reference to member type
  * @return Reference to member type
  */
-AMM::ControlType& AMM::SimulationControl::type()
+AMM::ControlType& SimulationControl::type()
 {
     return m_type;
 }
@@ -4154,7 +4141,7 @@ AMM::ControlType& AMM::SimulationControl::type()
  * @brief This function copies the value in member educational_encounter
  * @param _educational_encounter New value to be copied in member educational_encounter
  */
-void AMM::SimulationControl::educational_encounter(
+void SimulationControl::educational_encounter(
         const AMM::UUID& _educational_encounter)
 {
     m_educational_encounter = _educational_encounter;
@@ -4164,7 +4151,7 @@ void AMM::SimulationControl::educational_encounter(
  * @brief This function moves the value in member educational_encounter
  * @param _educational_encounter New value to be moved in member educational_encounter
  */
-void AMM::SimulationControl::educational_encounter(
+void SimulationControl::educational_encounter(
         AMM::UUID&& _educational_encounter)
 {
     m_educational_encounter = std::move(_educational_encounter);
@@ -4174,7 +4161,7 @@ void AMM::SimulationControl::educational_encounter(
  * @brief This function returns a constant reference to member educational_encounter
  * @return Constant reference to member educational_encounter
  */
-const AMM::UUID& AMM::SimulationControl::educational_encounter() const
+const AMM::UUID& SimulationControl::educational_encounter() const
 {
     return m_educational_encounter;
 }
@@ -4183,23 +4170,24 @@ const AMM::UUID& AMM::SimulationControl::educational_encounter() const
  * @brief This function returns a reference to member educational_encounter
  * @return Reference to member educational_encounter
  */
-AMM::UUID& AMM::SimulationControl::educational_encounter()
+AMM::UUID& SimulationControl::educational_encounter()
 {
     return m_educational_encounter;
 }
 
 
 
-AMM::Status::Status()
-{
 
-}
 
-AMM::Status::~Status()
+Status::Status()
 {
 }
 
-AMM::Status::Status(
+Status::~Status()
+{
+}
+
+Status::Status(
         const Status& x)
 {
     m_module_id = x.m_module_id;
@@ -4211,7 +4199,7 @@ AMM::Status::Status(
     m_message = x.m_message;
 }
 
-AMM::Status::Status(
+Status::Status(
         Status&& x) noexcept
 {
     m_module_id = std::move(x.m_module_id);
@@ -4223,7 +4211,7 @@ AMM::Status::Status(
     m_message = std::move(x.m_message);
 }
 
-AMM::Status& AMM::Status::operator =(
+Status& Status::operator =(
         const Status& x)
 {
 
@@ -4234,11 +4222,10 @@ AMM::Status& AMM::Status::operator =(
     m_timestamp = x.m_timestamp;
     m_value = x.m_value;
     m_message = x.m_message;
-
     return *this;
 }
 
-AMM::Status& AMM::Status::operator =(
+Status& Status::operator =(
         Status&& x) noexcept
 {
 
@@ -4249,11 +4236,10 @@ AMM::Status& AMM::Status::operator =(
     m_timestamp = x.m_timestamp;
     m_value = x.m_value;
     m_message = std::move(x.m_message);
-
     return *this;
 }
 
-bool AMM::Status::operator ==(
+bool Status::operator ==(
         const Status& x) const
 {
     return (m_module_id == x.m_module_id &&
@@ -4265,7 +4251,7 @@ bool AMM::Status::operator ==(
            m_message == x.m_message);
 }
 
-bool AMM::Status::operator !=(
+bool Status::operator !=(
         const Status& x) const
 {
     return !(*this == x);
@@ -4275,7 +4261,7 @@ bool AMM::Status::operator !=(
  * @brief This function copies the value in member module_id
  * @param _module_id New value to be copied in member module_id
  */
-void AMM::Status::module_id(
+void Status::module_id(
         const AMM::UUID& _module_id)
 {
     m_module_id = _module_id;
@@ -4285,7 +4271,7 @@ void AMM::Status::module_id(
  * @brief This function moves the value in member module_id
  * @param _module_id New value to be moved in member module_id
  */
-void AMM::Status::module_id(
+void Status::module_id(
         AMM::UUID&& _module_id)
 {
     m_module_id = std::move(_module_id);
@@ -4295,7 +4281,7 @@ void AMM::Status::module_id(
  * @brief This function returns a constant reference to member module_id
  * @return Constant reference to member module_id
  */
-const AMM::UUID& AMM::Status::module_id() const
+const AMM::UUID& Status::module_id() const
 {
     return m_module_id;
 }
@@ -4304,7 +4290,7 @@ const AMM::UUID& AMM::Status::module_id() const
  * @brief This function returns a reference to member module_id
  * @return Reference to member module_id
  */
-AMM::UUID& AMM::Status::module_id()
+AMM::UUID& Status::module_id()
 {
     return m_module_id;
 }
@@ -4314,7 +4300,7 @@ AMM::UUID& AMM::Status::module_id()
  * @brief This function copies the value in member module_name
  * @param _module_name New value to be copied in member module_name
  */
-void AMM::Status::module_name(
+void Status::module_name(
         const std::string& _module_name)
 {
     m_module_name = _module_name;
@@ -4324,7 +4310,7 @@ void AMM::Status::module_name(
  * @brief This function moves the value in member module_name
  * @param _module_name New value to be moved in member module_name
  */
-void AMM::Status::module_name(
+void Status::module_name(
         std::string&& _module_name)
 {
     m_module_name = std::move(_module_name);
@@ -4334,7 +4320,7 @@ void AMM::Status::module_name(
  * @brief This function returns a constant reference to member module_name
  * @return Constant reference to member module_name
  */
-const std::string& AMM::Status::module_name() const
+const std::string& Status::module_name() const
 {
     return m_module_name;
 }
@@ -4343,7 +4329,7 @@ const std::string& AMM::Status::module_name() const
  * @brief This function returns a reference to member module_name
  * @return Reference to member module_name
  */
-std::string& AMM::Status::module_name()
+std::string& Status::module_name()
 {
     return m_module_name;
 }
@@ -4353,7 +4339,7 @@ std::string& AMM::Status::module_name()
  * @brief This function copies the value in member educational_encounter
  * @param _educational_encounter New value to be copied in member educational_encounter
  */
-void AMM::Status::educational_encounter(
+void Status::educational_encounter(
         const AMM::UUID& _educational_encounter)
 {
     m_educational_encounter = _educational_encounter;
@@ -4363,7 +4349,7 @@ void AMM::Status::educational_encounter(
  * @brief This function moves the value in member educational_encounter
  * @param _educational_encounter New value to be moved in member educational_encounter
  */
-void AMM::Status::educational_encounter(
+void Status::educational_encounter(
         AMM::UUID&& _educational_encounter)
 {
     m_educational_encounter = std::move(_educational_encounter);
@@ -4373,7 +4359,7 @@ void AMM::Status::educational_encounter(
  * @brief This function returns a constant reference to member educational_encounter
  * @return Constant reference to member educational_encounter
  */
-const AMM::UUID& AMM::Status::educational_encounter() const
+const AMM::UUID& Status::educational_encounter() const
 {
     return m_educational_encounter;
 }
@@ -4382,7 +4368,7 @@ const AMM::UUID& AMM::Status::educational_encounter() const
  * @brief This function returns a reference to member educational_encounter
  * @return Reference to member educational_encounter
  */
-AMM::UUID& AMM::Status::educational_encounter()
+AMM::UUID& Status::educational_encounter()
 {
     return m_educational_encounter;
 }
@@ -4392,7 +4378,7 @@ AMM::UUID& AMM::Status::educational_encounter()
  * @brief This function copies the value in member capability
  * @param _capability New value to be copied in member capability
  */
-void AMM::Status::capability(
+void Status::capability(
         const std::string& _capability)
 {
     m_capability = _capability;
@@ -4402,7 +4388,7 @@ void AMM::Status::capability(
  * @brief This function moves the value in member capability
  * @param _capability New value to be moved in member capability
  */
-void AMM::Status::capability(
+void Status::capability(
         std::string&& _capability)
 {
     m_capability = std::move(_capability);
@@ -4412,7 +4398,7 @@ void AMM::Status::capability(
  * @brief This function returns a constant reference to member capability
  * @return Constant reference to member capability
  */
-const std::string& AMM::Status::capability() const
+const std::string& Status::capability() const
 {
     return m_capability;
 }
@@ -4421,7 +4407,7 @@ const std::string& AMM::Status::capability() const
  * @brief This function returns a reference to member capability
  * @return Reference to member capability
  */
-std::string& AMM::Status::capability()
+std::string& Status::capability()
 {
     return m_capability;
 }
@@ -4431,7 +4417,7 @@ std::string& AMM::Status::capability()
  * @brief This function sets a value in member timestamp
  * @param _timestamp New value for member timestamp
  */
-void AMM::Status::timestamp(
+void Status::timestamp(
         uint64_t _timestamp)
 {
     m_timestamp = _timestamp;
@@ -4441,7 +4427,7 @@ void AMM::Status::timestamp(
  * @brief This function returns the value of member timestamp
  * @return Value of member timestamp
  */
-uint64_t AMM::Status::timestamp() const
+uint64_t Status::timestamp() const
 {
     return m_timestamp;
 }
@@ -4450,7 +4436,7 @@ uint64_t AMM::Status::timestamp() const
  * @brief This function returns a reference to member timestamp
  * @return Reference to member timestamp
  */
-uint64_t& AMM::Status::timestamp()
+uint64_t& Status::timestamp()
 {
     return m_timestamp;
 }
@@ -4460,7 +4446,7 @@ uint64_t& AMM::Status::timestamp()
  * @brief This function sets a value in member value
  * @param _value New value for member value
  */
-void AMM::Status::value(
+void Status::value(
         AMM::StatusValue _value)
 {
     m_value = _value;
@@ -4470,7 +4456,7 @@ void AMM::Status::value(
  * @brief This function returns the value of member value
  * @return Value of member value
  */
-AMM::StatusValue AMM::Status::value() const
+AMM::StatusValue Status::value() const
 {
     return m_value;
 }
@@ -4479,7 +4465,7 @@ AMM::StatusValue AMM::Status::value() const
  * @brief This function returns a reference to member value
  * @return Reference to member value
  */
-AMM::StatusValue& AMM::Status::value()
+AMM::StatusValue& Status::value()
 {
     return m_value;
 }
@@ -4489,7 +4475,7 @@ AMM::StatusValue& AMM::Status::value()
  * @brief This function copies the value in member message
  * @param _message New value to be copied in member message
  */
-void AMM::Status::message(
+void Status::message(
         const std::string& _message)
 {
     m_message = _message;
@@ -4499,7 +4485,7 @@ void AMM::Status::message(
  * @brief This function moves the value in member message
  * @param _message New value to be moved in member message
  */
-void AMM::Status::message(
+void Status::message(
         std::string&& _message)
 {
     m_message = std::move(_message);
@@ -4509,7 +4495,7 @@ void AMM::Status::message(
  * @brief This function returns a constant reference to member message
  * @return Constant reference to member message
  */
-const std::string& AMM::Status::message() const
+const std::string& Status::message() const
 {
     return m_message;
 }
@@ -4518,12 +4504,15 @@ const std::string& AMM::Status::message() const
  * @brief This function returns a reference to member message
  * @return Reference to member message
  */
-std::string& AMM::Status::message()
+std::string& Status::message()
 {
     return m_message;
 }
 
 
 
+
+} // namespace AMM
 // Include auxiliary functions like for serializing/deserializing.
 #include "AMM_StandardCdrAux.ipp"
+

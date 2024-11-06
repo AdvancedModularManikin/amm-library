@@ -40,6 +40,8 @@
 namespace AMM
 {
 
+
+
     /*!
      * @brief This class represents the TopicDataType of the type FMA_Location defined by the user in the IDL file.
      * @ingroup AMM_Standard
@@ -128,6 +130,8 @@ namespace AMM
 
     };
 
+
+
     /*!
      * @brief This class represents the TopicDataType of the type UUID defined by the user in the IDL file.
      * @ingroup AMM_Standard
@@ -215,6 +219,8 @@ namespace AMM
         unsigned char* m_keyBuffer;
 
     };
+
+
 
 
     /*!
@@ -306,6 +312,8 @@ namespace AMM
     };
 
 
+
+
     /*!
      * @brief This class represents the TopicDataType of the type EventFragment defined by the user in the IDL file.
      * @ingroup AMM_Standard
@@ -394,6 +402,8 @@ namespace AMM
 
     };
 
+
+
     /*!
      * @brief This class represents the TopicDataType of the type EventRecord defined by the user in the IDL file.
      * @ingroup AMM_Standard
@@ -481,6 +491,8 @@ namespace AMM
         unsigned char* m_keyBuffer;
 
     };
+
+
 
 
     /*!
@@ -572,6 +584,8 @@ namespace AMM
     };
 
 
+
+
     /*!
      * @brief This class represents the TopicDataType of the type Log defined by the user in the IDL file.
      * @ingroup AMM_Standard
@@ -659,6 +673,8 @@ namespace AMM
         unsigned char* m_keyBuffer;
 
     };
+
+
 
     /*!
      * @brief This class represents the TopicDataType of the type ModuleConfiguration defined by the user in the IDL file.
@@ -748,6 +764,8 @@ namespace AMM
 
     };
 
+
+
     /*!
      * @brief This class represents the TopicDataType of the type OmittedEvent defined by the user in the IDL file.
      * @ingroup AMM_Standard
@@ -835,6 +853,8 @@ namespace AMM
         unsigned char* m_keyBuffer;
 
     };
+
+
 
     /*!
      * @brief This class represents the TopicDataType of the type Semantic_Version defined by the user in the IDL file.
@@ -924,6 +944,8 @@ namespace AMM
 
     };
 
+
+
     /*!
      * @brief This class represents the TopicDataType of the type OperationalDescription defined by the user in the IDL file.
      * @ingroup AMM_Standard
@@ -1011,6 +1033,8 @@ namespace AMM
         unsigned char* m_keyBuffer;
 
     };
+
+
 
     /*!
      * @brief This class represents the TopicDataType of the type PhysiologyModification defined by the user in the IDL file.
@@ -1100,6 +1124,8 @@ namespace AMM
 
     };
 
+
+
     /*!
      * @brief This class represents the TopicDataType of the type PhysiologyValue defined by the user in the IDL file.
      * @ingroup AMM_Standard
@@ -1188,6 +1214,8 @@ namespace AMM
 
     };
 
+
+
     /*!
      * @brief This class represents the TopicDataType of the type PhysiologyWaveform defined by the user in the IDL file.
      * @ingroup AMM_Standard
@@ -1275,6 +1303,8 @@ namespace AMM
         unsigned char* m_keyBuffer;
 
     };
+
+
 
     /*!
      * @brief This class represents the TopicDataType of the type RenderModification defined by the user in the IDL file.
@@ -1365,6 +1395,8 @@ namespace AMM
     };
 
 
+
+
     /*!
      * @brief This class represents the TopicDataType of the type SimulationControl defined by the user in the IDL file.
      * @ingroup AMM_Standard
@@ -1452,6 +1484,8 @@ namespace AMM
         unsigned char* m_keyBuffer;
 
     };
+
+
 
 
     /*!
