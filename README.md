@@ -1,11 +1,13 @@
-# Advanced Modular Manikin - Standard Library
+# Modular Healthcare Simulation and Education System - Standard Library
 
-This is the AMM 1.0 standard library, intended to be used in the development of [AMM-compliant](https://github.com/AdvancedModularManikin/specification) hardware and software modules.
+### v1.3.1
+
+This is the MoHSES standard library, intended to be used in the development of [MoHSES-compliant](https://github.com/AdvancedModularManikin/specification) hardware and software modules.
 
 _Software dependencies_:
 - [CMake](https://cmake.org/download/) 3.5.1 or higher.
 - [Fast-DDS](https://github.com/eProsima/Fast-DDS) 2.01 or higher with FastCDR.
-- Boost libraries 1.6.x or higher (headers only)
+- Boost libraries 1.6.7 or higher (headers only)
 
 Once dependencies have been satisfied, to build and install:
 1. Clone this repository
@@ -23,7 +25,7 @@ The following example modules are available:
 * CORE Module reference implementations
     * Module Manager
     * Simulation Manager
-    * Physiology Manager
+    * Physiology Manager (connection to BioGears)
 * Extended CORE module reference implementations
     * TCP Bridge
     * REST Bridge
