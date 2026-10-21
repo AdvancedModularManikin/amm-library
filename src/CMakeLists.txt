@@ -70,7 +70,7 @@ install(FILES "${CMAKE_CURRENT_BINARY_DIR}/amm_stdConfig.cmake" DESTINATION "lib
 
 target_link_libraries(
         amm_std
-        PUBLIC fastdds
+        PUBLIC fastrtps
         PUBLIC fastcdr
         ${Boost_LIBRARIES}
 )
